@@ -82,6 +82,8 @@ its initial size, which the shell can use (or ignore).
 JSX here is just shorthand for:
 
 ```typescript
+import { composites } from '/api.js'
+
 function jsx(tag, data) {
   if (isConstructable(tag))  return new tag(data)
   else if (isFunction(tag))  return tag(data)
