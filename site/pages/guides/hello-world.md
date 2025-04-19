@@ -83,9 +83,9 @@ JSX here is just shorthand for:
 
 ```typescript
 function jsx(tag, data) {
-  if (isConstructable(tag)) return new tag(data)
-  if (isFunction(tag)) return tag(data)
-  return composites[tag](data)
+  if (isConstructable(tag))  return new tag(data)
+  else if (isFunction(tag))  return tag(data)
+  else                       return composites[tag](data)
 }
 ```
 
