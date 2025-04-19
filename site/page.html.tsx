@@ -25,8 +25,13 @@ export function mainPage(posts: Pipeline, content: string) {
 
           <h2>Guides</h2>
           <ul>
-            <li><a href='/refs.html'>Refs</a></li>
-            <li><a href='/views.html'>Views</a></li>
+            <li><a href='/guides/refs.html'>Refs</a></li>
+            <li><a href='/guides/views.html'>Views</a></li>
+          </ul>
+
+          <h2>API</h2>
+          <ul>
+            <li><a href='/api/refs.html'>Refs</a></li>
           </ul>
 
           <h3>Blog</h3>
