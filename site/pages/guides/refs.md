@@ -68,8 +68,8 @@ const point = new Point()
 
 point.$x.watch(x => console.log('val is', x))
 
-point.x = 10 // stdout: val is 10
-point.x++    // stdout: val is 11
+point.x = 10 // val is 10
+point.x++    // val is 11
 ```
 
 ### Advanced
@@ -81,13 +81,13 @@ const r1 = $(1)
 const r2 = $(100)
 
 const r3 = multiplex([r1, r2], (v1, v2) => v1 * v2)
-console.log(r3.val) // stdout: 100
+console.log(r3.val) // 100
 
 r3.watch(n => console.log(`${r1.val} * ${r2.val} = ${n}`))
 
-r1.val++     // stdout: 2 * 100 = 200
-r1.val++     // stdout: 3 * 100 = 300
-r2.val *= 2  // stdout: 3 * 200 = 600
+r1.val++     // 2 * 100 = 200
+r1.val++     // 3 * 100 = 300
+r2.val *= 2  // 3 * 200 = 600
 ```
 
 You can change a value before watchers see it.
@@ -99,8 +99,8 @@ const r = $(0)
 r.watch(n => console.log('val is', n))
 r.intercept(n => Math.max(0, Math.min(10, n)))
 
-r.val = 9 // stdout: val is 9
-r.val++   // stdout: val is 10
+r.val = 9 // val is 9
+r.val++   // val is 10
 r.val++   // (nothing printed; no change in value)
 
 console.log('val is currently', r.val) // val is currently 10
@@ -114,20 +114,20 @@ This basically ties the two refs together.
 const first = $(10)
 first.watch(n => console.log('first is', n))
 
-console.log(first.val) // stdout: 10
+console.log(first.val) // 10
 
 const second = $(0)
 
-first.defer(second) // stdout: first is 0
-first.val++         // stdout: first is 1
-second.val++        // stdout: first is 2
+first.defer(second) // first is 0
+first.val++         // first is 1
+second.val++        // first is 2
 
-console.log(first.val)  // stdout: 2
-console.log(second.val) // stdout: 2
+console.log(first.val)  // 2
+console.log(second.val) // 2
 
 second.watch(n => console.log('second is', n))
-first.val++         // stdout: first is 3
-                    // stdout: second is 3
-second.val++        // stdout: first is 4
-                    // stdout: second is 4
+first.val++         // first is 3
+                    // second is 3
+second.val++        // first is 4
+                    // second is 4
 ```
