@@ -8,7 +8,10 @@ if (process.argv[2] === 'dev') reloader = `<script>new EventSource('/reload').on
 export async function processSite(tree: immaculata.LiveTree) {
   return tree.processFiles(async (files) => {
 
-    files.without('/public/').remove()
+
+
+
+    files.without('^/public/').remove()
     files.do(f => f.path = f.path.slice('/public'.length))
 
     const content = tree.files.get('/rationale.md')!.content.toString()
