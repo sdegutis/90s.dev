@@ -1,5 +1,7 @@
 # Refs Guide
 
+See also: [Refs API](/api/refs.html)
+
 A ref is like a pointer:
 
 ```typescript

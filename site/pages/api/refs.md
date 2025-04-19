@@ -1,5 +1,7 @@
 # Refs API
 
+See also: [Refs Guide](/guides/refs.html)
+
 ```typescript
 // typical way to create a ref
 const $ = <T>(val: T, equals?: Equals<T>) => Ref<T>
