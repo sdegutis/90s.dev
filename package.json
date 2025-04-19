@@ -8,7 +8,6 @@
   },
   "type": "module",
   "devDependencies": {
-    "@swc/core": "^1.11.13",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^22.13.16",
     "immaculata": "^0.1.7",
