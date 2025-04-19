@@ -19,9 +19,6 @@ export function mainPage(content: string) {
 
           <header>
             <h1>Immaculata.dev</h1>
-            <a href='https://github.com/thesoftwarephilosopher/immaculata.dev' target="_blank">
-              <img src="./github-mark-white.svg" />
-            </a>
           </header>
 
           <section>
