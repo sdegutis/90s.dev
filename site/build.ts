@@ -1,6 +1,6 @@
 import * as immaculata from 'immaculata'
 import { md } from "./highlight.ts"
-import { mainPage } from "./index.html.tsx"
+import { mainPage } from "./page.html.tsx"
 
 let reloader = ''
 if (process.argv[2] === 'dev') reloader = `

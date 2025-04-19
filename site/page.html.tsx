@@ -18,17 +18,25 @@ export function mainPage(posts: Pipeline, content: string) {
 
         <nav>
 
-          <h3>Learn</h3>
-          <a href='/'>About</a>
-          <a href='/refs.html'>Refs</a>
-          <a href='/views.html'>Views</a>
+          <h1>90s.dev</h1>
+          <ul>
+            <li><a href='/'>About</a></li>
+          </ul>
+
+          <h2>Guides</h2>
+          <ul>
+            <li><a href='/refs.html'>Refs</a></li>
+            <li><a href='/views.html'>Views</a></li>
+          </ul>
 
           <h3>Blog</h3>
-          {posts.all().map(f => {
-            const path = f.path.replace('.md', '.html')
-            const title = f.text.split('\n')[0].slice(2)
-            return <a href={path}>{title}</a>
-          })}
+          <ul>
+            {posts.all().map(f => {
+              const path = f.path.replace('.md', '.html')
+              const title = f.text.split('\n')[0].slice(2)
+              return <li><a href={path}>{title}</a></li>
+            })}
+          </ul>
 
         </nav>
 

@@ -1,44 +1,43 @@
 html {
+  background-color: #222;
+  color: #ccc;
+
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
-}
 
-/* 
+  > body {
+    display: flex;
+    margin: 0 3em;
+    justify-content: center;
+    gap: 7em;
 
-html {
-  background-color: #222;
-  color: #ccc;
-  font-family: system-ui;
-  margin: 0;
-  padding: 0;
-}
+    > nav {
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
 
-* {
-  box-sizing: border-box;
-}
+      display: flex;
+      flex-direction: column;
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 3em;
-  overflow: hidden;
-}
+      ul {
+        margin-top: 0;
+        list-style-type: none;
+        padding-left: 0;
+      }
+    }
 
-main {
-width: 40em;
-max-width: 90%;
-overflow: auto;
-height: 100vh;
+    > main {
+      width: 40em;
+    }
+
+  }
+
 }
 
 a {
-  color: #19f;
+  color: #2378b9;
   font-weight: bold;
 
   &:not(:hover) {
@@ -46,36 +45,10 @@ a {
   }
 }
 
-nav {
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-*/
-/* 
-
-main {
-  > header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-
-    > a > img {
-      height: 20px;
-    }
-  }
-}
-
 pre:has(>code) {
   padding: 1em;
   border-radius: 7px;
-}
-
-:is(h1, h2, h3) {
-  color: #fff;
-  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 :not(pre) > code {
@@ -83,5 +56,3 @@ pre:has(>code) {
   padding: 3px;
   border-radius: 3px;
 }
-  
-*/
