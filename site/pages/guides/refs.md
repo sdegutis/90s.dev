@@ -126,8 +126,10 @@ console.log(first.val)  // 2
 console.log(second.val) // 2
 
 second.watch(n => console.log('second is', n))
-first.val++         // first is 3
-                    // second is 3
-second.val++        // first is 4
-                    // second is 4
+
+first.val++   // first is 3
+              // second is 3
+
+second.val++  // first is 4
+              // second is 4
 ```
