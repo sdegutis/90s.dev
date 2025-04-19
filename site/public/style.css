@@ -1,10 +1,17 @@
-/* html {
-  background-color: #2e2e2e;
-  color: #bbb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
+
+/* 
+
+html {
+  background-color: #222;
+  color: #ccc;
   font-family: system-ui;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -12,18 +19,42 @@
 }
 
 body {
-  margin: 3em;
-  width: 30em;
-  max-width: 90%;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 3em;
+  overflow: hidden;
+}
+
+main {
+width: 40em;
+max-width: 90%;
+overflow: auto;
+height: 100vh;
 }
 
 a {
   color: #19f;
+  font-weight: bold;
 
   &:not(:hover) {
     text-decoration: none;
   }
 }
+
+nav {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+*/
+/* 
 
 main {
   > header {
@@ -51,4 +82,6 @@ pre:has(>code) {
   background-color: #0003;
   padding: 3px;
   border-radius: 3px;
-} */
+}
+  
+*/

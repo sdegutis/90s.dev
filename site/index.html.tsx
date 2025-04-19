@@ -10,23 +10,32 @@ export function mainPage(posts: Pipeline, content: string) {
         <link rel="stylesheet" href="/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>90s.dev</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
       </head>
       <body>
+
         <nav>
+
           <h3>Learn</h3>
           <a href='/'>About</a>
           <a href='/refs.html'>Refs</a>
           <a href='/views.html'>Views</a>
+
           <h3>Blog</h3>
           {posts.all().map(f => {
             const path = f.path.replace('.md', '.html')
             const title = f.text.split('\n')[0].slice(2)
             return <a href={path}>{title}</a>
           })}
+
         </nav>
+
         <main>
           {content}
         </main>
+
       </body>
     </html>
   </>
