@@ -1,4 +1,6 @@
-export function mainPage(content: string) {
+import { Pipeline } from "immaculata"
+
+export function mainPage(posts: Pipeline, content: string) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -10,12 +12,18 @@ export function mainPage(content: string) {
         <title>90s.dev</title>
       </head>
       <body>
-        {/* <nav>
+        <nav>
           <h3>Learn</h3>
           <a href='/'>About</a>
-          <a href='/api/refs'>Refs</a>
-          <a href='/api/views'>Views</a>
-        </nav> */}
+          <a href='/refs.html'>Refs</a>
+          <a href='/views.html'>Views</a>
+          <h3>Blog</h3>
+          {posts.all().map(f => {
+            const path = f.path.replace('.md', '.html')
+            const title = f.text.split('\n')[0].slice(2)
+            return <a href={path}>{title}</a>
+          })}
+        </nav>
         <main>
           {content}
         </main>
