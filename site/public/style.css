@@ -13,12 +13,11 @@ html {
     justify-content: center;
     gap: 3em;
 
-    padding-top: 3em;
-
     > nav {
       flex-shrink: 0;
       position: sticky;
-      top: 0;
+      margin-top: 3em;
+      top: 3em;
       align-self: flex-start;
 
       display: flex;
@@ -50,6 +49,7 @@ html {
 
     > main {
       width: 40em;
+      margin-top: 3em;
 
       iframe {
         border: none;
