@@ -33,7 +33,7 @@ html {
 
     h1 {
       font-family: "Silkscreen", sans-serif;
-      color: #090;
+      color: #fff;
       /* text-shadow: 0px 0px 4px #0f0;
       color: #000; */
     }
@@ -48,7 +48,7 @@ html {
 
       :is(h2, h3) {
         font-family: "VT323";
-        color: #393;
+        color: #fff;
         margin-top: 3em;
       }
 

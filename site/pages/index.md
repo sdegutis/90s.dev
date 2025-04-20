@@ -1,5 +1,11 @@
 # 90s.dev
 
+::: note
+***Note:***
+
+This site is not yet public. You'll be very confused if you try to read anything on it.
+:::
+
 ::: features
 * 🧪
   ### Retrofuturistic
