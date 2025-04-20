@@ -1,6 +1,8 @@
 import monaco from './monaco.js'
 
 const oshost = await fetch('/os.txt').then(r => r.text())
+console.log(oshost + '/api.d.ts.json')
+
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
 
 console.log(api)
