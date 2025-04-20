@@ -34,7 +34,7 @@ html {
     a#sitelogo {
       font-family: "Silkscreen", sans-serif;
       font-size: 150%;
-      color: #fff;
+      color: #ff09;
       text-shadow: -4px -2px 0px #00f9, 4px 2px 0px #9009;
 
       transition:
@@ -42,9 +42,9 @@ html {
         text-shadow 200ms ease-in-out;
 
       &:hover {
-        text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+        text-shadow: -8px -4px 0px #00fc, 8px 4px 0px #900c;
         text-decoration: none;
-        color: #ff09;
+        color: #ff9;
       }
     }
 
