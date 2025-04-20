@@ -1,5 +1,10 @@
 import monaco from './monaco.js'
 
+const oshost = await fetch('/os.txt').then(r => r.text())
+const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
+
+console.log(api)
+
 for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
@@ -34,7 +39,7 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   let w = 100
   let h = 100
 
-  const url = new URL(`http://localhost:8080/`)
+  const url = new URL(oshost)
   url.searchParams.set('embed', '1')
 
   const iframe = document.createElement('iframe')

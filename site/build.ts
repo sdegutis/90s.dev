@@ -13,7 +13,7 @@ window.onbeforeunload = () => es.close()
 </script>
 `
 
-export async function processSite(tree: LiveTree) {
+export async function processSite(tree: LiveTree, isDev: boolean) {
   return tree.processFiles(async (files) => {
 
     const pages = files.with('^/pages/').copy()
@@ -40,6 +40,8 @@ export async function processSite(tree: LiveTree) {
     })
 
     files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
+
+    files.add('/os.txt', isDev ? 'http://localhost:8080' : 'https://os.90s.dev')
 
   })
 }
