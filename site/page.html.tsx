@@ -12,15 +12,14 @@ export function mainPage(posts: Pipeline, content: string) {
         <title>90s.dev</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
       </head>
       <body>
 
         <nav>
 
-          <h1>90s.dev</h1>
           <ul>
-            <li><a href='/'>About</a></li>
+            <li><a href='/'>90s.dev</a></li>
           </ul>
 
           <h3>Guides</h3>

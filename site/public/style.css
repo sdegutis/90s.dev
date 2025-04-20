@@ -11,9 +11,11 @@ html {
     display: flex;
     margin: 0 3em;
     justify-content: center;
-    gap: 7em;
+    gap: 3em;
 
     > nav {
+      margin-top: 3em;
+
       flex-shrink: 0;
       position: sticky;
       top: 0;
@@ -29,14 +31,62 @@ html {
       }
     }
 
+    h1 {
+      font-family: "Silkscreen", sans-serif;
+      color: #090;
+      /* text-shadow: 0px 0px 4px #0f0;
+      color: #000; */
+    }
+
     > main {
       width: 40em;
 
+      iframe {
+        border: none;
+        box-shadow: 0px 0px 1px 1px #0007;
+      }
+
       :is(h2, h3) {
+        font-family: "VT323";
+        color: #393;
         margin-top: 3em;
       }
 
       padding-bottom: 7em;
+
+      .features {
+        margin-bottom: 2em;
+
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+          display: flex;
+          gap: 2em;
+
+          li {
+            background-color: #fff1;
+            border-radius: 7px;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            h3 {
+              white-space: nowrap;
+              margin: 0;
+            }
+
+            p {
+              margin: 0;
+
+              &:first-child {
+                align-self: center;
+                font-size: 150%;
+              }
+            }
+          }
+        }
+      }
 
       .note {
         padding-left: 1em;
