@@ -1,11 +1,27 @@
 import monaco from './monaco.js'
 
 const oshost = await fetch('/os.txt').then(r => r.text())
-console.log(oshost + '/api.d.ts.json')
-
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
 
-console.log(api)
+const ts = monaco.languages.typescript
+
+for (const [path, content] of Object.entries<string>(api)) {
+  const liburi = 'file://' + path
+  ts.typescriptDefaults.addExtraLib(content, liburi)
+  monaco.editor.createModel(content, 'typescript', monaco.Uri.parse(liburi))
+}
+
+ts.typescriptDefaults.setCompilerOptions({
+  ...ts.typescriptDefaults.getCompilerOptions(),
+  // lib: ["ESNext"],
+  jsx: ts.JsxEmit.ReactJSX,
+  paths: {
+    "/*": ["file:///*"],
+    "react/jsx-runtime": ["file:///sys/api/core/jsx.js"],
+  },
+  target: ts.ScriptTarget.ESNext,
+  module: ts.ModuleKind.ESNext,
+})
 
 for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const container = codeblock as HTMLElement
@@ -14,14 +30,16 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const rect = container.getBoundingClientRect()
   container.replaceChildren()
 
+  const uri = monaco.Uri.parse('file:///sample.tsx')
+  const model = monaco.editor.createModel(initial, 'typescript', uri)
+
   const editor = monaco.editor.create(container, {
-    value: initial,
+    model,
     language: 'typescript',
     theme: 'vs-dark',
     lineNumbers: 'off',
     fontSize: 13,
     lineHeight: 1.15,
-    // padding: { top: 12, },
     lineDecorationsWidth: 0,
     minimap: { enabled: false },
     guides: { indentation: false },
@@ -35,6 +53,8 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     height: rect.height,
     width: rect.width,
   })
+
+  console.log(model.uri.toString())
 
   // const compressed = 
 
@@ -52,7 +72,6 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
-      console.log('hey', msg.data)
       const resizeData = msg.data.resized
       w = resizeData.w
       h = resizeData.h
@@ -62,8 +81,6 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     }
   })
 
-
-  const model = editor.getModel()!
 
   const updateIframe = async () => {
     const code = model.getValue()
@@ -90,13 +107,13 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
 
 
   updateIframe()
-  model.onDidChangeContent(throttle(updateIframe, 300))
+  // model.onDidChangeContent(throttle(updateIframe, 300))
 }
 
-function throttle(fn: () => void, ms = 0) {
-  let timer: ReturnType<typeof setTimeout> | undefined
-  return () => {
-    clearTimeout(timer)
-    timer = setTimeout(fn, ms)
-  }
-}
+// function throttle(fn: () => void, ms = 0) {
+//   let timer: ReturnType<typeof setTimeout> | undefined
+//   return () => {
+//     clearTimeout(timer)
+//     timer = setTimeout(fn, ms)
+//   }
+// }
