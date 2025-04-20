@@ -1,5 +1,7 @@
-import * as immaculata from 'immaculata'
-import { md } from "./highlight.ts"
+import { LiveTree, Pipeline } from 'immaculata'
+import { compileTsx } from './compile.ts'
+import { md } from "./markdown.ts"
+import { monaco } from './monaco.ts'
 import { mainPage } from "./page.html.tsx"
 
 let reloader = ''
@@ -11,7 +13,7 @@ window.onbeforeunload = () => es.close()
 </script>
 `
 
-export async function processSite(tree: immaculata.LiveTree) {
+export async function processSite(tree: LiveTree) {
   return tree.processFiles(async (files) => {
 
     const pages = files.with('^/pages/').copy()
@@ -31,6 +33,13 @@ export async function processSite(tree: immaculata.LiveTree) {
       const content = mainPage(blogs, reloader + md.render(f.text))
       files.add(path, content)
     })
+
+    files.with(/\.tsx?$/).do(f => {
+      f.path = f.path.replace(/\.tsx?$/, '.js')
+      f.text = compileTsx(f.text)
+    })
+
+    files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
 
   })
 }

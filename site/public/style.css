@@ -34,8 +34,7 @@ html {
     h1 {
       font-family: "Silkscreen", sans-serif;
       color: #fff;
-      /* text-shadow: 0px 0px 4px #0f0;
-      color: #000; */
+      text-shadow: -4px -2px 0px #00f9, 4px 2px 0px #9009;
     }
 
     > main {

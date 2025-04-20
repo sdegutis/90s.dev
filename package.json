@@ -17,6 +17,7 @@
   "dependencies": {
     "@shikijs/markdown-it": "^3.2.2",
     "markdown-it": "^14.1.0",
-    "markdown-it-container": "^4.0.0"
+    "markdown-it-container": "^4.0.0",
+    "monaco-editor": "^0.52.2"
   }
 }

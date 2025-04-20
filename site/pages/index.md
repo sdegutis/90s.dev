@@ -24,4 +24,7 @@ Welcome to 90s.dev, an alternative reality where
 the 2000s played out differently, pixel art aesthetics still reign supreme,
 and GUIs evolved to be far more usable and convenient.
 
-<iframe src='http://localhost:8080/' style='width:100%; aspect-ratio: 16/9'></iframe>
+```tsx
+const foo = 123
+console.log(foo)
+```
