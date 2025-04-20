@@ -111,17 +111,15 @@ export const tokenProvider = {
         },
       ]],
 
-      // // highlight var/const/let defs
-      // [/(const|let|var)(\s+)(#?[\w$]+)/, ['keyword', '', {
-      //   cases: {
-      //     '$1==const': 'variable',
-      //     '@default': 'variable',
-      //   }
-      // }]],
+      // highlight var/const/let defs
+      [/([\w$]+)(:)/, ['attribute.name', '']],
 
       { include: 'jsxReady' },
 
       { include: 'common' },
+
+      // [/#?[\w$]+/, 'type.identifier'],
+
     ],
 
     common: [
@@ -188,7 +186,8 @@ export const tokenProvider = {
       [/'([^'\\]|\\.)*$/, 'string.invalid'], // non-teminated string
       [/"/, 'string', '@string_double'],
       [/'/, 'string', '@string_single'],
-      [/`/, 'string', '@string_backtick']
+      [/`/, 'string', '@string_backtick'],
+
     ],
 
     typeparams: [

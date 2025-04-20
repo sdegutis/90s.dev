@@ -2,27 +2,23 @@ import MarkdownIt from "markdown-it"
 import containers from 'markdown-it-container'
 import { shiki } from "./shiki.ts"
 
-
 export const md = new MarkdownIt({ html: true, })
 md.use(shiki)
 containers(md, 'note', {})
 containers(md, 'features', {})
-// containers(md, 'tsx', {
-//   marker: '`',
-//   render: (tokens, i) => {
-//     const tok = tokens[i]
 
-//     if (tok.nesting === 1) {
-//       return `<textarea class='tsx'>`
-//     }
-//     else {
-//       return `</textarea>`
-//     }
+containers(md, 'placeholder', {
+  render: (tokens, i) => {
+    const tok = tokens[i]
+    const m = tok.info.match(/\w+ (\d+) (\d+)/)
 
-//     console.log(tok)
-//     return `hi world`
-//   }
-// })
-
-
-console.log('Done.')
+    if (tok.nesting === 1) {
+      const w = +m![1] * 3
+      const h = +m![2] * 3
+      return `<iframe width="${w}" height="${h}>"`
+    }
+    else {
+      return `</textarea>`
+    }
+  }
+})

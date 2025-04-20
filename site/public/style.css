@@ -13,9 +13,9 @@ html {
     justify-content: center;
     gap: 3em;
 
-    > nav {
-      margin-top: 3em;
+    padding-top: 3em;
 
+    > nav {
       flex-shrink: 0;
       position: sticky;
       top: 0;

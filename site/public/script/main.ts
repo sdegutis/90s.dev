@@ -85,10 +85,7 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const url = new URL(oshost)
   url.searchParams.set('embed', '1')
 
-  const iframe = document.createElement('iframe')
-  iframe.width = (w * 3).toString()
-  iframe.height = (h * 3).toString()
-  container.parentElement!.insertAdjacentElement('afterend', iframe)
+  const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
