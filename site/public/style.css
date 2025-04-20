@@ -36,6 +36,16 @@ html {
       font-size: 150%;
       color: #fff;
       text-shadow: -4px -2px 0px #00f9, 4px 2px 0px #9009;
+
+      transition:
+        color 120ms ease-in-out,
+        text-shadow 120ms ease-in-out;
+
+      &:hover {
+        text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+        text-decoration: none;
+        color: #ff09;
+      }
     }
 
     > main {

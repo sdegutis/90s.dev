@@ -27,12 +27,12 @@ and GUIs evolved to be far more usable and convenient.
 ```tsx
 import * as api from '/api.js'
 api.sys.resize(120,70)
+
 const $count = api.$(0)
 const inc = () => $count.val++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
-  <panel size={{ w: 120, h: 70 }}>
-    <api.Center>
+    <api.Center background={0x333333ff} size={{ w: 120, h: 70 }}>
       <api.GroupY gap={4}>
         <api.Label text='hello world!' />
         <api.GroupX gap={2}>
@@ -41,7 +41,6 @@ const panel = await api.sys.makePanel({ name: "hello world" },
         </api.GroupX>
       </api.GroupY>
     </api.Center>
-  </panel>
 )
 
 panel.focusPanel()

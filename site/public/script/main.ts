@@ -31,8 +31,8 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
 
   // const compressed = 
 
-  let w = 70
-  let h = 20
+  let w = 100
+  let h = 100
 
   const url = new URL(`http://localhost:8080/`)
   url.searchParams.set('embed', '1')
@@ -40,11 +40,12 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const iframe = document.createElement('iframe')
   iframe.width = (w * 3).toString()
   iframe.height = (h * 3).toString()
-  // iframe.style = `width:100%;aspect-ratio:${w}/${h}`
+  // iframe.style = 'max-width:100%'
   container.parentElement!.insertAdjacentElement('afterend', iframe)
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
+      console.log('hey', msg.data)
       const resizeData = msg.data.resized
       w = resizeData.w
       h = resizeData.h
