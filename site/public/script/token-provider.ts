@@ -23,7 +23,7 @@ export const rules = [
   { token: "variable.ts", foreground: "9CDCFE" },
   { token: "method.ts", foreground: "DCDCAA" },
   // { token: "delimiter.ts", foreground: "569CD6" },
-];
+]
 
 export const tokenProvider = {
 
@@ -111,13 +111,13 @@ export const tokenProvider = {
         },
       ]],
 
-      // highlight var/const/let defs
-      [/(const|let|var)(\s+)(#?[\w$]+)/, ['keyword', '', {
-        cases: {
-          '$1==const': 'constant',
-          '@default': 'variable',
-        }
-      }]],
+      // // highlight var/const/let defs
+      // [/(const|let|var)(\s+)(#?[\w$]+)/, ['keyword', '', {
+      //   cases: {
+      //     '$1==const': 'variable',
+      //     '@default': 'variable',
+      //   }
+      // }]],
 
       { include: 'jsxReady' },
 
@@ -327,4 +327,4 @@ export const tokenProvider = {
     ]
   }
 
-};
+}
