@@ -27,7 +27,6 @@ for (const [path, content] of Object.entries<string>(api)) {
 
 ts.typescriptDefaults.setCompilerOptions({
   ...ts.typescriptDefaults.getCompilerOptions(),
-  // lib: ["ESNext"],
   jsx: ts.JsxEmit.ReactJSX,
   paths: {
     "/*": ["file:///*"],
@@ -89,12 +88,14 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
-      const resizeData = msg.data.resized
-      w = resizeData.w
-      h = resizeData.h
+      if (msg.data.resized) {
+        const resizeData = msg.data.resized
+        w = resizeData.w
+        h = resizeData.h
 
-      iframe.width = (w * 3).toString()
-      iframe.height = (h * 3).toString()
+        iframe.width = (w * 3).toString()
+        iframe.height = (h * 3).toString()
+      }
     }
   })
 

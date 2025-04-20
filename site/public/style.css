@@ -1,8 +1,9 @@
 html {
   background-color: #222;
   color: #ccc;
+  font-family: "Consolas", monospace;
 
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
   scrollbar-gutter: stable both-edges;
@@ -136,7 +137,7 @@ pre:has(>code) {
   padding: 1em;
   border-radius: 7px;
   margin-bottom: 2em;
-  font-family: Consolas;
+  /* font-family: "Consolas", monospace; */
 }
 
 pre > code {
