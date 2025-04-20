@@ -85,6 +85,7 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   url.searchParams.set('embed', '1')
 
   const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
+  iframe.style = 'scale:2; transform-origin:top left'
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
@@ -93,8 +94,8 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
         w = resizeData.w
         h = resizeData.h
 
-        iframe.width = (w * 3).toString()
-        iframe.height = (h * 3).toString()
+        iframe.width = w.toString()
+        iframe.height = h.toString()
       }
     }
   })
