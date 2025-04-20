@@ -15,7 +15,7 @@ containers(md, 'placeholder', {
     if (tok.nesting === 1) {
       const w = +m![1]
       const h = +m![2]
-      return `<iframe width="${w}" height="${h}>"`
+      return `<iframe style="scale:2; transform-origin:top left" width="${w}" height="${h}>"`
     }
     else {
       return `</textarea>`
