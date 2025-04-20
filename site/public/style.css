@@ -31,8 +31,9 @@ html {
       }
     }
 
-    h1 {
+    a#sitelogo {
       font-family: "Silkscreen", sans-serif;
+      font-size: 150%;
       color: #fff;
       text-shadow: -4px -2px 0px #00f9, 4px 2px 0px #9009;
     }
@@ -125,6 +126,12 @@ pre:has(>code) {
   padding: 1em;
   border-radius: 7px;
   margin-bottom: 2em;
+  font-family: Consolas;
+}
+
+pre > code {
+  display: block;
+  width: 100%;
 }
 
 :not(pre) > code {

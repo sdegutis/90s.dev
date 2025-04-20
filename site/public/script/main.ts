@@ -1,7 +1,7 @@
 import monaco from './monaco.js'
 
 for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
-  const container = codeblock.parentElement!
+  const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
 
   const rect = container.getBoundingClientRect()
@@ -12,9 +12,10 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     language: 'typescript',
     theme: 'vs-dark',
     lineNumbers: 'off',
-    fontSize: 12,
-    padding: { top: 12, },
-    lineDecorationsWidth: 12,
+    fontSize: 13,
+    lineHeight: 1.15,
+    // padding: { top: 12, },
+    lineDecorationsWidth: 0,
     minimap: { enabled: false },
     guides: { indentation: false },
     folding: false,
@@ -30,19 +31,29 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
 
   // const compressed = 
 
-  const w = 70
-  const h = 20
+  let w = 70
+  let h = 20
 
   const url = new URL(`http://localhost:8080/`)
   url.searchParams.set('embed', '1')
-  url.searchParams.set('w', w.toString())
-  url.searchParams.set('h', h.toString())
 
   const iframe = document.createElement('iframe')
   iframe.width = (w * 3).toString()
   iframe.height = (h * 3).toString()
   // iframe.style = `width:100%;aspect-ratio:${w}/${h}`
-  container.insertAdjacentElement('afterend', iframe)
+  container.parentElement!.insertAdjacentElement('afterend', iframe)
+
+  window.addEventListener('message', (msg) => {
+    if (msg.source === iframe.contentWindow) {
+      const resizeData = msg.data.resized
+      w = resizeData.w
+      h = resizeData.h
+
+      iframe.width = (w * 3).toString()
+      iframe.height = (h * 3).toString()
+    }
+  })
+
 
   const model = editor.getModel()!
 
@@ -57,6 +68,18 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     url.searchParams.set('code', compressed)
     iframe.src = url.toString()
   }
+
+  model.onDidChangeContent(() => {
+
+    editor.layout({
+      width: rect.width,
+      height: editor.getContentHeight(),
+    })
+
+    // container.
+
+  })
+
 
   updateIframe()
   model.onDidChangeContent(throttle(updateIframe, 300))

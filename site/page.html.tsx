@@ -19,9 +19,7 @@ export function mainPage(posts: Pipeline, content: string) {
 
         <nav>
 
-          <ul>
-            <li><a href='/'>90s.dev</a></li>
-          </ul>
+          <a id='sitelogo' href='/'>90s.dev</a>
 
           <h3>Guides</h3>
           <ul>
