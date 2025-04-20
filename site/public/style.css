@@ -14,7 +14,7 @@ html {
     justify-content: center;
     gap: 3em;
 
-    /* padding-bottom: 7em; */
+    margin-bottom: 7em;
 
     > nav {
       flex-shrink: 0;
