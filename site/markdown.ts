@@ -7,7 +7,7 @@ md.use(shiki)
 containers(md, 'note', {})
 containers(md, 'features', {})
 
-containers(md, 'placeholder', {
+containers(md, 'runcode', {
   render: (tokens, i) => {
     const tok = tokens[i]
     const m = tok.info.match(/\w+ (\d+) (\d+)/)
