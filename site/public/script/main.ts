@@ -63,14 +63,21 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     tabSize: 2,
   })
 
+  editor.addAction({
+    id: 'Run code',
+    label: 'Run code',
+    keybindings: [
+      monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
+    ],
+    run: () => {
+      updateIframe()
+    },
+  })
+
   editor.layout({
     height: rect.height,
     width: rect.width,
   })
-
-  console.log(model.uri.toString())
-
-  // const compressed = 
 
   let w = 100
   let h = 100
@@ -81,7 +88,6 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   const iframe = document.createElement('iframe')
   iframe.width = (w * 3).toString()
   iframe.height = (h * 3).toString()
-  // iframe.style = 'max-width:100%'
   container.parentElement!.insertAdjacentElement('afterend', iframe)
 
   window.addEventListener('message', (msg) => {
@@ -94,7 +100,6 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
       iframe.height = (h * 3).toString()
     }
   })
-
 
   const updateIframe = async () => {
     const code = model.getValue()
@@ -109,25 +114,11 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
   }
 
   model.onDidChangeContent(() => {
-
     editor.layout({
       width: rect.width,
       height: editor.getContentHeight(),
     })
-
-    // container.
-
   })
 
-
   updateIframe()
-  // model.onDidChangeContent(throttle(updateIframe, 300))
 }
-
-// function throttle(fn: () => void, ms = 0) {
-//   let timer: ReturnType<typeof setTimeout> | undefined
-//   return () => {
-//     clearTimeout(timer)
-//     timer = setTimeout(fn, ms)
-//   }
-// }
