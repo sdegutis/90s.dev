@@ -27,7 +27,7 @@ html {
 
     > main {
       > footer {
-        padding: 32px 0;
+        padding: 24px 0;
         font-size: 80%;
         color: color(from currentColor srgb r g b / 0.5);
       }
