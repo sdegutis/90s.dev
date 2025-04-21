@@ -43,6 +43,33 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
   const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
   const autosize = iframe.classList.contains('resize')
 
+  const useConsole = iframe.classList.contains('console')
+
+  if (useConsole) {
+    const output = document.createElement('div')
+    output.classList.add('code-output')
+
+    self.addEventListener('message', msg => {
+      if (msg.source === iframe.contentWindow) {
+        const row = document.createElement('div')
+        row.append(msg.data.join(' ') + '\n')
+
+        output.append(row)
+        row.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        })
+      }
+    })
+
+    const rect = iframe.getBoundingClientRect()
+    output.style.width = rect.width + 'px'
+    output.style.height = rect.height + 'px'
+
+    iframe.style.display = 'none'
+    iframe.insertAdjacentElement('afterend', output)
+  }
+
   const rect = container.getBoundingClientRect()
   container.replaceChildren()
 

@@ -11,12 +11,17 @@ This guide explains how they work and shows some basic recipes.
 A ref is like a pointer.
 
 ```typescript
+import { $, print } from '/api.js'
+
 const r = $(0)
-console.log('val is', r.val)  // val is 0
+print('val is', r.val)  // val is 0
 
 r.val++
-console.log('val is', r.val)  // val is 1
+print('val is', r.val)  // val is 1
 ```
+
+::: runcode 120 70 console
+:::
 
 You can watch it.
 

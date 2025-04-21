@@ -56,7 +56,15 @@ html {
 
       iframe {
         border: none;
+        box-sizing: border-box;
         box-shadow: 0px 0px 1px 1px #0007;
+        outline: none;
+      }
+
+      .code-output {
+        box-sizing: border-box;
+        white-space: pre;
+        overflow: auto;
       }
 
       :is(h2, h3) {
