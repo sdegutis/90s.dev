@@ -27,7 +27,7 @@ export async function processSite(tree: LiveTree, isDev: boolean) {
 
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
-      f.text = mainPage(blogs, reloader + md.render(f.text))
+      f.text = mainPage(f.path, blogs, reloader + md.render(f.text))
     })
 
     files.with(/\.tsx?$/).do(f => {

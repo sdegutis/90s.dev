@@ -1,4 +1,4 @@
-export function mainPage(posts: { path: string, title: string }[], content: string) {
+export function mainPage(current: string, posts: { path: string, title: string }[], content: string) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -21,24 +21,24 @@ export function mainPage(posts: { path: string, title: string }[], content: stri
 
           <h3>Examples</h3>
           <ul>
-            <li><a href='/examples/hello-world.html'>Hello World</a></li>
+            <li><A current={current} href='/examples/hello-world.html'>Hello World</A></li>
           </ul>
 
           <h3>Guides</h3>
           <ul>
-            <li><a href='/guides/refs.html'>Refs</a></li>
-            <li><a href='/guides/views.html'>Views</a></li>
+            <li><A current={current} href='/guides/refs.html'>Refs</A></li>
+            <li><A current={current} href='/guides/views.html'>Views</A></li>
           </ul>
 
           <h3>API</h3>
           <ul>
-            <li><a href='/api/refs.html'>Refs</a></li>
+            <li><A current={current} href='/api/refs.html'>Refs</A></li>
           </ul>
 
           <h3>Blog</h3>
           <ul>
             {posts.map(({ path, title }) => {
-              return <li><a href={path}>{title}</a></li>
+              return <li><A current={current} href={path}>{title}</A></li>
             })}
           </ul>
 
@@ -51,4 +51,12 @@ export function mainPage(posts: { path: string, title: string }[], content: stri
       </body>
     </html>
   </>
+}
+
+function A(data: { current: string, href: string, children: string }) {
+  return <a
+    class={data.current === data.href ? 'current' : ''}
+    href={data.href}
+    children={data.children}
+  />
 }
