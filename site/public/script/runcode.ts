@@ -46,7 +46,7 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
   const useConsole = iframe.classList.contains('console')
 
   if (useConsole) {
-    const output = document.createElement('div')
+    const output = iframe.nextElementSibling as HTMLDivElement
     output.classList.add('code-output')
 
     self.addEventListener('message', msg => {
@@ -55,19 +55,9 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
         row.append(msg.data.join(' ') + '\n')
 
         output.append(row)
-        row.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-        })
+        row.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
       }
     })
-
-    const rect = iframe.getBoundingClientRect()
-    output.style.width = rect.width + 'px'
-    output.style.height = rect.height + 'px'
-
-    iframe.style.display = 'none'
-    iframe.insertAdjacentElement('afterend', output)
   }
 
   const rect = container.getBoundingClientRect()

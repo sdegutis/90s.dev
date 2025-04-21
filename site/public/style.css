@@ -59,12 +59,21 @@ html {
         box-sizing: border-box;
         box-shadow: 0px 0px 1px 1px #0007;
         outline: none;
+
+        &.console {
+          display: none;
+        }
       }
 
       .code-output {
         box-sizing: border-box;
         white-space: pre;
         overflow: auto;
+
+        font-size: 80%;
+        background-color: #1e1e1e;
+        border-radius: 7px;
+        padding: 1em;
       }
 
       :is(h2, h3) {
@@ -130,6 +139,10 @@ html {
 
   }
 
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {

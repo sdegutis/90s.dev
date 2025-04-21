@@ -10,16 +10,24 @@ containers(md, 'features', {})
 containers(md, 'runcode', {
   render: (tokens, i) => {
     const tok = tokens[i]
-    const m = tok.info.match(/(\d+) *(\d+)( +.+)?/)
+    const isOpen = tok.nesting === 1
+    const opener = tokens[isOpen ? i : i - 1]
 
-    if (tok.nesting === 1) {
-      const w = +m![1] * 2
-      const h = +m![2] * 2
-      const classes = m![3] ?? ''
+    const m = opener.info.match(/(\d+) *(\d+)( +.+)?/)
+    const w = +m![1] * 2
+    const h = +m![2] * 2
+    const classes = m![3] ?? ''
+
+    if (isOpen) {
       return `<iframe class='runcode${classes}' width="${w}" height="${h}">\n`
     }
     else {
-      return `</iframe>\n`
+      const useConsole = classes.includes('console')
+      let line = `</iframe>\n`
+      if (useConsole) {
+        line += `<div class="code-output" style="width:${w}px;height:${h}px"></div>\n`
+      }
+      return line
     }
   }
 })
