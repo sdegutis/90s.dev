@@ -55,7 +55,7 @@ html {
     --link-color: #19f;
 
     > nav {
-      background-color: #1b1b1b;
+      background-color: #12171e;
     }
 
     > main {
@@ -77,17 +77,17 @@ body > nav {
 
     font-family: "Silkscreen", sans-serif;
     font-size: 200%;
+    text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
     color: #ff09;
-    text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
 
     transition:
       color 200ms ease-in-out,
       text-shadow 200ms ease-in-out;
 
     &:hover {
-      text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
-      text-decoration: none;
       color: #ff9;
+      text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+      text-decoration: none;
     }
 
   }
