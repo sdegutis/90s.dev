@@ -10,6 +10,7 @@ This guide explains how they work and shows some basic recipes.
 
 A ref is like a pointer.
 
+::: runcode 120 70 console
 ```typescript
 import { $, print } from '/api.js'
 
@@ -19,8 +20,6 @@ print('val is', r.val)  // val is 0
 r.val++
 print('val is', r.val)  // val is 1
 ```
-
-::: runcode 120 70 console
 :::
 
 You can watch it.

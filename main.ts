@@ -14,6 +14,7 @@ if (isDev) {
   server.files = await processSite()
 
   tree.watch({}, async (paths) => {
+    console.log('paths changed', [...paths].map(path => '\n  ' + path).join(''))
     try { server.files = await processSite() }
     catch (e) { console.error(e) }
     server.reload()

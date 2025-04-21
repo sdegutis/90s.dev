@@ -2,6 +2,7 @@
 
 The traditional "click me" app:
 
+::: runcode 120 70 autosize
 ```tsx
 import * as api from '/api.js'
 await api.appReady
@@ -23,8 +24,6 @@ const panel = await api.sys.makePanel({ name: "hello world" },
 
 panel.focusPanel()
 ```
-
-::: runcode 120 70 resize
 :::
 
 ### Full Breakdown

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-color: #222;
   color: #ccc;
@@ -9,13 +13,10 @@ html {
 }
 
 body {
-  max-width: 90%;
   width: 1280px;
 
   background-color: #111;
   margin: 0;
-  /* padding: 100px; */
-  box-sizing: border-box;
 
   display: flex;
 
@@ -29,17 +30,18 @@ body {
     top: 0;
     align-self: flex-start;
   }
+
+  main {
+    overflow: hidden;
+  }
 }
 
 :is(nav, main) {
   padding: 24px;
-  box-sizing: border-box;
 }
 
 a#sitelogo {
   text-decoration: none;
-  /* text-align: center;
-  display: block; */
 
   font-family: "Silkscreen", sans-serif;
   font-size: 150%;
@@ -57,13 +59,38 @@ a#sitelogo {
   }
 }
 
-pre:has(>code) {
-  padding: 1em;
-  border-radius: 7px;
-  /* margin-bottom: 2em; */
+.runcode {
+  display: flex;
+  gap: 24px;
 
-  /* width: 300px;
-  display: inline-block; */
+  pre {
+    margin: 0;
+    width: 600px;
+
+    > code {
+      width: 100%;
+      background-color: #000 !important;
+    }
+  }
+
+  iframe {
+    border: none;
+
+    &:has(+.code-output) {
+      display: none;
+    }
+  }
+
+  .code-output {
+    background-color: #000;
+    padding: 12px;
+    overflow: auto;
+  }
+}
+
+pre:has(>code) {
+  padding: 12px;
+  border-radius: 7px;
 }
 
 /*

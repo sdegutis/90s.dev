@@ -25,14 +25,16 @@ ts.typescriptDefaults.setCompilerOptions({
   module: ts.ModuleKind.ESNext,
 })
 
-for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(.language-tsx, .language-typescript)')) {
+for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) {
+  const autosize = runcode.classList.contains('autosize')
+  const useConsole = runcode.classList.contains('console')
+
+  const codeblock = runcode.querySelector('pre>code') as HTMLElement
+
   const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
 
-  const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
-  const autosize = iframe.classList.contains('resize')
-
-  const useConsole = iframe.classList.contains('console')
+  const iframe = runcode.querySelector('iframe')!
 
   if (useConsole) {
     const output = iframe.nextElementSibling as HTMLDivElement
@@ -84,7 +86,7 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
 
   editor.layout({
     height: rect.height,
-    width: rect.width,
+    width: 600 - 24,
   })
 
   const url = new URL(oshost)
@@ -105,7 +107,7 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
   if (autosize) {
     model.onDidChangeContent(() => {
       editor.layout({
-        width: rect.width,
+        width: 600 - 24,
         height: editor.getContentHeight(),
       })
     })
