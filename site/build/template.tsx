@@ -46,6 +46,10 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
         <main>
           {content}
+
+          <footer>
+            Copyright &copy;
+          </footer>
         </main>
 
       </body>

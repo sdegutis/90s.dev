@@ -31,6 +31,12 @@ html {
     > main {
       flex: 1 1 auto;
       overflow: auto;
+
+      > footer {
+        margin: 32px 0;
+        font-size: 80%;
+        color: color(from currentColor srgb r g b / 0.5);
+      }
     }
 
     > * {
