@@ -1,6 +1,6 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
-import { compileTsx } from './site/compile.ts'
+import { compileTsx } from './site/build/compile.ts'
 
 const isDev = process.argv[2] === 'dev'
 
@@ -24,6 +24,6 @@ else {
 }
 
 async function processSite() {
-  const mod = await import("./site/build.ts")
+  const mod = await import("./site/build/build.ts")
   return await mod.processSite(tree, isDev)
 }

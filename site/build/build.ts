@@ -2,7 +2,7 @@ import { LiveTree, Pipeline } from 'immaculata'
 import { compileTsx } from './compile.ts'
 import { md } from "./markdown.ts"
 import { monaco } from './monaco.ts'
-import { mainPage } from "./page.html.tsx"
+import { mainPage } from "./page.tsx"
 
 let reloader = ''
 if (process.argv[2] === 'dev') reloader = `
