@@ -83,16 +83,6 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code.lan
 
   const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
 
-  window.addEventListener('message', (msg) => {
-    if (msg.source === iframe.contentWindow) {
-      if (msg.data.resized) {
-        const resizeData = msg.data.resized
-        iframe.width = resizeData.w.toString()
-        iframe.height = resizeData.h.toString()
-      }
-    }
-  })
-
   const updateIframe = async () => {
     const code = model.getValue()
 
