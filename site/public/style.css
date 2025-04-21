@@ -1,53 +1,98 @@
-* {
-  box-sizing: border-box;
+/* layout */
+html {
+  * {
+    box-sizing: border-box;
+  }
+
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    width: 1280;
+    display: flex;
+
+    > nav {
+      flex: 0 0 256px;
+      overflow: auto;
+    }
+
+    > main {
+      flex: 1 1 auto;
+      overflow: auto;
+    }
+
+    > * {
+      padding: 24px;
+      scrollbar-gutter: stable;
+    }
+  }
+
+  :not(:first-child):is(h1, h2, h3) {
+    margin-top: 48px;
+    margin-bottom: 12px;
+  }
+
 }
 
+/* style */
 html {
   background-color: #000;
   color: #ccc;
   font-family: "Oxanium", sans-serif;
-  scrollbar-gutter: stable both-edges;
 
-  display: flex;
-  justify-content: center;
-}
+  body {
+    --link-color: #19f;
 
-body {
-  width: 1280px;
+    > nav {
+      background-color: #1b1b1b;
+    }
 
-  background-color: #222;
-  margin: 0;
-  /* margin-bottom: 30px; */
+    > main {
+      background-color: #222;
+    }
 
-  display: flex;
-
-  > nav {
-    flex: 0 0 256px;
-    background-color: #1b1b1b;
-    height: 100vh;
-    overflow: auto;
-
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-  }
-
-  main {
-    flex: 1 1 auto;
-    overflow: auto;
+    a {
+      color: var(--link-color);
+    }
   }
 }
 
-:is(nav, main) {
-  padding: 24px;
-}
-
-:not(:first-child):is(h1, h2, h3) {
-  margin-top: 48px;
-  margin-bottom: 12px;
-}
-
+/* navbar */
 body > nav {
+
+  #sitelogo {
+
+    text-decoration: none;
+
+    font-family: "Silkscreen", sans-serif;
+    font-size: 150%;
+    color: #ff09;
+    text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
+
+    transition:
+      color 200ms ease-in-out,
+      text-shadow 200ms ease-in-out;
+
+    &:hover {
+      text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
+      text-decoration: none;
+      color: #ff9;
+    }
+
+  }
+
   > h3 {
     font-size: inherit;
     font-weight: bold;
@@ -69,7 +114,7 @@ body > nav {
       transition: all 120ms ease-in-out;
 
       &:is(.current, :hover) {
-        color: #19f;
+        color: var(--link-color);
         padding-left: 9px;
         margin-left: -12px;
         border-color: currentColor;
@@ -79,28 +124,7 @@ body > nav {
 }
 
 
-
-#sitelogo {
-
-  text-decoration: none;
-
-  font-family: "Silkscreen", sans-serif;
-  font-size: 150%;
-  color: #ff09;
-  text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
-
-  transition:
-    color 200ms ease-in-out,
-    text-shadow 200ms ease-in-out;
-
-  &:hover {
-    text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
-    text-decoration: none;
-    color: #ff9;
-  }
-
-}
-
+/* playgrounds */
 .runcode {
   display: flex;
   gap: 24px;
@@ -131,192 +155,8 @@ body > nav {
   }
 }
 
+/* code */
 pre:has(>code) {
   padding: 12px;
   border-radius: 7px;
 }
-
-/*
-
-html {
-  background-color: #222;
-  color: #ccc;
-  font-family: "Consolas", monospace;
-  font-family: "Oxanium", sans-serif;
-
-  font-optical-sizing: auto;
-  font-variation-settings: "wdth" 100;
-  scrollbar-gutter: stable both-edges;
-
-  :is(h1, h2, h3) {
-    font-family: "Silkscreen", sans-serif;
-
-  }
-
-  > body {
-    display: flex;
-    margin: 0 3em;
-    justify-content: center;
-    gap: 3em;
-
-    margin-bottom: 7em;
-
-    > nav {
-      flex-shrink: 0;
-      position: sticky;
-      margin-top: 3em;
-      top: 3em;
-      align-self: flex-start;
-
-      display: flex;
-      flex-direction: column;
-
-      ul {
-        margin-top: 0;
-        list-style-type: none;
-        padding-left: 0;
-      }
-    }
-
-    a#sitelogo {
-      font-family: "Silkscreen", sans-serif;
-      font-size: 150%;
-      color: #ff09;
-      text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
-
-      transition:
-        color 200ms ease-in-out,
-        text-shadow 200ms ease-in-out;
-
-      &:hover {
-        text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
-        text-decoration: none;
-        color: #ff9;
-      }
-    }
-
-    > main {
-      width: 40em;
-      margin-top: 3em;
-
-      iframe {
-        border: none;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 1px 1px #0007;
-        outline: none;
-
-        &.console {
-          display: none;
-        }
-      }
-
-      .code-output {
-        box-sizing: border-box;
-        white-space: pre;
-        overflow: auto;
-
-        font-size: 80%;
-        background-color: #1e1e1e;
-        border-radius: 7px;
-        padding: 1em;
-
-        display: inline-block;
-      }
-
-      :is(h2, h3) {
-        color: #fff;
-        margin-top: 3em;
-      }
-
-      .features {
-        margin-bottom: 2em;
-
-        ul {
-          list-style-type: none;
-          padding-left: 0;
-          display: flex;
-          gap: 2em;
-
-          li {
-            background-color: #fff1;
-            border-radius: 7px;
-            padding: 1em;
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-
-            > :not(:last-child) {
-              align-self: center;
-            }
-
-            h3 {
-              white-space: nowrap;
-              margin: 0;
-            }
-
-            p {
-              margin: 0;
-
-              &:first-child {
-                font-size: 150%;
-              }
-            }
-          }
-        }
-      }
-
-      .note {
-        padding-left: 1em;
-        border-left: 3px solid #19f3;
-        background-color: #19f1;
-        padding: 1em;
-        margin: 2em 0;
-
-        > :first-child {
-          margin-top: 0;
-        }
-
-        > :last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-  }
-
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  color: #2378b9;
-  font-weight: bold;
-
-  &:not(:hover) {
-    text-decoration: none;
-  }
-}
-
-pre:has(>code) {
-  padding: 1em;
-  border-radius: 7px;
-  margin-bottom: 2em;
-
-  width: 300px;
-  display: inline-block;
-}
-
-pre > code {
-  display: block;
-  width: 100%;
-}
-
-:not(pre) > code {
-  background-color: #0003;
-  padding: 3px;
-  border-radius: 3px;
-}
-  
-*/
