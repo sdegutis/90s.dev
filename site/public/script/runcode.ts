@@ -36,7 +36,7 @@ ts.typescriptDefaults.setCompilerOptions({
   module: ts.ModuleKind.ESNext,
 })
 
-for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code.language-tsx')) {
+for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(.language-tsx, .language-typescript)')) {
   const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
 
