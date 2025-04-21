@@ -57,7 +57,7 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code.lan
     minimap: { enabled: false },
     guides: { indentation: false },
     folding: false,
-    scrollBeyondLastLine: false,
+    // scrollBeyondLastLine: false,
     renderLineHighlightOnlyWhenFocus: true,
     tabSize: 2,
   })
@@ -95,12 +95,12 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code.lan
     iframe.src = url.toString()
   }
 
-  model.onDidChangeContent(() => {
-    editor.layout({
-      width: rect.width,
-      height: editor.getContentHeight(),
-    })
-  })
+  // model.onDidChangeContent(() => {
+  //   editor.layout({
+  //     width: rect.width,
+  //     height: editor.getContentHeight(),
+  //   })
+  // })
 
   updateIframe()
 }
