@@ -48,7 +48,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
           {content}
 
           <footer>
-            Copyright &copy;
+            Copyright &copy; 2025
           </footer>
         </main>
 
