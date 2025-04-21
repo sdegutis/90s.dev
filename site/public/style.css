@@ -1,10 +1,79 @@
 html {
   background-color: #222;
   color: #ccc;
+  font-family: "Oxanium", sans-serif;
+  scrollbar-gutter: stable both-edges;
+
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  max-width: 90%;
+  width: 1280px;
+
+  background-color: #111;
+  margin: 0;
+  /* padding: 100px; */
+  box-sizing: border-box;
+
+  display: flex;
+
+  > nav {
+    flex: 0 0 256px;
+    background-color: #3009;
+    height: 100vh;
+    overflow: auto;
+
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+  }
+}
+
+:is(nav, main) {
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+a#sitelogo {
+  text-decoration: none;
+  /* text-align: center;
+  display: block; */
+
+  font-family: "Silkscreen", sans-serif;
+  font-size: 150%;
+  color: #ff09;
+  text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
+
+  transition:
+    color 200ms ease-in-out,
+    text-shadow 200ms ease-in-out;
+
+  &:hover {
+    text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
+    text-decoration: none;
+    color: #ff9;
+  }
+}
+
+pre:has(>code) {
+  padding: 1em;
+  border-radius: 7px;
+  /* margin-bottom: 2em; */
+
+  /* width: 300px;
+  display: inline-block; */
+}
+
+/*
+
+html {
+  background-color: #222;
+  color: #ccc;
   font-family: "Consolas", monospace;
   font-family: "Oxanium", sans-serif;
 
-  /* font-family: "Roboto", sans-serif; */
   font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
   scrollbar-gutter: stable both-edges;
@@ -80,10 +149,11 @@ html {
         background-color: #1e1e1e;
         border-radius: 7px;
         padding: 1em;
+
+        display: inline-block;
       }
 
       :is(h2, h3) {
-        /* font-family: "VT323"; */
         color: #fff;
         margin-top: 3em;
       }
@@ -131,7 +201,6 @@ html {
         background-color: #19f1;
         padding: 1em;
         margin: 2em 0;
-        /* border-radius: 7px; */
 
         > :first-child {
           margin-top: 0;
@@ -164,7 +233,9 @@ pre:has(>code) {
   padding: 1em;
   border-radius: 7px;
   margin-bottom: 2em;
-  /* font-family: "Consolas", monospace; */
+
+  width: 300px;
+  display: inline-block;
 }
 
 pre > code {
@@ -177,3 +248,5 @@ pre > code {
   padding: 3px;
   border-radius: 3px;
 }
+  
+*/
