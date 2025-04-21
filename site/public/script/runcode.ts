@@ -35,7 +35,11 @@ ts.typescriptDefaults.setCompilerOptions({
   module: ts.ModuleKind.ESNext,
 })
 
+
+let modelnum = 0
 for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) {
+  modelnum++
+
   const autosize = runcode.classList.contains('autosize')
   const useConsole = runcode.classList.contains('console')
 
@@ -66,7 +70,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
 
   container.replaceChildren()
 
-  const uri = monaco.Uri.parse('file:///sample.tsx')
+  const uri = monaco.Uri.parse(`file:///sample${modelnum}.tsx`)
   const model = monaco.editor.createModel(initial, 'typescript', uri)
 
   const editor = monaco.editor.create(container, {
@@ -95,8 +99,6 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
       updateIframe()
     },
   })
-
-  console.log(rect.width)
 
   editor.layout({
     height: rect.height,
