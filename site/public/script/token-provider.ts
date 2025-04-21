@@ -1,22 +1,23 @@
-// Based on https://github.com/microsoft/monaco-editor/blob/main/src/basic-languages/typescript/typescript.ts
-// vs-dark monaco: https://github.com/microsoft/vscode/blob/main/src/vs/editor/standalone/common/themes.ts#L82
-// dark-plus vscode: https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/dark_plus.json
+import monaco from './monaco.js'
 
-/**
- * Differences from official typescript monarch token provider:
- * 
- * 1. Highlight `...` as a keyword
- * 2. Highlight `export/etc` as control-flow keywords
- * 3. Highlight class fields
- * 4. Highlight function/class names
- * 5. Highlight var/let/const names
- * 6. Highlight new Foo
- * 7. Highlight function/method calls
- * 8. Highlight JSX
- * 
- */
+export function makeMonacoFancier() {
 
-export const rules = [
+  monaco.languages.onLanguageEncountered('typescript', () => {
+    monaco.languages.setMonarchTokensProvider('typescript', tokenProvider as monaco.languages.IMonarchLanguage)
+  })
+
+  monaco.editor.defineTheme('vsc2', {
+    base: 'vs-dark',
+    inherit: true,
+    rules: rules,
+    colors: {
+      "editor.background": '#1b1f25',
+    },
+  })
+
+}
+
+const rules = [
   { token: "identifier.ts", foreground: "9CDCFE" },
   { token: "variable.property.ts", foreground: "9CDCFE" },
   { token: "constant.ts", foreground: "4FC1FF" },
@@ -25,7 +26,7 @@ export const rules = [
   // { token: "delimiter.ts", foreground: "569CD6" },
 ]
 
-export const tokenProvider = {
+const tokenProvider = {
 
   defaultToken: 'invalid',
   tokenPostfix: '.ts',

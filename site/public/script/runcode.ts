@@ -1,18 +1,7 @@
 import monaco from './monaco.js'
-import { rules, tokenProvider } from './token-provider.js'
+import { makeMonacoFancier } from './token-provider.js'
 
-monaco.languages.onLanguageEncountered('typescript', () => {
-  monaco.languages.setMonarchTokensProvider('typescript', tokenProvider as monaco.languages.IMonarchLanguage)
-})
-
-monaco.editor.defineTheme('vsc2', {
-  base: 'vs-dark',
-  inherit: true,
-  rules: rules,
-  colors: {
-    "editor.background": '#1b1f25',
-  },
-})
+makeMonacoFancier()
 
 const oshost = await fetch('/os.txt').then(r => r.text())
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
