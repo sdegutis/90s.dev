@@ -2,7 +2,7 @@
 
 The traditional "click me" app:
 
-```typescript
+```tsx
 import * as api from '/api.js'
 await api.appReady
 
