@@ -1,6 +1,16 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
+for (const a of document.querySelectorAll('a')) {
+  if (!a.href.startsWith(location.origin)) {
+    a.target = '_blank'
+  }
+}
+
+for (const a of document.querySelectorAll<HTMLAnchorElement>('nav a')) {
+  a.classList.toggle('current', location.href === a.href)
+}
+
 makeMonacoFancier()
 
 const oshost = await fetch('/os.txt').then(r => r.text())
@@ -29,6 +39,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   const autosize = runcode.classList.contains('autosize')
   const useConsole = runcode.classList.contains('console')
 
+  const preblock = runcode.querySelector('pre') as HTMLPreElement
   const codeblock = runcode.querySelector('pre>code') as HTMLElement
 
   const container = codeblock as HTMLElement
@@ -52,6 +63,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   }
 
   const rect = container.getBoundingClientRect()
+
   container.replaceChildren()
 
   const uri = monaco.Uri.parse('file:///sample.tsx')
@@ -84,9 +96,11 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
     },
   })
 
+  console.log(rect.width)
+
   editor.layout({
     height: rect.height,
-    width: 600 - 24,
+    width: preblock.clientWidth - 24,
   })
 
   const url = new URL(oshost)
@@ -107,7 +121,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   if (autosize) {
     model.onDidChangeContent(() => {
       editor.layout({
-        width: 600 - 24,
+        width: preblock.clientWidth - 24,
         height: editor.getContentHeight(),
       })
     })
