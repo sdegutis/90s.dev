@@ -24,7 +24,7 @@ const panel = await api.sys.makePanel({ name: "hello world" },
 panel.focusPanel()
 ```
 
-::: runcode 120 70
+::: runcode 120 70 resize
 :::
 
 ### Full Breakdown

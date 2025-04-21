@@ -40,6 +40,9 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
   const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
 
+  const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
+  const autosize = iframe.classList.contains('resize')
+
   const rect = container.getBoundingClientRect()
   container.replaceChildren()
 
@@ -57,7 +60,7 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
     minimap: { enabled: false },
     guides: { indentation: false },
     folding: false,
-    // scrollBeyondLastLine: false,
+    scrollBeyondLastLine: !autosize,
     renderLineHighlightOnlyWhenFocus: true,
     tabSize: 2,
   })
@@ -81,8 +84,6 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
   const url = new URL(oshost)
   url.searchParams.set('embed', '1')
 
-  const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
-
   const updateIframe = async () => {
     const code = model.getValue()
 
@@ -95,12 +96,14 @@ for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code:is(
     iframe.src = url.toString()
   }
 
-  // model.onDidChangeContent(() => {
-  //   editor.layout({
-  //     width: rect.width,
-  //     height: editor.getContentHeight(),
-  //   })
-  // })
+  if (autosize) {
+    model.onDidChangeContent(() => {
+      editor.layout({
+        width: rect.width,
+        height: editor.getContentHeight(),
+      })
+    })
+  }
 
   updateIframe()
 }
