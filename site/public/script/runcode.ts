@@ -36,7 +36,7 @@ ts.typescriptDefaults.setCompilerOptions({
   module: ts.ModuleKind.ESNext,
 })
 
-for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
+for (const codeblock of document.querySelectorAll('pre:has(+.runcode) > code.language-tsx')) {
   const container = codeblock as HTMLElement
   const initial = codeblock.textContent!
 
@@ -78,24 +78,17 @@ for (const codeblock of document.querySelectorAll('pre code.language-tsx')) {
     width: rect.width,
   })
 
-  let w = 100
-  let h = 100
-
   const url = new URL(oshost)
   url.searchParams.set('embed', '1')
 
   const iframe = container.parentElement!.nextElementSibling as HTMLIFrameElement
-  iframe.style = 'scale:2; transform-origin:top left'
 
   window.addEventListener('message', (msg) => {
     if (msg.source === iframe.contentWindow) {
       if (msg.data.resized) {
         const resizeData = msg.data.resized
-        w = resizeData.w
-        h = resizeData.h
-
-        iframe.width = w.toString()
-        iframe.height = h.toString()
+        iframe.width = resizeData.w.toString()
+        iframe.height = resizeData.h.toString()
       }
     }
   })

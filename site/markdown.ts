@@ -10,15 +10,15 @@ containers(md, 'features', {})
 containers(md, 'runcode', {
   render: (tokens, i) => {
     const tok = tokens[i]
-    const m = tok.info.match(/\w+ (\d+) (\d+)/)
+    const m = tok.info.match(/(\d+) *(\d+)/)
 
     if (tok.nesting === 1) {
-      const w = +m![1]
-      const h = +m![2]
-      return `<iframe style="scale:2; transform-origin:top left" width="${w}" height="${h}>"`
+      const w = +m![1] * 2
+      const h = +m![2] * 2
+      return `<iframe class='runcode' width="${w}" height="${h}">\n`
     }
     else {
-      return `</textarea>`
+      return `</iframe>\n`
     }
   }
 })
