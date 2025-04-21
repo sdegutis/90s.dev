@@ -76,16 +76,16 @@ body > nav {
     text-decoration: none;
 
     font-family: "Silkscreen", sans-serif;
-    font-size: 150%;
+    font-size: 200%;
     color: #ff09;
-    text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
+    text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
 
     transition:
       color 200ms ease-in-out,
       text-shadow 200ms ease-in-out;
 
     &:hover {
-      text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
+      text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
       text-decoration: none;
       color: #ff9;
     }
