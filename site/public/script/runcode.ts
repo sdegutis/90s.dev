@@ -82,7 +82,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   const editor = monaco.editor.create(container, {
     model,
     language: 'typescript',
-    theme: 'vs-dark',
+    theme: 'vsc2',
     lineNumbers: 'off',
     fontSize: 13,
     lineHeight: 1.15,
