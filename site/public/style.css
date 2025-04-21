@@ -37,14 +37,14 @@ html {
       font-family: "Silkscreen", sans-serif;
       font-size: 150%;
       color: #ff09;
-      text-shadow: -4px -2px 0px #00f9, 4px 2px 0px #9009;
+      text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
 
       transition:
         color 200ms ease-in-out,
         text-shadow 200ms ease-in-out;
 
       &:hover {
-        text-shadow: -8px -4px 0px #00fc, 8px 4px 0px #900c;
+        text-shadow: -8px -4px 0px #00f9, 8px 4px 0px #9009;
         text-decoration: none;
         color: #ff9;
       }
