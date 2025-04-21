@@ -14,24 +14,20 @@ window.onbeforeunload = () => es.close()
 `
 
 export async function processSite(tree: LiveTree, isDev: boolean) {
-  return tree.processFiles(async (files) => {
+  return tree.processFiles(files => {
 
-    const pages = files.with('^/pages/').copy()
-    const blogs = files.with('^/blogs/').copy()
+    files.without('^/public').remove()
+    files.with('/public').do(f => f.path = f.path.replace(/^\/public/, ''))
 
-    files.without('^/public/').remove()
-    files.do(f => f.path = f.path.slice('/public'.length))
-
-    pages.do(f => {
-      const path = f.path.replace('/pages', '').replace('.md', '.html')
-      const content = mainPage(blogs, reloader + md.render(f.text))
-      files.add(path, content)
+    const blogs = files.with('^/blogs/').all().map(f => {
+      const path = f.path.replace('.md', '.html')
+      const title = f.text.split('\n')[0].slice(2)
+      return { path, title }
     })
 
-    blogs.do(f => {
-      const path = f.path.replace('.md', '.html')
-      const content = mainPage(blogs, reloader + md.render(f.text))
-      files.add(path, content)
+    files.with('\.md$').do(f => {
+      f.path = f.path.replace('.md', '.html')
+      f.text = mainPage(blogs, reloader + md.render(f.text))
     })
 
     files.with(/\.tsx?$/).do(f => {

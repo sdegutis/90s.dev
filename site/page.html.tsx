@@ -1,6 +1,4 @@
-import { Pipeline } from "immaculata"
-
-export function mainPage(posts: Pipeline, content: string) {
+export function mainPage(posts: { path: string, title: string }[], content: string) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -21,9 +19,13 @@ export function mainPage(posts: Pipeline, content: string) {
 
           <a id='sitelogo' href='/'>90s.dev</a>
 
+          <h3>Examples</h3>
+          <ul>
+            <li><a href='/examples/hello-world.html'>Hello World</a></li>
+          </ul>
+
           <h3>Guides</h3>
           <ul>
-            <li><a href='/guides/hello-world.html'>Hello World</a></li>
             <li><a href='/guides/refs.html'>Refs</a></li>
             <li><a href='/guides/views.html'>Views</a></li>
           </ul>
@@ -35,9 +37,7 @@ export function mainPage(posts: Pipeline, content: string) {
 
           <h3>Blog</h3>
           <ul>
-            {posts.all().map(f => {
-              const path = f.path.replace('.md', '.html')
-              const title = f.text.split('\n')[0].slice(2)
+            {posts.map(({ path, title }) => {
               return <li><a href={path}>{title}</a></li>
             })}
           </ul>
