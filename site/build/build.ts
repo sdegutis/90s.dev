@@ -1,9 +1,9 @@
 import { LiveTree, Pipeline } from 'immaculata'
 import { oshost } from '../../isdev.ts'
+import { mainPage } from "../template.tsx"
 import { compileTsx } from './compile.ts'
 import { md } from "./markdown.ts"
 import { monaco } from './monaco.ts'
-import { mainPage } from "./template.tsx"
 
 let reloader = ''
 if (process.argv[2] === 'dev') reloader = `
