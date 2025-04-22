@@ -12,3 +12,7 @@
 Welcome to 90s.dev, an alternative reality where
 the 2000s played out differently, pixel art aesthetics still reign supreme,
 and GUIs evolved to be far more usable and convenient.
+
+Behold [os.90s.dev](https://os.90s.dev)
+
+<iframe class='embedded' src="${OSHOST}" width='640' height='360'>

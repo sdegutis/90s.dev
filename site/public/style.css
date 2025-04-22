@@ -146,10 +146,6 @@ body > nav {
       width: 100%;
     }
   }
-
-  iframe {
-    border: none;
-  }
 }
 
 /* code */
@@ -168,6 +164,10 @@ pre:has(>code) {
   color: #be8cb7;
   padding: 4px;
   border-radius: 7px;
+}
+
+iframe.embedded {
+  border: none;
 }
 
 .features {

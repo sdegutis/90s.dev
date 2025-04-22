@@ -21,7 +21,7 @@ containers(md, 'runcode', {
       return line
     }
     else {
-      let line = `<iframe width="${w}" height="${h}"></iframe>\n`
+      let line = `<iframe class='embedded' width="${w}" height="${h}"></iframe>\n`
       line += `</div>\n`
       return line
     }

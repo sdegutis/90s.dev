@@ -99,13 +99,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
 
   const updateIframe = async () => {
     const code = model.getValue()
-
-    const stream1 = new Blob([code]).stream().pipeThrough(new CompressionStream('gzip'))
-    const blob1 = await new Response(stream1).blob()
-    const bytes1 = new Uint8Array(await blob1.arrayBuffer())
-    const compressed = btoa(String.fromCharCode(...bytes1))
-
-    url.searchParams.set('code', compressed)
+    url.searchParams.set('code', await compress(code))
     iframe.src = url.toString()
   }
 
@@ -127,4 +121,11 @@ for (const code of document.querySelectorAll<HTMLElement>('pre>code:not(:has(>.m
     theme: 'vsc2',
     mimeType: 'typescript'
   })
+}
+
+async function compress(code: string) {
+  const stream = new Blob([code]).stream().pipeThrough(new CompressionStream('gzip'))
+  const blob = await new Response(stream).blob()
+  const bytes = new Uint8Array(await blob.arrayBuffer())
+  return btoa(String.fromCharCode(...bytes))
 }
