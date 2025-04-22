@@ -15,4 +15,4 @@ and GUIs evolved to be far more usable and convenient.
 
 Behold [os.90s.dev](https://os.90s.dev)
 
-<iframe class='embedded' src="${OSHOST}" width='640' height='360'>
+<iframe class='embedded' src="${OSHOST}" width='640' height='360'></iframe>
