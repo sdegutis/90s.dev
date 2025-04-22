@@ -26,6 +26,10 @@ html {
     }
 
     > main {
+      p {
+        max-width: 600px;
+      }
+
       > footer {
         padding: 24px 0;
       }
@@ -137,7 +141,6 @@ body > nav {
 
   pre {
     margin: 0;
-    width: 600px;
 
     > code {
       width: 100%;
@@ -165,13 +168,30 @@ body > nav {
 pre:has(>code) {
   padding: 12px;
   border-radius: 7px;
+  width: 600px;
 
   background-color: #0e1115 !important;
 }
 
 :not(pre) > code {
-  font-family: monospace, monospace;
+  font-family: inherit;
+  /* font-size: 80%; */
   background-color: #0003;
+  color: #abc;
   padding: 3px 7px;
   border-radius: 7px;
+}
+
+.features {
+  background-color: #fff1;
+  border-radius: 7px;
+  padding: 7px;
+
+  thead {
+    display: none;
+  }
+
+  td {
+    padding: 7px;
+  }
 }
