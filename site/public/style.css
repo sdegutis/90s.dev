@@ -149,18 +149,6 @@ body > nav {
 
   iframe {
     border: none;
-
-    &:has(+.code-output) {
-      display: none;
-    }
-  }
-
-  .code-output {
-    background-color: #0e1115;
-    border-radius: 7px;
-    padding: 12px;
-    overflow: auto;
-    font-size: 12px;
   }
 }
 

@@ -21,11 +21,7 @@ containers(md, 'runcode', {
       return line
     }
     else {
-      const useConsole = classes.includes('console')
       let line = `<iframe width="${w}" height="${h}"></iframe>\n`
-      if (useConsole) {
-        line += `<div class="code-output" style="width:${w}px;height:${h}px"></div>\n`
-      }
       line += `</div>\n`
       return line
     }

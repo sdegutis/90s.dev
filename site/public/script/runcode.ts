@@ -47,7 +47,6 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   modelnum++
 
   const autosize = runcode.classList.contains('autosize')
-  const useConsole = runcode.classList.contains('console')
 
   const preblock = runcode.querySelector('pre') as HTMLPreElement
   const codeblock = runcode.querySelector('pre>code') as HTMLElement
@@ -56,25 +55,6 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   const initial = codeblock.textContent!
 
   const iframe = runcode.querySelector('iframe')!
-
-  if (useConsole) {
-    const output = iframe.nextElementSibling as HTMLDivElement
-    output.classList.add('code-output')
-
-    self.addEventListener('message', msg => {
-      if (msg.source === iframe.contentWindow) {
-        const row = document.createElement('div')
-        row.append(msg.data.join(' ') + '\n')
-
-        output.append(row)
-        output.scrollTo({
-          top: output.scrollHeight,
-          behavior: 'smooth'
-        })
-      }
-    })
-  }
-
   const rect = container.getBoundingClientRect()
 
   container.replaceChildren()
