@@ -67,7 +67,10 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
         row.append(msg.data.join(' ') + '\n')
 
         output.append(row)
-        row.scrollTo({ top: Infinity, behavior: 'smooth' })
+        output.scrollTo({
+          top: output.scrollHeight,
+          behavior: 'smooth'
+        })
       }
     })
   }

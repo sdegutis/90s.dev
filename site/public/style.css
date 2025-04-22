@@ -38,7 +38,7 @@ html {
     }
   }
 
-  :not(:first-child):is(h1, h2, h3) {
+  :is(h1, h2, h3, h4) {
     margin-top: 48px;
     margin-bottom: 12px;
   }
@@ -101,6 +101,10 @@ body > nav {
     margin-top: 0;
     padding-left: 0;
     list-style-type: none;
+
+    li {
+      margin: 7px 0;
+    }
 
     a {
       font-weight: bold;
