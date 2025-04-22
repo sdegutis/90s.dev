@@ -1,4 +1,5 @@
 import { LiveTree, Pipeline } from 'immaculata'
+import { oshost } from '../../isdev.ts'
 import { compileTsx } from './compile.ts'
 import { md } from "./markdown.ts"
 import { monaco } from './monaco.ts'
@@ -13,7 +14,7 @@ window.onbeforeunload = () => es.close()
 </script>
 `
 
-export async function processSite(tree: LiveTree, isDev: boolean) {
+export async function processSite(tree: LiveTree) {
   return tree.processFiles(files => {
 
     files.without('^/public').remove()
@@ -27,6 +28,7 @@ export async function processSite(tree: LiveTree, isDev: boolean) {
 
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
+      f.text = f.text.replaceAll('${OSHOST}', oshost)
       f.text = reloader + mainPage(f.path, blogs, md.render(f.text))
     })
 
@@ -37,7 +39,7 @@ export async function processSite(tree: LiveTree, isDev: boolean) {
 
     files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
 
-    files.add('/os.txt', isDev ? 'http://localhost:8080' : 'https://os.90s.dev')
+    files.add('/os.txt', oshost)
 
   })
 }

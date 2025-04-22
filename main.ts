@@ -1,8 +1,7 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
+import { isDev } from './isdev.ts'
 import { compileTsx } from './site/build/compile.ts'
-
-const isDev = process.argv[2] === 'dev'
 
 const tree = new immaculata.LiveTree('site', import.meta.url)
 registerHooks(tree.enableImportsModuleHook())
@@ -26,5 +25,5 @@ else {
 
 async function processSite() {
   const mod = await import("./site/build/build.ts")
-  return await mod.processSite(tree, isDev)
+  return await mod.processSite(tree)
 }
