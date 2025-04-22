@@ -1,9 +1,7 @@
 import MarkdownIt from "markdown-it"
 import containers from 'markdown-it-container'
-import { shiki } from "./shiki.ts"
 
 export const md = new MarkdownIt({ html: true, })
-md.use(shiki)
 containers(md, 'note', {})
 containers(md, 'features', {})
 

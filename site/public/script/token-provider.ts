@@ -23,6 +23,7 @@ const rules = [
   { token: "constant.ts", foreground: "4FC1FF" },
   { token: "variable.ts", foreground: "9CDCFE" },
   { token: "method.ts", foreground: "DCDCAA" },
+  { token: "delimiter.bracket", foreground: "569CD6" },
   // { token: "delimiter.ts", foreground: "569CD6" },
 ]
 
@@ -112,6 +113,9 @@ const tokenProvider = {
         },
       ]],
 
+      // import *
+      [/(import)(\s+)(\*)/, ['keyword.flow', '', 'keyword']],
+
       // // highlight var/const/let defs
       // [/(const|let|var)(\s+)(#?[\w$]+)/, ['keyword', '', {
       //   cases: {
@@ -159,6 +163,8 @@ const tokenProvider = {
         /\/(?=([^\\\/]|\\.)+\/([dgimsuy]*)(\s*)(\.|;|,|\)|\]|\}|$))/,
         { token: 'regexp', bracket: '@open', next: '@regexp' }
       ],
+
+      [/=>/, 'keyword'],
 
       // delimiters and operators
       [/[()\[\]]/, '@brackets'],

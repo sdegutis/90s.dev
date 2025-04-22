@@ -80,7 +80,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   container.replaceChildren()
 
   const uri = monaco.Uri.parse(`file:///sample${modelnum}.tsx`)
-  const model = monaco.editor.createModel(initial, 'typescript', uri)
+  const model = monaco.editor.createModel(initial.trimEnd(), 'typescript', uri)
 
   const editor = monaco.editor.create(container, {
     model,
@@ -139,4 +139,12 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   }
 
   updateIframe()
+}
+
+for (const code of document.querySelectorAll<HTMLElement>('pre>code:not(:has(>.monaco-editor))')) {
+  code.textContent = code.textContent!.trimEnd()
+  monaco.editor.colorizeElement(code, {
+    theme: 'vsc2',
+    mimeType: 'typescript'
+  })
 }
