@@ -139,5 +139,5 @@ creating flexible but simple composite APIs like `button`).
 
 And that's it! You now have a working app, simple as can be.
 
-Feel free to check out the [Todo List](/guides/todo-list.html)
+Feel free to check out the [Todo List](/examples/todo-list.html)
 for a more in-depth example.
