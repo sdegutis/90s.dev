@@ -1,7 +1,5 @@
 # Hello World
 
-Download the [helloworld.zip](${OSHOST}/helloworld.zip) file.
-
 The traditional "click me" app:
 
 ::: runcode 120 70 autosize
