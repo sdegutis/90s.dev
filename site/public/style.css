@@ -28,8 +28,6 @@ html {
     > main {
       > footer {
         padding: 24px 0;
-        font-size: 80%;
-        color: color(from currentColor srgb r g b / 0.5);
       }
     }
 
@@ -60,6 +58,11 @@ html {
 
     > main {
       background-color: #222;
+
+      > footer {
+        font-size: 80%;
+        color: color(from currentColor srgb r g b / 0.5);
+      }
     }
 
     a {
@@ -164,4 +167,11 @@ pre:has(>code) {
   border-radius: 7px;
 
   background-color: #0e1115 !important;
+}
+
+:not(pre) > code {
+  font-family: monospace, monospace;
+  background-color: #0003;
+  padding: 3px 7px;
+  border-radius: 7px;
 }
