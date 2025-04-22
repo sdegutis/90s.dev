@@ -165,8 +165,8 @@ pre:has(>code) {
   font-family: inherit;
   /* font-size: 80%; */
   background-color: #0003;
-  color: #abc;
-  padding: 3px 7px;
+  color: #be8cb7;
+  padding: 4px;
   border-radius: 7px;
 }
 
