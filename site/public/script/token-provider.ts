@@ -112,14 +112,19 @@ const tokenProvider = {
         },
       ]],
 
+      // // highlight var/const/let defs
+      // [/(const|let|var)(\s+)(#?[\w$]+)/, ['keyword', '', {
+      //   cases: {
+      //     '$1==const': 'constant',
+      //     '@default': 'variable',
+      //   }
+      // }]],
       // highlight var/const/let defs
-      [/([\w$]+)(:)/, ['attribute.name', '']],
+      // [/([\w$]+)(:)/, ['attribute.name', '']],
 
       { include: 'jsxReady' },
 
       { include: 'common' },
-
-      // [/#?[\w$]+/, 'type.identifier'],
 
     ],
 
