@@ -24,3 +24,17 @@ apps in [os.90s.dev](https://os.90s.dev).
 2. Change some text or something
 
 3. Click the app again in `filer.app.js`
+
+
+### Going further
+
+The entire core and all system apps are included in [helloworld.zip](${OSHOST}/helloworld.zip), so that you can fully understand what everything does, learn from it, and experiment more easily.
+
+You can copy any default sys app into your apps, modify them, and run those.
+
+
+### Caveats
+
+*Updated 4/22/2025*
+
+1. All runnable files must be named `.tsx` for technical reasons, never `.ts`
