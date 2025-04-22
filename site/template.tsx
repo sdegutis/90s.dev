@@ -19,17 +19,17 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <a id='sitelogo' href='/'>90s.dev</a>
 
-          <h3>Examples</h3>
-          <ul>
-            <li><A current={current} href='/examples/hello-world.html'>Hello World</A></li>
-            <li><A current={current} href='/examples/todo-list.html'>Todo List</A></li>
-          </ul>
-
           <h3>Guides</h3>
           <ul>
             <li><A current={current} href='/guides/getting-started.html'>Getting Started</A></li>
             <li><A current={current} href='/guides/refs.html'>Refs</A></li>
             <li><A current={current} href='/guides/views.html'>Views</A></li>
+          </ul>
+
+          <h3>Examples</h3>
+          <ul>
+            <li><A current={current} href='/examples/hello-world.html'>Hello World</A></li>
+            <li><A current={current} href='/examples/todo-list.html'>Todo List</A></li>
           </ul>
 
           <h3>API</h3>
