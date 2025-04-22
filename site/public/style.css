@@ -186,12 +186,18 @@ pre:has(>code) {
   background-color: #fff1;
   border-radius: 7px;
   padding: 7px;
+  width: 600px;
 
   thead {
     display: none;
   }
 
   td {
-    padding: 7px;
+    padding: 12px 7px;
+
+    p {
+      margin: 0;
+      opacity: 0.75;
+    }
   }
 }

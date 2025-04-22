@@ -3,9 +3,9 @@
 ::: features
 | | | |
 |-|-|-|
-|🧪|**Retrofuturistic**|Innovative tech on the inside, pixel art on the outside.|
-|🤝|**Collaborative**|Dev env that lets us build parts of an app together.|
-|🔨|**Game-maker maker**|Together, we shall make the best pixel art game maker ever conceived.|
+|🧪|**Retrofuturistic**<p>Innovative tech on the inside, pixel art aesthetics on the outside.|
+|🤝|**Collaborative**<p>Multiuser dev environment that lets us build parts of an app together.|
+|🔨|**Game-maker maker**<p>Together, we shall make the best pixel art game maker conceivable.|
 
 :::
 
