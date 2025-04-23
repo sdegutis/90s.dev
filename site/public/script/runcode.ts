@@ -57,6 +57,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
     theme: 'vsc2',
     lineNumbers: 'off',
     fontSize: 13,
+    scrollbar: { alwaysConsumeMouseWheel: !autosize, },
     lineHeight: 1.15,
     lineDecorationsWidth: 0,
     minimap: { enabled: false },
