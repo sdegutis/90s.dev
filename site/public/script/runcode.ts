@@ -68,6 +68,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
     language: 'typescript',
     theme: 'vsc2',
     lineNumbers: 'off',
+    // overflowWidgetsDomNode: preblock,
     fontSize: 13,
     scrollbar: { alwaysConsumeMouseWheel: !autosize, },
     lineHeight: 1.15,
