@@ -77,7 +77,7 @@ its initial size, which the shell can use (or ignore).
 
 
 ::: section note
-#### A note on JSX
+### A note on JSX
 
 JSX here is just shorthand for:
 
