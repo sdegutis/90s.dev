@@ -17,7 +17,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
         <nav>
 
-          <a id='sitelogo' href='/'>90s.dev</a>
+          <a class='sitelogo' href='/'>90s.dev</a>
 
           <h3>Guides</h3>
           <ul>
@@ -47,7 +47,10 @@ export function mainPage(current: string, posts: { path: string, title: string }
         </nav>
 
         <main>
-          <span id='togglemenu'>☰</span>
+          <header id='togglemenu'>
+            <a class='sitelogo' href='/'>90s.dev</a>
+            <span>☰</span>
+          </header>
 
           {content}
 

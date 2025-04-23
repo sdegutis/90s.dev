@@ -145,37 +145,48 @@ html {
   position: fixed;
   top: 0;
   right: 0;
-  border-radius: 3px;
-  cursor: pointer;
   margin: 7px;
-  padding: 3px 7px;
-  background-color: #111;
-  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  
+  > a {
+    font-size: unset;
+    /* color: inherit; */
+  }
+
+  > * {
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 3px 7px;
+    background-color: #111;
+    user-select: none;
+  }
 
   @media (width >= 600px) {
     display: none;
   }
 }
 
+.sitelogo {
+  text-decoration: none;
+
+  font-family: "Silkscreen", sans-serif;
+  font-size: 200%;
+  text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
+  color: #ff09;
+
+  transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
+
+  &:hover {
+    color: #ff9;
+    text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+    text-decoration: none;
+  }
+}
+
 /* navbar */
 body > nav {
-  #sitelogo {
-    text-decoration: none;
-
-    font-family: "Silkscreen", sans-serif;
-    font-size: 200%;
-    text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
-    color: #ff09;
-
-    transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
-
-    &:hover {
-      color: #ff9;
-      text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
-      text-decoration: none;
-    }
-  }
-
   > h3 {
     font-size: inherit;
     font-weight: bold;
@@ -253,6 +264,8 @@ pre:has(> code) {
 iframe.embedded {
   background-color: #0003;
   border: none;
+
+  width: 100%;
 }
 
 main > .note {

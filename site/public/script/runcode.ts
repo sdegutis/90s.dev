@@ -3,7 +3,7 @@ import { makeMonacoFancier } from './token-provider.js'
 
 const nav = document.querySelector('body > nav') as HTMLElement
 
-document.querySelector<HTMLElement>('#togglemenu')?.addEventListener('mousedown', () => {
+document.querySelector<HTMLElement>('#togglemenu>span')?.addEventListener('mousedown', () => {
   nav.classList.toggle('shown')
 })
 
