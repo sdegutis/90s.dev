@@ -44,19 +44,14 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
 
   const preblock = runcode.querySelector('pre') as HTMLPreElement
   const codeblock = runcode.querySelector('pre>code') as HTMLElement
-
-  const container = codeblock as HTMLElement
-  const initial = codeblock.textContent!
-
   const iframe = runcode.querySelector('iframe')!
-  const rect = container.getBoundingClientRect()
 
-  container.replaceChildren()
+  const initial = codeblock.textContent!
 
   const uri = monaco.Uri.parse(`file:///sample${modelnum}.tsx`)
   const model = monaco.editor.createModel(initial.trimEnd(), 'typescript', uri)
 
-  const editor = monaco.editor.create(container, {
+  const editor = monaco.editor.create(preblock, {
     model,
     language: 'typescript',
     theme: 'vsc2',
@@ -83,10 +78,16 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
     },
   })
 
-  editor.layout({
-    height: rect.height,
-    width: preblock.clientWidth - 24,
-  })
+  const resize = () => {
+    const rect = codeblock.getBoundingClientRect()
+    if (autosize) rect.height = editor.getContentHeight()
+    editor.layout(rect)
+  }
+
+  resize()
+
+  new ResizeObserver(resize).observe(preblock)
+
 
   const url = new URL(oshost)
   url.searchParams.set('embed', '1')
@@ -98,12 +99,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   }
 
   if (autosize) {
-    model.onDidChangeContent(() => {
-      editor.layout({
-        width: preblock.clientWidth - 24,
-        height: editor.getContentHeight(),
-      })
-    })
+    model.onDidChangeContent(resize)
   }
 
   updateIframe()
