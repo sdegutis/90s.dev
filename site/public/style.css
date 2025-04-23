@@ -198,9 +198,21 @@ html {
   }
 }
 
+:focus {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
 :target:focus {
-  background-color: #fff1;
   outline: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -12px -24px;
+    background-color: #fff1;
+    z-index: 1;
+  }
 }
 
 :has(>.header-anchor) {
