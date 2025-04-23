@@ -87,7 +87,8 @@ import { composites } from '/api.js'
 function jsx(tag, data) {
   if (isConstructable(tag))  return new tag(data)
   else if (isFunction(tag))  return tag(data)
-  else                       return composites[tag](data)
+  else if (isString(tag))    return composites[tag](data)
+  else                       throw Error('...')
 }
 ```
 
