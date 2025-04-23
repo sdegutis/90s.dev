@@ -29,7 +29,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <li><A current={current} href='/guides/views.html'>Views</A></li>
           </ul>
 
-          <h3>Blog</h3>
+          <h3>News</h3>
           <ul>
             {posts.map(({ path, title }) => {
               return <li><A current={current} href={path}>{title}</A></li>
