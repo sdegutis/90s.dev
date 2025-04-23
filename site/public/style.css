@@ -79,7 +79,7 @@ html {
 
       > :not(.fullrow) {
         grid-column: 1;
-        overflow: auto;
+        overflow: hidden;
       }
 
       > .fullrow {
@@ -263,7 +263,7 @@ pre:has(> code) {
   font-size: 80%;
   background-color: #0005;
   /* color: #cbb284; */
-  padding: 4px;
+  padding: 7px 4px 4px;
   border-radius: 3px;
 }
 
@@ -275,6 +275,7 @@ iframe.embedded {
 }
 
 main > .note {
+  margin: 12px 0;
   background-color: #0a375a77;
   padding: 24px;
   border-left: 3px solid #1971b477;
