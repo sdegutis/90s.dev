@@ -252,23 +252,6 @@ iframe.embedded {
   border: none;
 }
 
-main > :not(.fullrow) {
-  /* max-width: 600px; */
-}
-
-main > .fullrow {
-  /* display: flex;
-  flex-wrap: wrap; */
-
-  > :first-child {
-    /* flex: 0 1 600px; */
-  }
-
-  > :last-child {
-    /* flex: 1 1 auto; */
-  }
-}
-
 main > .note {
   background-color: #0a375a77;
   padding: 24px;
