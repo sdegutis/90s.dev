@@ -1,7 +1,7 @@
-# Getting Started
+# Getting started
 
 This guide sets up a dev environment for making and testing
-apps in [os.90s.dev](${OSHOST}).
+apps in [os.90s.dev](${OSHOST})
 
 
 ## Hello World
@@ -12,9 +12,9 @@ apps in [os.90s.dev](${OSHOST}).
 
 3. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
-4. Mount `helloworld/app` and click it in the sidebar
+4. Mount `helloworld/app` and navigate to it
 
-5. Click `helloworld.app.js` (it may take a second)
+5. Click `helloworld.app.js` (it may take a sec)
 
 
 ## Your first edit
@@ -25,45 +25,31 @@ apps in [os.90s.dev](${OSHOST}).
 
 3. Click the app again in `filer.app.js`
 
-
-### Going further
-
 The entire core and all system apps are included in
-[helloworld.zip](${OSHOST}/helloworld.zip), so that
-you can fully understand what everything does, learn
-from it, and experiment more easily.
-
-For example, if you wanted to modify the filer,
-you could copy `sys/apps/filer.app.js` into your
-`helloworld/apps/`, modify it, and run that.
+the zip. This way you can see how the system works
+internally, and even fork and modify built-in apps.
 
 
-### Community
+## Next steps
 
-If you make something cool and want to share it:
-
-1. Create an account in [os.90s.dev/#sys/apps/account.app.js](${OSHOST}/#sys/apps/account.app.js)
-
-2. Create a folder under [net/](${OSHOST}/#sys/apps/filer.app.js@net/) with your username
-
-3. Copy your app into that folder
-
-4. Open your app so that the URL becomes a sharable link
-
-5. Share the link with your friends!
-
-See also:
-
-- [Issues](https://github.com/ppl-90s-dev/ppl/issues) for feature requests, bug reports, etc
-
-- [Wiki](https://github.com/ppl-90s-dev/ppl/wiki) for sharing your creations, documenting findings, etc
+Check out the [Hello World guide](/guides/hello-world.html)
+for a full breakdown of the sample code.
 
 
+## Sharing your creations
 
-### Caveats
+Whether you made an app or a library, you can share
+it with other people.
+
+Check out the
+[community links](/guides/sharing-apps.html#community-links)
+to learn more.
+
+
+## Caveats
 
 *Updated 4/22/2025*
 
-1. All runnable files must be named `.tsx` for technical reasons, never `.ts`
+1. All code files must be named `.tsx` for technical reasons, never `.ts` or `.js`
 
 2. If you find any issues, [file them on github](https://github.com/ppl-90s-dev/ppl/issues)

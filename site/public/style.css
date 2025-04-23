@@ -70,7 +70,7 @@ html {
       @media (width >= 1024px) {
         grid-template-columns: minmax(400px, 600px) 1fr;
       }
-      gap: 12px 24px;
+      gap: 24px 24px;
 
       > * {
         margin-bottom: 0;
@@ -187,6 +187,11 @@ html {
     text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
     text-decoration: none;
   }
+}
+
+:target:focus {
+  background-color: #fff1;
+  outline: none;
 }
 
 :has(>.header-anchor) {

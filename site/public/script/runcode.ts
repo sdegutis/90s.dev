@@ -20,7 +20,7 @@ for (const a of document.querySelectorAll('a')) {
 }
 
 for (const a of document.querySelectorAll<HTMLAnchorElement>('nav a')) {
-  a.classList.toggle('current', location.href === a.href)
+  a.classList.toggle('current', location.href.startsWith(a.href))
 }
 
 makeMonacoFancier()
