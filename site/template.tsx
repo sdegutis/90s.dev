@@ -50,7 +50,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
           {content}
 
           <footer>
-            Copyright &copy; {new Date().getFullYear()} &mdash; <a href='mailto:admin@90s.dev'>Email</a>
+            Copyright &copy; {new Date().getFullYear()}. <a href='mailto:admin@90s.dev'>Email</a>
           </footer>
         </main>
 
