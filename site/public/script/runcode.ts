@@ -1,6 +1,18 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
+const nav = document.querySelector('body > nav') as HTMLElement
+
+document.querySelector<HTMLElement>('#togglemenu')?.addEventListener('mousedown', () => {
+  nav.classList.toggle('shown')
+})
+
+nav.addEventListener('mousedown', function (e) {
+  if (this.classList.contains('shown') && this === e.target) {
+    this.classList.remove('shown')
+  }
+})
+
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {
     a.target = '_blank'

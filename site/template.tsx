@@ -47,6 +47,8 @@ export function mainPage(current: string, posts: { path: string, title: string }
         </nav>
 
         <main>
+          <span id='togglemenu'>☰</span>
+
           {content}
 
           <footer>
