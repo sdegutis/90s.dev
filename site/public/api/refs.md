@@ -18,9 +18,9 @@ class Ref<T> {
   equals?: Equals<T> | undefined
 
 
-  // .val
-  get val(): T
-  set val(val: T): void
+  // value of ref
+  get $(): T
+  set $(val: T): void
 
 
   // watch a value for changes when !equals(a,b) ?? !==

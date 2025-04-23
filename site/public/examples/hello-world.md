@@ -8,7 +8,7 @@ import * as api from '/api.js'
 await api.appReady
 
 const $count = api.$(0)
-const inc = () => $count.val++
+const inc = () => $count.$++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
   <api.Center size={api.sys.size} background={0x444444ff}>
@@ -46,7 +46,7 @@ We create a [Ref](/guides/refs.html) and a function to modify it.
 
 ```typescript
 const $count = api.$(0)
-const inc = () => $count.val++
+const inc = () => $count.$++
 ```
 
 The `sys` has a method to create panels, which is async

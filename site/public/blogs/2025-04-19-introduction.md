@@ -7,7 +7,7 @@ WIP
 import * as api from '/api.js'
 
 const $count = api.$(0)
-const inc = () => $count.val++
+const inc = () => $count.$++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
   <api.Center background={0x333333ff} size={api.sys.$size}>
