@@ -79,6 +79,7 @@ html {
 
       > :not(.fullrow) {
         grid-column: 1;
+        overflow: auto;
       }
 
       > .fullrow {
