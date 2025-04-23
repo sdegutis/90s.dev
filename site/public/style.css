@@ -295,7 +295,10 @@ pre:has(> code) {
   padding: 12px;
   border-radius: 7px;
   background-color: #0e1115 !important;
-  overflow: auto;
+  
+  @media (width < 600px) {
+    overflow: auto;
+  }
 
   > code {
     display: block;
