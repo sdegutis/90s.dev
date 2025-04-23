@@ -20,10 +20,6 @@ html {
       width: 256px;
     }
 
-    /* &:has(>nav.shown) > main {
-      pointer-events: none;
-    } */
-
     @media (width < 600px) {
       display: block;
 
@@ -70,7 +66,7 @@ html {
       grid-template-columns: 1fr;
       align-content: start;
       @media (width >= 1024px) {
-        grid-template-columns: minmax(400px, 600px) minmax(200px, 1fr);
+        grid-template-columns: minmax(400px, 600px) 1fr;
       }
       gap: 12px 24px;
 
@@ -81,13 +77,18 @@ html {
         }
       }
 
-      > :not(.fullrow) { grid-column: 1; }
+      > :not(.fullrow) {
+        grid-column: 1;
+      }
 
       > .fullrow {
         display: contents;
         > :first-child { grid-column: 1; }
 
-        > :last-child { width: 100%; }
+        > :last-child {
+          min-width: 200px;
+          width: 100%;
+        }
 
         > :last-child { grid-column: 1; }
         @media (width >= 1024px) {
