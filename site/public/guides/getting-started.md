@@ -1,7 +1,7 @@
 # Getting Started
 
 This guide sets up a dev environment for making and testing
-apps in [os.90s.dev](https://os.90s.dev).
+apps in [os.90s.dev](${OSHOST}).
 
 
 ## Hello World
@@ -10,7 +10,7 @@ apps in [os.90s.dev](https://os.90s.dev).
 
 2. Extract to `helloworld` somewhere
 
-3. Open [os.90s.dev/?app=sys/apps/filer.app.js](https://os.90s.dev/?app=sys/apps/filer.app.js)
+3. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
 4. Mount `helloworld/app` and click it in the sidebar
 
@@ -42,9 +42,9 @@ you could copy `sys/apps/filer.app.js` into your
 
 If you make something cool and want to share it:
 
-1. Create an account in [os.90s.dev/?app=sys/apps/account.app.js](https://os.90s.dev/?app=sys/apps/account.app.js)
+1. Create an account in [os.90s.dev/#sys/apps/account.app.js](${OSHOST}/#sys/apps/account.app.js)
 
-2. Create a folder under [net/](https://os.90s.dev/?app=sys/apps/filer.app.js&file=net/) with your username
+2. Create a folder under [net/](${OSHOST}/#sys/apps/filer.app.js@net/) with your username
 
 3. Copy your app into that folder
 
