@@ -1,12 +1,6 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
-{
-  const footer = document.querySelector('main>footer')!
-  const year = new Date().getFullYear().toString()
-  footer.textContent = footer.textContent!.replace(/20\d{2}/, year)
-}
-
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {
     a.target = '_blank'
