@@ -11,7 +11,7 @@ const $count = api.$(0)
 const inc = () => $count.$++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
-  <api.Center size={api.sys.size} background={0x444444ff}>
+  <api.Center size={api.sys.$size} background={0x444444ff}>
     <api.GroupY gap={4}>
       <api.Label text='hello world!' />
       <api.GroupX gap={2}>

@@ -20,7 +20,7 @@ const $itemViews = $items.adapt<api.View[]>(items => {
 }, api.arrayEquals)
 
 const panel = await api.sys.makePanel({ name: "todo" },
-  <panel size={api.sys.size}>
+  <panel size={api.sys.$size}>
     <api.PanedYA gap={2}>
       <api.GroupX gap={2}>
         <button action={clear}>clear</button>
