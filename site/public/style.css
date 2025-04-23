@@ -144,7 +144,7 @@ html {
 }
 
 #togglemenu {
-  z-index: 1;
+  z-index: 99;
   position: fixed;
   inset: 0 0 auto 0;
   margin: 0;
