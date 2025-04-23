@@ -1,7 +1,7 @@
 # Getting started
 
-This guide sets up a dev environment for making and testing
-apps in [os.90s.dev](${OSHOST})
+This guide sets up a dev environment for
+apps and libraries in [os.90s.dev](${OSHOST})
 
 
 ## Hello World
@@ -52,4 +52,4 @@ to learn more.
 
 1. All code files must be named `.tsx` for technical reasons, never `.ts` or `.js`
 
-2. If you find any issues, [file them on github](https://github.com/ppl-90s-dev/ppl/issues)
+If you find any issues, [file them on github](https://github.com/ppl-90s-dev/ppl/issues)
