@@ -20,9 +20,9 @@ html {
       width: 256px;
     }
 
-    &:has(>nav.shown) > main {
+    /* &:has(>nav.shown) > main {
       pointer-events: none;
-    }
+    } */
 
     @media (width < 600px) {
       display: block;
@@ -33,22 +33,25 @@ html {
         overflow: auto;
         z-index: 12;
 
-        transition: transform 120ms ease-in-out;
+        transition: margin-left 120ms ease-in-out;
         &:not(.shown) {
-          transform: translateX(-256px);
+          margin-left: -256px;
         }
 
-        &::after{
-          transition: background-color 120ms ease-in-out;
-        }
-
-        &.shown::after {
+        &::after {
+          transition: all 120ms ease-in-out;
           content: '';
           position: fixed;
           z-index: -1;
           inset: 0;
           background-color: #0007;
-          /* border: 1px solid red; */
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &.shown::after {
+          opacity: 1;
+          pointer-events: unset;
         }
       }
     }
@@ -112,7 +115,7 @@ html {
 
 /* style */
 html {
-  background-color: #000;
+  background-color: #12171e;
   color: #ccc;
   font-family: "Oxanium", sans-serif;
 
