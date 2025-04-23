@@ -31,7 +31,12 @@ html {
       }
       gap: 12px 24px;
 
-      > * { margin-bottom: 0; }
+      > * {
+        margin-bottom: 0;
+        &:not(:is(h1,h2,h3,h4)) {
+          margin-top: 0;
+        }
+      }
 
       > :not(.fullrow) { grid-column: 1; }
 
@@ -58,7 +63,7 @@ html {
   }
 
   :is(h1, h2, h3, h4) {
-    margin-top: 48px;
+    margin-top: 36px;
     margin-bottom: 12px;
     font-family: "Gemunu Libre", sans-serif;
   }
