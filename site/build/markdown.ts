@@ -5,12 +5,7 @@ import containers from 'markdown-it-container'
 export const md = new MarkdownIt({ html: true, })
 
 anchors(md, {
-  permalink: anchors.permalink.ariaHidden({
-    // style: 'visually-hidden',
-    // assistiveText: title => `link to ${title}`,
-    // visuallyHiddenClass: 'hi',
-
-  })
+  permalink: anchors.permalink.ariaHidden({}),
 })
 
 containers(md, 'note', {})
