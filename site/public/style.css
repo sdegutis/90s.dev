@@ -43,6 +43,7 @@ html {
   :is(h1, h2, h3, h4) {
     margin-top: 48px;
     margin-bottom: 12px;
+    font-family: "Gemunu Libre", sans-serif;
   }
 
 }
@@ -161,9 +162,9 @@ pre:has(>code) {
   font-family: inherit;
   /* font-size: 80%; */
   background-color: #0003;
-  color: #be8cb7;
+  color: #7f7f7f;
   padding: 4px;
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 iframe.embedded {
