@@ -367,6 +367,10 @@ section.features {
   background-color: #0003;
   border-radius: 7px;
 
+  .header-anchor {
+    display: none;
+  }
+
   ul {
     padding-left: 0;
     list-style-type: none;
