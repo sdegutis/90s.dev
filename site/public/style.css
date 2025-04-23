@@ -200,7 +200,7 @@ html {
   }
 }
 
-:focus {
+:focus-visible {
   outline: 1px solid currentColor;
   outline-offset: 3px;
 }
