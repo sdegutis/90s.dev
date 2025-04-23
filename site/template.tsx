@@ -21,6 +21,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <h3>Guides</h3>
           <ul>
+            <li><A current={current} href='/guides/about.html'>What is 90s.dev?</A></li>
             <li><A current={current} href='/guides/getting-started.html'>Getting started</A></li>
             <li><A current={current} href='/guides/hello-world.html'>Hello world</A></li>
             <li><A current={current} href='/guides/sharing-apps.html'>Sharing your work</A></li>

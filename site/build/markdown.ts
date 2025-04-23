@@ -10,8 +10,15 @@ anchors(md, {
   permalink: anchors.permalink.ariaHidden({}),
 })
 
-containers(md, 'note', {})
-containers(md, 'features', {})
+containers(md, 'section', {
+  render: (tokens, i) => {
+    const tok = tokens[i]
+    const classes = tok.info.match(/^ *section *(.+)$/)?.[1]
+    return tok.nesting === 1
+      ? `<section class='${classes}'>\n`
+      : `</section>\n`
+  }
+})
 
 containers(md, 'runcode', {
   render: (tokens, i) => {
