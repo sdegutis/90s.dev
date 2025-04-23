@@ -79,6 +79,15 @@ html {
         }
       }
 
+      > :is(ul,ol) {
+        display: grid;
+        gap: 12px;
+
+        > li > p {
+          margin: 0;
+        }
+      }
+
       > :not(.fullrow) {
         grid-column: 1;
         overflow: hidden;

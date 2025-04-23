@@ -1,4 +1,4 @@
-# Sharing apps
+# Sharing your work
 
 The purpose of [os.90s.dev](${OSHOST}) is to be a
 collaborative dev environment. Which means you'll

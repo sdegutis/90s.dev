@@ -42,7 +42,7 @@ Whether you made an app or a library, you can share
 it with other people.
 
 Check out the
-[community links](/guides/sharing-apps.html#community-links)
+[Sharing your work](/guides/sharing-apps.html)
 to learn more.
 
 
