@@ -2,7 +2,9 @@ import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
 
-export const md = new MarkdownIt({ html: true, })
+export const md = new MarkdownIt({
+  html: true,
+})
 
 anchors(md, {
   permalink: anchors.permalink.ariaHidden({}),

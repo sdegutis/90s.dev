@@ -28,11 +28,6 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <li><A current={current} href='/guides/views.html'>Views</A></li>
           </ul>
 
-          <h3>Examples</h3>
-          <ul>
-            <li><A current={current} href='/examples/todo-list.html'>Todo List</A></li>
-          </ul>
-
           <h3>Blog</h3>
           <ul>
             {posts.map(({ path, title }) => {
