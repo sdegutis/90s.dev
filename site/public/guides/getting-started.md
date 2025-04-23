@@ -43,9 +43,8 @@ for a full breakdown of the sample code.
 Whether you made an app or a library, you can share
 it with other people.
 
-Check out the
-[Sharing your work](/guides/sharing-apps.html)
-to learn more.
+Check out the [Sharing your work](/guides/sharing-apps.html)
+guide to learn more.
 
 
 ## Caveats
