@@ -333,6 +333,7 @@ section.homebuttons ul {
   gap: 24px;
   li { display: contents; }
   align-items: center;
+  justify-content: space-evenly;
   a {
     background-color: #fff1;
     padding: 7px 12px;
@@ -365,18 +366,28 @@ section.note {
 section.features {
   background-color: #0003;
   border-radius: 7px;
-  padding: 7px;
 
-  thead {
-    display: none;
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin: 24px;
+    display: grid;
+    gap: 24px;
   }
 
-  td {
-    padding: 12px 7px;
+  li {
+    > * { margin:0 }
 
-    p {
-      margin: 0;
-      opacity: 0.75;
-    }
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    gap: 3px 12px;
+    grid-template-areas:
+      'a b'
+      'a c';
+
+    > :nth-child(1) { grid-area: a; }
+    > :nth-child(2) { grid-area: b; }
+    > :nth-child(3) { grid-area: c; }
   }
 }

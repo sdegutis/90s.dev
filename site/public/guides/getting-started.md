@@ -6,31 +6,33 @@ apps and libraries in [os.90s.dev](${OSHOST})
 
 ## Hello World
 
-1. Download [helloworld.zip](${OSHOST}/helloworld.zip)
+To getting a "hello world" sample app working:
 
-2. Extract to `helloworld` somewhere
+1. Download [helloworld.zip](${OSHOST}/helloworld.zip) and extract it
 
-3. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
+2. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
-4. Mount `helloworld/app` and navigate to it
+3. Mount `helloworld/app` and navigate to it
 
-5. Click `helloworld.app.js` (it may take a sec)
+4. Click `helloworld.app.js` (it may take a sec)
 
+To see the development cycle in action:
 
-## Your first edit
+5. Open `helloworld` in your favorite IDE
 
-1. Open `helloworld` in your favorite IDE
+6. Change some text or something
 
-2. Change some text or something
+7. Click the app again in `filer.app.js`
 
-3. Click the app again in `filer.app.js`
+Congratulations, your hello world app works!
+
+(If it doesn't, please [file a bug](https://github.com/ppl-90s-dev/ppl/issues).)
+
+## Next steps
 
 The entire core and all system apps are included in
 the zip. This way you can see how the system works
 internally, and even fork and modify built-in apps.
-
-
-## Next steps
 
 Check out the [Hello World guide](/guides/hello-world.html)
 for a full breakdown of the sample code.

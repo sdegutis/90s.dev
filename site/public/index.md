@@ -1,17 +1,23 @@
 # Welcome to 90s.dev
 
 ::: section homesubtitle
-Retrofuturistic  
-Collaborative  
-Game-maker maker
+The Retrofuturistic, Collaborative, Meta Game-maker
 :::
 
 ::: section features
-| | | |
-|-|-|-|
-|🧪|**Retrofuturistic**<p>Innovative tech on the inside, pixel art aesthetics on the outside.|
-|🤝|**Collaborative**<p>Multiuser dev environment that lets us build one big app together.|
-|🔨|**Game-maker maker**<p>Together, we shall make the best pixel art game maker conceivable.|
+
+- 🧪
+  ### Retrofuturistic
+  Innovative tech on the inside, pixel art aesthetics on the outside.
+
+- 🤝
+  ### Collaborative
+  Multiuser dev environment that lets us build one big app together.
+
+- 🔨
+  ### Meta Game-maker
+  Together, we shall make the best pixel art game maker conceivable.
+
 :::
 
 ::: section homebuttons
