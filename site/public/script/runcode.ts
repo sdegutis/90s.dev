@@ -1,6 +1,8 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
+const oshost = await fetch('/os.txt').then(r => r.text())
+
 const nav = document.querySelector('body > nav') as HTMLElement
 
 document.querySelector<HTMLElement>('#togglemenu>span')?.addEventListener('mousedown', () => {
@@ -15,7 +17,27 @@ nav.addEventListener('mousedown', function (e) {
 
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {
-    a.target = '_blank'
+    if (a.href.startsWith(oshost + '/#')) {
+      a.onclick = (e) => {
+        if (e.ctrlKey) return
+        e.preventDefault()
+
+        if (a.nextElementSibling?.tagName === 'IFRAME') {
+          a.nextElementSibling.remove()
+          return
+        }
+
+        const iframe = document.createElement('iframe')
+        iframe.className = 'embedded'
+        iframe.width = '640'
+        iframe.height = '360'
+        iframe.src = a.href
+        a.insertAdjacentElement('afterend', iframe)
+      }
+    }
+    else {
+      a.target = '_blank'
+    }
   }
 }
 
@@ -25,7 +47,9 @@ for (const a of document.querySelectorAll<HTMLAnchorElement>('nav a')) {
 
 makeMonacoFancier()
 
-const oshost = await fetch('/os.txt').then(r => r.text())
+
+// <iframe class="embedded" width="640" height="360" src="http://localhost:8080/#sys/apps/filer.app.js"></iframe>
+
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
 
 const ts = monaco.languages.typescript

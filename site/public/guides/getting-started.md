@@ -12,11 +12,6 @@ To getting a "hello world" sample app working:
 
 2. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
-   Or just open it here:
-
-   <iframe class="embedded" width="640" height="360" src="http://localhost:8080/?kiosk=1#sys/apps/filer.app.js"></iframe>
-
-
 3. Mount `helloworld/app` as `app` and click it
 
 4. Click `helloworld.app.js` (it may take a sec)
