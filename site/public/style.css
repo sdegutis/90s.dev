@@ -192,7 +192,7 @@ html {
   text-decoration: none;
 
   font-family: "Silkscreen", sans-serif;
-  text-shadow: -4px -2px 0px #00fc, 4px 2px 0px #900c;
+  text-shadow: -1px -0px 0px #00fc, 1px 0px 0px #900c;
   color: #ff09;
 
   transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
@@ -398,4 +398,19 @@ section.features {
     > :nth-child(2) { grid-area: b; }
     > :nth-child(3) { grid-area: c; }
   }
+}
+
+blockquote {
+  border-left: 3px solid currentColor;
+  margin: 0;
+  margin-left: -12px;
+  padding-left: 9px;
+
+  color: #8f5b70;
+  font-family: "Martel";
+  font-size: 90%;
+
+  display: grid;
+  gap: 12px;
+  > * { margin: 0; }
 }

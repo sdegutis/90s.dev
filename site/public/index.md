@@ -21,6 +21,6 @@ The Retrofuturistic, Collaborative, Meta Game-maker
 :::
 
 ::: section homebuttons
-- [What is 90s.dev?](/guides/about.html)
+- [What is 90s.dev?](/guides/what-is-90s-dev.html)
 - [Getting started](/guides/getting-started.html)
 :::

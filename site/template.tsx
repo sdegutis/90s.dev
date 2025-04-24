@@ -10,7 +10,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
         <title>90s.dev</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Martel:wght@200;300;400;600;700;800;900&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
         <script type="module" src="/script/runcode.js"></script>
       </head>
       <body>
@@ -21,7 +21,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <h3>Guides</h3>
           <ul>
-            <li><A current={current} href='/guides/about.html'>What is 90s.dev?</A></li>
+            <li><A current={current} href='/guides/what-is-90s-dev.html'>What is 90s.dev?</A></li>
             <li><A current={current} href='/guides/getting-started.html'>Getting started</A></li>
             <li><A current={current} href='/guides/hello-world.html'>Hello world</A></li>
             <li><A current={current} href='/guides/sharing-apps.html'>Sharing your work</A></li>
