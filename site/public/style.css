@@ -80,12 +80,12 @@ html {
       }
 
       > :is(ul,ol) {
-        display: grid;
+        /* display: grid;
         gap: 12px;
 
         > li > p {
           margin: 0;
-        }
+        } */
       }
 
       > :not(.fullrow) {
@@ -320,11 +320,9 @@ pre:has(> code) {
   border-radius: 3px;
 }
 
-iframe.embedded {
+iframe {
   background-color: #0003;
   border: none;
-
-  width: 100%;
 }
 
 section.homebuttons ul {
