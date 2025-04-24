@@ -2,6 +2,10 @@
 html {
   * { box-sizing: border-box; }
 
+  @starting-style {
+    scroll-behavior: auto;
+  }
+
   scroll-behavior: smooth;
 
   margin: 0;
@@ -244,7 +248,7 @@ html {
 /* navbar */
 body > nav {
   .sitelogo {
-    font-size: 150%;
+    font-size: 200%;
   }
 
   > h3 {
