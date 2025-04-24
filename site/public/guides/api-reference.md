@@ -1,7 +1,6 @@
 # API Reference
 
-This page gives an overview of all the classes and types exported
-from `/api.js`
+This page gives a birds eye overview of all the exports from `/api.js`
 
 To learn more about a given export, including its methods and properties:
 
@@ -17,7 +16,7 @@ For making syscalls to the host.
 ```
 const sys      // represents the host
 const program  // represents the process
-const Panel    // represents a panel
+class Panel    // represents a panel
 ```
 
 
@@ -111,9 +110,15 @@ class JSLN  // like JSON but much more convenient
 ```
 
 ## Composites
+
+See [Understanding Composites](/understanding-composites.html) to learn more.
+
 ```
 // record of all composites
 const composites
+
+// concrete default composites are as follows
+// (but they're usually not directly useful)
 
 function ButtonComp         // default comp for <button>
 function PanelBodyComp      // default comp for <panel-body>
@@ -152,22 +157,22 @@ type ServerPanel
 type ClientPanel
 ```
 
-## net.90s.dev
-
-```
-// wraps fetch scoped to net.90s.dev with credentials
-function GET
-function POST
-
-// represents current state of account
-const $userState
-```
-
-
 ## Timing helpers
 ```
 function sleep
 function ontick
 function debounce
-// function throttle // haven't needed to write this yet
+// function throttle // haven't needed to write this yet lol
+```
+
+## net.90s.dev
+
+```
+// represents current state of account
+const $userState
+
+// wraps fetch scoped to net.90s.dev with credentials
+// used internally by `net/` implementation
+function GET
+function POST
 ```

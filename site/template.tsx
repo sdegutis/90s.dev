@@ -21,14 +21,14 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <a class='sitelogo' href='/'>90s.dev</a>
 
-          <h3>Guides</h3>
+          <h3>About</h3>
           <ul>
             <li><A current={current} href='/what-is-90s-dev.html'>What is 90s.dev?</A></li>
             <li><A current={current} href='/getting-started.html'>Getting started</A></li>
-            <li><A current={current} href='/hello-world.html'>Hello world</A></li>
+            <li><A current={current} href='/hello-world.html'>Hello world walkthrough</A></li>
           </ul>
 
-          <h3>References</h3>
+          <h3>Guides</h3>
           <ul>
             <li><A current={current} href='/api-reference.html'>API Reference</A></li>
             <li><A current={current} href='/understanding-views.html'>Views</A></li>
