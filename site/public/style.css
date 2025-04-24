@@ -198,7 +198,7 @@ html {
   transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
 
   &:hover {
-    color: #ff9;
+    /* color: #ff9; */
     text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
     text-decoration: none;
   }
