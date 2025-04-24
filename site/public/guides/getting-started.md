@@ -42,12 +42,3 @@ it with other people.
 Check out the [publishing apps](/publishing-apps.html)
 and [publishing libraries](/publishing-libs.html)
 guides to learn more.
-
-
-## Caveats
-
-*Updated 4/22/2025*
-
-1. All JS files must be named `.tsx` for technical reasons, never `.ts`, `.js`, or `.jsx`
-
-If you find any issues, [file them on github](https://github.com/ppl-90s-dev/ppl/issues)
