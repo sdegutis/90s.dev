@@ -158,6 +158,9 @@ html {
       > footer {
         font-size: 80%;
         color: color(from currentColor srgb r g b / 0.5);
+        > a {
+          color: inherit;
+        }
       }
     }
 
