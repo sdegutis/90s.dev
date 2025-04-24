@@ -35,7 +35,7 @@ The entire core and all system apps are included in
 the zip. This way you can see how the system works
 internally, and even fork and modify built-in apps.
 
-Check out the [Hello World guide](/guides/hello-world.html)
+Check out the [Hello World guide](/hello-world.html)
 for a full breakdown of the sample code.
 
 
@@ -44,8 +44,9 @@ for a full breakdown of the sample code.
 Whether you made an app or a library, you can share
 it with other people.
 
-Check out the [Sharing your work](/guides/sharing-apps.html)
-guide to learn more.
+Check out the [publishing apps](/publishing-apps.html)
+and [publishing libraries](/publishing-libs.html)
+guides to learn more.
 
 
 ## Caveats

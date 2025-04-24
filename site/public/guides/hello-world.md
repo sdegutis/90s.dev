@@ -42,7 +42,7 @@ So we wait for them to finish.
 await api.appReady
 ```
 
-We create a [Ref](/guides/refs.html) and a function to modify it.
+We create a [Ref](/understanding-refs.html) and a function to modify it.
 
 ```typescript
 const $count = api.$(0)
@@ -61,7 +61,7 @@ Panels only require a name and a root view, so they can draw
 something on screen, and so the shell has a somewhat unique
 string to manage them by.
 
-[Shells](/guides/shells.html) are just user-land programs
+[Shells](/writing-shells.html) are just user-land programs
 which typically watch the `panelevents` broadcast channel
 and manage the size, position, and visibility of panels.
 
@@ -96,7 +96,7 @@ Unlike the classical web browser model, views are just instances
 of `View` or a subclass, and devs can create subclasses directly.
 Functions must ultimately return a view.
 
-JSX strings are here used for [Composites](/guides/composites.html),
+JSX strings are here used for [Composites](/using-composites.html),
 which is a technique for styling and restructuring views and overriding
 their functionality, as a modern alternative to older, classical models
 such as HTML, CSS, web-components, and React.js.
