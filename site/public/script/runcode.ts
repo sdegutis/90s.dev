@@ -22,8 +22,9 @@ for (const a of document.querySelectorAll('a')) {
         if (e.ctrlKey) return
         e.preventDefault()
 
-        if (a.nextElementSibling?.tagName === 'IFRAME') {
-          a.nextElementSibling.remove()
+        const maybe = a.parentElement?.nextElementSibling
+        if (maybe?.tagName === 'IFRAME') {
+          maybe.remove()
           return
         }
 
@@ -32,7 +33,7 @@ for (const a of document.querySelectorAll('a')) {
         iframe.width = '640'
         iframe.height = '360'
         iframe.src = a.href
-        a.insertAdjacentElement('afterend', iframe)
+        a.parentElement?.insertAdjacentElement('afterend', iframe)
       }
     }
     else {
