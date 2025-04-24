@@ -21,12 +21,31 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <h3>Guides</h3>
           <ul>
-            <li><A current={current} href='/guides/what-is-90s-dev.html'>What is 90s.dev?</A></li>
-            <li><A current={current} href='/guides/getting-started.html'>Getting started</A></li>
-            <li><A current={current} href='/guides/hello-world.html'>Hello world</A></li>
-            <li><A current={current} href='/guides/sharing-apps.html'>Sharing your work</A></li>
-            <li><A current={current} href='/guides/refs.html'>Refs</A></li>
-            <li><A current={current} href='/guides/views.html'>Views</A></li>
+            <li><A current={current} href='/what-is-90s-dev.html'>What is 90s.dev?</A></li>
+            <li><A current={current} href='/getting-started.html'>Getting started</A></li>
+            <li><A current={current} href='/hello-world.html'>Hello world</A></li>
+            <li><A current={current} href='/understanding-refs.html'>Understanding Refs</A></li>
+            <li><A current={current} href='/understanding-fs.html'>Understanding FS</A></li>
+          </ul>
+
+          <h3>References</h3>
+          <ul>
+            <li><A current={current} href='/api-reference.html'>API Reference</A></li>
+            <li><A current={current} href='/views.html'>Views</A></li>
+          </ul>
+
+          <h3>Collaboration</h3>
+          <ul>
+            <li><A current={current} href='/creating-an-account.html'>Creating an account</A></li>
+            <li><A current={current} href='/publishing-apps.html'>Publishing apps</A></li>
+            <li><A current={current} href='/publishing-libs.html'>Publishing libraries</A></li>
+          </ul>
+
+          <h3>Links</h3>
+          <ul>
+            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</A></li>
+            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</A></li>
+            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</A></li>
           </ul>
 
           <h3>News</h3>

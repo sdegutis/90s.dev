@@ -6,13 +6,13 @@ import { md } from "./markdown.ts"
 import { monaco } from './monaco.ts'
 
 let reloader = ''
-// if (process.argv[2] === 'dev') reloader = `
-// <script type="module">
-// const es = new EventSource('/reload')
-// es.onmessage = () => location.reload()
-// window.onbeforeunload = () => es.close()
-// </script>
-// `
+if (process.argv[2] === 'dev') reloader = `
+<script type="module">
+const es = new EventSource('/reload')
+es.onmessage = () => location.reload()
+window.onbeforeunload = () => es.close()
+</script>
+`
 
 export async function processSite(tree: LiveTree) {
   return tree.processFiles(files => {
@@ -30,6 +30,10 @@ export async function processSite(tree: LiveTree) {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       f.text = reloader + mainPage(f.path, blogs, md.render(f.text))
+    })
+
+    files.with('^/guides/').do(f => {
+      f.path = f.path.slice('/guides'.length)
     })
 
     files.with(/\.tsx?$/).do(f => {
