@@ -26,14 +26,14 @@ export async function processSite(tree: LiveTree) {
       return { path, title }
     })
 
+    files.with('^/guides/').do(f => {
+      f.path = f.path.slice('/guides'.length)
+    })
+
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       f.text = reloader + mainPage(f.path, blogs, md.render(f.text))
-    })
-
-    files.with('^/guides/').do(f => {
-      f.path = f.path.slice('/guides'.length)
     })
 
     files.with(/\.tsx?$/).do(f => {
