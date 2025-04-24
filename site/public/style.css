@@ -27,6 +27,7 @@ html {
     grid-template-columns: auto 1fr;
 
     > nav {
+      background-color: #12171e;
       width: 256px;
     }
 
@@ -34,6 +35,7 @@ html {
       display: block;
 
       > nav {
+        background-color: #354459;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -148,7 +150,6 @@ html {
     --link-color: #19f;
 
     > nav {
-      background-color: #12171e;
     }
 
     > main {
