@@ -3,7 +3,7 @@ html {
   * { box-sizing: border-box; }
 
   ::selection {
-    background-color: #5a4319;
+    background-color: #5a194e;
   }
 
   @starting-style {
