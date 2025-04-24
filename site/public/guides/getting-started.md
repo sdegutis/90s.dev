@@ -32,13 +32,3 @@ internally, and even fork and modify built-in apps.
 
 Check out the [Hello World guide](/hello-world.html)
 for a full breakdown of the sample code.
-
-
-## Sharing your creations
-
-Whether you made an app or a library, you can share
-it with other people.
-
-Check out the [publishing apps](/publishing-apps.html)
-and [publishing libraries](/publishing-libs.html)
-guides to learn more.
