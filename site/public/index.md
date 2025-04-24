@@ -1,9 +1,5 @@
 # Welcome to 90s.dev
 
-::: section homesubtitle
-The Retrofuturistic, Collaborative, Meta Game-maker
-:::
-
 ::: section features
 
 - 🧪
