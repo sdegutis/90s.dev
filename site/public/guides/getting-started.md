@@ -8,15 +8,13 @@ apps and libraries in [os.90s.dev](${OSHOST})
 
 To getting a "hello world" sample app working:
 
-1. Download [helloworld.zip](${OSHOST}/helloworld.zip) and extract it
+1. Download and extract [helloworld.zip](${OSHOST}/helloworld.zip)
 
 2. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
-3. Mount `helloworld/app` and navigate to it
+3. Mount `helloworld/app` as `app` and click it
 
 4. Click `helloworld.app.js` (it may take a sec)
-
-To see the development cycle in action:
 
 5. Open `helloworld` in your favorite IDE
 
@@ -25,8 +23,6 @@ To see the development cycle in action:
 7. Click the app again in `filer.app.js`
 
 Congratulations, your hello world app works!
-
-(If it doesn't, please [file a bug](https://github.com/ppl-90s-dev/ppl/issues).)
 
 ## Next steps
 
