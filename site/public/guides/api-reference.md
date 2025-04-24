@@ -1,12 +1,173 @@
 # API Reference
 
-## Core
+This page gives an overview of all the classes and types exported
+from `/api.js`
 
-- `Ref`: Dynamic pointer
+To learn more about a given export, including its methods and properties:
 
-- `$`: Convenience for `new Ref(...)`
+* Use auto-complete in VS Code to see its properties and their jsdocs
 
-## IPC/RPC
+* Open the source code, contained in the [helloworld.zip](${OSHOST}/helloworld.zip) file in `sys/api/`
 
-- `BC`: Like `BroadcastChannel` but scoped to current user-agent (e.g. tab).
-  The default event types are `SysEvent`, `KeyEvent`, `ProcEvent`, and `PanelEvent`
+
+## Host Communication
+
+For making syscalls to the host.
+
+```
+const sys      // represents the host
+const program  // represents the process
+const Panel    // represents a panel
+```
+
+
+## Event primitives
+
+Nicer version of `EventTarget` and `RxJS`
+
+```
+class Listener  // event handling primitive
+
+class Ref   // Dynamic pointer
+function $  // short for new Ref(...)
+
+type MaybeRef<T>  // good for apis
+function defRef   // ensures a ref
+
+function makeRef    // creates a property into a ref
+function multiplex  // creates a ref from multiple refs
+
+// helpers for equals
+function arrayEquals
+function pointEquals
+function sizeEquals
+```
+
+## Files
+
+Helpers to access the file system.
+See [Understanding FS](/understanding-fs.html) to learn more.
+
+```
+const fs       // file system singleton
+const pathFns  // path helper functions
+
+function runJsFile // executes code at given fs path
+```
+
+## Views
+
+See [Understanding Views](/understanding-views.html) to learn more.
+
+```
+class View
+class Label
+class Border
+class Button
+class Center
+class Scroll
+class Grid
+class ImageView
+class Spaced{X,Y}
+class Split{X,Y}{A,B}
+class Group{X,Y}{A,B}
+class Paned{X,Y}{A,B}
+class Margin
+class TextBox
+```
+
+## View helpers
+```
+// conveniences for moving/resizing views, panels, or any ref you have
+function dragMove
+function dragResize
+
+function showMenu    // shows a menu within a panel
+function showPrompt  // shows a text prompt within a panel
+function subpanel    // used by showMenu and showPrompt
+```
+
+## Drawing
+```
+class DrawingContext // wraps canvas.context for views
+
+class Bitmap // fundamental sprite class
+class Cursor // wraps a bitmap with a hotspot
+class Font   // very basic pixel fonts
+```
+
+## Config helpers
+```
+const $usrConfig // live representation of `usr/config.jsln`
+const sysConfig  // overridable config used by the host
+
+const appReady // called when preludes finish
+
+const preferences // for storing settings/theme-data/etc
+
+function as // safely get a value from an object if its a given type
+
+class JSLN  // like JSON but much more convenient
+```
+
+## Composites
+```
+// record of all composites
+const composites
+
+function ButtonComp         // default comp for <button>
+function PanelBodyComp      // default comp for <panel-body>
+function PanelResizerComp   // default comp for <panel-resizer>
+function PanelTitlebarComp  // default comp for <panel-titlebar>
+function PanelViewComp      // default comp for <panel>
+function ImplicitComp       // default comp for <> and <implicit>
+function TextFieldComp      // default comp for <textfield>
+```
+
+## IndexedDB helpers
+```
+function opendb   // small indexeddb wrapper
+function kvs      // uses opendb as a kv store
+function pobject  // uses opendb to persist an object
+```
+
+## RPC and IPC
+
+Convenience wrappers for syscalls.
+Used internally by `sys`, `program`, and `Panel`.
+
+```
+// like BroadcastChannel but scoped to current user-agent (e.g. tab)
+class BC
+type SysEvent
+type KeyEvent
+type ProcEvent
+type PanelEvent
+
+// wraps ipc with host
+class wRPC
+type ServerProgram
+type ClientProgram
+type ServerPanel
+type ClientPanel
+```
+
+## net.90s.dev
+
+```
+// wraps fetch scoped to net.90s.dev with credentials
+function GET
+function POST
+
+// represents current state of account
+const $userState
+```
+
+
+## Timing helpers
+```
+function sleep
+function ontick
+function debounce
+// function throttle // haven't needed to write this yet
+```
