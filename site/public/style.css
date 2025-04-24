@@ -2,6 +2,10 @@
 html {
   * { box-sizing: border-box; }
 
+  ::selection {
+    background-color: #5a4319;
+  }
+
   @starting-style {
     scroll-behavior: auto;
   }
