@@ -28,6 +28,8 @@ The file system of [os.90s.dev](${OSHOST}) is very simple:
 
 * You can mount local file system drives to given names
 
+  * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
+
 
 ## Sharing files
 
