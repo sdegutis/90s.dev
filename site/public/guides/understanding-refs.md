@@ -1,6 +1,4 @@
-# Refs Guide
-
-See also: [Refs API](/api/refs.html)
+# Understanding Refs
 
 Refs lend themselves extremely well to reactive GUI programming.
 
