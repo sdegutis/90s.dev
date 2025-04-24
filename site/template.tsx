@@ -43,6 +43,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <li><A current={current} href='/creating-an-account.html'>Creating an account</A></li>
             <li><A current={current} href='/publishing-apps.html'>Publishing apps</A></li>
             <li><A current={current} href='/publishing-libs.html'>Publishing libraries</A></li>
+            <li><A current={current} href='/publishing-files.html'>Publishing files</A></li>
           </ul>
 
           <h3>Links</h3>

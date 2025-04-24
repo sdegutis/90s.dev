@@ -34,7 +34,7 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-And it just works.
+And it just works!
 
 
 ## Community links

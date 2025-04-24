@@ -31,7 +31,7 @@ The file system of [os.90s.dev](${OSHOST}) is very simple:
   * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
 
 
-## Sharing files
+## Accessing files in `usr/`
 
 Because `sys/` and `net/` are the same for everyone,
 libraries and apps that make use of these will work

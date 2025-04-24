@@ -32,3 +32,12 @@ internally, and even fork and modify built-in apps.
 
 Check out the [Hello World guide](/hello-world.html)
 for a full breakdown of the sample code.
+
+
+## Sharing your creations
+
+Made something you want to share with the community?
+
+Check out the [publishing apps](/publishing-apps.html)
+and [publishing libraries](/publishing-libs.html)
+guides to learn more.
