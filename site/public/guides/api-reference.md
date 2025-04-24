@@ -22,8 +22,6 @@ class Panel    // represents a panel
 
 ## Event primitives
 
-Nicer version of `EventTarget` and `RxJS`
-
 ```
 class Listener  // event handling primitive
 
@@ -95,20 +93,6 @@ class Cursor // wraps a bitmap with a hotspot
 class Font   // very basic pixel fonts
 ```
 
-## Config helpers
-```
-const $usrConfig // live representation of `usr/config.jsln`
-const sysConfig  // overridable config used by the host
-
-const appReady // called when preludes finish
-
-const preferences // for storing settings/theme-data/etc
-
-function as // safely get a value from an object if its a given type
-
-class JSLN  // like JSON but much more convenient
-```
-
 ## Composites
 
 See [Understanding Composites](/understanding-composites.html) to learn more.
@@ -129,11 +113,33 @@ function ImplicitComp       // default comp for <> and <implicit>
 function TextFieldComp      // default comp for <textfield>
 ```
 
+## Config helpers
+```
+const $usrConfig // live representation of `usr/config.jsln`
+const sysConfig  // overridable config used by the host
+
+const appReady // called when preludes finish
+
+const preferences // for storing settings/theme-data/etc
+
+function as // safely get a value from an object if its a given type
+
+class JSLN  // like JSON but much more convenient
+```
+
 ## IndexedDB helpers
 ```
 function opendb   // small indexeddb wrapper
 function kvs      // uses opendb as a kv store
 function pobject  // uses opendb to persist an object
+```
+
+## Timing helpers
+```
+function sleep
+function ontick
+function debounce
+// function throttle // haven't needed to write this yet lol
 ```
 
 ## RPC and IPC
@@ -155,14 +161,6 @@ type ServerProgram
 type ClientProgram
 type ServerPanel
 type ClientPanel
-```
-
-## Timing helpers
-```
-function sleep
-function ontick
-function debounce
-// function throttle // haven't needed to write this yet lol
 ```
 
 ## net.90s.dev
