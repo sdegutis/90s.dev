@@ -122,8 +122,9 @@ body {
   color: #cbb284;
   font-optical-sizing: auto;
   font-family: "Gemunu Libre", sans-serif;
+  scroll-margin-top: 5px;
   &:target { background-color: #fff1; }
-  @media (width < 1024px) { scroll-margin-top: var(--mobileheader-height); }
+  @media (width < 1024px) { scroll-margin-top: calc(5px + var(--mobileheader-height)); }
 }
 
 .navbar {
@@ -341,4 +342,5 @@ section.homebuttons ul {
 
 :focus {
   outline: 1px solid currentColor;
+  outline-offset: 3px;
 }
