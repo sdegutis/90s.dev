@@ -29,7 +29,9 @@ toc(md, {
 } satisfies Partial<Toc.TocOptions>)
 
 anchors(md, {
-  permalink: anchors.permalink.ariaHidden({}),
+  permalink: anchors.permalink.linkInsideHeader({
+    placement: 'before',
+  }),
 })
 
 containers(md, 'section', {
