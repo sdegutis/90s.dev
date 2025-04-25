@@ -251,9 +251,10 @@ pre:has(>code) {
     left: 1rem;
   }
 
+  .runcode & code { overflow: hidden; }
   &:has(.monaco-editor) {
     overflow: visible;
-    >code { visibility: hidden; overflow: hidden; }
+    >code { visibility: hidden;  }
   }
 
   overflow: auto;
