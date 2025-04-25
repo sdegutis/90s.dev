@@ -1,10 +1,27 @@
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
+import type * as Toc from 'markdown-it-toc-done-right'
+import toc from 'markdown-it-toc-done-right'
 
-export const md = new MarkdownIt({
+let currenttoc: string
+export function render(text: string) {
+  return {
+    html: md.render(text),
+    toc: currenttoc,
+  }
+}
+
+const md = new MarkdownIt({
   html: true,
 })
+
+toc(md, {
+  callback(html, ast) {
+    currenttoc = html
+  },
+  level: 2,
+} satisfies Partial<Toc.TocOptions>)
 
 anchors(md, {
   permalink: anchors.permalink.ariaHidden({}),

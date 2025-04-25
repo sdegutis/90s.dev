@@ -1,6 +1,6 @@
 import { oshost } from "../isdev.ts"
 
-export function mainPage(current: string, posts: { path: string, title: string }[], content: string) {
+export function mainPage(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -68,6 +68,10 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <a class='sitelogo' href='/'>90s.dev</a>
             <span>☰</span>
           </header>
+
+          {/* <section class='note toc'>
+            {toc}
+          </section> */}
 
           {content}
 

@@ -2,7 +2,7 @@ import { LiveTree, Pipeline } from 'immaculata'
 import { oshost } from '../../isdev.ts'
 import { mainPage } from "../template.tsx"
 import { compileTsx } from './compile.ts'
-import { md } from "./markdown.ts"
+import { render } from "./markdown.ts"
 import { monaco } from './monaco.ts'
 
 let reloader = ''
@@ -33,7 +33,8 @@ export async function processSite(tree: LiveTree) {
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
-      f.text = reloader + mainPage(f.path, blogs, md.render(f.text))
+      const result = render(f.text)
+      f.text = reloader + mainPage(f.path, blogs, result.html, result.toc)
     })
 
     files.with(/\.tsx?$/).do(f => {
