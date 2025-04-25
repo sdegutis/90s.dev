@@ -166,7 +166,7 @@ body {
 
 main {
 
-  :is(p, main>iframe, :not(li)>ul,ol, pre>code, h1,h2,h3,h4) {
+  :is(p, main>iframe, :not(li)>ul,ol, h1,h2,h3,h4) {
     margin: 1rem 2rem;
   }
 
@@ -241,7 +241,6 @@ iframe {
 
 
 pre:has(>code) {
-  --code-padding: 12px;
   margin: 1rem 2rem;
   background-color: #0004;
 
@@ -249,7 +248,7 @@ pre:has(>code) {
   .monaco-editor {
     position: absolute;
     top: 1rem;
-    left: 2rem;
+    left: 1rem;
   }
 
   &:has(.monaco-editor) {
@@ -259,6 +258,7 @@ pre:has(>code) {
 
   overflow: auto;
   > code {
+    margin: 1rem;
     display: block;
   }
 }
