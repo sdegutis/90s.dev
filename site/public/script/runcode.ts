@@ -125,7 +125,6 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
 
 
   const url = new URL(oshost)
-  url.searchParams.set('embed', '1')
 
   const updateIframe = async () => {
     const code = model.getValue()
