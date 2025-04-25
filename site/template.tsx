@@ -25,7 +25,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
           <ul>
             <li><A current={current} href='/what-is-90s-dev.html'>What is 90s.dev?</A></li>
             <li><A current={current} href='/getting-started.html'>Getting started</A></li>
-            <li><A current={current} href='/hello-world.html'>Hello world</A></li>
+            <li><A current={current} href='/hello-world.html'>Hello world tour</A></li>
           </ul>
 
           <h3>Guides</h3>

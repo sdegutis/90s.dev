@@ -1,25 +1,25 @@
-# Hello World
+# Hello World tour
 
 The traditional "click me" app:
 
 ::: runcode 120 70 autosize
 ```tsx
-import * as api from '/api.js'
+import api, { $, Center, GroupY, Label, GroupX } from '/api.js'
 await api.appReady
 
-const $count = api.$(0)
+const $count = $(0)
 const inc = () => $count.$++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
-  <api.Center size={api.sys.$size} background={0x444444ff}>
-    <api.GroupY gap={4}>
-      <api.Label text='hello world!' />
-      <api.GroupX gap={2}>
+  <Center size={api.sys.$size} background={0x444444ff}>
+    <GroupY gap={4}>
+      <Label text='hello world!' />
+      <GroupX gap={2}>
         <button style='submit' action={inc}>click me</button>
-        <api.Label text={$count.adapt(n => `clicked ${n} times`)} />
-      </api.GroupX>
-    </api.GroupY>
-  </api.Center>
+        <Label text={$count.adapt(n => `clicked ${n} times`)} />
+      </GroupX>
+    </GroupY>
+  </Center>
 )
 
 panel.focusPanel()
@@ -48,6 +48,26 @@ We create a [Ref](/understanding-refs.html) and a function to modify it.
 const $count = api.$(0)
 const inc = () => $count.$++
 ```
+
+::: section note
+### What's with all the "$" characters?
+
+We named our variable `$count` to note that it's
+a ref. This isn't strictly needed, but many classes
+have both a plain field and a ref version of that
+field (which the field uses internally&mdash;see
+[makeRef](/understanding-refs.html#properties)).
+
+And since refs are so common, the standalone function
+`$` was created as a shorter version of `new Ref(...)`.
+Plus it kind of looks like `&foo` in C and Go.
+
+Finally, the value that the ref holds is *also* named `$`
+because it's short, easy to remember, and *also* kind
+of looks like `foo.&` in Zig.
+
+The main takeaway is that there's nothing special about `$`.
+:::
 
 The `sys` has a method to create panels, which is async
 since apps run inside web workers, which need to communicate
