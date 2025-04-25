@@ -245,7 +245,7 @@ pre:has(>code) {
 
   &:has(.monaco-editor) {
     overflow: visible;
-    >code { visibility: hidden; }
+    >code { visibility: hidden; overflow: hidden; }
   }
 
   overflow: auto;

@@ -125,7 +125,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   })
 
   const resize = () => {
-    codeblock.textContent = model.getValue() + '\n'
+    codeblock.textContent = model.getValue()
     const rect = codeblock.getBoundingClientRect()
 
     const padding = window.getComputedStyle(preblock)
