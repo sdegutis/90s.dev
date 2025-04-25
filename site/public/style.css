@@ -62,6 +62,7 @@ html {
   --nav-bgcolor: #12171e;
   --mobileheader-height: 40px;
   --link-color: #19f;
+  --outline-color: currentColor;
 }
 
 html {
@@ -239,11 +240,10 @@ iframe {
   }
 }
 
-
 pre:has(>code) {
   margin: 1rem 2rem;
   background-color: #0004 !important;
-  color: rgb(141, 73, 210) !important;
+  --outline-color: rgb(141, 73, 210);
 
   position: relative;
   .monaco-editor {
@@ -348,6 +348,6 @@ section.homebuttons ul {
 }
 
 :focus {
-  outline: 1px solid currentColor;
+  outline: 1px solid var(--outline-color);
   outline-offset: 3px;
 }
