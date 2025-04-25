@@ -254,13 +254,11 @@ main {
 }
 
 .runcode {
-  display: contents;
-  @container (width >= 600px) {
-    display: flex;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-  }
-  > pre    { flex: 1 1 0; }
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  > pre { flex: 1 1 0; }
 }
 
 pre:has(> code) {
