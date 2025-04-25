@@ -80,44 +80,6 @@ html {
     }
 
     > main {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-content: start;
-      @media (width >= 1024px) {
-        grid-template-columns: minmax(400px, 600px) 1fr;
-      }
-      gap: 24px 24px;
-
-      > * {
-        margin-bottom: 0;
-        &:not(:is(h1,h2,h3,h4)) {
-          margin-top: 0;
-        }
-      }
-
-      > :not(.fullrow) {
-        grid-column: 1;
-        overflow: hidden;
-      }
-
-      > .fullrow {
-        display: contents;
-        > :first-child { grid-column: 1; }
-
-        > :last-child {
-          min-width: 200px;
-          width: 100%;
-        }
-
-        > :last-child { grid-column: 1; }
-        @media (width >= 1024px) {
-          > :last-child { grid-column: 2; }
-        }
-      }
-
-      > footer {
-        padding: 24px 0;
-      }
     }
 
     > * {
@@ -287,31 +249,35 @@ body > nav {
   }
 }
 
+main {
+  container-type: inline-size;
+}
+
 .runcode {
-  gap: 24px;
-
-  pre {
-    margin: 0;
-
-    > code {
-      width: 100%;
-    }
+  display: contents;
+  @container (width >= 600px) {
+    display: flex;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
   }
+  > pre    { flex: 1 1 0; }
 }
 
 pre:has(> code) {
-  padding: 12px;
+  --code-padding: 12px;
+  padding: var(--code-padding);
   border-radius: 7px;
   background-color: #0e1115 !important;
-  
-  overflow: auto;
+
+  position: relative;
+  .monaco-editor {
+    position: absolute;
+    top: var(--code-padding);
+    left: var(--code-padding);
+  }
 
   > code {
     display: block;
-  }
-
-  &:has(> .monaco-editor) > code {
-    font-size: 0;
   }
 }
 
@@ -326,6 +292,7 @@ pre:has(> code) {
 iframe {
   background-color: #0003;
   border: none;
+  margin: 1em 0;
 }
 
 section.homebuttons ul {
