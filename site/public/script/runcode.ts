@@ -1,7 +1,16 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
-const oshost = await fetch('/os.txt').then(r => r.text())
+checkhash()
+window.addEventListener('hashchange', checkhash)
+
+function checkhash() {
+  for (const a of document.querySelectorAll('a')) {
+    if (a.hash) {
+      a.classList.toggle('current', a.hash === location.hash)
+    }
+  }
+}
 
 for (const button of document.querySelectorAll<HTMLElement>('#mobileheader>span')) {
   const first = button.nextElementSibling
@@ -9,12 +18,13 @@ for (const button of document.querySelectorAll<HTMLElement>('#mobileheader>span'
     document.body.classList.toggle(first ? 'navmenu1' : 'navmenu2')
     setTimeout(() => {
       document.body.addEventListener('click', () => {
-        console.log('hid')
         document.body.classList.remove('navmenu1', 'navmenu2')
       }, { once: true })
     })
   }
 }
+
+const oshost = await fetch('/os.txt').then(r => r.text())
 
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {

@@ -17,10 +17,12 @@ const md = new MarkdownIt({
 })
 
 toc(md, {
-  callback(html, ast) { currenttoc = html },
-  containerClass: '',
+  callback(html, ast) {
+    currenttoc = html.replace('<ol>', '<h3>On this page</h3>$&')
+  },
+  containerClass: 'navbar',
   containerId: 'toc',
-  level: 2,
+  level: 1,
 } satisfies Partial<Toc.TocOptions>)
 
 anchors(md, {

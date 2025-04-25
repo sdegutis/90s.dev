@@ -17,7 +17,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
       </head>
       <body>
 
-        <nav id='nav'>
+        <nav id='nav' class='navbar'>
 
           <a class='sitelogo' href='/'>90s.dev</a>
 

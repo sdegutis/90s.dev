@@ -60,22 +60,44 @@ html {
 }
 
 :root {
-  --navbgcolor: #12171e;
-  --mobileheaderheight: 40px;
+  --nav-bgcolor: #12171e;
+  --mobileheader-height: 40px;
+  --link-color: #19f;
 }
 
-html { background-color: var(--navbgcolor); }
+html {
+  background-color: var(--nav-bgcolor);
+  color: #ccc;
+  font-optical-sizing: auto;
+  font-family: "Oxanium", sans-serif;
+}
+
 body {
-  > :nth-child(1) { background-color: var(--navbgcolor); }
+  > * > * { margin: 0 24px; }
+  > :nth-child(1) { background-color: var(--nav-bgcolor); }
   > :nth-child(2) { background-color: #222; }
-  > :nth-child(3) { background-color: var(--navbgcolor); }
+  > :nth-child(3) { background-color: var(--nav-bgcolor); }
 }
 
+.sitelogo {
+  text-decoration: none;
+
+  font-family: "Silkscreen", sans-serif;
+  text-shadow: -1px -0px 0px #00fc, 1px 0px 0px #900c;
+  color: #cbb284;
+
+  transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
+
+  &:hover {
+    text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+    text-decoration: none;
+  }
+}
 
 #mobileheader {
   position: sticky;
   top: 0;
-  height: var(--mobileheaderheight);
+  height: var(--mobileheader-height);
 
   background-color: inherit;
   box-shadow: 0px 1px 1px #0007;
@@ -90,12 +112,46 @@ body {
 }
 
 :is(h1,h2,h3,h4) {
-  scroll-margin-top: var(--mobileheaderheight);
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin: 12px 0;
+  padding: 12px 24px;
   color: #cbb284;
   font-optical-sizing: auto;
   font-family: "Gemunu Libre", sans-serif;
+  &:is(:target, :focus) { background-color: #fff1; }
+  @media (width < 1024px) { scroll-margin-top: var(--mobileheader-height); }
+}
+
+.navbar {
+  .sitelogo { font-size: 200%; }
+  :is(ul,ol) { list-style-type: none; }
+
+  h3 {
+    font-size: inherit;
+    margin: 12px 0 3px;
+  }
+
+  li { margin: 7px 0; }
+
+  ol ol { margin-left: 12px; }
+
+  li a {
+    font-weight: bold;
+    color: #777;
+    text-decoration: none;
+
+    border-left: 3px solid transparent;
+    margin-left: -3px;
+
+    transition: all 120ms ease-in-out;
+
+    &:is(.current, :hover) {
+      color: var(--link-color);
+      padding: 2px;
+      padding-left: 9px;
+      margin-left: -12px;
+      border-color: currentColor;
+    }
+  }
 }
 
 
@@ -113,15 +169,22 @@ body {
 
 
 pre:has(>code) {
+  --code-padding: 12px;
+  padding: var(--code-padding);
+  border-radius: 7px;
+  background-color: #0e1115 !important;
+
   position: relative;
+  .monaco-editor {
+    position: absolute;
+    top: var(--code-padding);
+    left: var(--code-padding);
+  }
+
   &:has(.monaco-editor)>code {
     visibility: hidden;
   }
-  .monaco-editor {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+
   > code {
     display: block;
     overflow: auto;
