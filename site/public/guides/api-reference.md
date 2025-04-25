@@ -16,17 +16,17 @@ For making syscalls to the host.
 ```tsx
 const sys      // represents the host
 const program  // represents the process
-class Panel    // represents a panel
+class Panel {} // represents a panel
 ```
 
 
 ## Event primitives
 
 ```tsx
-class Listener  // event handling primitive
+class Listener {}  // event handling primitive
 
-class Ref   // Dynamic pointer
-function $  // short for new Ref(...)
+class Ref {}  // Dynamic pointer
+function $    // short for new Ref(...)
 
 type MaybeRef<T>  // good for apis
 function defRef   // ensures a ref
@@ -57,20 +57,20 @@ function runJsFile // executes code at given fs path
 See [Understanding Views](/understanding-views.html) to learn more.
 
 ```tsx
-class View
-class Label
-class Border
-class Button
-class Center
-class Scroll
-class Grid
-class ImageView
-class Spaced{X,Y}
-class Split{X,Y}{A,B}
-class Group{X,Y}{A,B}
-class Paned{X,Y}{A,B}
-class Margin
-class TextBox
+class View {}
+class Label {}
+class Border {}
+class Button {}
+class Center {}
+class Scroll {}
+class Grid {}
+class ImageView {}
+class Spaced{X,Y} {}
+class Split{X,Y}{A,B} {}
+class Group{X,Y}{A,B} {}
+class Paned{X,Y}{A,B} {}
+class Margin {}
+class TextBox {}
 ```
 
 ## View helpers
@@ -86,11 +86,11 @@ function subpanel    // used by showMenu and showPrompt
 
 ## Drawing
 ```tsx
-class DrawingContext // wraps canvas.context for views
+class DrawingContext {} // wraps canvas.context for views
 
-class Bitmap // fundamental sprite class
-class Cursor // wraps a bitmap with a hotspot
-class Font   // very basic pixel fonts
+class Bitmap {} // fundamental sprite class
+class Cursor {} // wraps a bitmap with a hotspot
+class Font   {} // very basic pixel fonts
 ```
 
 ## Composites
@@ -124,7 +124,7 @@ const preferences // for storing settings/theme-data/etc
 
 function as // safely get a value from an object if its a given type
 
-class JSLN  // like JSON but much more convenient
+class JSLN {} // like JSON but much more convenient
 ```
 
 ## IndexedDB helpers
@@ -149,14 +149,14 @@ Used internally by `sys`, `program`, and `Panel`.
 
 ```tsx
 // like BroadcastChannel but scoped to current user-agent (e.g. tab)
-class BC
+class BC {}
 type SysEvent
 type KeyEvent
 type ProcEvent
 type PanelEvent
 
 // wraps ipc with host
-class wRPC
+class wRPC {}
 type ServerProgram
 type ClientProgram
 type ServerPanel
