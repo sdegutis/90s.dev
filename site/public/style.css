@@ -134,6 +134,8 @@ body {
 
   &#nav { padding-top: 1em; }
 
+  &#toc li { margin: 1rem 0; }
+
   > * { margin: 1rem ;}
 
   h3 {
