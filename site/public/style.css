@@ -68,7 +68,7 @@ html {
 }
 
 html {
-  background-color: var(--nav-bgcolor);
+  background-color: #000;
   color: #ccc;
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
@@ -143,7 +143,7 @@ body {
 
   &#toc li { margin: 1rem 0; }
 
-  > * { margin: 1rem ;}
+  > * { margin: 2rem ;}
 
   h3 {
     font-weight: normal;
