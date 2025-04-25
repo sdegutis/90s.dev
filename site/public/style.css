@@ -220,6 +220,7 @@ iframe {
   background-color: #0003;
   border: none;
   max-width: 100%;
+  main>& { max-width: calc(100% - 2 * 2rem); }
 }
 
 
