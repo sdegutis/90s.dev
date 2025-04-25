@@ -3,17 +3,18 @@ import { makeMonacoFancier } from './token-provider.js'
 
 const oshost = await fetch('/os.txt').then(r => r.text())
 
-const nav = document.querySelector('body > nav') as HTMLElement
-
-document.querySelector<HTMLElement>('#togglemenu>span')?.addEventListener('mousedown', () => {
-  nav.classList.toggle('shown')
-})
-
-nav.addEventListener('mousedown', function (e) {
-  if (this.classList.contains('shown') && this === e.target) {
-    this.classList.remove('shown')
+for (const button of document.querySelectorAll<HTMLElement>('#mobileheader>span')) {
+  const first = button.nextElementSibling
+  button.onclick = () => {
+    document.body.classList.toggle(first ? 'navmenu1' : 'navmenu2')
+    setTimeout(() => {
+      document.body.addEventListener('click', () => {
+        console.log('hid')
+        document.body.classList.remove('navmenu1', 'navmenu2')
+      }, { once: true })
+    })
   }
-})
+}
 
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {
@@ -114,12 +115,12 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   })
 
   const resize = () => {
+    codeblock.textContent = model.getValue() + '\n'
     const rect = codeblock.getBoundingClientRect()
-    if (autosize) rect.height = editor.getContentHeight()
+    // if (autosize) rect.height = editor.getContentHeight()
+    rect.height = Math.max(50, rect.height)
     editor.layout(rect)
   }
-
-  resize()
 
   new ResizeObserver(resize).observe(preblock)
 
@@ -133,8 +134,12 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   }
 
   if (autosize) {
-    model.onDidChangeContent(resize)
+    model.onDidChangeContent(() => {
+      resize()
+    })
   }
+
+  resize()
 
   updateIframe()
 }

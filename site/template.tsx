@@ -17,7 +17,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
       </head>
       <body>
 
-        <nav>
+        <nav id='nav'>
 
           <a class='sitelogo' href='/'>90s.dev</a>
 
@@ -63,8 +63,9 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
         </nav>
 
-        <main>
-          <header id='togglemenu'>
+        <main id='main'>
+          <header id='mobileheader'>
+            <span>☰</span>
             <a class='sitelogo' href='/'>90s.dev</a>
             <span>☰</span>
           </header>
@@ -76,7 +77,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
           </footer>
         </main>
 
-        {/* {toc} */}
+        {toc}
 
       </body>
     </html>

@@ -18,7 +18,8 @@ const md = new MarkdownIt({
 
 toc(md, {
   callback(html, ast) { currenttoc = html },
-  containerClass: 'toc',
+  containerClass: '',
+  containerId: 'toc',
   level: 2,
 } satisfies Partial<Toc.TocOptions>)
 

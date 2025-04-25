@@ -1,3 +1,136 @@
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  justify-items: center;
+
+  body {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    position: relative;
+    :is(#nav, #toc) {
+      transition: margin 150ms ease-in-out;
+      width: 256px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    &::after {
+      opacity: 0;
+      content: '';
+      z-index: 99;
+      pointer-events: none;
+      background-color: #0009;
+      position: fixed;
+      transition: opacity 150ms ease-in-out;
+      inset: 0;
+    }
+    &:is(.navmenu1, .navmenu2)::after {
+      opacity: 1;
+      pointer-events: unset;
+    }
+
+    @media (width < 1024px) {
+      grid-template-columns: auto 1fr;
+      #toc { position: fixed; z-index: 100; right: 0; margin-right: -256px; }
+      &.navmenu2 #toc { margin-right: 0; }
+      #mobileheader span:last-child { display: unset; }
+    }
+
+    @media (width < 768px) {
+      grid-template-columns: 1fr;
+      #nav { position: fixed; z-index: 100; left: 0; margin-left: -256px; }
+      &.navmenu1 #nav { margin-left: 0; }
+      #mobileheader span:first-child { display: unset; }
+    }
+  }
+}
+
+:root {
+  --navbgcolor: #12171e;
+  --mobileheaderheight: 40px;
+}
+
+html { background-color: var(--navbgcolor); }
+body {
+  > :nth-child(1) { background-color: var(--navbgcolor); }
+  > :nth-child(2) { background-color: #222; }
+  > :nth-child(3) { background-color: var(--navbgcolor); }
+}
+
+
+#mobileheader {
+  position: sticky;
+  top: 0;
+  height: var(--mobileheaderheight);
+
+  background-color: inherit;
+  box-shadow: 0px 1px 1px #0007;
+  z-index: 99;
+
+  display: flex;
+  @media (width >= 1024px) { display: none; }
+
+  span {
+    display: none;
+  }
+}
+
+:is(h1,h2,h3,h4) {
+  scroll-margin-top: var(--mobileheaderheight);
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #cbb284;
+  font-optical-sizing: auto;
+  font-family: "Gemunu Libre", sans-serif;
+}
+
+
+
+
+
+
+.runcode {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: 1fr auto;
+  column-gap: 1em;
+  > pre { flex: 1 1 0; min-width: 300px; }
+}
+
+
+pre:has(>code) {
+  position: relative;
+  &:has(.monaco-editor)>code {
+    visibility: hidden;
+  }
+  .monaco-editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  > code {
+    display: block;
+    overflow: auto;
+  }
+}
+
+
+
+/*
 html {
   * { box-sizing: border-box; }
 
@@ -379,3 +512,4 @@ blockquote {
   gap: 12px;
   > * { margin: 0; }
 }
+*/
