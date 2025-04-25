@@ -12,8 +12,10 @@ html {
     max-width: 1280px;
     margin: 0 auto;
 
+    --main-min-width: 300px;
+
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(var(--main-min-width), 1fr) auto;
 
     position: relative;
     :is(#nav, #toc) {
@@ -41,14 +43,14 @@ html {
     }
 
     @media (width < 1024px) {
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto minmax(var(--main-min-width), 1fr);
       #toc { position: fixed; z-index: 100; right: 0; margin-right: -256px; }
       &.navmenu2 #toc { margin-right: 0; }
       #mobileheader span:last-child { display: unset; }
     }
 
     @media (width < 768px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(var(--main-min-width), 1fr);
       #nav { position: fixed; z-index: 100; left: 0; margin-left: -256px; }
       &.navmenu1 #nav { margin-left: 0; }
       #mobileheader span:first-child { display: unset; }
@@ -261,7 +263,6 @@ section.note {
 
 section.features {
   background-color: #0003;
-  /* border-radius: 7px; */
   padding: 1rem 0;
 
   h3 { padding: 0; }
@@ -273,9 +274,8 @@ section.features {
   ul {
     padding-left: 0;
     list-style-type: none;
-    /* margin: 24px; */
     display: grid;
-    gap: 24px;
+    gap: 2em;
   }
 
   li {
@@ -284,7 +284,7 @@ section.features {
     display: grid;
     justify-content: start;
     align-items: center;
-    gap: 3px 12px;
+    gap: 3px 1rem;
     grid-template-areas:
       'a b'
       'a c';
