@@ -8,7 +8,7 @@ apps and libraries in [os.90s.dev](${OSHOST})
 
 To getting a "hello world" sample app working:
 
-1. Download and extract [helloworld.zip](${OSHOST}/helloworld.zip)
+1. Extract [helloworld.zip](${OSHOST}/helloworld.zip) to `helloworld/`
 
 2. Open [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 
