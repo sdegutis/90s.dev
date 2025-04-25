@@ -47,6 +47,7 @@ html {
       #toc { position: fixed; z-index: 100; right: 0; margin-right: -256px; }
       &.navmenu2 #toc { margin-right: 0; }
       #mobileheader span:last-child { display: unset; }
+      #mobileheader .sitelogo { display: none; }
     }
 
     @media (width < 768px) {
@@ -54,6 +55,7 @@ html {
       #nav { position: fixed; z-index: 100; left: 0; margin-left: -256px; }
       &.navmenu1 #nav { margin-left: 0; }
       #mobileheader span:first-child { display: unset; }
+      #mobileheader .sitelogo { display: unset; }
     }
   }
 }
