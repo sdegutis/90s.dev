@@ -175,6 +175,7 @@ main {
     && {
       margin: 1em 0 0;
       padding: 1rem 2rem;
+      z-index: 1;
     }
 
     &:has(>.header-anchor) {
@@ -196,7 +197,7 @@ main {
   }
 
   > footer {
-    padding: 3rem 0;
+    padding: 3rem 2rem;
     justify-self: center;
     font-size: 80%;
     opacity: .5;
@@ -261,11 +262,14 @@ pre:has(>code) {
   border-radius: 3px;
 }
 
-section.note {
-  background-color: #0a375a77;
-  padding-bottom: 1px;
-  margin-bottom: -1px;
+section.box {
+  > h3:first-child { margin-top: 0; }
+  padding: 0.5rem 0;
+  margin: 2rem 0;
 }
+
+section.box.note { background-color: #0a375a77; }
+section.box.info { background-color: #164a3277; }
 
 section.features {
   background-color: #0003;
@@ -327,6 +331,10 @@ section.homebuttons ul {
   }
 }
 
+
+:focus {
+  outline: 1px solid currentColor;
+}
 
 
 /*

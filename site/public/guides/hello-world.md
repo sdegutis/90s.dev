@@ -26,6 +26,10 @@ panel.focusPanel()
 ```
 :::
 
+::: section info box
+***Tip***: You can edit and re-run all code examples on this site with `Ctrl-R`
+:::
+
 ### Full Breakdown
 
 All API functions are exported from this file.
@@ -49,7 +53,7 @@ const $count = api.$(0)
 const inc = () => $count.$++
 ```
 
-::: section note
+::: section note box
 ### What's with all the "$" characters?
 
 We named our variable `$count` to note that it's
@@ -96,7 +100,7 @@ its initial size, which the shell can use (or ignore).
 ```
 
 
-::: section note
+::: section note box
 ### A note on JSX
 
 JSX here is just shorthand for:
