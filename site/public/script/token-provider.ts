@@ -11,7 +11,7 @@ export function makeMonacoFancier() {
     inherit: true,
     rules: rules,
     colors: {
-      "editor.background": '#0e1115',
+      "editor.background": '#191919',
     },
   })
 

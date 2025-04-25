@@ -1,9 +1,6 @@
-@layer reset {
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;  padding: 0;
 }
 
 html {
@@ -73,7 +70,6 @@ html {
 }
 
 body {
-  > * > * { margin: 0 24px; }
   > :nth-child(1) { background-color: var(--nav-bgcolor); }
   > :nth-child(2) { background-color: #222; }
   > :nth-child(3) { background-color: var(--nav-bgcolor); }
@@ -110,6 +106,7 @@ body {
   @media (width >= 1024px) { display: none; }
 
   span {
+    cursor: pointer;
     display: none;
     position: absolute;
     text-shadow: 0px 1px 1px #0009;
@@ -120,12 +117,10 @@ body {
 }
 
 :is(h1,h2,h3,h4) {
-  margin: 1em 0;
-  padding: 12px 24px;
   color: #cbb284;
   font-optical-sizing: auto;
   font-family: "Gemunu Libre", sans-serif;
-  &:is(:target, :focus) { background-color: #fff1; }
+  &:target { background-color: #fff1; }
   @media (width < 1024px) { scroll-margin-top: var(--mobileheader-height); }
 }
 
@@ -133,14 +128,15 @@ body {
   .sitelogo { font-size: 200%; }
   :is(ul,ol) { list-style-type: none; }
 
+  &#nav { padding-top: 1em; }
+  
+  > * { margin: 1rem ;}
+
   h3 {
     font-size: inherit;
-    /* margin: 1em 0; */
   }
 
-  /* li { margin: 7px 0; } */
-
-  /* ol ol { margin-left: 12px; } */
+  li { margin: .25em 0; }
 
   li a {
     font-weight: bold;
@@ -164,12 +160,53 @@ body {
 
 main {
 
-  > * {
-    margin-top: 1em;
+  :is(p, ul,ol, pre>code, h1,h2,h3,h4) {
+    margin: 1rem 2rem;
+  }
+
+  :is(ul, ol) {
+    padding-left: 2rem;
+    li p { margin: 0.5rem 0; }
+  }
+
+  :is(h1,h2,h3,h4) {
+    && {
+      margin: 1rem 0;
+      padding: 1rem 2rem;
+    }
+
+    &:has(>.header-anchor) {
+      position: relative;
+      overflow: visible !important;
+  
+      &:not(:hover) > .header-anchor {
+        opacity: 0;
+      }
+  
+      > .header-anchor {
+        transition: opacity 120ms ease-in-out;
+        position: absolute;
+        right: calc(100% - 1.65rem);
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  > footer {
+    padding: 3rem 0;
+    justify-self: center;
+    font-size: 80%;
+    opacity: .5;
+    transition: opacity 150ms ease-in-out;
+    &:hover { opacity: 1; }
   }
 
 }
 
+a {
+  color: var(--link-color);
+}
 
 
 iframe {
@@ -181,7 +218,6 @@ iframe {
 .runcode {
   display: flex;
   flex-wrap: wrap;
-  grid-template-columns: 1fr auto;
   gap: 1em;
   > pre { flex: 1 1 0; min-width: 300px; }
 }
@@ -189,15 +225,14 @@ iframe {
 
 pre:has(>code) {
   --code-padding: 12px;
-  padding: var(--code-padding);
-  border-radius: 7px;
-  background-color: #0e1115 !important;
+  padding: 1rem 0;
+  background-color: #0004;
 
   position: relative;
   .monaco-editor {
     position: absolute;
-    top: var(--code-padding);
-    left: var(--code-padding);
+    top: 2rem;
+    left: 2rem;
   }
 
   &:has(.monaco-editor)>code {
@@ -207,6 +242,82 @@ pre:has(>code) {
   > code {
     display: block;
     overflow: auto;
+  }
+}
+
+:not(pre) > code {
+  font-family: inherit;
+  font-size: 80%;
+  background-color: #0005;
+  padding: 7px 4px 4px;
+  border-radius: 3px;
+}
+
+section.note {
+  background-color: #0a375a77;
+  padding-bottom: 1px;
+  margin-bottom: -1px;
+}
+
+section.features {
+  background-color: #0003;
+  /* border-radius: 7px; */
+  padding: 1rem 0;
+
+  h3 { padding: 0; }
+
+  .header-anchor {
+    display: none;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    /* margin: 24px; */
+    display: grid;
+    gap: 24px;
+  }
+
+  li {
+    > * { margin:0 }
+
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    gap: 3px 12px;
+    grid-template-areas:
+      'a b'
+      'a c';
+
+    > :nth-child(1) { grid-area: a; }
+    > :nth-child(2) { grid-area: b; }
+    > :nth-child(3) { grid-area: c; }
+  }
+} 
+
+section.homebuttons ul {
+  margin-top: 3rem;
+  display: flex;
+  padding-left: 0;
+  list-style-type: none;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-evenly;
+  li { display: contents; }
+  a {
+    background-color: #fff1;
+    padding: 7px 12px;
+    color: #777;
+    transition: all 120ms ease-in-out;
+    text-shadow: 0px 1px 3px #0009;
+    font-size: 150%;
+    text-decoration: none;
+    font-family: "Silkscreen";
+    border-radius: 3px;
+    &:hover {
+      color: var(--link-color);
+      background-color: #fff2;
+    }
   }
 }
 
