@@ -157,8 +157,8 @@ body {
     &:is(.current, :hover) {
       color: var(--link-color);
       padding: 2px;
-      padding-left: 9px;
-      margin-left: -12px;
+      padding-left: 6px;
+      margin-left: -9px;
       border-color: currentColor;
     }
   }
