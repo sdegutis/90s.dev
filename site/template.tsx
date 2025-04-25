@@ -69,9 +69,9 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <span>☰</span>
           </header>
 
-          {/* <section class='note toc'>
+          <section class='note toc'>
             {toc}
-          </section> */}
+          </section>
 
           {content}
 
