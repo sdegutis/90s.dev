@@ -127,6 +127,11 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   const resize = () => {
     codeblock.textContent = model.getValue() + '\n'
     const rect = codeblock.getBoundingClientRect()
+
+    const padding = window.getComputedStyle(preblock)
+    rect.width += parseInt(padding.marginRight)
+    rect.height += parseInt(padding.marginBottom)
+
     // if (autosize) rect.height = editor.getContentHeight()
     rect.height = Math.max(50, rect.height)
     editor.layout(rect)

@@ -232,23 +232,25 @@ iframe {
 
 pre:has(>code) {
   --code-padding: 12px;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
+  margin: 1rem 2rem;
   background-color: #0004;
 
   position: relative;
   .monaco-editor {
     position: absolute;
-    top: 2rem;
+    top: 1rem;
     left: 2rem;
   }
 
-  &:has(.monaco-editor)>code {
-    visibility: hidden;
+  &:has(.monaco-editor) {
+    overflow: visible;
+    >code { visibility: hidden; }
   }
 
+  overflow: auto;
   > code {
     display: block;
-    overflow: auto;
   }
 }
 
