@@ -12,7 +12,7 @@ To learn more about a given export, including its methods and properties:
 
 For making syscalls to the host.
 
-```
+```tsx
 const sys      // represents the host
 const program  // represents the process
 class Panel    // represents a panel
@@ -21,7 +21,7 @@ class Panel    // represents a panel
 
 ## Event primitives
 
-```
+```tsx
 class Listener  // event handling primitive
 
 class Ref   // Dynamic pointer
@@ -44,7 +44,7 @@ function sizeEquals
 Helpers to access the file system.
 See [Understanding FS](/understanding-fs.html) to learn more.
 
-```
+```tsx
 const fs       // file system singleton
 const pathFns  // path helper functions
 
@@ -55,7 +55,7 @@ function runJsFile // executes code at given fs path
 
 See [Understanding Views](/understanding-views.html) to learn more.
 
-```
+```tsx
 class View
 class Label
 class Border
@@ -73,7 +73,7 @@ class TextBox
 ```
 
 ## View helpers
-```
+```tsx
 // conveniences for moving/resizing views, panels, or any ref you have
 function dragMove
 function dragResize
@@ -84,7 +84,7 @@ function subpanel    // used by showMenu and showPrompt
 ```
 
 ## Drawing
-```
+```tsx
 class DrawingContext // wraps canvas.context for views
 
 class Bitmap // fundamental sprite class
@@ -96,7 +96,7 @@ class Font   // very basic pixel fonts
 
 See [Understanding Composites](/understanding-composites.html) to learn more.
 
-```
+```tsx
 // record of all composites
 const composites
 
@@ -113,7 +113,7 @@ function TextFieldComp      // default comp for <textfield>
 ```
 
 ## Config helpers
-```
+```tsx
 const $usrConfig // live representation of `usr/config.jsln`
 const sysConfig  // overridable config used by the host
 
@@ -127,14 +127,14 @@ class JSLN  // like JSON but much more convenient
 ```
 
 ## IndexedDB helpers
-```
+```tsx
 function opendb   // small indexeddb wrapper
 function kvs      // uses opendb as a kv store
 function pobject  // uses opendb to persist an object
 ```
 
 ## Timing helpers
-```
+```tsx
 function sleep
 function ontick
 function debounce
@@ -146,7 +146,7 @@ function debounce
 Convenience wrappers for syscalls.
 Used internally by `sys`, `program`, and `Panel`.
 
-```
+```tsx
 // like BroadcastChannel but scoped to current user-agent (e.g. tab)
 class BC
 type SysEvent
@@ -164,7 +164,7 @@ type ClientPanel
 
 ## net.90s.dev
 
-```
+```tsx
 // represents current state of account
 const $userState
 

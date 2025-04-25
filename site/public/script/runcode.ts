@@ -159,14 +159,6 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   updateIframe()
 }
 
-for (const code of document.querySelectorAll<HTMLElement>('pre>code:not(:has(>.monaco-editor))')) {
-  code.textContent = code.textContent!.trimEnd()
-  monaco.editor.colorizeElement(code, {
-    theme: 'vsc2',
-    mimeType: 'typescript'
-  })
-}
-
 async function compress(code: string) {
   const stream = new Blob([code]).stream().pipeThrough(new CompressionStream('gzip'))
   const blob = await new Response(stream).blob()

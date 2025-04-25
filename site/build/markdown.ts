@@ -3,6 +3,7 @@ import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
 import type * as Toc from 'markdown-it-toc-done-right'
 import toc from 'markdown-it-toc-done-right'
+import { shiki } from "./shiki.ts"
 
 let currenttoc: string
 export function render(text: string) {
@@ -15,6 +16,8 @@ export function render(text: string) {
 const md = new MarkdownIt({
   html: true,
 })
+
+shiki(md)
 
 toc(md, {
   callback(html, ast) {

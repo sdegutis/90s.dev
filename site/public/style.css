@@ -242,7 +242,8 @@ iframe {
 
 pre:has(>code) {
   margin: 1rem 2rem;
-  background-color: #0004;
+  background-color: #0004 !important;
+  color: rgb(141, 73, 210) !important;
 
   position: relative;
   .monaco-editor {
