@@ -131,14 +131,17 @@ body {
   :is(ul,ol) { list-style-type: none; }
 
   &#nav { padding-top: 1em; }
-  
+
   > * { margin: 1rem ;}
 
   h3 {
     font-size: inherit;
+    margin-top: 2rem;
+    margin-bottom: 0;
   }
 
-  li { margin: .25em 0; }
+  li { margin: .1rem 0; }
+  ul { margin-top: .25rem;}
 
   li a {
     font-weight: bold;
