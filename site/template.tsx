@@ -69,16 +69,14 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <span>☰</span>
           </header>
 
-          <section class='note toc'>
-            {toc}
-          </section>
-
           {content}
 
           <footer>
             Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
           </footer>
         </main>
+
+        {/* {toc} */}
 
       </body>
     </html>
