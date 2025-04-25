@@ -173,7 +173,7 @@ main {
 
   :is(h1,h2,h3,h4) {
     && {
-      margin: 1rem 0;
+      margin: 1em 0 0;
       padding: 1rem 2rem;
     }
 
