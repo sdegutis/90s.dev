@@ -220,8 +220,13 @@ iframe {
 .runcode {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-  > pre { flex: 1 1 0; min-width: 300px; }
+  row-gap: 1em;
+  justify-content: center;
+  align-items: center;
+  > pre {
+    flex: 1 1 0;
+    min-width: 300px;
+  }
 }
 
 
