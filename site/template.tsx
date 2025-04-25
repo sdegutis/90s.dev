@@ -33,7 +33,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
             <li><A current={current} href='/api-reference.html'>API Reference</A></li>
             <li><A current={current} href='/understanding-views.html'>Views</A></li>
             <li><A current={current} href='/understanding-refs.html'>Refs</A></li>
-            <li><A current={current} href='/understanding-fs.html'>FS</A></li>
+            <li><A current={current} href='/understanding-fs.html'>Filesystem</A></li>
             <li><A current={current} href='/understanding-composites.html'>Composites</A></li>
             <li><A current={current} href='/writing-shells.html'>Shells</A></li>
           </ul>
