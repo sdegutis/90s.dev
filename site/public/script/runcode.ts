@@ -84,7 +84,7 @@ let modelnum = 0
 for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) {
   modelnum++
 
-  const autosize = runcode.classList.contains('autosize')
+  const autosize = true || runcode.classList.contains('autosize')
 
   const preblock = runcode.querySelector('pre') as HTMLPreElement
   const codeblock = runcode.querySelector('pre>code') as HTMLElement
@@ -132,8 +132,8 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
     rect.width += parseInt(padding.marginRight)
     rect.height += parseInt(padding.marginBottom)
 
-    // if (autosize) rect.height = editor.getContentHeight()
-    rect.height = Math.max(50, rect.height)
+    if (autosize) rect.height = editor.getContentHeight()
+    // rect.height = Math.max(150, rect.height)
     editor.layout(rect)
   }
 

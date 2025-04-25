@@ -234,7 +234,7 @@ iframe {
   flex-wrap: wrap;
   gap: 1em;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   > pre {
     flex: 1 1 0;
     min-width: 300px;

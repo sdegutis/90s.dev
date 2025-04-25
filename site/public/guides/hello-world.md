@@ -2,7 +2,7 @@
 
 The traditional "click me" app:
 
-::: runcode 120 70 autosize
+::: runcode 120 70
 ```tsx
 import api, { $, Center, GroupY, Label, GroupX } from '/api.js'
 await api.appReady

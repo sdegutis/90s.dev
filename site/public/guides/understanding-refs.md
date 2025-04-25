@@ -8,7 +8,7 @@ This guide explains how they work and shows some basic recipes.
 
 A ref is like a pointer.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print } from '/api.js'
 
@@ -22,7 +22,7 @@ print('val is', r.$)  // val is 1
 
 You can watch it.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print } from '/api.js'
 
@@ -36,7 +36,7 @@ r.$++    // val is 4
 
 You can adapt it to another value.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print } from '/api.js'
 
@@ -53,7 +53,7 @@ r.$++    // val is 8
 
 You can back existing properties with a ref.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print, makeRef } from '/api.js'
 
@@ -69,7 +69,7 @@ point.x++     // val is 11
 
 You can even back class properties.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print, makeRef } from '/api.js'
 
@@ -94,7 +94,7 @@ point.x++    // val is 11
 
 You can create a new ref based on multiple other refs:
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print, multiplex } from '/api.js'
 
@@ -116,7 +116,7 @@ You can change a value before watchers see it.
 
 This is useful for normalizing/constraining values.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print } from '/api.js'
 
@@ -136,7 +136,7 @@ You can make one ref defer to another.
 
 This basically ties the two refs together.
 
-::: runcode 120 50 autosize
+::: runcode 120 50
 ```tsx
 import { $, print } from '/api.js'
 
