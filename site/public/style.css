@@ -219,6 +219,7 @@ a {
 iframe {
   background-color: #0003;
   border: none;
+  max-width: 100%;
 }
 
 
