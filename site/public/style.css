@@ -162,7 +162,7 @@ body {
 
 main {
 
-  :is(p, ul,ol, pre>code, h1,h2,h3,h4) {
+  :is(p, :not(li)>ul,ol, pre>code, h1,h2,h3,h4) {
     margin: 1rem 2rem;
   }
 
@@ -232,7 +232,6 @@ iframe {
 
 pre:has(>code) {
   --code-padding: 12px;
-  /* padding: 1rem 0; */
   margin: 1rem 2rem;
   background-color: #0004;
 
