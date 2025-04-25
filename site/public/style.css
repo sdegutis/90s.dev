@@ -223,9 +223,12 @@ iframe {
 
 
 .runcode {
+  > * { margin: 0; }
+  margin: 1rem 2rem;
+
   display: flex;
   flex-wrap: wrap;
-  row-gap: 1em;
+  gap: 1em;
   justify-content: center;
   align-items: center;
   > pre {

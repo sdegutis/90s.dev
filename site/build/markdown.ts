@@ -51,7 +51,7 @@ containers(md, 'runcode', {
     const classes = m![3] ?? ''
 
     if (isOpen) {
-      let line = `<div class='fullrow runcode${classes}'>\n`
+      let line = `<div class='runcode${classes}'>\n`
       return line
     }
     else {
