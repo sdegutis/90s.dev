@@ -78,6 +78,8 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
         {toc}
 
+        <script src="/script/darkmode.js"></script>
+
       </body>
     </html>
   </>

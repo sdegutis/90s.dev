@@ -63,13 +63,13 @@
 :root {
   color-scheme: light dark;
 
-  --nav-bgcolor: #12171e;
+  --nav-bgcolor: light-dark(#12171e, #12171e);
   --mobileheader-height: 40px;
-  --link-color: #19f;
+  --link-color: light-dark(#19f, #19f);
   --outline-color: currentColor;
 
-  background-color: light-dark(#444, #000);
-  color: #ccc;
+  background-color: light-dark(#000, #000);
+  color: light-dark(#ccc, #ccc);
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
 
@@ -79,7 +79,7 @@
 
 body {
   > :nth-child(1) { background-color: var(--nav-bgcolor); }
-  > :nth-child(2) { background-color: #222; }
+  > :nth-child(2) { background-color: light-dark(#222, #222); }
   > :nth-child(3) { background-color: var(--nav-bgcolor); }
 }
 
