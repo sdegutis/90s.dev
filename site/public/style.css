@@ -77,8 +77,9 @@
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
 
-  &.lightmode { color-scheme: light; filter: invert(1); }
-  &.darkmode { color-scheme: dark; }
+  &.light { color-scheme: light; filter: invert(1); }
+  &.dark { color-scheme: dark; }
+
 }
 
 body {
@@ -165,7 +166,7 @@ body {
   li { margin: .1rem 0; }
   ul { margin-top: .25rem;}
 
-  li a {
+  a:not(.sitelogo) {
     color: var(--nav-linkcolor);
     text-decoration: none;
     display: inline-block;
@@ -372,11 +373,4 @@ section.homebuttons ul {
 
 #toggledarkmode {
   p { margin: 1rem 0 ;}
-  a {
-    &:not(:hover) {
-      text-decoration: none;
-      color: var(--nav-linkcolor);
-    }
-    font-size: 80%;
-  }
 }
