@@ -355,6 +355,7 @@ section.homebuttons ul {
 }
 
 :focus {
-  outline: 1px solid var(--outline-color);
+  background-color: color(from var(--outline-color) srgb r g b / .11 ) !important;
+  outline: 3px solid color(from var(--outline-color) srgb r g b / .33 );
   outline-offset: 3px;
 }
