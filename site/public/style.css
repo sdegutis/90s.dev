@@ -84,7 +84,7 @@
     filter: invert(1) hue-rotate(180deg);
     iframe { filter: invert(1) hue-rotate(180deg); }    
   }
-  
+
   @media (prefers-color-scheme: light) {
     &:not(.dark) {
       filter: invert(1) hue-rotate(180deg);
@@ -170,7 +170,7 @@ body {
 
   &#nav { padding-top: 1em; }
 
-  &#toc li { margin: 1rem 0; }
+  &#toc a { display: inline-block; margin: .33rem 0 }
 
   > * { margin: 2rem ;}
 
@@ -385,9 +385,4 @@ section.homebuttons ul {
   background-color: color(from var(--outline-color) srgb r g b / .07 ) !important;
   outline: 3px solid color(from var(--outline-color) srgb r g b / .33 );
   outline-offset: 3px;
-}
-
-
-#toggledarkmode {
-  p { margin: 1rem 0 ;}
 }

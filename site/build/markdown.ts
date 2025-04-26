@@ -22,7 +22,7 @@ shiki(md)
 toc(md, {
   callback(html, ast) {
     currenttoc = html
-      .replace('<ol>', '<h3>On this page</h3>$&')
+      .replace('<ul>', '<h3>On this page</h3>$&')
       .replace('</nav>', `
         <div id="toggledarkmode">
           <h3>Dark mode</h3>
@@ -34,6 +34,7 @@ toc(md, {
         </div>
         \$&`)
   },
+  listType: 'ul',
   format: s => '# ' + s,
   containerClass: 'navbar',
   containerId: 'toc',
