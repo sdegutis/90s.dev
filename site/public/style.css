@@ -1,3 +1,26 @@
+#underconstruction {
+
+  font-family: "Silkscreen";
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: inline-block;
+    font-size: min(4vw, 4vh);
+    color: var(--header-color);
+    rotate: 30deg;
+    background-color: #000c;
+    font-weight: bold;
+    padding: 1em;
+  }
+
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;  padding: 0;

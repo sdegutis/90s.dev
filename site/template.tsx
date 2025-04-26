@@ -1,4 +1,4 @@
-import { oshost } from "../isdev.ts"
+import { isDev, oshost } from "../isdev.ts"
 
 export function mainPage(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
   return <>
@@ -78,6 +78,12 @@ export function mainPage(current: string, posts: { path: string, title: string }
         </main>
 
         {toc}
+
+        {!isDev &&
+          <div id='underconstruction'>
+            <span>⚠️ Under construction ⚠️</span>
+          </div>
+        }
 
       </body>
     </html>
