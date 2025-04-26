@@ -93,7 +93,12 @@ const tokenProvider = {
         }
       }],
 
-      [/{/, 'delimiter.bracket'],
+      [/{/, {
+        cases: {
+          '$S2==INJSX': { token: '@brackets', next: '@root' },
+          '@default': '@brackets',
+        }
+      }],
 
       // highlight class field-properties
       [/^\s+#?[\w$]+(?=\s*[;=:])/, 'variable.property'],
@@ -231,6 +236,9 @@ const tokenProvider = {
       [/(=)(')/, ['delimiter', { token: 'string', next: '@string_single' }]],
       [/(=)(")/, ['delimiter', { token: 'string', next: '@string_double' }]],
       [/(=)({)/, ['delimiter', { token: '@brackets', next: '@root.INJSX' }]],
+      [/\/\*\*(?!\/)/, 'comment.doc', '@jsdoc'],
+      [/\/\*/, 'comment', '@comment'],
+      [/\/\/.*$/, 'comment'],
     ],
 
     jsxText: [
