@@ -21,7 +21,18 @@ shiki(md)
 
 toc(md, {
   callback(html, ast) {
-    currenttoc = html.replace('<ol>', '<h3>On this page</h3>$&')
+    currenttoc = html
+      .replace('<ol>', '<h3>On this page</h3>$&')
+      .replace('</nav>', `
+        <div id="toggledarkmode">
+          <h3>Dark mode</h3>
+          <p>
+            <a href='#'>Dark</a>
+            <a href='#'>Light</a>
+            <a href='#'>System</a>
+          </p>
+        </div>
+        \$&`)
   },
   format: s => '# ' + s,
   containerClass: 'navbar',

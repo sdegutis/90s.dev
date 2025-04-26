@@ -3,7 +3,7 @@
   margin: 0;  padding: 0;
 }
 
-html {
+:root {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   justify-items: center;
@@ -61,17 +61,20 @@ html {
 }
 
 :root {
+  color-scheme: light dark;
+
   --nav-bgcolor: #12171e;
   --mobileheader-height: 40px;
   --link-color: #19f;
   --outline-color: currentColor;
-}
 
-html {
-  background-color: #000;
+  background-color: light-dark(#444, #000);
   color: #ccc;
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
+
+  &.lightmode { color-scheme: light; }
+  &.darkmode { color-scheme: dark; }
 }
 
 body {
@@ -360,4 +363,16 @@ section.homebuttons ul {
   background-color: color(from var(--outline-color) srgb r g b / .07 ) !important;
   outline: 3px solid color(from var(--outline-color) srgb r g b / .33 );
   outline-offset: 3px;
+}
+
+
+#toggledarkmode {
+  p { margin: 1rem 0 ;}
+  a {
+    &:not(:hover) {
+      text-decoration: none;
+      color: #777;
+    }
+    font-size: 80%;
+  }
 }

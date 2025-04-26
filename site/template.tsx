@@ -5,7 +5,6 @@ export function mainPage(current: string, posts: { path: string, title: string }
     {'<!DOCTYPE html>'}
     <html lang="en">
       <head>
-        <meta name="color-scheme" content="light dark" />
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
