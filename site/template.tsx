@@ -5,6 +5,7 @@ export function mainPage(current: string, posts: { path: string, title: string }
     {'<!DOCTYPE html>'}
     <html lang="en">
       <head>
+        <script src="/script/darkmode.js"></script>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,8 +78,6 @@ export function mainPage(current: string, posts: { path: string, title: string }
         </main>
 
         {toc}
-
-        <script src="/script/darkmode.js"></script>
 
       </body>
     </html>
