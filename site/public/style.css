@@ -84,6 +84,13 @@
     filter: invert(1) hue-rotate(180deg);
     iframe { filter: invert(1) hue-rotate(180deg); }    
   }
+  
+  @media (prefers-color-scheme: light) {
+    &:not(.dark) {
+      filter: invert(1) hue-rotate(180deg);
+      iframe { filter: invert(1) hue-rotate(180deg); }    
+    }
+  }
 
 }
 
