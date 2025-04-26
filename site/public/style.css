@@ -157,16 +157,17 @@ body {
   li a {
     color: #777;
     text-decoration: none;
-
-    border-left: 3px solid transparent;
-    margin-left: -3px;
+    display: inline-block;
 
     transition: all 120ms ease-in-out;
 
+    #toc & {
+      text-indent: -1em;
+      margin-left: 1em;
+    }
+
     &:is(.current, :hover) {
       color: var(--link-color);
-      padding-left: 6px;
-      margin-left: -9px;
       border-color: currentColor;
     }
   }
@@ -194,7 +195,7 @@ main {
       position: relative;
       overflow: visible !important;
 
-      &:not(:hover) > .header-anchor:not(:focus) {
+      &:not(:hover, :focus) > .header-anchor:not(:focus) {
         opacity: 0;
       }
 
