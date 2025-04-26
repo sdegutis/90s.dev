@@ -4,11 +4,11 @@
 
 - 🧪
   ### Retrofuturistic
-  Innovative tech on the inside, pixel art aesthetics on the outside.
+  Innovative technology on the inside, pixel art aesthetics on the outside.
 
 - 🤝
   ### Collaborative
-  Multiuser dev environment that lets us build one big app together.
+  Multiuser creativity platform that lets us build one big app together.
 
 - 🔨
   ### Meta Game-maker
@@ -17,6 +17,8 @@
 :::
 
 ::: section homebuttons
+
 - [Discover 90s.dev](/what-is-90s-dev.html)
 - [Getting started](/getting-started.html)
+
 :::
