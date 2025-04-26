@@ -77,7 +77,7 @@
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
 
-  &.light { color-scheme: light; filter: invert(1); }
+  &.light { color-scheme: light; filter: invert(1) hue-rotate(180deg); }
   &.dark { color-scheme: dark; }
 
 }
