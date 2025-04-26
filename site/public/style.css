@@ -1,5 +1,6 @@
 #underconstruction {
 
+  pointer-events: none;
   font-family: "Silkscreen";
   position: fixed;
   z-index: 1000;
