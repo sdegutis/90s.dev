@@ -134,8 +134,9 @@ body {
   --red:  light-dark(#891818cc, #900c);
   --blue: light-dark(#3636a5cc, #00fc);
 
+  font-weight: bold;
   font-family: "Silkscreen", sans-serif;
-  color: light-dark(#b58226, #cbb284);
+  color: light-dark(#8a5a00, #d6a752aa);
   text-shadow:
     -8px -4px 0px color(from var(--blue) srgb r g b / .3),
      8px  4px 0px color(from var(--red)  srgb r g b / .3);
@@ -193,7 +194,7 @@ body {
 }
 
 .navbar {
-  .sitelogo { font-size: 200%; }
+  .sitelogo { font-size: 150%; }
   :is(ul,ol) { list-style-type: none; }
 
   &#nav { padding-top: 1em; }
