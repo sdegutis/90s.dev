@@ -23,6 +23,7 @@ toc(md, {
   callback(html, ast) {
     currenttoc = html.replace('<ol>', '<h3>On this page</h3>$&')
   },
+  format: s => '# ' + s,
   containerClass: 'navbar',
   containerId: 'toc',
   level: 1,
