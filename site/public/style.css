@@ -64,21 +64,26 @@
   color-scheme: light dark;
 
   --nav-bgcolor: light-dark(#12171e, #12171e);
-  --nav-linkcolor: light-dark(#777, #777);
+  --nav-linkcolor: light-dark(#555, #777);
 
-  --header-color: light-dark(#cbb284, #cbb284);
+  --header-color: light-dark(#986407, #cbb284);
 
   --mobileheader-height: 40px;
   --link-color: light-dark(#19f, #19f);
   --outline-color: currentColor;
 
   background-color: light-dark(#000, #000);
-  color: light-dark(#ccc, #ccc);
+  color: light-dark(#959595, #ccc);
   font-optical-sizing: auto;
   font-family: "Oxanium", sans-serif;
 
-  &.light { color-scheme: light; filter: invert(1) hue-rotate(180deg); }
-  &.dark { color-scheme: dark; }
+  &.light { color-scheme: light }
+  &.dark  { color-scheme: dark  }
+
+  &.light {
+    filter: invert(1) hue-rotate(180deg);
+    iframe { filter: invert(1) hue-rotate(180deg); }    
+  }
 
 }
 
@@ -95,14 +100,19 @@ body {
 .sitelogo {
   text-decoration: none;
 
+  --red:  light-dark(#891818cc, #900c);
+  --blue: light-dark(#3636a5cc, #00fc);
+
   font-family: "Silkscreen", sans-serif;
-  text-shadow: -1px -0px 0px #00fc, 1px 0px 0px #900c;
-  color: #cbb284;
+  text-shadow: -1px -0px 0px var(--blue), 1px 0px 0px var(--red);
+  color: light-dark(#b58226, #cbb284);
 
   transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
 
   &:hover {
-    text-shadow: -8px -4px 0px #00f7, 8px 4px 0px #9007;
+    text-shadow:
+      -8px -4px 0px color(from var(--blue) srgb r g b / .3),
+       8px  4px 0px color(from var(--red)  srgb r g b / .3);
     text-decoration: none;
   }
 }
