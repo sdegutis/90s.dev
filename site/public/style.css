@@ -193,11 +193,11 @@ main {
     &:has(>.header-anchor) {
       position: relative;
       overflow: visible !important;
-  
-      &:not(:hover) > .header-anchor {
+
+      &:not(:hover) > .header-anchor:not(:focus) {
         opacity: 0;
       }
-  
+
       > .header-anchor {
         transition: opacity 120ms ease-in-out;
         position: absolute;
