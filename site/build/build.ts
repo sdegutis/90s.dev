@@ -6,13 +6,13 @@ import { render } from "./markdown.ts"
 import { monaco } from './monaco.ts'
 
 let reloader = ''
-// if (process.argv[2] === 'dev') reloader = `
-// <script type="module">
-// const es = new EventSource('/reload')
-// es.onmessage = () => location.reload()
-// window.onbeforeunload = () => es.close()
-// </script>
-// `
+if (false && process.argv[2] === 'dev') reloader = `
+<script type="module">
+const es = new EventSource('/reload')
+es.onmessage = () => location.reload()
+window.onbeforeunload = () => es.close()
+</script>
+`
 
 export async function processSite(tree: LiveTree) {
   return tree.processFiles(files => {
@@ -34,13 +34,15 @@ export async function processSite(tree: LiveTree) {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const result = render(f.text)
-      f.text = reloader + mainPage(f.path, blogs, result.html, result.toc)
+      f.text = mainPage(f.path, blogs, result.html, result.toc)
     })
 
     files.with(/\.tsx?$/).do(f => {
       f.path = f.path.replace(/\.tsx?$/, '.js')
       f.text = compileTsx(f.text)
     })
+
+    if (reloader) files.with(/\.html$/).do(f => { f.text = f.text.replace('<head>', '$&' + reloader) })
 
     files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
 
