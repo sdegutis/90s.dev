@@ -12,6 +12,7 @@ export function makeMonacoFancier() {
     rules: rules,
     colors: {
       "editor.background": '#191919',
+      "editor.selectionBackground": '#5a194e99',
     },
   })
 
