@@ -189,7 +189,6 @@ body {
   font-optical-sizing: auto;
   font-family: "Gemunu Libre", sans-serif;
   scroll-margin-top: 5px;
-  &:target { background-color: #fff1; }
   @media (width < 1024px) { scroll-margin-top: calc(5px + var(--mobileheader-height)); }
 }
 
@@ -200,6 +199,12 @@ body {
   &#nav { padding-top: 1em; }
 
   &#toc a { display: inline-block; margin: .33rem 0 }
+
+  &#toc {
+    li li ul {
+      margin-left: 1em;
+    }
+  }
 
   > * { margin: 2rem ;}
 
