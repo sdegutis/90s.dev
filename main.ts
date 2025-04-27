@@ -6,6 +6,7 @@ import { compileTsx } from './site/build/compile.ts'
 
 const tree = new immaculata.LiveTree('site', import.meta.url)
 registerHooks(tree.enableImportsModuleHook())
+registerHooks(immaculata.exportAsStringModuleHook({ bareExt: 'md' }))
 registerHooks(immaculata.jsxRuntimeModuleHook('immaculata/dist/jsx-strings.js'))
 registerHooks(immaculata.compileJsxTsxModuleHook((src, url) => {
   return compileTsx(src, fileURLToPath(url), false).outputText
@@ -16,7 +17,7 @@ if (isDev) {
   server.files = await processSite()
 
   tree.watch({}, async (paths) => {
-    console.log('paths changed', [...paths].map(path => '\n  ' + path).join(''))
+    console.log('Paths changed:', [...paths].map(path => '\n  ' + path).join(''))
     try { server.files = await processSite() }
     catch (e) { console.error(e) }
     server.reload(null)
