@@ -1,9 +1,9 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
-document.querySelector<HTMLSpanElement>('#underconstruction p span')!.onclick = () => {
+document.querySelector<HTMLSpanElement>('#underconstruction p span')?.addEventListener('click', () => {
   document.querySelector<HTMLElement>('#underconstruction')?.remove()
-}
+})
 
 for (const button of document.querySelectorAll<HTMLElement>('#mobileheader>span')) {
   const first = button.nextElementSibling
