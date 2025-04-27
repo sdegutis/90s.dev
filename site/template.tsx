@@ -78,7 +78,19 @@ export function mainPage(current: string, posts: { path: string, title: string }
           </footer>
         </main>
 
-        {toc}
+        <div id='side' class='navbar'>
+
+          <h3>Site Theme</h3>
+          <div id='toggledarkmode'>
+            <a href='#'>Dark</a>
+            <a href='#'>Light</a>
+            <a href='#'>System</a>
+          </div>
+
+          <h3>On this page</h3>
+          {toc}
+
+        </div>
 
         {!isDev &&
           <div id='underconstruction'>

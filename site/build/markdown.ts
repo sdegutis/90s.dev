@@ -20,23 +20,9 @@ const md = new MarkdownIt({
 shiki(md)
 
 toc(md, {
-  callback(html, ast) {
-    currenttoc = html
-      .replace('<ul>', '<h3>On this page</h3>$&')
-      .replace('</nav>', `
-        <div id="toggledarkmode">
-          <h3>Dark mode</h3>
-          <p>
-            <a href='#'>Dark</a>
-            <a href='#'>Light</a>
-            <a href='#'>System</a>
-          </p>
-        </div>
-        \$&`)
-  },
+  callback(html, ast) { currenttoc = html },
   listType: 'ul',
   format: s => '# ' + s,
-  containerClass: 'navbar',
   containerId: 'toc',
   level: 1,
 } satisfies Partial<Toc.TocOptions>)
