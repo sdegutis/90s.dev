@@ -6,7 +6,6 @@ import { highlightCode } from "./shiki.ts"
 
 export type Toc = { level: number, id: string, text: string }[]
 
-let currenttoc: string
 export function render(text: string) {
   const env = { toc: [] as Toc }
   const html = md.render(text, env)
