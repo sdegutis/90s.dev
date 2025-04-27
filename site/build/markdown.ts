@@ -26,10 +26,6 @@ md.use(anchorLinks)
 md.use(sectionMacro)
 md.use(runcodeMacro)
 
-function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
-  return self.renderToken(tokens, idx, opts)
-}
-
 export function renameMarkdownLinks(md: MarkdownIt) {
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
   md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
@@ -115,4 +111,8 @@ function slugify(s: string) {
     .toLowerCase()
     .replace(/ +/g, '-')
     .replace(/[^a-z0-9-]/g, '')
+}
+
+function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
+  return self.renderToken(tokens, idx, opts)
 }
