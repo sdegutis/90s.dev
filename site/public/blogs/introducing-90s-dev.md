@@ -14,8 +14,7 @@ when I first started coding, even though that was about a third
 of a century ago. So I started coding.
 
 But before I could finish writing the map maker, I had already created
-a development platform *far more interesting* than I meant it to be,
-or than any game I could make with it.
+a development platform *far more interesting* than I meant it to be.
 
 ## A new platform
 
@@ -143,3 +142,8 @@ where pixel art aesthetics didn't die but only got *prettier* with time;
 where HTML and CSS didn't happen; where JavaScript was born an old man;
 where React and Vue would have been unnecessary and overcomplicated;
 where collaboration was always at the heart and soul of the web.
+
+The driving principle behind 90s.dev is rediscovering beauty in simplicity.
+In fact, the entire website you see here was created *from scratch*
+to be the most beautiful website code ever written *because* of its simplicity,
+both aesthetically and in code. The same is true of [os.90s.dev](${OSHOST}).
