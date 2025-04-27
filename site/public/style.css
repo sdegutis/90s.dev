@@ -1,6 +1,5 @@
 #underconstruction {
 
-  pointer-events: none;
   font-family: "Silkscreen";
   position: fixed;
   z-index: 1000;
@@ -10,7 +9,7 @@
   align-items: center;
   justify-content: center;
 
-  span {
+  p {
     display: inline-block;
     font-size: min(4vw, 4vh);
     color: var(--header-color);
@@ -18,6 +17,15 @@
     background-color: #000c;
     font-weight: bold;
     padding: 1em;
+
+    span {
+      display: block;
+      text-align: center;
+      font-size: initial;
+      cursor: pointer;
+      color: #900;
+      &:hover { outline: 1px solid currentColor; }
+    }
   }
 
 }

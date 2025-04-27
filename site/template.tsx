@@ -94,7 +94,10 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
         {!isDev &&
           <div id='underconstruction'>
-            <span>⚠️ Under construction ⚠️</span>
+            <p>
+              ⚠️ Under construction ⚠️
+              <span>I don't care</span>
+            </p>
           </div>
         }
 
