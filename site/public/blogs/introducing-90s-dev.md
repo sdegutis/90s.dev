@@ -99,6 +99,7 @@ Just a few that I personally want to make:
 * Code: Game code editor
 * Code: App code editor
 * Code: App GUI builder
+* *And so much more!*
 
 ## But what *is* it, really?
 
@@ -122,3 +123,23 @@ The app os.90s.dev is a web-based operating system that has:
 
 Follow the [hello world tour](/hello-world.html) to get a sense
 of what building an app in 90s.dev is like.
+
+## Why not just use ___?
+
+If you just want to make a game, you're probably better off with Godot.
+If you're content with React.js, or if you see nothing wrong with CSS,
+then maybe this isn't the platform for you.
+
+The ethos of 90s.dev is to be deeply passionate about beauty and perfection,
+to try solving old problems by thinking far beyond the box, and to recreate
+for the sake of creativity and fun.
+
+## Why is it called 90s.dev?
+
+The idea is to pretend everything technological after 1990 didn't happen.
+
+Here, we reside in a sort of retrofuturistic alternate reality,
+where pixel art aesthetics didn't die but only got *prettier* with time;
+where HTML and CSS didn't happen; where JavaScript was born an old man;
+where React and Vue would have been unnecessary and overcomplicated;
+where collaboration was always at the heart and soul of the web.
