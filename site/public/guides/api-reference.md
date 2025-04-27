@@ -43,7 +43,7 @@ function sizeEquals
 ## Files
 
 Helpers to access the file system.
-See [Understanding FS](/understanding-fs.html) to learn more.
+See [Understanding FS](filesystem.md#understanding-fs) to learn more.
 
 ```tsx
 const fs       // file system singleton
@@ -54,7 +54,7 @@ function runJsFile // executes code at given fs path
 
 ## Views
 
-See [Understanding Views](/understanding-views.html) to learn more.
+See [Understanding Views](views.md#understanding-views) to learn more.
 
 ```tsx
 class View {}
@@ -95,7 +95,7 @@ class Font   {} // very basic pixel fonts
 
 ## Composites
 
-See [Understanding Composites](/understanding-composites.html) to learn more.
+See [Understanding Composites](composites.md#understanding-composites) to learn more.
 
 ```tsx
 // record of all composites

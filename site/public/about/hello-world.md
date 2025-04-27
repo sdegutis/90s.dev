@@ -46,7 +46,7 @@ So we wait for them to finish.
 await api.appReady
 ```
 
-We create a [Ref](/understanding-refs.html) and a function to modify it.
+We create a [Ref](../guides/refs.md#understanding-refs) and a function to modify it.
 
 ```tsx
 const $count = api.$(0)
@@ -60,7 +60,7 @@ We named our variable `$count` to note that it's
 a ref. This isn't strictly needed, but many classes
 have both a plain field and a ref version of that
 field (which the field uses internally&mdash;see
-[makeRef](/understanding-refs.html#properties)).
+[makeRef](../guides/refs.md#properties).
 
 And since refs are so common, the standalone function
 `$` was created as a shorter version of `new Ref(...)`.
@@ -85,7 +85,7 @@ Panels only require a name and a root view, so they can draw
 something on screen, and so the shell has a somewhat unique
 string to manage them by.
 
-[Shells](/writing-shells.html) are just user-land programs
+[Shells](../guides/shells.md#writing-shells) are just user-land programs
 which typically watch the `panelevents` broadcast channel
 and manage the size, position, and visibility of panels.
 
@@ -120,7 +120,7 @@ Unlike the classical web browser model, views are just instances
 of `View` or a subclass, and devs can create subclasses directly.
 Functions must ultimately return a view.
 
-JSX strings are here used for [Composites](/using-composites.html),
+JSX strings are here used for [Composites](../guides/api-reference.md#composites),
 which is a technique for styling and restructuring views and overriding
 their functionality, as a modern alternative to older, classical models
 such as HTML, CSS, web-components, and React.js.

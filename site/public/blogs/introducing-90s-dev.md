@@ -120,7 +120,7 @@ The app os.90s.dev is a web-based operating system that has:
 
 * An extremely simple and easy to use Developer SDK
 
-Follow the [hello world tour](/hello-world.html) to get a sense
+Follow the [hello world tour](../about/hello-world.md#hello-world-tour) to get a sense
 of what building an app in 90s.dev is like.
 
 ## Why not just use ___?

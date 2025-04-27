@@ -30,7 +30,7 @@ The entire core and all system apps are included in
 the zip. This way you can see how the system works
 internally, and even fork and modify built-in apps.
 
-Check out the [Hello World guide](/hello-world.html)
+Check out the [Hello World guide](hello-world.md#hello-world-tour)
 for a full breakdown of the sample code.
 
 
@@ -38,6 +38,6 @@ for a full breakdown of the sample code.
 
 Made something you want to share with the community?
 
-Check out the [publishing apps](/publishing-apps.html)
-and [publishing libraries](/publishing-libs.html)
+Check out the [publishing apps](../collaboration/publishing-apps.md#publishing-apps)
+and [publishing libraries](../collaboration/publishing-libs.md#publishing-libraries)
 guides to learn more.

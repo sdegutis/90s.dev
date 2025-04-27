@@ -1,7 +1,7 @@
 # Publishing apps
 
 To publish any files on [os.90s.dev](${OSHOST}),
-you'll need to [create an account](/creating-an-account.html) first.
+you'll need to [create an account](creating-an-account.md#creating-an-account) first.
 
 After you have created a shared folder:
 

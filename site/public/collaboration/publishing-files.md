@@ -1,7 +1,7 @@
 # Publishing files
 
 To publish any files on [os.90s.dev](${OSHOST}),
-you'll need to [create an account](/creating-an-account.html) first.
+you'll need to [create an account](creating-an-account.md#creating-an-account) first.
 
 After you have created a shared folder:
 
@@ -13,7 +13,7 @@ After you have created a shared folder:
 
 ## Using files
 
-Files can be access through the [file system](/understanding-fs.html):
+Files can be access through the [file system](../guides/filesystem.md#understanding-fs):
 
 ```ts
 const logo = await fs.getFile('net/someuser/images/logo.bitmap')

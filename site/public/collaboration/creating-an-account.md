@@ -23,12 +23,12 @@ Congratulations, you now have a public folder!
 
 You can put anything you want in it: apps, libraries, data files, documentation, etc.
 
-All public files can be accessed via `api.fs`. See [Understanding FS](/understanding-fs.html) to learn more.
+All public files can be accessed via `api.fs`. See [Understanding FS](../guides/filesystem.md#understanding-fs) to learn more.
 
 ## Publishing apps and libraries
 
 Now that you can share code, check out these guides:
 
-* [Publishing apps](/publishing-apps.html)
+* [Publishing apps](publishing-apps.md#publishing-apps)
 
-* [Publishing libraries](/publishing-libs.html)
+* [Publishing libraries](publishing-libs.md#publishing-libraries)
