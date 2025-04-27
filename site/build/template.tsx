@@ -32,14 +32,6 @@ function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
 
 export function template(current: string, posts: { path: string, title: string }[], content: string, toc: Toc) {
 
-  function A(data: { href: string, children: string }) {
-    return <a
-      class={current === data.href ? 'current' : ''}
-      href={data.href}
-      children={data.children}
-    />
-  }
-
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -54,6 +46,7 @@ export function template(current: string, posts: { path: string, title: string }
         <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Martel:wght@200;300;400;600;700;800;900&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
         <script type="module" src="/script/runcode.js"></script>
         <script type="module" src="/script/toc.js"></script>
+        <script type="module" src="/script/nav.js"></script>
       </head>
       <body>
 
@@ -63,41 +56,41 @@ export function template(current: string, posts: { path: string, title: string }
 
           <h3>About</h3>
           <ul>
-            <li><A href='/about/discover-90s-dev.html'>What is 90s.dev?</A></li>
-            <li><A href='/about/getting-started.html'>Getting started</A></li>
-            <li><A href='/about/hello-world.html'>Hello world tour</A></li>
+            <li><a href='/about/discover-90s-dev.html'>What is 90s.dev?</a></li>
+            <li><a href='/about/getting-started.html'>Getting started</a></li>
+            <li><a href='/about/hello-world.html'>Hello world tour</a></li>
           </ul>
 
           <h3>Guides</h3>
           <ul>
-            <li><A href='/guides/api-reference.html'>API Reference</A></li>
-            <li><A href='/guides/views.html'>Views</A></li>
-            <li><A href='/guides/refs.html'>Refs</A></li>
-            <li><A href='/guides/filesystem.html'>Filesystem</A></li>
-            <li><A href='/guides/composites.html'>Composites</A></li>
-            <li><A href='/guides/shells.html'>Shells</A></li>
+            <li><a href='/guides/api-reference.html'>API Reference</a></li>
+            <li><a href='/guides/views.html'>Views</a></li>
+            <li><a href='/guides/refs.html'>Refs</a></li>
+            <li><a href='/guides/filesystem.html'>Filesystem</a></li>
+            <li><a href='/guides/composites.html'>Composites</a></li>
+            <li><a href='/guides/shells.html'>Shells</a></li>
           </ul>
 
           <h3>Collaboration</h3>
           <ul>
-            <li><A href='/collaboration/creating-an-account.html'>Creating an account</A></li>
-            <li><A href='/collaboration/publishing-apps.html'>Publishing apps</A></li>
-            <li><A href='/collaboration/publishing-libs.html'>Publishing libraries</A></li>
-            <li><A href='/collaboration/publishing-files.html'>Publishing files</A></li>
+            <li><a href='/collaboration/creating-an-account.html'>Creating an account</a></li>
+            <li><a href='/collaboration/publishing-apps.html'>Publishing apps</a></li>
+            <li><a href='/collaboration/publishing-libs.html'>Publishing libraries</a></li>
+            <li><a href='/collaboration/publishing-files.html'>Publishing files</a></li>
           </ul>
 
           <h3>Links</h3>
           <ul>
-            <li><A href={oshost}>os.90s.dev</A></li>
-            <li><A href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</A></li>
-            <li><A href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</A></li>
-            <li><A href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</A></li>
+            <li><a href={oshost}>os.90s.dev</a></li>
+            <li><a href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</a></li>
+            <li><a href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</a></li>
+            <li><a href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</a></li>
           </ul>
 
           <h3>News</h3>
           <ul>
             {posts.map(({ path, title }) => {
-              return <li><A href={path}>{title}</A></li>
+              return <li><a href={path}>{title}</a></li>
             })}
           </ul>
 
