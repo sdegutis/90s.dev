@@ -25,12 +25,12 @@ const observer = new IntersectionObserver(records => {
 
 }, { threshold: .5 })
 
-const allHeaders: HTMLElement[] = []
+let last = tops[0]
 for (const node of tops) {
   if (node.tagName.match(/^H\d$/)) {
-    allHeaders.push(node)
+    last = node
   }
-  headers.set(node, allHeaders.at(-1)!)
+  headers.set(node, last)
   observer.observe(node)
 }
 
