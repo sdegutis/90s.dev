@@ -1,6 +1,6 @@
 import { LiveTree, Pipeline } from 'immaculata'
 import { oshost } from '../../isdev.ts'
-import { mainPage } from "../template.tsx"
+import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { render } from "./markdown.ts"
 import { monaco } from './monaco.ts'
@@ -28,15 +28,11 @@ export async function processSite(tree: LiveTree) {
       return { path, title }
     })
 
-    files.with('^/guides/').do(f => {
-      f.path = f.path.slice('/guides'.length)
-    })
-
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const result = render(f.text)
-      f.text = mainPage(f.path, blogs, result.html, result.toc)
+      f.text = template(f.path, blogs, result.html, result.toc)
     })
 
     files.with(/\.tsx?$/).do(f => {

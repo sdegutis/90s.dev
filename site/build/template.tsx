@@ -1,6 +1,6 @@
-import { isDev, oshost } from "../isdev.ts"
+import { isDev, oshost } from "../../isdev.ts"
 
-export function mainPage(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
+export function template(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -24,27 +24,27 @@ export function mainPage(current: string, posts: { path: string, title: string }
 
           <h3>About</h3>
           <ul>
-            <li><A current={current} href='/what-is-90s-dev.html'>What is 90s.dev?</A></li>
-            <li><A current={current} href='/getting-started.html'>Getting started</A></li>
-            <li><A current={current} href='/hello-world.html'>Hello world tour</A></li>
+            <li><A current={current} href='/about/discover-90s-dev.html'>What is 90s.dev?</A></li>
+            <li><A current={current} href='/about/getting-started.html'>Getting started</A></li>
+            <li><A current={current} href='/about/hello-world.html'>Hello world tour</A></li>
           </ul>
 
           <h3>Guides</h3>
           <ul>
-            <li><A current={current} href='/api-reference.html'>API Reference</A></li>
-            <li><A current={current} href='/understanding-views.html'>Views</A></li>
-            <li><A current={current} href='/understanding-refs.html'>Refs</A></li>
-            <li><A current={current} href='/understanding-fs.html'>Filesystem</A></li>
-            <li><A current={current} href='/understanding-composites.html'>Composites</A></li>
-            <li><A current={current} href='/writing-shells.html'>Shells</A></li>
+            <li><A current={current} href='/guides/api-reference.html'>API Reference</A></li>
+            <li><A current={current} href='/guides/views.html'>Views</A></li>
+            <li><A current={current} href='/guides/refs.html'>Refs</A></li>
+            <li><A current={current} href='/guides/filesystem.html'>Filesystem</A></li>
+            <li><A current={current} href='/guides/composites.html'>Composites</A></li>
+            <li><A current={current} href='/guides/shells.html'>Shells</A></li>
           </ul>
 
           <h3>Collaboration</h3>
           <ul>
-            <li><A current={current} href='/creating-an-account.html'>Creating an account</A></li>
-            <li><A current={current} href='/publishing-apps.html'>Publishing apps</A></li>
-            <li><A current={current} href='/publishing-libs.html'>Publishing libraries</A></li>
-            <li><A current={current} href='/publishing-files.html'>Publishing files</A></li>
+            <li><A current={current} href='/collaboration/creating-an-account.html'>Creating an account</A></li>
+            <li><A current={current} href='/collaboration/publishing-apps.html'>Publishing apps</A></li>
+            <li><A current={current} href='/collaboration/publishing-libs.html'>Publishing libraries</A></li>
+            <li><A current={current} href='/collaboration/publishing-files.html'>Publishing files</A></li>
           </ul>
 
           <h3>Links</h3>
