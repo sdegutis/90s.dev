@@ -17,6 +17,8 @@ window.onbeforeunload = () => es.close()
 export async function processSite(tree: LiveTree) {
   return tree.processFiles(files => {
 
+    files.with('\.d\.ts$').remove()
+
     files.without('^/public').remove()
     files.with('/public').do(f => f.path = f.path.replace(/^\/public/, ''))
 
