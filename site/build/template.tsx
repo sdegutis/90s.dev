@@ -1,6 +1,15 @@
 import { isDev, oshost } from "../../isdev.ts"
 
 export function template(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
+
+  function A(data: { href: string, children: string }) {
+    return <a
+      class={current === data.href ? 'current' : ''}
+      href={data.href}
+      children={data.children}
+    />
+  }
+
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
@@ -24,41 +33,41 @@ export function template(current: string, posts: { path: string, title: string }
 
           <h3>About</h3>
           <ul>
-            <li><A current={current} href='/about/discover-90s-dev.html'>What is 90s.dev?</A></li>
-            <li><A current={current} href='/about/getting-started.html'>Getting started</A></li>
-            <li><A current={current} href='/about/hello-world.html'>Hello world tour</A></li>
+            <li><A href='/about/discover-90s-dev.html'>What is 90s.dev?</A></li>
+            <li><A href='/about/getting-started.html'>Getting started</A></li>
+            <li><A href='/about/hello-world.html'>Hello world tour</A></li>
           </ul>
 
           <h3>Guides</h3>
           <ul>
-            <li><A current={current} href='/guides/api-reference.html'>API Reference</A></li>
-            <li><A current={current} href='/guides/views.html'>Views</A></li>
-            <li><A current={current} href='/guides/refs.html'>Refs</A></li>
-            <li><A current={current} href='/guides/filesystem.html'>Filesystem</A></li>
-            <li><A current={current} href='/guides/composites.html'>Composites</A></li>
-            <li><A current={current} href='/guides/shells.html'>Shells</A></li>
+            <li><A href='/guides/api-reference.html'>API Reference</A></li>
+            <li><A href='/guides/views.html'>Views</A></li>
+            <li><A href='/guides/refs.html'>Refs</A></li>
+            <li><A href='/guides/filesystem.html'>Filesystem</A></li>
+            <li><A href='/guides/composites.html'>Composites</A></li>
+            <li><A href='/guides/shells.html'>Shells</A></li>
           </ul>
 
           <h3>Collaboration</h3>
           <ul>
-            <li><A current={current} href='/collaboration/creating-an-account.html'>Creating an account</A></li>
-            <li><A current={current} href='/collaboration/publishing-apps.html'>Publishing apps</A></li>
-            <li><A current={current} href='/collaboration/publishing-libs.html'>Publishing libraries</A></li>
-            <li><A current={current} href='/collaboration/publishing-files.html'>Publishing files</A></li>
+            <li><A href='/collaboration/creating-an-account.html'>Creating an account</A></li>
+            <li><A href='/collaboration/publishing-apps.html'>Publishing apps</A></li>
+            <li><A href='/collaboration/publishing-libs.html'>Publishing libraries</A></li>
+            <li><A href='/collaboration/publishing-files.html'>Publishing files</A></li>
           </ul>
 
           <h3>Links</h3>
           <ul>
-            <li><A current={current} href={oshost}>os.90s.dev</A></li>
-            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</A></li>
-            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</A></li>
-            <li><A current={current} href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</A></li>
+            <li><A href={oshost}>os.90s.dev</A></li>
+            <li><A href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</A></li>
+            <li><A href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</A></li>
+            <li><A href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</A></li>
           </ul>
 
           <h3>News</h3>
           <ul>
             {posts.map(({ path, title }) => {
-              return <li><A current={current} href={path}>{title}</A></li>
+              return <li><A href={path}>{title}</A></li>
             })}
           </ul>
 
@@ -104,12 +113,4 @@ export function template(current: string, posts: { path: string, title: string }
       </body>
     </html>
   </>
-}
-
-function A(data: { current: string, href: string, children: string }) {
-  return <a
-    class={data.current === data.href ? 'current' : ''}
-    href={data.href}
-    children={data.children}
-  />
 }
