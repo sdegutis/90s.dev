@@ -22,6 +22,7 @@ function highestStartingAt() {
 }
 
 const observer = new IntersectionObserver(records => {
+  records.sort((a, b) => a.time < b.time ? -1 : a.time > b.time ? 1 : 0)
   for (const r of records) {
     if (r.isIntersecting)
       visible.add(r.target as HTMLElement)

@@ -130,8 +130,8 @@ If you're content with React.js, or if you see nothing wrong with CSS,
 then maybe this isn't the platform for you.
 
 The ethos of 90s.dev is to be deeply passionate about beauty and perfection,
-to try solving old problems by thinking far beyond the box, and to recreate
-for the sake of creativity and fun.
+to try solving old problems in new ways by thinking far beyond the box, and
+to create an environment where creativity, fun, and beauty reign supreme.
 
 ## Why is it called 90s.dev?
 
