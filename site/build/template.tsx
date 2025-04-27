@@ -105,7 +105,7 @@ export function template(current: string, posts: { path: string, title: string }
           <div id='underconstruction'>
             <p>
               ⚠️ Under construction ⚠️
-              <span>I don't care</span>
+              <span onclick="this.parentElement.parentElement.remove()">I don't care</span>
             </p>
           </div>
         }
