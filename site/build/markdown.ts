@@ -1,15 +1,18 @@
-import MarkdownIt, { type Renderer } from "markdown-it"
+import type { Options, Renderer, Token } from "markdown-it"
+import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
-import type * as Toc from 'markdown-it-toc-done-right'
-import toc from 'markdown-it-toc-done-right'
 import { highlightCode } from "./shiki.ts"
+
+export type Toc = { level: number, id: string, text: string }[]
 
 let currenttoc: string
 export function render(text: string) {
+  const env = { toc: [] as Toc }
+  const html = md.render(text, env)
   return {
-    html: md.render(text),
-    toc: currenttoc,
+    html,
+    toc: env.toc,
   }
 }
 
@@ -24,13 +27,12 @@ md.use(anchorLinks)
 md.use(sectionMacro)
 md.use(runcodeMacro)
 
+function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
+  return self.renderToken(tokens, idx, opts)
+}
+
 export function renameMarkdownLinks(md: MarkdownIt) {
-  const defaultRender: Renderer.RenderRule = (tokens, idx, opts, env, self) => {
-    return self.renderToken(tokens, idx, opts)
-  }
-
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
-
   md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
     let href = tokens[idx].attrGet('href')!
     let hash = ''
@@ -50,14 +52,16 @@ export function renameMarkdownLinks(md: MarkdownIt) {
 }
 
 export function tableOfContents(md: MarkdownIt) {
-  toc(md, {
-    callback(html, ast) { currenttoc = html },
-    slugify,
-    listType: 'ul',
-    format: s => '# ' + s,
-    containerId: 'toc',
-    level: 1,
-  } satisfies Partial<Toc.TocOptions>)
+  const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
+  md.renderer.rules['heading_open'] = (tokens, idx, opts, env, self) => {
+    const toc: Toc = env.toc ??= []
+    const tok = tokens[idx]
+    const level = tok.markup.length
+    const id = tok.attrGet('id')!
+    const text = md.renderInline(tokens[idx + 1].content, env)
+    toc.push({ level, id, text })
+    return heading_open(tokens, idx, opts, env, self)
+  }
 }
 
 export function anchorLinks(md: MarkdownIt) {

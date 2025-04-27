@@ -1,6 +1,36 @@
 import { isDev, oshost } from "../../isdev.ts"
+import { Toc } from "./markdown.ts"
 
-export function template(current: string, posts: { path: string, title: string }[], content: string, toc: string) {
+function tocToHtml(toc: Toc) {
+  const table: string[] = []
+  _tocToHtml(toc, table, 0, 1)
+  return table.join('\n')
+}
+
+function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
+  table.push(`<ul>`)
+  for (; i < toc.length; i++) {
+    const line = toc[i]
+    table.push(`<li>`)
+    table.push(`<a href="#${line.id}"># ${line.text}</a>`)
+
+    const next = toc[i + 1]
+
+    if (next && next.level > level) {
+      i = _tocToHtml(toc, table, i + 1, next.level)
+    }
+
+    table.push(`</li>`)
+
+    if (next && next.level < level) {
+      break
+    }
+  }
+  table.push(`</ul>`)
+  return i
+}
+
+export function template(current: string, posts: { path: string, title: string }[], content: string, toc: Toc) {
 
   function A(data: { href: string, children: string }) {
     return <a
@@ -97,7 +127,9 @@ export function template(current: string, posts: { path: string, title: string }
           </div>
 
           <h3>On this page</h3>
-          {toc}
+          <nav id='toc' class='table-of-contents'>
+            {tocToHtml(toc)}
+          </nav>
 
         </div>
 
