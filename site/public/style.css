@@ -196,13 +196,15 @@ body {
   .sitelogo { font-size: 150%; }
   :is(ul,ol) { list-style-type: none; }
 
-  &#nav { padding-top: 1em; }
-  &#toc a { display: inline-block; margin: .33rem 0 }
-  &#side h3+* { margin-top: .25em; }
-  &#toc li li ul { margin-left: 1em; }
   > * { margin: 2rem }
 
+  &#nav { padding-top: 1em; }
+  &#side h3+* { margin-top: .25em; }
+
   #toggledarkmode { display: flex; gap: .25em }
+
+  #toc a { margin: .33rem 0 }
+  #toc {li li ul { margin-left: 1em; }}
 
   h3 {
     font-weight: normal;
