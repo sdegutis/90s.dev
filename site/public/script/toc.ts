@@ -4,9 +4,6 @@ const headers = new Map<HTMLElement, HTMLElement>()
 const visible = new Set<HTMLElement>()
 
 const observer = new IntersectionObserver(records => {
-
-  records.sort((a, b) => a.time < b.time ? -1 : a.time > b.time ? 1 : 0)
-
   for (const r of records) {
     if (r.isIntersecting)
       visible.add(r.target as HTMLElement)
@@ -22,7 +19,6 @@ const observer = new IntersectionObserver(records => {
   for (const a of navlinks) {
     a.classList.toggle('current', a.hash.slice(1) === header.id)
   }
-
 }, { threshold: .5 })
 
 let last = tops[0]
