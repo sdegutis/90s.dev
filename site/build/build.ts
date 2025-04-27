@@ -48,7 +48,7 @@ export async function processSite(tree: LiveTree) {
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = { toc: [] }
       const result = renderer.render(f.text, env)
-      f.text = template(f.path, blogs, result, env)
+      f.text = template(blogs, result, env)
     })
 
     files.with(/\.tsx?$/).do(f => {

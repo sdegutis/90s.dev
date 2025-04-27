@@ -31,7 +31,7 @@ function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
   return i
 }
 
-export function template(current: string, posts: { path: string, title: string }[], content: string, env: Env) {
+export function template(posts: { path: string, title: string }[], content: string, env: Env) {
 
   return <>
     {'<!DOCTYPE html>'}
