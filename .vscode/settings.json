@@ -13,4 +13,5 @@
   "markdown.updateLinksOnFileMove.enabled": "always",
   "markdown.updateLinksOnFileMove.enableForDirectories": true,
   "markdown.validate.ignoredLinks": [ "${OSHOST}/**" ],
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
 }
