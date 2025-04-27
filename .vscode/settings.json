@@ -1,5 +1,16 @@
 {
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "task.allowAutomaticTasks": "on",
-  "css.format.enable": false
+  "css.format.enable": false,
+  "markdown.validate.enabled": true,
+  "markdown.validate.fileLinks.enabled": "error",
+  "markdown.validate.fragmentLinks.enabled": "error",
+  "markdown.validate.fileLinks.markdownFragmentLinks": "error",
+  "markdown.validate.duplicateLinkDefinitions.enabled": "error",
+  "markdown.validate.referenceLinks.enabled": "error",
+  "markdown.validate.unusedLinkDefinitions.enabled": "error",
+  "markdown.editor.updateLinksOnPaste.enabled": true,
+  "markdown.updateLinksOnFileMove.enabled": "always",
+  "markdown.updateLinksOnFileMove.enableForDirectories": true,
+  "markdown.validate.ignoredLinks": [ "${OSHOST}/**" ],
 }
