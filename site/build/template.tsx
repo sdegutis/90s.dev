@@ -1,4 +1,5 @@
 import { isDev, oshost } from "../../isdev.ts"
+import type { Env } from "./build.ts"
 import { Toc } from "./markdown.ts"
 
 function tocToHtml(toc: Toc) {
@@ -30,7 +31,7 @@ function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
   return i
 }
 
-export function template(current: string, posts: { path: string, title: string }[], content: string, toc: Toc) {
+export function template(current: string, posts: { path: string, title: string }[], content: string, env: Env) {
 
   return <>
     {'<!DOCTYPE html>'}
@@ -45,7 +46,7 @@ export function template(current: string, posts: { path: string, title: string }
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Martel:wght@200;300;400;600;700;800;900&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
         <script type="module" src="/script/runcode.js"></script>
-        <script type="module" src="/script/iframes.js"></script>
+        {env.iframes && <script type="module" src="/script/iframes.js"></script>}
         <script type="module" src="/script/toc.js"></script>
         <script type="module" src="/script/nav.js"></script>
       </head>
@@ -122,7 +123,7 @@ export function template(current: string, posts: { path: string, title: string }
 
           <h3>On this page</h3>
           <nav id='toc' class='table-of-contents'>
-            {tocToHtml(toc)}
+            {tocToHtml(env.toc)}
           </nav>
 
         </div>

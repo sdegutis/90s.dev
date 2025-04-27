@@ -2,17 +2,15 @@ import type { Options, Renderer, Token } from "markdown-it"
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
+import { oshost } from "../../isdev.ts"
 import { highlightCode } from "./shiki.ts"
 
 export type Toc = { level: number, id: string, text: string }[]
 
-export function render(text: string) {
-  const env = { toc: [] as Toc }
-  const html = md.render(text, env)
-  return {
-    html,
-    toc: env.toc,
-  }
+export function makeRenderer<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
+  const md = new MarkdownIt({ html: true, ...opts })
+  plugins.forEach(fn => md.use(fn))
+  return md
 }
 
 const md = new MarkdownIt({
@@ -23,6 +21,7 @@ md.use(renameMarkdownLinks)
 md.use(tableOfContents)
 md.use(highlightCode)
 md.use(anchorLinks)
+md.use(checkForIframes(oshost))
 md.use(sectionMacro)
 md.use(runcodeMacro)
 
@@ -43,6 +42,19 @@ export function renameMarkdownLinks(md: MarkdownIt) {
     tokens[idx].attrSet('href', href)
 
     return linkopen(tokens, idx, opts, env, self)
+  }
+}
+
+export function checkForIframes(oshost: string) {
+  return (md: MarkdownIt) => {
+    const linkopen = md.renderer.rules["link_open"] ?? defaultRender
+    md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
+      let href = tokens[idx].attrGet('href')!
+      if (href.startsWith(oshost + '/#')) {
+        env.iframes = true
+      }
+      return linkopen(tokens, idx, opts, env, self)
+    }
   }
 }
 

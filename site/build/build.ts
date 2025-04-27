@@ -2,8 +2,9 @@ import { LiveTree, Pipeline } from 'immaculata'
 import { oshost } from '../../isdev.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
-import { render } from "./markdown.ts"
+import { anchorLinks, checkForIframes, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, tableOfContents, type Toc } from "./markdown.ts"
 import { monaco } from './monaco.ts'
+import { highlightCode } from './shiki.ts'
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
@@ -11,8 +12,22 @@ if (false && process.argv[2] === 'dev') reloader = `
 const es = new EventSource('/reload')
 es.onmessage = () => location.reload()
 window.onbeforeunload = () => es.close()
-</script>
-`
+</script>`
+
+export type Env = {
+  toc: Toc
+  iframes?: boolean
+}
+
+const renderer = makeRenderer({}, [
+  renameMarkdownLinks,
+  tableOfContents,
+  highlightCode,
+  anchorLinks,
+  checkForIframes(oshost),
+  sectionMacro,
+  runcodeMacro,
+])
 
 export async function processSite(tree: LiveTree) {
   return tree.processFiles(files => {
@@ -31,8 +46,9 @@ export async function processSite(tree: LiveTree) {
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
-      const result = render(f.text)
-      f.text = template(f.path, blogs, result.html, result.toc)
+      const env: Env = { toc: [] }
+      const result = renderer.render(f.text, env)
+      f.text = template(f.path, blogs, result, env)
     })
 
     files.with(/\.tsx?$/).do(f => {
