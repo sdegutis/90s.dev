@@ -7,7 +7,7 @@ import { compileTsx } from './site/build/compile.ts'
 const tree = new immaculata.LiveTree('site', import.meta.url)
 registerHooks(tree.enableImportsModuleHook())
 registerHooks(immaculata.jsxRuntimeModuleHook('immaculata/dist/jsx-strings.js'))
-registerHooks(immaculata.compileJsxTsxModuleHook((src, url) => compileTsx(src, fileURLToPath(url))))
+registerHooks(immaculata.compileJsxTsxModuleHook((src, url) => compileTsx(src, fileURLToPath(url)).outputText))
 
 if (isDev) {
   const server = new immaculata.DevServer(9090, { hmrPath: '/reload' })

@@ -40,8 +40,12 @@ export async function processSite(tree: LiveTree) {
     })
 
     files.with(/\.tsx?$/).do(f => {
-      f.text = compileTsx(f.text, f.path)
-      f.path = f.path.replace(/\.tsx?$/, '.js')
+      const out = compileTsx(f.text, f.path)
+      const jsPath = f.path.replace(/\.tsx?$/, '.js')
+      files.add(f.path, f.text)
+      files.add(jsPath + '.map', out.sourceMapText!)
+      f.text = out.outputText
+      f.path = jsPath
     })
 
     if (reloader) files.with(/\.html$/).do(f => { f.text = f.text.replace('<head>', '$&' + reloader) })

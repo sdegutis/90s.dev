@@ -7,8 +7,7 @@ export function compileTsx(str: string, filename: string) {
       target: ts.ScriptTarget.ESNext,
       module: ts.ModuleKind.ESNext,
       jsx: ts.JsxEmit.ReactJSX,
-      inlineSourceMap: true,
-      inlineSources: true,
+      sourceMap: true,
     }
-  }).outputText
+  })
 }
