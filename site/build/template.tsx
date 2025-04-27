@@ -1,6 +1,13 @@
-import { isDev, oshost } from "../../isdev.ts"
+import { isDev } from "../../isdev.ts"
 import type { Env } from "./build.ts"
-import { Toc } from "./markdown.ts"
+import { makeRenderer, renameMarkdownLinks, Toc } from "./markdown.ts"
+import navMd from './nav.md'
+
+const renderer = makeRenderer({}, [
+  renameMarkdownLinks,
+])
+
+const navHtml = renderer.render(navMd)
 
 function tocToHtml(toc: Toc) {
   const table: string[] = []
@@ -54,40 +61,7 @@ export function template(posts: { path: string, title: string }[], content: stri
 
         <nav id='nav' class='navbar'>
 
-          <a class='sitelogo' href='/'>90s.dev</a>
-
-          <h3>About</h3>
-          <ul>
-            <li><a href='/about/discover-90s-dev.html'>What is 90s.dev?</a></li>
-            <li><a href='/about/getting-started.html'>Getting started</a></li>
-            <li><a href='/about/hello-world.html'>Hello world tour</a></li>
-          </ul>
-
-          <h3>Guides</h3>
-          <ul>
-            <li><a href='/guides/api-reference.html'>API Reference</a></li>
-            <li><a href='/guides/views.html'>Views</a></li>
-            <li><a href='/guides/refs.html'>Refs</a></li>
-            <li><a href='/guides/filesystem.html'>Filesystem</a></li>
-            <li><a href='/guides/composites.html'>Composites</a></li>
-            <li><a href='/guides/shells.html'>Shells</a></li>
-          </ul>
-
-          <h3>Collaboration</h3>
-          <ul>
-            <li><a href='/collaboration/creating-an-account.html'>Creating an account</a></li>
-            <li><a href='/collaboration/publishing-apps.html'>Publishing apps</a></li>
-            <li><a href='/collaboration/publishing-libs.html'>Publishing libraries</a></li>
-            <li><a href='/collaboration/publishing-files.html'>Publishing files</a></li>
-          </ul>
-
-          <h3>Links</h3>
-          <ul>
-            <li><a href={oshost}>os.90s.dev</a></li>
-            <li><a href='https://github.com/ppl-90s-dev/ppl/issues'>Feature requests</a></li>
-            <li><a href='https://github.com/ppl-90s-dev/ppl/issues'>Bug reports</a></li>
-            <li><a href='https://github.com/ppl-90s-dev/ppl/wiki'>Community wiki</a></li>
-          </ul>
+          {navHtml}
 
           <h3>News</h3>
           <ul>
