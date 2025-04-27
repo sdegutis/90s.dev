@@ -1,4 +1,4 @@
-import MarkdownIt from "markdown-it"
+import MarkdownIt, { type Renderer } from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
 import type * as Toc from 'markdown-it-toc-done-right'
@@ -17,10 +17,41 @@ const md = new MarkdownIt({
   html: true,
 })
 
+md.use(md => {
+  const defaultRender: Renderer.RenderRule = (tokens, idx, opts, env, self) => {
+    return self.renderToken(tokens, idx, opts)
+  }
+
+  const linkopen = md.renderer.rules["link_open"] ?? defaultRender
+
+  md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
+    let href = tokens[idx].attrGet('href')!
+    let hash = ''
+    const hashi = href.indexOf('#')
+    if (hashi !== -1) {
+      hash = href.slice(hashi)
+      href = href.slice(0, hashi)
+    }
+
+    href = href.replace(/\.md$/, '.html')
+    href += hash
+
+    tokens[idx].attrSet('href', href)
+
+    return linkopen(tokens, idx, opts, env, self)
+  }
+})
+
 shiki(md)
+
+const slugify = (s: string) => s
+  .toLowerCase()
+  .replace(/ +/g, '-')
+  .replace(/[^a-z0-9-]/g, '')
 
 toc(md, {
   callback(html, ast) { currenttoc = html },
+  slugify,
   listType: 'ul',
   format: s => '# ' + s,
   containerId: 'toc',
@@ -31,6 +62,7 @@ anchors(md, {
   permalink: anchors.permalink.linkInsideHeader({
     placement: 'before',
   }),
+  slugify,
 })
 
 containers(md, 'section', {

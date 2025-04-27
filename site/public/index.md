@@ -18,7 +18,7 @@
 
 ::: section homebuttons
 
-- [Discover 90s.dev](/what-is-90s-dev.html)
-- [Getting started](/getting-started.html)
+- [Discover 90s.dev](about/discover-90s-dev.md#what-is-90sdev)
+- [Getting started](about/getting-started.md#getting-started)
 
 :::
