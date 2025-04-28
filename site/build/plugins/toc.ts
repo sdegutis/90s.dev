@@ -11,8 +11,8 @@ type Toc = { level: number, id: string, text: string }[]
 
 export function generateToc(md: MarkdownIt) {
   const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
-  md.renderer.rules['heading_open'] = (tokens, idx, opts, env, self) => {
-    const toc = (env as Env).toc ??= []
+  md.renderer.rules['heading_open'] = (tokens, idx, opts, env: Env, self) => {
+    const toc = env.toc ??= []
     const tok = tokens[idx]
     const level = tok.markup.length
     const id = tok.attrGet('id')!

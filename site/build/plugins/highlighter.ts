@@ -16,8 +16,8 @@ export const highlightCode = (md: MarkdownIt) => {
   md.use(shiki)
 
   const oldfence = md.renderer.rules.fence ?? defaultRender
-  md.renderer.rules.fence = (toks, idx, opts, env, self) => {
-    if (tsx.includes(toks[idx].info)) (env as Env).bettertsx = true
+  md.renderer.rules.fence = (toks, idx, opts, env: Env, self) => {
+    if (tsx.includes(toks[idx].info)) env.bettertsx = true
     return oldfence(toks, idx, opts, env, self)
   }
 }
