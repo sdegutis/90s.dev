@@ -1,4 +1,4 @@
-const base = 'https://cdn.jsdelivr.net/npm/monaco-editor/min/vs';
+const base = location.origin + '/monaco/min/vs';
 
 await new Promise(resolve => {
   const script = document.createElement('script');
