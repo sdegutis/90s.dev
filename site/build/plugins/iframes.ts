@@ -3,7 +3,7 @@ import { oshost } from "../../../data.ts"
 import { defaultRender } from "./markdown.ts"
 
 declare module "./markdown.ts" {
-  export interface Env {
+  interface Env {
     iframes?: boolean
   }
 }

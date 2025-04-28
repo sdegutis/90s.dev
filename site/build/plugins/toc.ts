@@ -4,7 +4,7 @@ import { defaultRender } from "./markdown.ts"
 type Toc = { level: number, id: string, text: string }[]
 
 declare module "./markdown.ts" {
-  export interface Env {
+  interface Env {
     toc: Toc
   }
 }
