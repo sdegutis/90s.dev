@@ -42,6 +42,12 @@ export function addHeaderPermalinks(md: MarkdownIt) {
   })
 }
 
+function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/ +/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+}
 
 export function sectionMacro(md: MarkdownIt) {
   containers(md, 'section', {
@@ -78,13 +84,6 @@ export function runcodeMacro(md: MarkdownIt) {
       }
     }
   })
-}
-
-function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .replace(/ +/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
 }
 
 export function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
