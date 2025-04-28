@@ -1,6 +1,5 @@
 import { Pipeline } from 'immaculata'
 import { oshost, tree } from '../../data.ts'
-import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { monaco } from './monaco.ts'
 import { checkForIframes } from './plugins/iframes.ts'
@@ -8,6 +7,7 @@ import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, sectionMacro, t
 import { runcodeMacro } from './plugins/runcode.ts'
 import { highlightCode } from './plugins/shiki.ts'
 import { generateToc } from './plugins/toc.ts'
+import { Page } from "./template.tsx"
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
@@ -46,7 +46,9 @@ export async function processSite() {
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
       const result = renderer.render(f.text, env)
-      f.text = template(blogs, result, env)
+      f.text = <Page posts={blogs} content={result} env={env}>
+
+      </Page>
     })
 
     files.with(/\.tsx?$/).do(f => {

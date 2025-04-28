@@ -27,6 +27,6 @@ else {
 }
 
 async function processSite() {
-  const mod = await import("./site/build/build.ts")
+  const mod = await import("./site/build/build.tsx")
   return await mod.processSite()
 }
