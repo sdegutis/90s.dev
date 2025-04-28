@@ -8,7 +8,9 @@ registerHooks(tree.enableImportsModuleHook())
 registerHooks(immaculata.exportAsStringModuleHook({ bareExt: 'md' }))
 registerHooks(immaculata.jsxRuntimeModuleHook('immaculata/dist/jsx-strings.js'))
 registerHooks(immaculata.compileJsxTsxModuleHook((src, url) => {
-  return compileTsx(src, fileURLToPath(url)).outputText
+  const out = compileTsx(src, fileURLToPath(url))
+  out.sourceMapText
+  return out.outputText
 }))
 
 if (isDev) {
@@ -38,6 +40,9 @@ function compileTsx(str: string, filename: string) {
       target: ts.ScriptTarget.ESNext,
       module: ts.ModuleKind.ESNext,
       jsx: ts.JsxEmit.ReactJSX,
+      sourceMap: true,
+      inlineSourceMap: true,
+      inlineSources: true,
     }
   })
 }
