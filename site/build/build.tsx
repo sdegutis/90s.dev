@@ -16,7 +16,7 @@ es.onmessage = () => location.reload()
 window.onbeforeunload = () => es.close()
 </script>`
 
-const renderer = markdown({}, [
+const md = markdown({}, [
   renameMarkdownLinks,
   generateToc,
   highlightCode,
@@ -44,7 +44,7 @@ export async function processSite() {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
-      const result = renderer.render(f.text, env)
+      const result = md.render(f.text, env)
       f.text = <Html>
         <Head
           bettertsx={env.bettertsx ?? false}
