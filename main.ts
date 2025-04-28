@@ -1,10 +1,9 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
 import { fileURLToPath } from 'url'
-import { isDev } from './data.ts'
+import { isDev, tree } from './data.ts'
 import { compileTsx } from './site/build/compile.ts'
 
-const tree = new immaculata.LiveTree('site', import.meta.url)
 registerHooks(tree.enableImportsModuleHook())
 registerHooks(immaculata.exportAsStringModuleHook({ bareExt: 'md' }))
 registerHooks(immaculata.jsxRuntimeModuleHook('immaculata/dist/jsx-strings.js'))
@@ -29,5 +28,5 @@ else {
 
 async function processSite() {
   const mod = await import("./site/build/build.ts")
-  return await mod.processSite(tree)
+  return await mod.processSite()
 }

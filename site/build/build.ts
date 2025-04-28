@@ -1,5 +1,5 @@
-import { LiveTree, Pipeline } from 'immaculata'
-import { oshost } from '../../data.ts'
+import { Pipeline } from 'immaculata'
+import { oshost, tree } from '../../data.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { addHeaderPermalinks, checkForIframes, generateToc, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Toc } from "./markdown.ts"
@@ -29,7 +29,7 @@ const renderer = makeRenderer({}, [
   runcodeMacro,
 ])
 
-export async function processSite(tree: LiveTree) {
+export async function processSite() {
   return tree.processFiles(files => {
 
     files.with('\.d\.ts$').remove()

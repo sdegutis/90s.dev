@@ -2,6 +2,7 @@ import type { Options, Renderer, Token } from "markdown-it"
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
+import { tree } from "../../data.ts"
 
 export type Toc = { level: number, id: string, text: string }[]
 
@@ -22,7 +23,7 @@ export function renameMarkdownLinks(md: MarkdownIt) {
       href = href.slice(0, hashi)
     }
 
-    const prefix = '/site/public'
+    const prefix = `/${tree.path}/public`
     if (href.startsWith(prefix)) href = href.slice(prefix.length)
 
     href = href.replace(/\.md$/, '.html')
