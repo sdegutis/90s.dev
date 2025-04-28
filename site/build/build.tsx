@@ -7,7 +7,7 @@ import { checkForIframes } from './plugins/iframes.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { runcodeMacro } from './plugins/runcode.ts'
 import { generateToc, tocToHtml } from './plugins/toc.ts'
-import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template.tsx"
+import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template/core.tsx"
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
