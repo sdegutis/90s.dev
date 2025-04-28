@@ -1,6 +1,15 @@
 import { isDev } from "../../data.ts"
 import { Nav } from './nav.tsx'
 
+export function Html(data: { children: any }) {
+  return <>
+    {'<!DOCTYPE html>'}
+    <html lang="en">
+      {data.children}
+    </html>
+  </>
+}
+
 export function Head(data: { iframes: boolean }) {
   return <head>
     <script src="/script/darkmode.js"></script>
@@ -16,6 +25,22 @@ export function Head(data: { iframes: boolean }) {
     <script type="module" src="/script/toc.js"></script>
     <script type="module" src="/script/nav.js"></script>
   </head>
+}
+
+export function Main(data: { content: string }) {
+  return <main id='main'>
+    <header id='mobileheader'>
+      <span>☰</span>
+      <a class='sitelogo' href='/'>90s.dev</a>
+      <span>☰</span>
+    </header>
+
+    {data.content}
+
+    <footer>
+      Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
+    </footer>
+  </main>
 }
 
 export function Navbar(data: { posts: { path: string, title: string }[] }) {
@@ -46,31 +71,6 @@ export function Sidebar(data: { toc: string }) {
     </nav>
 
   </div>
-}
-
-export function Html(data: { children: any }) {
-  return <>
-    {'<!DOCTYPE html>'}
-    <html lang="en">
-      {data.children}
-    </html>
-  </>
-}
-
-export function Main(data: { content: string }) {
-  return <main id='main'>
-    <header id='mobileheader'>
-      <span>☰</span>
-      <a class='sitelogo' href='/'>90s.dev</a>
-      <span>☰</span>
-    </header>
-
-    {data.content}
-
-    <footer>
-      Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
-    </footer>
-  </main>
 }
 
 export function UnderConstruction() {
