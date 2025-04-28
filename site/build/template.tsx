@@ -1,8 +1,8 @@
 import mdattrs from 'markdown-it-attrs'
 import { isDev } from "../../data.ts"
-import type { Env } from "./build.ts"
-import { makeRenderer, renameMarkdownLinks, Toc } from "./markdown.ts"
 import navMd from './nav.md'
+import { makeRenderer, renameMarkdownLinks, type Env } from "./plugins/markdown.ts"
+import { tocToHtml } from './plugins/toc.ts'
 
 const renderer = makeRenderer({}, [
   renameMarkdownLinks,
@@ -10,35 +10,6 @@ const renderer = makeRenderer({}, [
 ])
 
 const navHtml = renderer.render(navMd)
-
-function tocToHtml(toc: Toc) {
-  const table: string[] = []
-  _tocToHtml(toc, table, 0, 1)
-  return table.join('\n')
-}
-
-function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
-  table.push(`<ul>`)
-  for (; i < toc.length; i++) {
-    const line = toc[i]
-    table.push(`<li>`)
-    table.push(`<a href="#${line.id}"># ${line.text}</a>`)
-
-    let next = toc[i + 1]
-    if (next && next.level > level) {
-      i = _tocToHtml(toc, table, i + 1, next.level)
-    }
-
-    table.push(`</li>`)
-
-    next = toc[i + 1]
-    if (next && next.level < level) {
-      break
-    }
-  }
-  table.push(`</ul>`)
-  return i
-}
 
 export function template(posts: { path: string, title: string }[], content: string, env: Env) {
 

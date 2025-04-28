@@ -2,8 +2,9 @@ import { Pipeline } from 'immaculata'
 import { oshost, tree } from '../../data.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
-import { addHeaderPermalinks, checkForIframes, generateToc, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Toc } from "./markdown.ts"
 import { monaco } from './monaco.ts'
+import { addHeaderPermalinks, checkForIframes, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { generateToc } from './plugins/toc.ts'
 import { highlightCode } from './shiki.ts'
 
 let reloader = ''
@@ -13,11 +14,6 @@ const es = new EventSource('/reload')
 es.onmessage = () => location.reload()
 window.onbeforeunload = () => es.close()
 </script>`
-
-export type Env = {
-  toc: Toc
-  iframes?: boolean
-}
 
 const renderer = makeRenderer({}, [
   renameMarkdownLinks,

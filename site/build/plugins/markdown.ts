@@ -2,9 +2,11 @@ import type { Options, Renderer, Token } from "markdown-it"
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
-import { tree } from "../../data.ts"
+import { tree } from "../../../data.ts"
 
-export type Toc = { level: number, id: string, text: string }[]
+export interface Env {
+  iframes?: boolean
+}
 
 export function makeRenderer<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
@@ -45,19 +47,6 @@ export function checkForIframes(oshost: string) {
       }
       return linkopen(tokens, idx, opts, env, self)
     }
-  }
-}
-
-export function generateToc(md: MarkdownIt) {
-  const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
-  md.renderer.rules['heading_open'] = (tokens, idx, opts, env, self) => {
-    const toc: Toc = env.toc ??= []
-    const tok = tokens[idx]
-    const level = tok.markup.length
-    const id = tok.attrGet('id')!
-    const text = md.renderInline(tokens[idx + 1].content, env)
-    toc.push({ level, id, text })
-    return heading_open(tokens, idx, opts, env, self)
   }
 }
 
@@ -115,6 +104,6 @@ function slugify(s: string) {
     .replace(/[^a-z0-9-]/g, '')
 }
 
-function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
+export function defaultRender(tokens: Token[], idx: number, opts: Options, env: any, self: Renderer) {
   return self.renderToken(tokens, idx, opts)
 }
