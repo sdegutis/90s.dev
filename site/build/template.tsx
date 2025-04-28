@@ -1,7 +1,5 @@
 import { isDev } from "../../data.ts"
 import { Nav } from './nav.tsx'
-import { type Env } from "./plugins/markdown.ts"
-import { tocToHtml } from './plugins/toc.ts'
 
 export function Head(data: { iframes: boolean }) {
   return <head>
@@ -50,17 +48,11 @@ export function Sidebar(data: { toc: string }) {
   </div>
 }
 
-export function Page(data: { posts: { path: string, title: string }[], content: string, env: Env }) {
+export function Html(data: { children: any }) {
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
-      <Head iframes={data.env.iframes ?? false} />
-      <body>
-        <Navbar posts={data.posts} />
-        <Main content={data.content} />
-        <Sidebar toc={tocToHtml(data.env.toc!)} />
-        <UnderConstruction />
-      </body>
+      {data.children}
     </html>
   </>
 }

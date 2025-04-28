@@ -6,8 +6,8 @@ import { checkForIframes } from './plugins/iframes.ts'
 import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { runcodeMacro } from './plugins/runcode.ts'
 import { highlightCode } from './plugins/shiki.ts'
-import { generateToc } from './plugins/toc.ts'
-import { Page } from "./template.tsx"
+import { generateToc, tocToHtml } from './plugins/toc.ts'
+import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template.tsx"
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
@@ -46,9 +46,15 @@ export async function processSite() {
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
       const result = renderer.render(f.text, env)
-      f.text = <Page posts={blogs} content={result} env={env}>
-
-      </Page>
+      f.text = <Html>
+        <Head iframes={env.iframes ?? false} />
+        <body>
+          <Navbar posts={blogs} />
+          <Main content={result} />
+          <Sidebar toc={tocToHtml(env.toc!)} />
+          <UnderConstruction />
+        </body>
+      </Html>
     })
 
     files.with(/\.tsx?$/).do(f => {
