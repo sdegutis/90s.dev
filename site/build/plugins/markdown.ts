@@ -4,10 +4,6 @@ import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
 import { tree } from "../../../data.ts"
 
-export interface Env {
-  iframes?: boolean
-}
-
 export function makeRenderer<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
   plugins.forEach(fn => md.use(fn))
@@ -34,19 +30,6 @@ export function renameMarkdownLinks(md: MarkdownIt) {
     tokens[idx].attrSet('href', href)
 
     return linkopen(tokens, idx, opts, env, self)
-  }
-}
-
-export function checkForIframes(oshost: string) {
-  return (md: MarkdownIt) => {
-    const linkopen = md.renderer.rules["link_open"] ?? defaultRender
-    md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
-      let href = tokens[idx].attrGet('href')!
-      if (href.startsWith(oshost + '/#')) {
-        env.iframes = true
-      }
-      return linkopen(tokens, idx, opts, env, self)
-    }
   }
 }
 

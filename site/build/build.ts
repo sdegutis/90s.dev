@@ -3,7 +3,8 @@ import { oshost, tree } from '../../data.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { monaco } from './monaco.ts'
-import { addHeaderPermalinks, checkForIframes, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { checkForIframes } from './plugins/iframes.ts'
+import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { generateToc } from './plugins/toc.ts'
 import { highlightCode } from './shiki.ts'
 
@@ -20,7 +21,7 @@ const renderer = makeRenderer({}, [
   generateToc,
   highlightCode,
   addHeaderPermalinks,
-  checkForIframes(oshost),
+  checkForIframes,
   sectionMacro,
   runcodeMacro,
 ])
