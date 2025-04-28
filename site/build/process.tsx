@@ -1,4 +1,5 @@
 import { Pipeline } from 'immaculata'
+import ts from 'typescript'
 import { monaco, oshost, tree } from '../../static.ts'
 import { highlightCode } from '../plugins/highlighter.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "../plugins/markdown.ts"
@@ -6,7 +7,6 @@ import { checkForOsHost } from '../plugins/oshost.ts'
 import { runcodeMacro } from '../plugins/runcode.ts'
 import { generateToc, tocToHtml } from '../plugins/toc.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
-import { compileTsx } from './compile.ts'
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
@@ -73,5 +73,17 @@ export async function processSite() {
 
     files.add('/os.txt', oshost)
 
+  })
+}
+
+function compileTsx(str: string, filename: string) {
+  return ts.transpileModule(str, {
+    fileName: filename,
+    compilerOptions: {
+      target: ts.ScriptTarget.ESNext,
+      module: ts.ModuleKind.ESNext,
+      jsx: ts.JsxEmit.ReactJSX,
+      sourceMap: true,
+    }
   })
 }
