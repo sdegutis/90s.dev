@@ -47,7 +47,7 @@ export function checkForIframes(oshost: string) {
   }
 }
 
-export function tableOfContents(md: MarkdownIt) {
+export function generateToc(md: MarkdownIt) {
   const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
   md.renderer.rules['heading_open'] = (tokens, idx, opts, env, self) => {
     const toc: Toc = env.toc ??= []
@@ -60,7 +60,7 @@ export function tableOfContents(md: MarkdownIt) {
   }
 }
 
-export function anchorLinks(md: MarkdownIt) {
+export function addHeaderPermalinks(md: MarkdownIt) {
   anchors(md, {
     permalink: anchors.permalink.linkInsideHeader({
       placement: 'before',

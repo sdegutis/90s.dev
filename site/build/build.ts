@@ -2,7 +2,7 @@ import { LiveTree, Pipeline } from 'immaculata'
 import { oshost } from '../../isdev.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
-import { anchorLinks, checkForIframes, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, tableOfContents, type Toc } from "./markdown.ts"
+import { addHeaderPermalinks, checkForIframes, generateToc, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Toc } from "./markdown.ts"
 import { monaco } from './monaco.ts'
 import { highlightCode } from './shiki.ts'
 
@@ -21,9 +21,9 @@ export type Env = {
 
 const renderer = makeRenderer({}, [
   renameMarkdownLinks,
-  tableOfContents,
+  generateToc,
   highlightCode,
-  anchorLinks,
+  addHeaderPermalinks,
   checkForIframes(oshost),
   sectionMacro,
   runcodeMacro,
