@@ -3,6 +3,7 @@
   "task.allowAutomaticTasks": "on",
   "css.format.enable": false,
   "markdown.validate.enabled": true,
+  "markdown.occurrencesHighlight.enabled": true,
   "markdown.validate.fileLinks.enabled": "error",
   "markdown.validate.fragmentLinks.enabled": "error",
   "markdown.validate.fileLinks.markdownFragmentLinks": "error",
