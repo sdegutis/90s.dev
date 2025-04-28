@@ -24,14 +24,14 @@ function _tocToHtml(toc: Toc, table: string[], i: number, level: number) {
     table.push(`<li>`)
     table.push(`<a href="#${line.id}"># ${line.text}</a>`)
 
-    const next = toc[i + 1]
-
+    let next = toc[i + 1]
     if (next && next.level > level) {
       i = _tocToHtml(toc, table, i + 1, next.level)
     }
 
     table.push(`</li>`)
 
+    next = toc[i + 1]
     if (next && next.level < level) {
       break
     }
