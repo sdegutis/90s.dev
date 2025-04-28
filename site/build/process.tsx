@@ -21,12 +21,6 @@ export async function processSite() {
     files.without('^/public').remove()
     files.with('/public').do(f => f.path = f.path.replace(/^\/public/, ''))
 
-    const blogs = files.with('^/blogs/').all().map(f => {
-      const path = f.path.replace('.md', '.html')
-      const title = f.text.split('\n')[0].slice(2)
-      return { path, title }
-    })
-
     const pages = files.with('\.md$').all().map(p => {
       const path = p.path.replace('.md', '.html')
       const title = p.text.match(/[^#]*# *(.+)/)![1]
