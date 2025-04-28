@@ -1,3 +1,3 @@
-# Understanding Views
+# Views
 
 WIP

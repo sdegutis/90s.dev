@@ -13,7 +13,7 @@ After you have created a shared folder:
 
 ## Using files
 
-Files can be access through the [file system](../guides/filesystem.md#understanding-fs):
+Files can be access through the [filesystem](../guides/filesystem.md#filesystem):
 
 ```ts
 const logo = await fs.getFile('net/someuser/images/logo.bitmap')

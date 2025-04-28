@@ -1,3 +1,3 @@
-# Understanding Composites
+# Composites
 
 WIP

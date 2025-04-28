@@ -1,4 +1,4 @@
-# Understanding FS
+# Filesystem
 
 To browse files, use [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
 

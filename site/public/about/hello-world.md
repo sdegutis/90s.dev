@@ -46,7 +46,7 @@ So we wait for them to finish.
 await api.appReady
 ```
 
-We create a [Ref](../guides/refs.md#understanding-refs) and a function to modify it.
+We create a [Ref](../guides/refs.md#refs) and a function to modify it.
 
 ```tsx
 const $count = api.$(0)
@@ -85,7 +85,7 @@ Panels only require a name and a root view, so they can draw
 something on screen, and so the shell has a somewhat unique
 string to manage them by.
 
-[Shells](../guides/shells.md#writing-shells) are just user-land programs
+[Shells](../guides/shells.md#shells) are just user-land programs
 which typically watch the `panelevents` broadcast channel
 and manage the size, position, and visibility of panels.
 

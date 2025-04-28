@@ -1,4 +1,4 @@
-# Accounts
+# Creating an account
 
 The purpose of [os.90s.dev](${OSHOST}) is to be a
 collaborative dev environment.
@@ -23,7 +23,7 @@ Congratulations, you now have a public folder!
 
 You can put anything you want in it: apps, libraries, data files, documentation, etc.
 
-All public files can be accessed via `api.fs`. See [Understanding FS](../guides/filesystem.md#understanding-fs) to learn more.
+All public files can be accessed via `api.fs`. See [Understanding FS](../guides/filesystem.md#filesystem) to learn more.
 
 ## Publishing apps and libraries
 

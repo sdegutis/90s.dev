@@ -1,3 +1,3 @@
-# Writing Shells
+# Shells
 
 WIP
