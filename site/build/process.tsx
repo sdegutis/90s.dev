@@ -45,10 +45,7 @@ export async function processSite() {
       const env: Env = {}
       const result = md.render(f.text, env)
       f.text = <Html>
-        <Head
-          bettertsx={env.bettertsx ?? false}
-          runcode={env.runcode ?? false}
-        />
+        <Head bettertsx={env.bettertsx ?? false} runcode={env.runcode ?? false} />
         <body>
           <Navbar pages={pages} />
           <Main content={result} />
@@ -72,6 +69,22 @@ export async function processSite() {
     files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
 
     files.add('/os.txt', oshost)
+
+    files.add('/404.html', <Html>
+      <Head bettertsx={false} runcode={false} />
+      <body>
+        <Navbar pages={pages} />
+        <Main content={
+          <>
+            <h1>Page not found</h1>
+            <p>This page doesn't exist.</p>
+            <script>{`location.href = '/'`}</script>
+          </>
+        } />
+        <Sidebar toc={''} />
+        <UnderConstruction />
+      </body>
+    </Html>)
 
   })
 }
