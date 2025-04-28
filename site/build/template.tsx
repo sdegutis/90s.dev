@@ -51,42 +51,42 @@ export function Sidebar(data: { toc: string }) {
 }
 
 export function Page(data: { posts: { path: string, title: string }[], content: string, env: Env }) {
-  const { content, env } = data
-
   return <>
     {'<!DOCTYPE html>'}
     <html lang="en">
-      <Head iframes={env.iframes ?? false} />
-
+      <Head iframes={data.env.iframes ?? false} />
       <body>
         <Navbar posts={data.posts} />
-
-        <main id='main'>
-          <header id='mobileheader'>
-            <span>☰</span>
-            <a class='sitelogo' href='/'>90s.dev</a>
-            <span>☰</span>
-          </header>
-
-          {content}
-
-          <footer>
-            Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
-          </footer>
-        </main>
-
-        <Sidebar toc={tocToHtml(env.toc!)} />
-
-        {!isDev &&
-          <div id='underconstruction'>
-            <p>
-              ⚠️ Under construction ⚠️
-              <span onclick="this.parentElement.parentElement.remove()">I don't care</span>
-            </p>
-          </div>
-        }
-
+        <Main content={data.content} />
+        <Sidebar toc={tocToHtml(data.env.toc!)} />
+        <UnderConstruction />
       </body>
     </html>
   </>
+}
+
+export function Main(data: { content: string }) {
+  return <main id='main'>
+    <header id='mobileheader'>
+      <span>☰</span>
+      <a class='sitelogo' href='/'>90s.dev</a>
+      <span>☰</span>
+    </header>
+
+    {data.content}
+
+    <footer>
+      Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
+    </footer>
+  </main>
+}
+
+export function UnderConstruction() {
+  return !isDev &&
+    <div id='underconstruction'>
+      <p>
+        ⚠️ Under construction ⚠️
+        <span onclick="this.parentElement.parentElement.remove()">I don't care</span>
+      </p>
+    </div>
 }
