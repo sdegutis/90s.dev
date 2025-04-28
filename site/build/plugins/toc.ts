@@ -5,7 +5,7 @@ type Toc = { level: number, id: string, text: string }[]
 
 declare module "./markdown.ts" {
   interface Env {
-    toc: Toc
+    toc?: Toc
   }
 }
 

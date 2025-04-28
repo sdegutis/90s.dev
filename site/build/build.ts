@@ -44,7 +44,7 @@ export async function processSite() {
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       f.text = f.text.replaceAll('${OSHOST}', oshost)
-      const env: Env = { toc: [] }
+      const env: Env = {}
       const result = renderer.render(f.text, env)
       f.text = template(blogs, result, env)
     })

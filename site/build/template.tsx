@@ -70,7 +70,7 @@ export function template(posts: { path: string, title: string }[], content: stri
 
           <h3>On this page</h3>
           <nav id='toc' class='table-of-contents'>
-            {tocToHtml(env.toc)}
+            {tocToHtml(env.toc!)}
           </nav>
 
         </div>
