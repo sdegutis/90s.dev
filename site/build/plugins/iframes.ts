@@ -8,15 +8,13 @@ declare module "./markdown.ts" {
   }
 }
 
-export function checkForIframes() {
-  return (md: MarkdownIt) => {
-    const linkopen = md.renderer.rules["link_open"] ?? defaultRender
-    md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
-      let href = tokens[idx].attrGet('href')!
-      if (href.startsWith(oshost + '/#')) {
-        env.iframes = true
-      }
-      return linkopen(tokens, idx, opts, env, self)
+export function checkForIframes(md: MarkdownIt) {
+  const linkopen = md.renderer.rules["link_open"] ?? defaultRender
+  md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
+    let href = tokens[idx].attrGet('href')!
+    if (href.startsWith(oshost + '/#')) {
+      env.iframes = true
     }
+    return linkopen(tokens, idx, opts, env, self)
   }
 }
