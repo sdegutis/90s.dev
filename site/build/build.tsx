@@ -2,10 +2,10 @@ import { Pipeline } from 'immaculata'
 import { oshost, tree } from '../../data.ts'
 import { compileTsx } from './compile.ts'
 import { monaco } from './monaco.ts'
+import { highlightCode } from './plugins/highlighter.ts'
 import { checkForIframes } from './plugins/iframes.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { runcodeMacro } from './plugins/runcode.ts'
-import { highlightCode } from './plugins/shiki.ts'
 import { generateToc, tocToHtml } from './plugins/toc.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template.tsx"
 
@@ -46,9 +46,9 @@ export async function processSite() {
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
       const result = renderer.render(f.text, env)
-      console.log(env)
       f.text = <Html>
         <Head
+          bettertsx={env.bettertsx ?? false}
           runcode={env.runcode ?? false}
           iframes={env.iframes ?? false}
         />

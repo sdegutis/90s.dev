@@ -1,5 +1,5 @@
 import type MarkdownIt from "markdown-it"
-import { defaultRender } from "./markdown.ts"
+import { defaultRender, type Env } from "./markdown.ts"
 
 declare module "./markdown.ts" {
   interface Env {
@@ -12,7 +12,7 @@ type Toc = { level: number, id: string, text: string }[]
 export function generateToc(md: MarkdownIt) {
   const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
   md.renderer.rules['heading_open'] = (tokens, idx, opts, env, self) => {
-    const toc: Toc = env.toc ??= []
+    const toc = (env as Env).toc ??= []
     const tok = tokens[idx]
     const level = tok.markup.length
     const id = tok.attrGet('id')!

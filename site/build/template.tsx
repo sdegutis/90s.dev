@@ -10,7 +10,11 @@ export function Html(data: { children: any }) {
   </>
 }
 
-export function Head(data: { iframes: boolean, runcode: boolean }) {
+export function Head(data: {
+  iframes: boolean,
+  runcode: boolean,
+  bettertsx: boolean,
+}) {
   return <head>
     <script src="/script/darkmode.js"></script>
     <meta charset="UTF-8" />
@@ -22,6 +26,7 @@ export function Head(data: { iframes: boolean, runcode: boolean }) {
     <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Martel:wght@200;300;400;600;700;800;900&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
     {data.runcode && <script type="module" src="/script/runcode.js"></script>}
     {data.iframes && <script type="module" src="/script/iframes.js"></script>}
+    {data.bettertsx && <script type="module" src="/script/highlights.js"></script>}
     <script type="module" src="/script/toc.js"></script>
     <script type="module" src="/script/nav.js"></script>
     <script type="module" src="/script/mnav.js"></script>

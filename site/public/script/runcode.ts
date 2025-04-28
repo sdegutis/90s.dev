@@ -1,5 +1,5 @@
+import './bettertsx.js'
 import monaco from './monaco.js'
-import './token-provider.js'
 
 const oshost = await fetch('/os.txt').then(r => r.text())
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
