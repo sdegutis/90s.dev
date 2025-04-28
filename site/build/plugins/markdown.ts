@@ -2,7 +2,7 @@ import type { Options, Renderer, Token } from "markdown-it"
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
-import { tree } from "../../../data.ts"
+import { tree } from "../../../globals.ts"
 
 export function markdown<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })

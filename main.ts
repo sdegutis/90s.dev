@@ -1,7 +1,7 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
 import { fileURLToPath } from 'url'
-import { isDev, tree } from './data.ts'
+import { isDev, tree } from './globals.ts'
 import { compileTsx } from './site/build/compile.ts'
 
 registerHooks(tree.enableImportsModuleHook())

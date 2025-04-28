@@ -1,7 +1,6 @@
 import { Pipeline } from 'immaculata'
-import { oshost, tree } from '../../data.ts'
+import { monaco, oshost, tree } from '../../globals.ts'
 import { compileTsx } from './compile.ts'
-import { monaco } from './monaco.ts'
 import { highlightCode } from './plugins/highlighter.ts'
 import { checkForIframes } from './plugins/iframes.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
