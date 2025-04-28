@@ -2,8 +2,8 @@ import { Pipeline } from 'immaculata'
 import { monaco, oshost, tree } from '../../globals.ts'
 import { compileTsx } from './compile.ts'
 import { highlightCode } from './plugins/highlighter.ts'
-import { checkForIframes } from './plugins/iframes.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { checkForOsHost } from './plugins/oshost.ts'
 import { runcodeMacro } from './plugins/runcode.ts'
 import { generateToc, tocToHtml } from './plugins/toc.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template/core.tsx"
@@ -21,7 +21,7 @@ const md = markdown({}, [
   generateToc,
   highlightCode,
   addHeaderPermalinks,
-  checkForIframes,
+  checkForOsHost,
   sectionMacro,
   runcodeMacro,
 ])
@@ -42,7 +42,6 @@ export async function processSite() {
 
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
-      f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
       const result = md.render(f.text, env)
       f.text = <Html>

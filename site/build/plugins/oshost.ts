@@ -8,13 +8,21 @@ declare module "./markdown.ts" {
   }
 }
 
-export function checkForIframes(md: MarkdownIt) {
+export function checkForOsHost(md: MarkdownIt) {
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
   md.renderer.rules["link_open"] = (tokens, idx, opts, env: Env, self) => {
-    let href = tokens[idx].attrGet('href')!
-    if (href.startsWith(oshost + '/#')) {
+    const tok = tokens[idx]
+    const href = tok.attrGet('href')!
+    const escaped = encodeURI('${OSHOST}')
+
+    if (href.startsWith(escaped + '/#')) {
       env.iframes = true
     }
+
+    if (href.startsWith(escaped)) {
+      tok.attrSet('href', href.replace(escaped, oshost))
+    }
+
     return linkopen(tokens, idx, opts, env, self)
   }
 }
