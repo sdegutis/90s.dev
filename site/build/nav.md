@@ -1,4 +1,4 @@
-<a class='sitelogo' href='/'>90s.dev</a>
+[90s.dev](/){.sitelogo}
 
 ### About
 - [What is 90s.dev?](/site/public/about/discover-90s-dev.md)

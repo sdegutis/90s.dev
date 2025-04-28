@@ -1,3 +1,4 @@
+import mdattrs from 'markdown-it-attrs'
 import { isDev } from "../../isdev.ts"
 import type { Env } from "./build.ts"
 import { makeRenderer, renameMarkdownLinks, Toc } from "./markdown.ts"
@@ -5,6 +6,7 @@ import navMd from './nav.md'
 
 const renderer = makeRenderer({}, [
   renameMarkdownLinks,
+  mdattrs,
 ])
 
 const navHtml = renderer.render(navMd)
