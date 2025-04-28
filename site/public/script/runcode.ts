@@ -1,18 +1,6 @@
 import monaco from './monaco.js'
 import { makeMonacoFancier } from './token-provider.js'
 
-for (const button of document.querySelectorAll<HTMLElement>('#mobileheader>span')) {
-  const first = button.nextElementSibling
-  button.onclick = () => {
-    document.body.classList.toggle(first ? 'navmenu1' : 'navmenu2')
-    setTimeout(() => {
-      document.body.addEventListener('click', () => {
-        document.body.classList.remove('navmenu1', 'navmenu2')
-      }, { once: true })
-    })
-  }
-}
-
 const oshost = await fetch('/os.txt').then(r => r.text())
 
 

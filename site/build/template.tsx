@@ -24,6 +24,7 @@ export function Head(data: { iframes: boolean }) {
     {data.iframes && <script type="module" src="/script/iframes.js"></script>}
     <script type="module" src="/script/toc.js"></script>
     <script type="module" src="/script/nav.js"></script>
+    <script type="module" src="/script/mnav.js"></script>
   </head>
 }
 
