@@ -1,7 +1,7 @@
 import inlineAttrs from 'markdown-it-attrs'
+import { markdown, renameMarkdownLinks } from "../plugins/markdown.ts"
+import { checkForOsHost } from '../plugins/oshost.ts'
 import navMd from './nav.md'
-import { markdown, renameMarkdownLinks } from "./plugins/markdown.ts"
-import { checkForOsHost } from './plugins/oshost.ts'
 
 const md = markdown({}, [
   checkForOsHost,

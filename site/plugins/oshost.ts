@@ -1,5 +1,5 @@
 import type MarkdownIt from "markdown-it"
-import { oshost } from "../../../globals.ts"
+import { oshost } from "../../globals.ts"
 import { defaultRender, type Env } from "./markdown.ts"
 
 declare module "./markdown.ts" {
