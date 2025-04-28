@@ -1,5 +1,5 @@
 import type MarkdownIt from "markdown-it"
-import { oshost } from "../../globals.ts"
+import { oshost } from "../../static.ts"
 import { defaultRender, type Env } from "./markdown.ts"
 
 const escaped = encodeURI('${OSHOST}')

@@ -1,8 +1,8 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
 import { fileURLToPath } from 'url'
-import { isDev, tree } from './globals.ts'
 import { compileTsx } from './site/build/compile.ts'
+import { isDev, tree } from './static.ts'
 
 registerHooks(tree.enableImportsModuleHook())
 registerHooks(immaculata.exportAsStringModuleHook({ bareExt: 'md' }))
@@ -27,6 +27,6 @@ else {
 }
 
 async function processSite() {
-  const mod = await import("./site/build/build.tsx")
+  const mod = await import("./site/build/process.tsx")
   return await mod.processSite()
 }

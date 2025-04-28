@@ -1,5 +1,5 @@
 import { Pipeline } from 'immaculata'
-import { monaco, oshost, tree } from '../../globals.ts'
+import { monaco, oshost, tree } from '../../static.ts'
 import { highlightCode } from '../plugins/highlighter.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "../plugins/markdown.ts"
 import { checkForOsHost } from '../plugins/oshost.ts'
