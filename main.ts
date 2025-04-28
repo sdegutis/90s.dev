@@ -11,6 +11,7 @@ registerHooks(immaculata.compileJsxTsxModuleHook((src, url) => compileTsx(src, f
 
 if (isDev) {
   const server = new immaculata.DevServer(9090, { hmrPath: '/reload' })
+  server.notFound = () => '/404.html'
   server.files = await processSite()
 
   tree.watch({}, async (paths) => {

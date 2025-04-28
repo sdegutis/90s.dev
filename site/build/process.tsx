@@ -78,7 +78,8 @@ export async function processSite() {
           <>
             <h1>Page not found</h1>
             <p>This page doesn't exist.</p>
-            <script>{`location.href = '/'`}</script>
+            <p>Redirecting to one that does in 3, 2, 1...</p>
+            <script>{`setTimeout(() => {location.href = '/'}, 3000)`}</script>
           </>
         } />
         <Sidebar toc={''} />
