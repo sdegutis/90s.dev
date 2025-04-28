@@ -1,3 +1,7 @@
+---
+order: 0
+---
+
 # API Reference
 
 This page gives a birds eye overview of all the exports from `/api.js`

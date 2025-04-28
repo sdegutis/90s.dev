@@ -1,3 +1,4 @@
+import fm from 'front-matter'
 import { Pipeline } from 'immaculata'
 import ts from 'typescript'
 import { monaco, oshost, tree } from '../../static.ts'
@@ -25,7 +26,18 @@ export async function processSite() {
       const path = p.path.replace('.md', '.html')
       const title = p.text.match(/[^#]*# *(.+)/)![1]
       const section = p.path.match('/(.+?)/')?.[1]
-      return { path, title, section }
+      const frontmatter = fm<{ order?: number }>(p.text)
+      p.text = frontmatter.body
+      const meta = frontmatter.attributes
+      return { path, title, section, meta }
+    })
+
+    pages.sort((a, b) => {
+      const ao = a.meta.order ?? Infinity
+      const bo = b.meta.order ?? Infinity
+      if (ao < bo) return -1
+      if (ao > bo) return +1
+      return 0
     })
 
     files.with('\.md$').do(f => {
