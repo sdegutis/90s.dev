@@ -1,5 +1,5 @@
-import { isDev } from "../../../globals.ts"
-import { Nav } from '../nav.tsx'
+import { isDev } from "../../globals.ts"
+import { Nav } from '../build/nav.tsx'
 
 export function Html(data: { children: any }) {
   return <>

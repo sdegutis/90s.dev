@@ -1,12 +1,12 @@
 import { Pipeline } from 'immaculata'
 import { monaco, oshost, tree } from '../../globals.ts'
+import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 import { compileTsx } from './compile.ts'
 import { highlightCode } from './plugins/highlighter.ts'
 import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { checkForOsHost } from './plugins/oshost.ts'
 import { runcodeMacro } from './plugins/runcode.ts'
 import { generateToc, tocToHtml } from './plugins/toc.ts'
-import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "./template/core.tsx"
 
 let reloader = ''
 if (false && process.argv[2] === 'dev') reloader = `
