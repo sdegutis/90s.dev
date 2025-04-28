@@ -1,8 +1,8 @@
 import mdattrs from 'markdown-it-attrs'
 import navMd from './nav.md'
-import { makeRenderer, renameMarkdownLinks } from "./plugins/markdown.ts"
+import { markdown, renameMarkdownLinks } from "./plugins/markdown.ts"
 
-const renderer = makeRenderer({}, [
+const renderer = markdown({}, [
   renameMarkdownLinks,
   mdattrs,
 ])

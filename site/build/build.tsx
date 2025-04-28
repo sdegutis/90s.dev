@@ -3,7 +3,7 @@ import { oshost, tree } from '../../data.ts'
 import { compileTsx } from './compile.ts'
 import { monaco } from './monaco.ts'
 import { checkForIframes } from './plugins/iframes.ts'
-import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
 import { runcodeMacro } from './plugins/runcode.ts'
 import { highlightCode } from './plugins/shiki.ts'
 import { generateToc, tocToHtml } from './plugins/toc.ts'
@@ -17,7 +17,7 @@ es.onmessage = () => location.reload()
 window.onbeforeunload = () => es.close()
 </script>`
 
-const renderer = makeRenderer({}, [
+const renderer = markdown({}, [
   renameMarkdownLinks,
   generateToc,
   highlightCode,

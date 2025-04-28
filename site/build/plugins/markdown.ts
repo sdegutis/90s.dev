@@ -4,7 +4,7 @@ import anchors from 'markdown-it-anchor'
 import containers from 'markdown-it-container'
 import { tree } from "../../../data.ts"
 
-export function makeRenderer<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
+export function markdown<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
   plugins.forEach(fn => md.use(fn))
   return md
