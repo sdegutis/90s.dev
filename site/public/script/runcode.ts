@@ -1,14 +1,7 @@
 import monaco from './monaco.js'
-import { makeMonacoFancier } from './token-provider.js'
+import './token-provider.js'
 
 const oshost = await fetch('/os.txt').then(r => r.text())
-
-
-makeMonacoFancier()
-
-
-// <iframe class="embedded" width="640" height="360" src="http://localhost:8080/#sys/apps/filer.app.js"></iframe>
-
 const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
 
 const ts = monaco.languages.typescript

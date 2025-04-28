@@ -1,32 +1,26 @@
 import monaco from './monaco.js'
 
-export function makeMonacoFancier() {
+monaco.languages.onLanguageEncountered('typescript', () => {
+  monaco.languages.setMonarchTokensProvider('typescript', tokenProvider as monaco.languages.IMonarchLanguage)
+})
 
-  monaco.languages.onLanguageEncountered('typescript', () => {
-    monaco.languages.setMonarchTokensProvider('typescript', tokenProvider as monaco.languages.IMonarchLanguage)
-  })
-
-  monaco.editor.defineTheme('vsc2', {
-    base: 'vs-dark',
-    inherit: true,
-    rules: rules,
-    colors: {
-      "editor.background": '#191919',
-      "editor.selectionBackground": '#5a194e99',
-    },
-  })
-
-}
-
-const rules = [
-  { token: "identifier.ts", foreground: "9CDCFE" },
-  { token: "variable.property.ts", foreground: "9CDCFE" },
-  { token: "constant.ts", foreground: "4FC1FF" },
-  { token: "variable.ts", foreground: "9CDCFE" },
-  { token: "method.ts", foreground: "DCDCAA" },
-  { token: "delimiter.bracket", foreground: "569CD6" },
-  // { token: "delimiter.ts", foreground: "569CD6" },
-]
+monaco.editor.defineTheme('vsc2', {
+  base: 'vs-dark',
+  inherit: true,
+  rules: [
+    { token: "identifier.ts", foreground: "9CDCFE" },
+    { token: "variable.property.ts", foreground: "9CDCFE" },
+    { token: "constant.ts", foreground: "4FC1FF" },
+    { token: "variable.ts", foreground: "9CDCFE" },
+    { token: "method.ts", foreground: "DCDCAA" },
+    { token: "delimiter.bracket", foreground: "569CD6" },
+    // { token: "delimiter.ts", foreground: "569CD6" },
+  ],
+  colors: {
+    "editor.background": '#191919',
+    "editor.selectionBackground": '#5a194e99',
+  },
+})
 
 const tokenProvider = {
 

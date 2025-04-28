@@ -46,8 +46,12 @@ export async function processSite() {
       f.text = f.text.replaceAll('${OSHOST}', oshost)
       const env: Env = {}
       const result = renderer.render(f.text, env)
+      console.log(env)
       f.text = <Html>
-        <Head iframes={env.iframes ?? false} />
+        <Head
+          runcode={env.runcode ?? false}
+          iframes={env.iframes ?? false}
+        />
         <body>
           <Navbar posts={blogs} />
           <Main content={result} />

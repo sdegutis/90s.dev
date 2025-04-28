@@ -1,13 +1,13 @@
 import type MarkdownIt from "markdown-it"
 import { defaultRender } from "./markdown.ts"
 
-type Toc = { level: number, id: string, text: string }[]
-
 declare module "./markdown.ts" {
   interface Env {
     toc?: Toc
   }
 }
+
+type Toc = { level: number, id: string, text: string }[]
 
 export function generateToc(md: MarkdownIt) {
   const heading_open = md.renderer.rules['heading_open'] ?? defaultRender
