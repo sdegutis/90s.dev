@@ -1,16 +1,32 @@
 import type { Options, Renderer, Token } from "markdown-it"
 import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
+import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
 import { tree } from "../../static.ts"
+import { highlightCode } from "./highlighter.ts"
+import { checkForOsHost } from "./oshost.ts"
+import { runcodeMacro } from "./runcode.ts"
+import { generateToc } from "./toc.ts"
 
-export function markdown<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
+export const md = markdown({}, [
+  renameMarkdownLinks,
+  inlineAttrs,
+  generateToc,
+  highlightCode,
+  addHeaderPermalinks,
+  checkForOsHost,
+  sectionMacro,
+  runcodeMacro,
+])
+
+function markdown<T>(opts: MarkdownIt.Options, plugins: MarkdownIt.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
   plugins.forEach(fn => md.use(fn))
   return md
 }
 
-export function renameMarkdownLinks(md: MarkdownIt) {
+function renameMarkdownLinks(md: MarkdownIt) {
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
   md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
     let href = tokens[idx].attrGet('href')!
@@ -33,7 +49,7 @@ export function renameMarkdownLinks(md: MarkdownIt) {
   }
 }
 
-export function addHeaderPermalinks(md: MarkdownIt) {
+function addHeaderPermalinks(md: MarkdownIt) {
   anchors(md, {
     permalink: anchors.permalink.linkInsideHeader({
       placement: 'before',
@@ -49,7 +65,7 @@ function slugify(s: string) {
     .replace(/[^a-z0-9-]/g, '')
 }
 
-export function sectionMacro(md: MarkdownIt) {
+function sectionMacro(md: MarkdownIt) {
   containers(md, 'section', {
     render: (tokens, i) => {
       const tok = tokens[i]

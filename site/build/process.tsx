@@ -1,30 +1,17 @@
 import { Pipeline } from 'immaculata'
 import ts from 'typescript'
 import { monaco, oshost, tree } from '../../static.ts'
-import { highlightCode } from '../plugins/highlighter.ts'
-import { addHeaderPermalinks, markdown, renameMarkdownLinks, sectionMacro, type Env } from "../plugins/markdown.ts"
-import { checkForOsHost } from '../plugins/oshost.ts'
-import { runcodeMacro } from '../plugins/runcode.ts'
-import { generateToc, tocToHtml } from '../plugins/toc.ts'
+import { md, type Env } from "../plugins/markdown.ts"
+import { tocToHtml } from '../plugins/toc.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 
 let reloader = ''
-if (false && process.argv[2] === 'dev') reloader = `
+if (true && process.argv[2] === 'dev') reloader = `
 <script type="module">
 const es = new EventSource('/reload')
 es.onmessage = () => location.reload()
 window.onbeforeunload = () => es.close()
 </script>`
-
-const md = markdown({}, [
-  renameMarkdownLinks,
-  generateToc,
-  highlightCode,
-  addHeaderPermalinks,
-  checkForOsHost,
-  sectionMacro,
-  runcodeMacro,
-])
 
 export async function processSite() {
   return tree.processFiles(files => {
@@ -40,6 +27,13 @@ export async function processSite() {
       return { path, title }
     })
 
+    const pages = files.with('\.md$').all().map(p => {
+      const path = p.path.replace('.md', '.html')
+      const title = p.text.match(/[^#]*# *(.+)/)![1]
+      const section = p.path.match('/(.+?)/')?.[1]
+      return { path, title, section }
+    })
+
     files.with('\.md$').do(f => {
       f.path = f.path.replace('.md', '.html')
       const env: Env = {}
@@ -50,7 +44,7 @@ export async function processSite() {
           runcode={env.runcode ?? false}
         />
         <body>
-          <Navbar posts={blogs} />
+          <Navbar pages={pages} />
           <Main content={result} />
           <Sidebar toc={tocToHtml(env.toc!)} />
           <UnderConstruction />

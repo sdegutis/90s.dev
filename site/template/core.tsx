@@ -1,5 +1,4 @@
 import { isDev } from "../../static.ts"
-import { Nav } from './nav.tsx'
 
 export function Html(data: { children: any }) {
   return <>
@@ -48,15 +47,49 @@ export function Main(data: { content: string }) {
   </main>
 }
 
-export function Navbar(data: { posts: { path: string, title: string }[] }) {
+export function Navbar(data: {
+  pages: {
+    path: string,
+    title: string,
+    section: string | undefined,
+  }[]
+}) {
+
+  const sections = Object.entries({
+    about: 'About',
+    guides: 'Guides',
+    collaboration: 'Collaboration',
+    links: 'Links',
+    blogs: 'News',
+  })
+
+  const pages = [
+    ...data.pages,
+    { section: 'links', title: 'os.90s.dev', path: '${OSHOST}' },
+    { section: 'links', title: 'Feature requests', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
+    { section: 'links', title: 'Bug reports', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
+    { section: 'links', title: 'Community wiki', path: 'https://github.com/ppl-90s-dev/ppl/wiki' },
+  ]
+
+  const groups = Map.groupBy(pages, p => p.section)
+
   return <nav id='nav' class='navbar'>
-    <Nav />
-    <h3>News</h3>
-    <ul>
-      {data.posts.map(({ path, title }) => {
-        return <li><a href={path}>{title}</a></li>
-      })}
-    </ul>
+    <p><a href='/' class='sitelogo'>90s.dev</a></p>
+
+    {sections.map(([key, title]) => {
+      const pages = groups.get(key)
+      if (!pages) return ''
+
+      return <>
+        <h3>{title}</h3>
+        <ul>
+          {pages.map(page => <li>
+            <a href={page.path}>{page.title}</a>
+          </li>)}
+        </ul>
+      </>
+    })}
+
   </nav>
 }
 
