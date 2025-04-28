@@ -22,6 +22,9 @@ export function renameMarkdownLinks(md: MarkdownIt) {
       href = href.slice(0, hashi)
     }
 
+    const prefix = '/site/public'
+    if (href.startsWith(prefix)) href = href.slice(prefix.length)
+
     href = href.replace(/\.md$/, '.html')
     href += hash
 

@@ -1,23 +1,23 @@
 <a class='sitelogo' href='/'>90s.dev</a>
 
 ### About
-- [What is 90s.dev?](/about/discover-90s-dev.md)
-- [Getting started](/about/getting-started.md)
-- [Hello world tour](/about/hello-world.md)
+- [What is 90s.dev?](/site/public/about/discover-90s-dev.md)
+- [Getting started](/site/public/about/getting-started.md)
+- [Hello world tour](/site/public/about/hello-world.md)
 
 ### Guides
-- [API Reference](/guides/api-reference.md)
-- [Views](/guides/views.md)
-- [Refs](/guides/refs.md)
-- [Filesystem](/guides/filesystem.md)
-- [Composites](/guides/composites.md)
-- [Shells](/guides/shells.md)
+- [API Reference](/site/public/guides/api-reference.md)
+- [Views](/site/public/guides/views.md)
+- [Refs](/site/public/guides/refs.md)
+- [Filesystem](/site/public/guides/filesystem.md)
+- [Composites](/site/public/guides/composites.md)
+- [Shells](/site/public/guides/shells.md)
 
 ### Collaboration
-- [Creating an account](/collaboration/creating-an-account.md)
-- [Publishing apps](/collaboration/publishing-apps.md)
-- [Publishing libraries](/collaboration/publishing-libs.md)
-- [Publishing files](/collaboration/publishing-files.md)
+- [Creating an account](/site/public/collaboration/creating-an-account.md)
+- [Publishing apps](/site/public/collaboration/publishing-apps.md)
+- [Publishing libraries](/site/public/collaboration/publishing-libs.md)
+- [Publishing files](/site/public/collaboration/publishing-files.md)
 
 ### Links
 - [os.90s.dev](${OSHOST})
