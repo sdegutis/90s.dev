@@ -48,7 +48,6 @@ export async function processSite() {
         <Head
           bettertsx={env.bettertsx ?? false}
           runcode={env.runcode ?? false}
-          iframes={env.iframes ?? false}
         />
         <body>
           <Navbar posts={blogs} />
