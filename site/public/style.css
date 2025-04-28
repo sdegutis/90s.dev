@@ -213,7 +213,7 @@ body {
   #toggledarkmode { display: flex; gap: .25em }
 
   #toc a { margin: .33rem 0 }
-  #toc {li li ul { margin-left: 1em; }}
+  #toc li li ul { margin-left: 1em; }
 
   h3 {
     font-weight: normal;
@@ -222,7 +222,7 @@ body {
   }
 
   li { margin: .1rem 0; }
-  ul { margin-top: .25rem;}
+  ul { margin-top: 0;}
 
   a:not(.sitelogo) {
     color: var(--nav-linkcolor);
