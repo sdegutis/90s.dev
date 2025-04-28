@@ -1,5 +1,5 @@
 import mdattrs from 'markdown-it-attrs'
-import { isDev } from "../../isdev.ts"
+import { isDev } from "../../data.ts"
 import type { Env } from "./build.ts"
 import { makeRenderer, renameMarkdownLinks, Toc } from "./markdown.ts"
 import navMd from './nav.md'

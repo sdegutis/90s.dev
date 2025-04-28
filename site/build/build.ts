@@ -1,5 +1,5 @@
 import { LiveTree, Pipeline } from 'immaculata'
-import { oshost } from '../../isdev.ts'
+import { oshost } from '../../data.ts'
 import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { addHeaderPermalinks, checkForIframes, generateToc, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Toc } from "./markdown.ts"

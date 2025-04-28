@@ -1,7 +1,7 @@
 import * as immaculata from 'immaculata'
 import { registerHooks } from 'module'
 import { fileURLToPath } from 'url'
-import { isDev } from './isdev.ts'
+import { isDev } from './data.ts'
 import { compileTsx } from './site/build/compile.ts'
 
 const tree = new immaculata.LiveTree('site', import.meta.url)
