@@ -4,7 +4,8 @@ import { template } from "../build/template.tsx"
 import { compileTsx } from './compile.ts'
 import { monaco } from './monaco.ts'
 import { checkForIframes } from './plugins/iframes.ts'
-import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, runcodeMacro, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { addHeaderPermalinks, makeRenderer, renameMarkdownLinks, sectionMacro, type Env } from "./plugins/markdown.ts"
+import { runcodeMacro } from './plugins/runcode.ts'
 import { highlightCode } from './plugins/shiki.ts'
 import { generateToc } from './plugins/toc.ts'
 
