@@ -2,9 +2,9 @@ import fm from 'front-matter'
 import { Pipeline } from 'immaculata'
 import ts from 'typescript'
 import { monaco, oshost, tree } from '../../static.ts'
-import { md, type Env } from "../plugins/markdown.ts"
-import { tocToHtml } from '../plugins/toc.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
+import { md, type Env } from "./markdown.ts"
+import { tocToHtml } from './toc.ts'
 
 let reloader = ''
 if (true && process.argv[2] === 'dev') reloader = `
