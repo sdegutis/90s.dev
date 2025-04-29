@@ -52,7 +52,7 @@ export async function processSite() {
       const env: Env = {}
       const result = md.render(f.text, env)
       f.text = hoistHeaders(files, <Html>
-        <Head files={fonts.links} bettertsx={env.bettertsx ?? false} />
+        <Head files={fonts.links} />
         <body>
           <Navbar pages={pages} />
           <Main content={result} />
@@ -78,7 +78,7 @@ export async function processSite() {
     files.add('/os.txt', oshost)
 
     files.add('/404.html', hoistHeaders(files, <Html>
-      <Head files={fonts.links} bettertsx={false} />
+      <Head files={fonts.links} />
       <body>
         <Navbar pages={pages} />
         <Main content={

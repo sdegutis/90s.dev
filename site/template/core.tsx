@@ -9,10 +9,7 @@ export function Html(data: { children: any }) {
   </>
 }
 
-export function Head(data: {
-  bettertsx: boolean,
-  files: string[],
-}) {
+export function Head(data: { files: string[] }) {
   return <head>
     <script src="/script/darkmode.js"></script>
     <meta charset="UTF-8" />
@@ -20,7 +17,6 @@ export function Head(data: {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>90s.dev</title>
     {...data.files}
-    {data.bettertsx && <script type="module" src="/script/bettertsx.js"></script>}
     <script type="module" src="/script/links.js"></script>
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
