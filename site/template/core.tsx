@@ -12,6 +12,7 @@ export function Html(data: { children: any }) {
 export function Head(data: {
   runcode: boolean,
   bettertsx: boolean,
+  files: string[],
 }) {
   return <head>
     <script src="/script/darkmode.js"></script>
@@ -19,9 +20,7 @@ export function Head(data: {
     <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>90s.dev</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Martel:wght@200;300;400;600;700;800;900&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+    {...data.files}
     {data.bettertsx && <script type="module" src="/script/bettertsx.js"></script>}
     {data.runcode && <script type="module" src="/script/runcode.js"></script>}
     <script type="module" src="/script/links.js"></script>

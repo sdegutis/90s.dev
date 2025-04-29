@@ -107,7 +107,7 @@
   background-color: light-dark(#000, #000);
   color: light-dark(#959595, #ccc);
   font-optical-sizing: auto;
-  font-family: "Oxanium", sans-serif;
+  font-family: "Oxanium Variable", sans-serif;
 
   &.light { color-scheme: light }
   &.dark  { color-scheme: dark  }
@@ -195,7 +195,7 @@ body {
 :is(h1,h2,h3,h4) {
   color: var(--header-color);
   font-optical-sizing: auto;
-  font-family: "Gemunu Libre", sans-serif;
+  font-family: "Gemunu Libre Variable", sans-serif;
   scroll-margin-top: 5px;
   @media (width < 1024px) { scroll-margin-top: calc(5px + var(--mobileheader-height)); }
 }
@@ -228,7 +228,7 @@ body {
     color: var(--nav-linkcolor);
     text-decoration: none;
     display: inline-block;
-    font-family: "Gemunu Libre", sans-serif;
+    font-family: "Gemunu Libre Variable", sans-serif;
 
     transition: all 120ms ease-in-out;
 

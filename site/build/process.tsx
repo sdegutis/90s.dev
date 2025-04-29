@@ -1,7 +1,7 @@
 import fm from 'front-matter'
-import { Pipeline } from 'immaculata'
+import { Pipeline, type LiveTree } from 'immaculata'
 import ts from 'typescript'
-import { monaco, oshost, tree } from '../../static.ts'
+import { gemunulibre, martel, monaco, oshost, oxanium, silkscreen, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 import { md, type Env } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
@@ -16,6 +16,13 @@ window.onbeforeunload = () => es.close()
 
 export async function processSite() {
   return tree.processFiles(files => {
+
+    const fonts = vendorFonts([
+      { tree: martel, root: '/fonts/martel', files: ['/400.css', '/700.css'] },
+      { tree: silkscreen, root: '/fonts/silkscreen', files: ['/400.css', '/700.css'] },
+      { tree: oxanium, root: '/fonts/oxanium', files: ['/index.css'] },
+      { tree: gemunulibre, root: '/fonts/gemunulibre', files: ['/index.css'] },
+    ])
 
     files.with('\.d\.ts$').remove()
 
@@ -45,7 +52,7 @@ export async function processSite() {
       const env: Env = {}
       const result = md.render(f.text, env)
       f.text = <Html>
-        <Head bettertsx={env.bettertsx ?? false} runcode={env.runcode ?? false} />
+        <Head files={fonts.links} bettertsx={env.bettertsx ?? false} runcode={env.runcode ?? false} />
         <body>
           <Navbar pages={pages} />
           <Main content={result} />
@@ -71,7 +78,7 @@ export async function processSite() {
     files.add('/os.txt', oshost)
 
     files.add('/404.html', <Html>
-      <Head bettertsx={false} runcode={false} />
+      <Head files={fonts.links} bettertsx={false} runcode={false} />
       <body>
         <Navbar pages={pages} />
         <Main content={
@@ -87,6 +94,10 @@ export async function processSite() {
       </body>
     </Html>)
 
+    for (const font of fonts.subtrees) {
+      files.graft(font.root, font.files)
+    }
+
   })
 }
 
@@ -100,4 +111,33 @@ function compileTsx(str: string, filename: string) {
       sourceMap: true,
     }
   })
+}
+
+function vendorFonts(fonts: {
+  tree: LiveTree,
+  root: string,
+  files: string[],
+}[]) {
+  const links: string[] = []
+  const subtrees: { root: string, files: Pipeline }[] = []
+
+  for (const font of fonts) {
+    const pipeline = new Pipeline()
+    subtrees.push({ root: font.root, files: pipeline })
+
+    for (const file of font.files) {
+      const content = font.tree.files.get(file)?.content.toString()!
+
+      for (const match of content.matchAll(/url\(\.(.+?)\)/g)) {
+        const path = match[1]!
+        pipeline.add(path, font.tree.files.get(path)!.content)
+        links.push(<link rel="preload" href={font.root + path} as="font" type="font/woff" crossorigin />)
+      }
+
+      pipeline.add(file, content)
+      links.push(<link rel="stylesheet" href={font.root + file} />)
+    }
+  }
+
+  return { subtrees, links }
 }
