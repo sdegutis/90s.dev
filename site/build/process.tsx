@@ -51,15 +51,15 @@ export async function processSite() {
       f.path = f.path.replace('.md', '.html')
       const env: Env = {}
       const result = md.render(f.text, env)
-      f.text = <Html>
-        <Head files={fonts.links} bettertsx={env.bettertsx ?? false} runcode={env.runcode ?? false} />
+      f.text = hoistHeaders(files, <Html>
+        <Head files={fonts.links} bettertsx={env.bettertsx ?? false} />
         <body>
           <Navbar pages={pages} />
           <Main content={result} />
           <Sidebar toc={tocToHtml(env.toc!)} />
           <UnderConstruction />
         </body>
-      </Html>
+      </Html>)
     })
 
     files.with(/\.tsx?$/).do(f => {
@@ -77,8 +77,8 @@ export async function processSite() {
 
     files.add('/os.txt', oshost)
 
-    files.add('/404.html', <Html>
-      <Head files={fonts.links} bettertsx={false} runcode={false} />
+    files.add('/404.html', hoistHeaders(files, <Html>
+      <Head files={fonts.links} bettertsx={false} />
       <body>
         <Navbar pages={pages} />
         <Main content={
@@ -92,7 +92,7 @@ export async function processSite() {
         <Sidebar toc={''} />
         <UnderConstruction />
       </body>
-    </Html>)
+    </Html>))
 
     for (const font of fonts.subtrees) {
       files.graft(font.root, font.files)
@@ -111,6 +111,26 @@ function compileTsx(str: string, filename: string) {
       sourceMap: true,
     }
   })
+}
+
+function hoistHeaders(files: Pipeline, content: string) {
+  const hoisted = new Set<string>()
+  return (content
+    .replace(/<script .+?><\/script>|<link .+?>/g, (s, s2) => {
+      hoisted.add(s)
+      return ''
+    })
+    .replace(/<\/head>/, [
+      ...(hoisted.values().map(tag => {
+        return tag.replace(/(href|src)=(["'])(file:\/\/.+?)\2/g, (s, attr, q, file: string) => {
+          const local = file.slice(tree.root.length).replace(/\?.+/, '')
+          const generated = `/generated${local}`
+          files.add(generated, tree.files.get(local)!.content)
+          return `${attr}=${q}${generated}${q}`
+        })
+      })),
+      '</head>'
+    ].join('')))
 }
 
 function vendorFonts(fonts: {

@@ -10,7 +10,6 @@ export function Html(data: { children: any }) {
 }
 
 export function Head(data: {
-  runcode: boolean,
   bettertsx: boolean,
   files: string[],
 }) {
@@ -22,7 +21,6 @@ export function Head(data: {
     <title>90s.dev</title>
     {...data.files}
     {data.bettertsx && <script type="module" src="/script/bettertsx.js"></script>}
-    {data.runcode && <script type="module" src="/script/runcode.js"></script>}
     <script type="module" src="/script/links.js"></script>
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
