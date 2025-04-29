@@ -11,12 +11,11 @@ export function Html(data: { children: any }) {
 
 export function Head(data: { files: string[] }) {
   return <head>
-    <script src="/script/darkmode.js"></script>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>90s.dev</title>
     {...data.files}
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script/darkmode.js"></script>
     <script type="module" src="/script/links.js"></script>
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
