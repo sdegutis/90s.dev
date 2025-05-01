@@ -1,4 +1,4 @@
-# Introducing JSLN
+# JSLN: Simple TOML/JSONC alternative
 
 <!-- ALLOWEARLY -->
 
@@ -69,7 +69,12 @@ hello world
 
 fakesetting.multiline2=
 foo
-hello world
+hello
+
+(this multiline string has blank lines
+so it uses "foo" as the delimeter)
+
+world
 foo
 sys.font="sys/data/crt34.font"
 # ...
