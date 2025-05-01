@@ -45,7 +45,9 @@ obj.init.shell ??= []
 obj.init.shell.push(val)
 ```
 
-Also, it allows hex numbers.
+Also, it allows hex and binary number literals.
+
+And comments, of course.
 
 Funny enough, it was an accident that it doesn't require commas.
 As I was writing and testing the parser, I expected it to fail
