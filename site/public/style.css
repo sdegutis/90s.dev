@@ -433,3 +433,13 @@ section.homebuttons ul {
   outline: 3px solid color(from var(--outline-color) srgb r g b / .33 );
   outline-offset: 3px;
 }
+
+blockquote {
+  background-color: #3d2138;
+  overflow: hidden;
+
+  position: relative;
+  &::before, &::after { position: absolute; font-size: 200%; }
+  &::before { content: '“'; top: 0.125em; left: 0.125em }
+  &::after  { content: '”'; right: 0.125em; bottom: -0.25em }
+}

@@ -1,4 +1,4 @@
-# JSLN: Simple TOML/JSONC alternative
+# JSLN: TOML/JSONC alternative
 
 <!-- ALLOWEARLY -->
 
