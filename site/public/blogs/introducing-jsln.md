@@ -20,7 +20,7 @@ I made JSLN, which is much simpler than TOML:
 ```ini
 sys.size=[320 180]
 sys.font="sys/data/crt34.font"
-sys.shell="sys/apps/shell.app.js"
+sys.init.shell="sys/apps/shell.app.js"
 shell.startup[]="usr/startup.js"
 # shell.bgcolor=0x330000ff
 # process.prelude[]="usr/prelude.js"
@@ -40,8 +40,9 @@ obj.sys.size = val
 `shell.startup[]=` is sugar for:
 
 ```ts
-obj.shell ??= []
-obj.shell.push(val)
+obj.init ??= {}
+obj.init.shell ??= []
+obj.init.shell.push(val)
 ```
 
 Also, it allows hex numbers.
