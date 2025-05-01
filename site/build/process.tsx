@@ -57,7 +57,7 @@ export function processSite() {
         <Navbar pages={pages} />
         <Main content={result} />
         <Sidebar toc={tocToHtml(env.toc!)} />
-        <UnderConstruction />
+        <UnderConstruction early={f.text.includes('<!-- ALLOWEARLY -->')} />
       </body>
     </Html>)
   })

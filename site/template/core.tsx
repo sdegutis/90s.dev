@@ -104,12 +104,11 @@ export function Sidebar(data: { toc: string }) {
   </div>
 }
 
-export function UnderConstruction() {
+export function UnderConstruction(data: { early?: boolean }) {
   return !isDev &&
-    <div id='underconstruction'>
+    <div id='underconstruction' class={data.early ? 'early' : ''}>
       <p>
         ⚠️ Under construction ⚠️
-        <span onclick="this.parentElement.parentElement.remove()">I don't care</span>
       </p>
     </div>
 }

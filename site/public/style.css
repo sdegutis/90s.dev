@@ -1,34 +1,34 @@
 #underconstruction {
 
-  font-family: "Silkscreen";
-  position: fixed;
-  z-index: 1000;
-  inset: 0;
-
-  display: grid;
-  align-items: center;
-  justify-content: center;
-
-  body:has(&)>:not(&) {
-    filter: blur(7px);
+  &.early {
+    & { display: none }
+    body:has(&)>:not(main) {
+      filter: blur(7px);
+    }
   }
 
-  p {
-    display: inline-block;
-    font-size: min(4vw, 4vh);
-    color: var(--header-color);
-    rotate: 30deg;
-    background-color: #000c;
-    font-weight: bold;
-    padding: 1em;
+  &:not(.early) {
+    font-family: "Silkscreen";
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
 
-    span {
-      display: block;
-      text-align: center;
-      font-size: initial;
-      cursor: pointer;
-      color: #900;
-      &:hover { outline: 1px solid currentColor; }
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    body:has(&)>:not(&) {
+      filter: blur(7px);
+    }
+
+    p {
+      display: inline-block;
+      font-size: min(4vw, 4vh);
+      color: var(--header-color);
+      rotate: 30deg;
+      background-color: #000c;
+      font-weight: bold;
+      padding: 1em;
     }
   }
 
