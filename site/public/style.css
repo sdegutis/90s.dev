@@ -3,7 +3,7 @@
   &.early {
     & { display: none }
     body:has(&)>:not(main) {
-      filter: blur(7px);
+      opacity: 0;
     }
   }
 
