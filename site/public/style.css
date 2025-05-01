@@ -9,6 +9,10 @@
   align-items: center;
   justify-content: center;
 
+  body:has(&)>:not(&) {
+    filter: blur(7px);
+  }
+
   p {
     display: inline-block;
     font-size: min(4vw, 4vh);
