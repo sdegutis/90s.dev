@@ -8,4 +8,5 @@ export const monaco = new immaculata.FileTree('node_modules/monaco-editor', impo
 export const martel = new immaculata.FileTree('node_modules/@fontsource/martel', import.meta.url)
 export const silkscreen = new immaculata.FileTree('node_modules/@fontsource/silkscreen', import.meta.url)
 export const oxanium = new immaculata.FileTree('node_modules/@fontsource-variable/oxanium', import.meta.url)
+export const firacode = new immaculata.FileTree('node_modules/@fontsource-variable/fira-code', import.meta.url)
 export const gemunulibre = new immaculata.FileTree('node_modules/@fontsource-variable/gemunu-libre', import.meta.url)

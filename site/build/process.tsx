@@ -1,7 +1,7 @@
 import fm from 'front-matter'
 import { Pipeline, type FileTree } from 'immaculata'
 import ts from 'typescript'
-import { gemunulibre, martel, monaco, oshost, oxanium, silkscreen, tree } from '../../static.ts'
+import { firacode, gemunulibre, martel, monaco, oshost, oxanium, silkscreen, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 import { md, type Env } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
@@ -22,6 +22,7 @@ export function processSite() {
     { tree: silkscreen, root: '/fonts/silkscreen', files: ['/400.css', '/700.css'] },
     { tree: oxanium, root: '/fonts/oxanium', files: ['/index.css'] },
     { tree: gemunulibre, root: '/fonts/gemunulibre', files: ['/index.css'] },
+    { tree: firacode, root: '/fonts/firacode', files: ['/index.css'] },
   ])
 
   files.with('\.d\.ts$').remove()

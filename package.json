@@ -17,6 +17,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@fontsource-variable/fira-code": "^5.2.5",
     "@fontsource-variable/gemunu-libre": "^5.2.5",
     "@fontsource-variable/oxanium": "^5.2.5",
     "@fontsource/martel": "^5.2.5",
