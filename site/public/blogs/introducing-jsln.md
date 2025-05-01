@@ -61,7 +61,11 @@ Everything between is the string. The delimeter must be verbatim,
 no whitespace or case differences, and is typically a blank line.
 
 ```ini
-sys.size=
+fakesetting.multiline1=
+
+hello world
+
+fakesetting.multiline2=
 foo
 hello world
 foo
