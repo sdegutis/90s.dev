@@ -4,6 +4,7 @@
     & { display: none }
     body:has(&)>:not(main) {
       opacity: 0;
+      pointer-events: none;
     }
   }
 
