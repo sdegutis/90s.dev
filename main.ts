@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url'
 import { isDev, tree } from './static.ts'
 
 registerHooks(useTree(tree))
-registerHooks(immaculata.hooks.exportAsString({ bareExt: 'md' }))
 registerHooks(immaculata.hooks.mapImport('react/jsx-runtime', 'immaculata/jsx-strings.js'))
 registerHooks(immaculata.hooks.compileJsx((src, url) => compileTsx(src, fileURLToPath(url)).outputText))
 
