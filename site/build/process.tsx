@@ -3,7 +3,7 @@ import { Pipeline, type FileTree } from 'immaculata'
 import ts from 'typescript'
 import { firacode, gemunulibre, martel, monaco, oshost, oxanium, silkscreen, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
-import { md, type Env } from "./markdown.ts"
+import { md } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
 
 const Fm = fm as unknown as typeof fm.default
@@ -52,14 +52,14 @@ export function processSite() {
 
   files.with('\.md$').do(f => {
     f.path = f.path.replace('.md', '.html')
-    const env: Env = {}
+    const env = {}
     const result = md.render(f.text, env)
     f.text = hoistHeaders(files, <Html>
       <Head files={fonts.links} />
       <body>
         <Navbar pages={pages} />
         <Main content={result} />
-        <Sidebar toc={tocToHtml(env.toc!)} />
+        <Sidebar toc={tocToHtml(env)} />
         <UnderConstruction early={f.text.includes('<!-- ALLOWEARLY -->')} />
       </body>
     </Html>)

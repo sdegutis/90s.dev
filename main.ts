@@ -15,8 +15,12 @@ if (isDev) {
   server.notFound = () => '/404.html'
   server.files = await processSite()
 
-  tree.watch().on('filesUpdated', async (paths) => {
-    console.log('Paths changed:', [...paths].map(path => '\n  ' + path).join(''))
+  tree.watch().on('moduleInvalidated', mod => {
+    console.log('Module invalidated:', mod)
+  })
+
+  tree.watch().on('filesUpdated', async (changes) => {
+    console.log('Paths changed:', changes.map(ch => '\n  ' + ch.path).join(''))
     try { server.files = await processSite() }
     catch (e) { console.error(e) }
     server.reload(null)

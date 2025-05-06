@@ -1,20 +1,29 @@
-import Shiki from '@shikijs/markdown-it'
+import * as ShikiMd from '@shikijs/markdown-it'
 import type MarkdownIt from 'markdown-it'
-import { defaultRender, type Env } from './markdown.ts'
+import * as Shiki from 'shiki'
+import { tree } from '../../static.ts'
+import { defaultRender } from './mdhelper.ts'
 
-export const shiki = await Shiki({ theme: 'dark-plus' })
+const highlighter = await Shiki.createHighlighter({
+  themes: ['dark-plus'],
+  langs: ['typescript', 'tsx', 'ini'],
+})
 
-const tsx = ['ts', 'tsx', 'typescript']
+const bettertsx = ['ts', 'tsx', 'typescript']
 
 export const highlightCode = (md: MarkdownIt) => {
-  md.use(shiki)
+  md.use(ShikiMd.fromHighlighter(highlighter, { theme: 'dark-plus' }))
 
   const oldfence = md.renderer.rules.fence ?? defaultRender
-  md.renderer.rules.fence = (toks, idx, opts, env: Env, self) => {
+  md.renderer.rules.fence = (toks, idx, opts, env, self) => {
     let html = oldfence(toks, idx, opts, env, self)
-    if (tsx.includes(toks[idx].info)) {
+    if (bettertsx.includes(toks[idx].info)) {
       html += '<script type="module" src="/script/bettertsx.js"></script>\n'
     }
     return html
   }
 }
+
+tree.onModuleInvalidated(import.meta.url, () => {
+  highlighter.dispose()
+})

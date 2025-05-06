@@ -1,10 +1,9 @@
 import type MarkdownIt from "markdown-it"
 import containers from 'markdown-it-container'
-import type { Env } from "./markdown.ts"
 
 export function runcodeMacro(md: MarkdownIt) {
   containers(md, 'runcode', {
-    render: (tokens, i, opts, env: Env, self) => {
+    render: (tokens, i, opts, env, self) => {
       const tok = tokens[i]
       const isOpen = tok.nesting === 1
       const opener = tokens[isOpen ? i : i - 2]

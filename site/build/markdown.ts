@@ -5,6 +5,7 @@ import containers from 'markdown-it-container'
 import type MdTypes from "markdown-it/index.js"
 import { tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
+import { defaultRender } from "./mdhelper.ts"
 import { checkForOsHost } from "./oshost.ts"
 import { runcodeMacro } from "./runcode.ts"
 import { generateToc } from "./toc.ts"
@@ -20,7 +21,7 @@ export const md = markdown({}, [
   runcodeMacro,
 ])
 
-function markdown<T>(opts: MdTypes.Options, plugins: MdTypes.PluginWithOptions[]) {
+function markdown(opts: MdTypes.Options, plugins: MdTypes.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
   plugins.forEach(fn => md.use(fn))
   return md
@@ -75,8 +76,4 @@ function sectionMacro(md: MarkdownIt) {
         : `</section>\n`
     }
   })
-}
-
-export function defaultRender(tokens: MdTypes.Token[], idx: number, opts: MdTypes.Options, env: any, self: MdTypes.Renderer) {
-  return self.renderToken(tokens, idx, opts)
 }

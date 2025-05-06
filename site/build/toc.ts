@@ -1,10 +1,8 @@
 import type MarkdownIt from "markdown-it"
-import { defaultRender, type Env } from "./markdown.ts"
+import { defaultRender } from "./mdhelper.ts"
 
-declare module "./markdown.ts" {
-  interface Env {
-    toc?: Toc
-  }
+interface Env {
+  toc?: Toc
 }
 
 type Toc = { level: number, id: string, text: string }[]
@@ -22,9 +20,9 @@ export function generateToc(md: MarkdownIt) {
   }
 }
 
-export function tocToHtml(toc: Toc) {
+export function tocToHtml(env: Env) {
   const table: string[] = []
-  renderBlock(toc, table, 0, 1)
+  renderBlock(env.toc!, table, 0, 1)
   return table.join('\n')
 }
 
