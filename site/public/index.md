@@ -1,9 +1,5 @@
 # Welcome to 90s.dev
 
-The RetroFuturistic MultiPlayer GameEngine
-
-<!-- <iframe src='${OSHOST}/#sys/apps/editor.app.js'></iframe> -->
-
 ::: section features
 
 - 🧪
@@ -19,6 +15,8 @@ The RetroFuturistic MultiPlayer GameEngine
   Together, we shall make the best pixel art game maker conceivable.
 
 :::
+
+<iframe src='${OSHOST}/#sys/apps/editor.app.js' width="640" height="360"></iframe>
 
 ::: section homebuttons
 

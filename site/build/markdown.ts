@@ -3,10 +3,9 @@ import anchors from 'markdown-it-anchor'
 import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
 import type MdTypes from "markdown-it/index.js"
-import { tree } from "../../static.ts"
+import { oshost, tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
 import { defaultRender } from "./mdhelper.ts"
-import { checkForOsHost } from "./oshost.ts"
 import { runcodeMacro } from "./runcode.ts"
 import { generateToc } from "./toc.ts"
 
@@ -25,6 +24,12 @@ function markdown(opts: MdTypes.Options, plugins: MdTypes.PluginWithOptions[]) {
   const md = new MarkdownIt({ html: true, ...opts })
   plugins.forEach(fn => md.use(fn))
   return md
+}
+
+function checkForOsHost(md: MarkdownIt) {
+  md.core.ruler.after('normalize', 'hi', state => {
+    state.src = state.src.replaceAll('${OSHOST}', oshost)
+  })
 }
 
 function renameMarkdownLinks(md: MarkdownIt) {
