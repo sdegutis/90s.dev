@@ -1,17 +1,21 @@
 # Welcome to 90s.dev
 
+The RetroFuturistic MultiPlayer GameEngine
+
+<!-- <iframe src='${OSHOST}/#sys/apps/editor.app.js'></iframe> -->
+
 ::: section features
 
 - 🧪
-  ### Retrofuturistic
+  ### RetroFuturistic
   Innovative technology on the inside, pixel art aesthetics on the outside.
 
 - 🤝
-  ### Collaborative
+  ### MultiPlayer
   Multiuser creativity platform that lets us build one big app together.
 
 - 🔨
-  ### Meta Game-maker
+  ### GameEngine
   Together, we shall make the best pixel art game maker conceivable.
 
 :::
