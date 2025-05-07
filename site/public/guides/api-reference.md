@@ -122,7 +122,7 @@ function TextFieldComp      // default comp for <textfield>
 const $usrConfig // live representation of `usr/config.jsln`
 const sysConfig  // overridable config used by the host
 
-const appReady // called when preludes finish
+const preludesFinished // resolves when preludes finish
 
 const preferences // for storing settings/theme-data/etc
 

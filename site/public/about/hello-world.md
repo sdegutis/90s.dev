@@ -5,7 +5,7 @@ The traditional "click me" app:
 ::: runcode 120 70
 ```tsx
 import api, { $, Center, GroupY, Label, GroupX } from '/api.js'
-await api.appReady
+await api.preludesFinished
 
 const $count = $(0)
 const inc = () => $count.$++
@@ -43,7 +43,7 @@ and all prelude scripts of your choosing are run.
 So we wait for them to finish.
 
 ```tsx
-await api.appReady
+await api.preludesFinished
 ```
 
 We create a [Ref](../guides/refs.md#refs) and a function to modify it.
