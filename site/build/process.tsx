@@ -1,7 +1,7 @@
 import fm from 'front-matter'
 import { Pipeline, type FileTree } from 'immaculata'
 import ts from 'typescript'
-import { firacode, gemunulibre, martel, monaco, oxanium, silkscreen, tree } from '../../static.ts'
+import { firacode, gemunulibre, monaco, oxanium, silkscreen, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 import { md } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
@@ -20,7 +20,6 @@ export function processSite() {
   const files = Pipeline.from(tree.files)
 
   const fonts = vendorFonts([
-    { tree: martel, root: '/fonts/martel', files: ['/400.css', '/700.css'] },
     { tree: silkscreen, root: '/fonts/silkscreen', files: ['/400.css', '/700.css'] },
     { tree: oxanium, root: '/fonts/oxanium', files: ['/index.css'] },
     { tree: gemunulibre, root: '/fonts/gemunulibre', files: ['/index.css'] },
