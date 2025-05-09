@@ -1,7 +1,7 @@
 import fm from 'front-matter'
 import { Pipeline, type FileTree } from 'immaculata'
 import ts from 'typescript'
-import { firacode, gemunulibre, martel, monaco, oshost, oxanium, silkscreen, tree } from '../../static.ts'
+import { firacode, gemunulibre, martel, monaco, oxanium, silkscreen, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
 import { md } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
@@ -77,8 +77,6 @@ export function processSite() {
   if (reloader) files.with(/\.html$/).do(f => { f.text = f.text.replace('<head>', '$&' + reloader) })
 
   files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
-
-  files.add('/os.txt', oshost)
 
   files.add('/404.html', hoistHeaders(files, <Html>
     <Head files={fonts.links} />

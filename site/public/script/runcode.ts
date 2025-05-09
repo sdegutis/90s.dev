@@ -1,8 +1,7 @@
 import './bettertsx.js'
 import monaco from './monaco.js'
 
-const oshost = await fetch('/os.txt').then(r => r.text())
-const api = await fetch(oshost + '/api.d.ts.json').then(r => r.json())
+const api = await fetch('/os/api.d.ts.json').then(r => r.json())
 
 const ts = monaco.languages.typescript
 
@@ -17,7 +16,7 @@ ts.typescriptDefaults.setCompilerOptions({
   jsx: ts.JsxEmit.ReactJSX,
   paths: {
     "/*": ["file:///*"],
-    "react/jsx-runtime": ["file:///sys/api/core/jsx.js"],
+    "react/jsx-runtime": ["file:///os/sys/api/core/jsx.js"],
   },
   target: ts.ScriptTarget.ESNext,
   module: ts.ModuleKind.ESNext,
@@ -84,7 +83,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   new ResizeObserver(resize).observe(preblock)
 
 
-  const url = new URL(oshost)
+  const url = new URL('/os/', window.origin)
 
   const updateIframe = async () => {
     const code = model.getValue()

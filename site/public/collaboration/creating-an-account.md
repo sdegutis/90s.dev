@@ -1,6 +1,6 @@
 # Creating an account
 
-The purpose of [os.90s.dev](${OSHOST}) is to be a
+The purpose of [os.90s.dev](/os/) is to be a
 collaborative dev environment.
 
 To share apps and libraries you made,
@@ -9,15 +9,15 @@ you have to create an account.
 Accounts are free, and use OTPs instead of passwords.
 
 With an account, you get one public folder
-named <code>[net/](${OSHOST}/#sys/apps/filer.app.js@net/)\<username>/</code>
+named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
 
 ## Creating an account
 
-1. Create an account in [os.90s.dev/#sys/apps/account.app.js](${OSHOST}/#sys/apps/account.app.js)
+1. Create an account in [os.90s.dev/#sys/apps/account.app.js](/os/#sys/apps/account.app.js)
 
 2. Login with the token emailed to you
 
-3. Create a folder under [net/](${OSHOST}/#sys/apps/filer.app.js@net/) with your username
+3. Create a folder under [net/](/os/#sys/apps/filer.app.js@net/) with your username
 
 Congratulations, you now have a public folder!
 

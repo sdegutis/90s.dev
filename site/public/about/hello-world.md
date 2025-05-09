@@ -4,7 +4,7 @@ The traditional "click me" app:
 
 ::: runcode 120 70
 ~~~tsx
-import api, { $, Center, GroupY, Label, GroupX } from '/api.js'
+import api, { $, Center, GroupY, Label, GroupX } from '/os/api.js'
 await api.preludesFinished
 
 const $count = $(0)
@@ -35,7 +35,7 @@ panel.focusPanel()
 All API functions are exported from this file.
 
 ~~~tsx
-import * as api from '/api.js'
+import * as api from '/os/api.js'
 ~~~
 
 When the API is imported, the system is initialized,
@@ -106,7 +106,7 @@ its initial size, which the shell can use (or ignore).
 JSX here is just shorthand for:
 
 ~~~tsx
-import { composites } from '/api.js'
+import { composites } from '/os/api.js'
 
 function jsx(tag, data) {
   if (isConstructable(tag))  return new tag(data)

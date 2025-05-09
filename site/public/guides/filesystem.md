@@ -4,12 +4,12 @@ order: 3
 
 # Filesystem
 
-To browse files, use [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js)
+To browse files, use [os.90s.dev/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
 
 ## File format
 
-The file system of [os.90s.dev](${OSHOST}) is very simple:
+The file system of [os.90s.dev](/os/) is very simple:
 
 * Every directory, including root drives, has the format `<dir>/`
 

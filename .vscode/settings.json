@@ -13,6 +13,6 @@
   "markdown.editor.updateLinksOnPaste.enabled": true,
   "markdown.updateLinksOnFileMove.enabled": "always",
   "markdown.updateLinksOnFileMove.enableForDirectories": true,
-  "markdown.validate.ignoredLinks": [ "${OSHOST}/**" ],
+  "markdown.validate.ignoredLinks": [ "/os/**" ],
   "typescript.preferences.preferTypeOnlyAutoImports": true,
 }

@@ -1,8 +1,6 @@
-const oshost = await fetch('/os.txt').then(r => r.text())
-
 for (const a of document.querySelectorAll('a')) {
   if (!a.href.startsWith(location.origin)) {
-    if (a.href.startsWith(oshost + '/#')) {
+    if (a.href.startsWith('/os/#')) {
       a.onclick = (e) => {
         if (e.ctrlKey) return
         e.preventDefault()

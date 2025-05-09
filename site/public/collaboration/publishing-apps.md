@@ -1,6 +1,6 @@
 # Publishing apps
 
-To publish any files on [os.90s.dev](${OSHOST}),
+To publish any files on [os.90s.dev](/os/),
 you'll need to [create an account](creating-an-account.md#creating-an-account) first.
 
 After you have created a shared folder:
@@ -15,7 +15,7 @@ After you have created a shared folder:
 
 To get a sharable link to your app:
 
-1. Open your app in [os.90s.dev/#sys/apps/filer.app.js](${OSHOST}/#sys/apps/filer.app.js@net/)
+1. Open your app in [os.90s.dev/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js@net/)
 
 2. Click your app to open it
 
