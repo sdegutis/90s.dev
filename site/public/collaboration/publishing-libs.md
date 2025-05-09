@@ -1,6 +1,6 @@
 # Publishing libraries
 
-To publish any files on [os.90s.dev](/os/),
+To publish any files on [90s.dev/os/](/os/),
 you'll need to [create an account](creating-an-account.md#creating-an-account) first.
 
 After you have created a shared folder:

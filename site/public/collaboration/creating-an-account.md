@@ -1,6 +1,6 @@
 # Creating an account
 
-The purpose of [os.90s.dev](/os/) is to be a
+The purpose of [90s.dev/os/](/os/) is to be a
 collaborative dev environment.
 
 To share apps and libraries you made,
@@ -13,7 +13,7 @@ named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
 
 ## Creating an account
 
-1. Create an account in [os.90s.dev/#sys/apps/account.app.js](/os/#sys/apps/account.app.js)
+1. Create an account in [90s.dev/os/#sys/apps/account.app.js](/os/#sys/apps/account.app.js)
 
 2. Login with the token emailed to you
 

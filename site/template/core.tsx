@@ -58,7 +58,7 @@ export function Navbar(data: {
 
   const pages = [
     ...data.pages,
-    { section: 'links', title: 'os.90s.dev', path: '/os/' },
+    { section: 'links', title: '90s.dev/os/', path: '/os/' },
     { section: 'links', title: 'Feature requests', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
     { section: 'links', title: 'Bug reports', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
     { section: 'links', title: 'Community wiki', path: 'https://github.com/ppl-90s-dev/ppl/wiki' },

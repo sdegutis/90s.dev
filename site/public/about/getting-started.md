@@ -1,7 +1,7 @@
 # Getting started
 
 This guide sets up a dev environment for
-apps and libraries in [os.90s.dev](/os/)
+apps and libraries in [90s.dev/os/](/os/)
 
 
 ## Hello World
@@ -10,7 +10,7 @@ To getting a "hello world" sample app working:
 
 1. Extract [helloworld.zip](/os/helloworld.zip) to `helloworld/`
 
-2. Open [os.90s.dev/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
+2. Open [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
 3. Mount `helloworld/app` as `app` and click it
 

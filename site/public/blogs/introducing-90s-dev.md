@@ -3,7 +3,7 @@
 My fellow hackers, artists, engineers, musicians, and philosophers,
 I am beyond excited to finally share this project with you all!
 
-Behold! [os.90s.dev](/os/#sys/apps/editor.app.js)
+Behold! [90s.dev/os/](/os/#sys/apps/editor.app.js)
 
 You should be very confused right now.
 Let me explain why this project is so incredibly exciting.
@@ -106,7 +106,7 @@ All of the above was kind of an outline of the principles
 that make 90s.dev unique. This is mainly the secret ingredient
 behind what enables its innovations. But now to be more concrete:
 
-The app os.90s.dev is a web-based operating system that has:
+The app 90s.dev/os/ is a web-based operating system that has:
 
 * An extremely lightweight kernel that can handle 60fps games
 
@@ -146,4 +146,4 @@ where collaboration was always at the heart and soul of the web.
 The driving principle behind 90s.dev is rediscovering beauty in simplicity.
 In fact, the entire website you see here was created *from scratch*
 to be the most beautiful website code ever written *because* of its simplicity,
-both aesthetically and in code. The same is true of [os.90s.dev](/os/).
+both aesthetically and in code. The same is true of [90s.dev/os/](/os/).
