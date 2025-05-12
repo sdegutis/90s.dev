@@ -84,12 +84,13 @@ There is nothing magical going on here:
 * The `text.set` method changes `val` and calls all its callbacks
 * The `text.val` readonly property is just the value of the ref
 
-Most view properties take either a value,
-or a ref holding that type of value.
-When given a ref, it calls `watch` on the ref
-and sets its own value whenever the ref changes.
+All view properties are backed by refs,
+always named such that ref `$foo` backs value `foo`.
 
-Learn more on the [Refs Walkthrough](refs.md#refs).
+This lets you react to changes on any property,
+whether `$children` or `$alpha` or `$size` etc.
+
+Learn more in the [Refs Walkthrough](refs.md#refs).
 
 
 ## Custom behavior
