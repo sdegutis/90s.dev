@@ -58,7 +58,7 @@ function runJsFile // executes code at given fs path
 
 ## Views
 
-See [Views](views.md#views) to learn more.
+See [Views](views.md#views-overview) to learn more.
 
 ```tsx
 class View {}

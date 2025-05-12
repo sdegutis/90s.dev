@@ -3,7 +3,7 @@ order: 1
 ---
 
 
-# Views
+# Views Overview
 
 Views are comprised of concrete classes
 which handle layout, style, content, and behavior,
