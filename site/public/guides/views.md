@@ -58,7 +58,7 @@ that takes *semantic content*
 rather than *literal content*,
 and turns them *into* literal content.
 
-See [Composites](composites.md#composites) to learn more.
+Learn more on the [composites page](composites.md#composites).
 
 
 ## Responsibilities
@@ -119,20 +119,18 @@ const label1 = <Label text={text} />
 button1.onClick = () => clicks.set(clicks.val + 1)
 ```
 
-There is nothing magic here. Ref is a very ordinary class:
+There is nothing magical going on here:
 
-* The constructor takes an initial value
+* The `$` function takes an initial value and returns a ref
 * The `adapt` method creates a new ref based on the callback
 * The `set` method changes it and calls all its callbacks
 
-The value of refs comes from the simplicity of their design.
-Because there is no magic or overcomplicated sophistry,
-refs are predictable, and make it easy to react to their changes.
-
-Most view properties take either a value
+Most view properties take either a value,
 or a ref holding that type of value.
+When given a ref, it calls `watch` on the ref
+and sets its own value whenever the ref changes.
 
-See the [refs page](refs.md#refs) to learn more about how they work.
+Learn more on the [refs page](refs.md#refs).
 
 
 ## Layout
@@ -152,23 +150,28 @@ layout is handled automatically:
 This is made possible by carefully designed callbacks
 registered in the base class's initializer.
 
-Two patterns emerged over time:
-flexible views like Split or Center,
-and axiom views like Button or Label.
-There's an inherent tension between them:
+There's an inherent tension between outer views,
+which start at the panel's root and dive inwards,
+and inner views, which start deep and build outwards,
+until they meet each other.
 
-* Flexible views are resized by their parents.
-  But they reposition and often resize their contents,
+Two common layout patterns emerged from this:
+
+* Flexible views (e.g. Split or Center)
+  are resized by their parents.
+  They reposition and often resize their children,
   usually in response to being resized.
+  These are usually outer views.
 
-* Axiom views know their own size.
-  They usually don't resize their children,
-  but they can reposition them.
+* Axiomic views (e.g. Button or Label)
+  know and set their own size.
+  They may have children and reposition them,
+  but usually they don't resize them.
+  These are usually inner views.
 
-Because this system is not rigid or formal,
-views are able to combine these aspects
-if approached carefully.
-For example:
+Because the layout system is neither rigid nor formal,
+views are able to customize their layout behavior,
+if approached carefully. For example:
 
 * Spaced is flexible on one axis and axiomic on another.
 * Group usually contains axiomics but can resize them.
