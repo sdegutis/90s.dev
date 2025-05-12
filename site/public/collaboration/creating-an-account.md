@@ -8,8 +8,15 @@ you have to create an account.
 
 Accounts are free, and use OTPs instead of passwords.
 
-With an account, you get one public folder
-named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
+With an account, you get:
+
+* One public folder named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
+
+* Up to 64 files
+
+* Up to 64 KB (`2^16 bytes`) per file
+
+* Up to 16 MB (`2^24 bytes`) between all files
 
 ## Creating an account
 
