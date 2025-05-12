@@ -58,7 +58,7 @@ that takes *semantic content*
 rather than *literal content*,
 and turns them *into* literal content.
 
-Learn more on the [composites page](composites.md#composites).
+Learn more on the [Composites page](composites.md#composites).
 
 
 ## Responsibilities
@@ -119,15 +119,16 @@ button1.onClick = () => clicks.set(clicks.val + 1)
 There is nothing magical going on here:
 
 * The `$` function takes an initial value and returns a ref
-* The `adapt` method creates a new ref based on the callback
-* The `set` method changes it and calls all its callbacks
+* The `text.adapt` method creates a new ref based on the callback
+* The `text.set` method changes `val` and calls all its callbacks
+* The `text.val` readonly property is just the value of the ref
 
 Most view properties take either a value,
 or a ref holding that type of value.
 When given a ref, it calls `watch` on the ref
 and sets its own value whenever the ref changes.
 
-Learn more on the [refs page](refs.md#refs-walkthrough).
+Learn more on the [Refs Walkthrough](refs.md#refs-walkthrough).
 
 
 ## Layout
@@ -174,7 +175,36 @@ if approached carefully. For example:
 * Group usually contains axiomics but can resize them.
 
 
-## Initialization
+## Customizing behavior
+
+Although views can be subclassed, methods can just be overridden instead:
+
+```tsx
+const view = <View onMouseDown={b => {
+  console.log(`clicked with ${b} button`)
+}}/>
+```
+
+This is equivalent to:
+
+```tsx
+const view = <View/>
+view.onMouseDown = b => {
+  console.log(`clicked with ${b} button`)
+}
+```
+
+Some common lifetime callbacks:
+
+* `init()`: called immediately after construction; must call `super.init()`
+* `presented(panel: Panel)`: called when added to a panel
+* `adopted(parent: View)`: called when `parent` changes
+
+*Note:* Currently it's difficult to call `super.someMethod()` without subclassing,
+which makes `init` hard to override via JSX. It's typically fine though, since
+you can just run the same code immediately after creating the JSX expression,
+or use `presented` or `adopted`.
+
 
 
 ## Built-in views
