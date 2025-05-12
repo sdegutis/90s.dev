@@ -48,6 +48,8 @@ api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
 ```
 
+But as a convention, apps end with `.app.js` so that apps like [filer](/os/#sys/apps/filer.app.js)
+are able to tell them apart from libraries and launch them when you click them.
 
 ## Syscalls
 
