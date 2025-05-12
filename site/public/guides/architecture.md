@@ -16,6 +16,10 @@ It has a few small responsibilities:
 
 * Direct events to the appropriate panels and processes
 
+  * Some are sent to specific processes or panels
+
+  * Some are sent to everyone via [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+
 * Draw all prerendered panel images to the screen
 
 ## Processes & Panels
@@ -23,13 +27,15 @@ It has a few small responsibilities:
 Each process runs inside its own [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker).
 Processes request and own panels.
 
-At a bare minimum, it must communicate with the host via [syscalls](#syscalls).
-For typical code, a `sys` global and `Panel` class are there to all the heavy lifting for you.
+At a bare minimum, panels and processes must communicate with the host via [syscalls](#syscalls).
+For typical code, the `sys` global and `Panel` class are there to all the heavy lifting for you.
 
-Processes own references to panels.
+Processes own references to panels. Each panel gets its own [MessagePort](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort)
+to communicate directly with the host.
+
 Panels draw onto an [OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)
 and use [transferToImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas/transferToImageBitmap)
-to efficiently send the rendered image to the host.
+to efficiently send the prerendered image to the host.
 
 The built-in `Panel` class uses [Views](views.md#view) to draw
 its content onto a panel. But custom panels can manually draw
@@ -50,6 +56,12 @@ api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
 
 But as a convention, apps end with `.app.js` so that apps like [filer](/os/#sys/apps/filer.app.js)
 are able to tell them apart from libraries and launch them when you click them.
+
+
+## Preludes
+
+As a convenience, WIP
+
 
 ## Syscalls
 
