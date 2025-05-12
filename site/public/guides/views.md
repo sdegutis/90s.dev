@@ -206,9 +206,30 @@ if approached carefully. For example:
 * Group usually contains axiomics but can resize them.
 
 
+## Colors
+
+Color properties are always numbers that use hex-rgba encoding:
+
+* `0x00000000` = transparent black
+* `0x000000ff` = opaque black
+* `0xffffffff` = opaque white
+* `0xff000099` = red, 40% transparent
+
+**IMPORTANT:** The alpha value *must always* be included.
+
 
 ## Built-in views
 
+### Ref properties
+
+All properties have a ref equivalent:
+
+```ts
+view1.size     === view1.$size.val
+view1.panel    === view1.$panel.val
+view1.children === view1.$children.val
+// etc
+```
 
 ### View
 
@@ -216,9 +237,6 @@ The base class.
 
 ~~~ts
 class View {
-
-  // these all have a ref equivalent named $name
-  // like $panel for panel, $size for size, etc
 
   panel: Panel | null
   parent: View | null
@@ -238,7 +256,7 @@ class View {
 
   alpha: number // 0-1
 
-  background: number // hex-rgba, default 0x00_00_00_00
+  background: number // default 0 i.e. 0x00000000
   panelOffset: Point
   mouse: Point
 
@@ -294,19 +312,79 @@ class View {
 }
 ~~~
 
+
+### Margin
+
+Flexible.
+
+Resizes and repositions its child to match
+its own size and position, except padding.
+
+Use this to add a (potentially colored) border
+around a flexibles like splits or more margins.
+
+~~~ts
+class Margin extends View {
+
+  // shortcut for up = down = left = right = n
+  padding: number
+
+  // each defaults to 0
+  up: number
+  down: number
+  left: number
+  right: number
+
+  paddingColor: number // defaults to transparent black
+
+}
+~~~
+
+
 ### Border
+
+Axiomic.
+
+Shrinks itself to fit around its child,
+except padding.
+
+Use this to add a (potentially colored) border
+around axiomics like buttons or labels.
 
 ~~~ts
 class Border extends Margin { /*...*/ }
 ~~~
 
+
 ### Button
 
+Axiomic.
+
+Has no content.
+Give it a Label or Image child,
+or use a `button` composite.
+
+Use this to build clickable things,
+like text buttons, checkboxes, or scrollbar handles.
+
 ~~~ts
-class Button extends Border { /*...*/ }
+class Button extends Border {
+
+  // reasonable defaults
+  hoverBackground = 0xffffff22
+  pressBackground = 0xffffff11
+  selectedBackground = 0xffffff33
+
+  onClick?(button: number): void
+
+}
 ~~~
 
 ### Center
+
+Flexible.
+
+Literally just centers its content on both axes.
 
 ~~~ts
 class Center extends View { /*...*/ }
@@ -334,12 +412,6 @@ class Image extends View { /*...*/ }
 
 ~~~ts
 class Label extends View { /*...*/ }
-~~~
-
-### Margin
-
-~~~ts
-class Margin extends View { /*...*/ }
 ~~~
 
 ### Paned
