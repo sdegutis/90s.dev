@@ -2,7 +2,7 @@
 order: 2
 ---
 
-# Refs
+# Refs Walkthrough
 
 Refs lend themselves extremely well to reactive GUI programming.
 
@@ -17,10 +17,10 @@ A ref is like a pointer.
 import { $, print } from '/os/api.js'
 
 const r = $(0)
-print('val is', r.$)  // val is 0
+print('val is', r.val)  // val is 0
 
-r.$++
-print('val is', r.$)  // val is 1
+r.set(r.val + 1)
+print('val is', r.val)  // val is 1
 ```
 :::
 
@@ -33,8 +33,8 @@ import { $, print } from '/os/api.js'
 const r = $(0)
 r.watch(n => print('val is', n))
 
-r.$ = 3  // val is 3
-r.$++    // val is 4
+r.set(3)         // val is 3
+r.set(r.val + 1) // val is 4
 ```
 :::
 
@@ -48,8 +48,8 @@ const r = $(0)
 const r2 = r.adapt(n => n * 2)
 r2.watch(n => print('val is', n))
 
-r.$ = 3  // val is 6
-r.$++    // val is 8
+r.set(3)         // val is 6
+r.set(r.val + 1) // val is 8
 ```
 :::
 
@@ -106,13 +106,13 @@ const r1 = $(1)
 const r2 = $(100)
 
 const r3 = multiplex([r1, r2], (v1, v2) => v1 * v2)
-print(r3.$) // 100
+print(r3.val) // 100
 
-r3.watch(n => print(`${r1.$} * ${r2.$} = ${n}`))
+r3.watch(n => print(`${r1.val} * ${r2.val} = ${n}`))
 
-r1.$++     // 2 * 100 = 200
-r1.$++     // 3 * 100 = 300
-r2.$ *= 2  // 3 * 200 = 600
+r1.set(r1.val + 1) // 2 * 100 = 200
+r1.set(r1.val + 1) // 3 * 100 = 300
+r2.set(r2.val * 2) // 3 * 200 = 600
 ```
 :::
 
@@ -128,11 +128,11 @@ const r = $(0)
 r.watch(n => print('val is', n))
 r.intercept(n => Math.max(0, Math.min(10, n)))
 
-r.$ = 9 // val is 9
-r.$++   // val is 10
-r.$++   // (nothing printed; no change in value)
+r.set(9)         // val is 9
+r.set(r.val + 1) // val is 10
+r.set(r.val + 1) // (nothing printed; no change in value)
 
-print('val is currently', r.$) // val is currently 10
+print('val is currently', r.val) // val is currently 10
 ```
 :::
 
@@ -140,30 +140,32 @@ You can make one ref defer to another.
 
 This basically ties the two refs together.
 
-::: runcode 120 50
+::: runcode 120 100
 ```tsx
 import { $, print } from '/os/api.js'
 
 const first = $(10)
 first.watch(n => print('first is', n))
 
-print(first.$) // 10
+print(first.val) // 10
 
 const second = $(0)
 
-first.defer(second) // first is 0
-first.$++         // first is 1
-second.$++        // first is 2
+first.defer(second)        // first is 0
+first.set(first.val + 1)   // first is 1
+second.set(second.val + 1) // first is 2
 
-print(first.$)  // 2
-print(second.$) // 2
+print(first.val)  // 2
+print(second.val) // 2
 
 second.watch(n => print('second is', n))
 
-first.$++   // first is 3
-              // second is 3
+first.set(first.val + 1)
+  // first is 3
+  // second is 3
 
-second.$++  // first is 4
-              // second is 4
+second.set(second.val + 1)
+  // first is 4
+  // second is 4
 ```
 :::
