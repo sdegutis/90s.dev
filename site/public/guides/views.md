@@ -2,13 +2,16 @@
 order: 1
 ---
 
+
 # Views
 
 Views are comprised of concrete classes
 which handle layout, style, content, and behavior,
 and can be configured by
-setting properties or
-replacing methods.
+setting properties,
+replacing methods,
+or subclassing.
+
 
 ## JSX
 
@@ -31,15 +34,16 @@ So these expressions are equivalent:
 const label1 = <Label text='hello world' color={0xffffff33} /> as Label
 const label2 = new Label({ text: 'hello world', color: 0xffffff33 })
 
-const fnResult1 = <MyFunction foo={bar} />
-const fnResult2 = MyFunction({ foo: bar })
+const fnResult1 = <MyButton foo={bar} />
+const fnResult2 = MyButton({ foo: bar })
 
 import { composites } from '/os/api.js'
-const comp1 = <something hello="world" />
-const comp2 = composites["something"]({ hello: "world" })
+const comp1 = <fancybutton hello="world" />
+const comp2 = composites["fancybutton"]({ hello: "world" })
 ~~~
 
 *Note:* Due to a TypeScript limitation, all JSX expressions have type `View` unless casted.
+
 
 ## Composites
 
@@ -80,14 +84,101 @@ For example:
 
 When a complex view is needed more than once, wrap it in a function.
 
-When a view should be semantic and customizable, make it into a composite.
+When a view takes semantic data and should be customizable, make it into a composite.
 
 
 ## Refs
 
+Views have properties that can be set the traditional way:
+
+```tsx
+const label1 = <Label text='hello world' color={0xffffff33} /> as Label
+
+label1.text = "updated text"
+```
+
+But this can be tedious. Consider a click counter label:
+
+```tsx
+let clicks = 0
+const clickCount = (n: number) => `clicked ${n} times`
+
+const label1 = <Label text={clickCount(clicks)} /> as Label
+
+button1.onClick = () => label1.text = clickCount(++clicks)
+```
+
+This works, but it's much easier to just use refs:
+
+```tsx
+const clicks = $(0)
+const text = clicks.adapt(n => `clicked ${n} times`)
+
+const label1 = <Label text={text} />
+
+button1.onClick = () => clicks.set(clicks.val + 1)
+```
+
+There is nothing magic here. Ref is a very ordinary class:
+
+* The constructor takes an initial value
+* The `adapt` method creates a new ref based on the callback
+* The `set` method changes it and calls all its callbacks
+
+The value of refs comes from the simplicity of their design.
+Because there is no magic or overcomplicated sophistry,
+refs are predictable, and make it easy to react to their changes.
+
+Most view properties take either a value
+or a ref holding that type of value.
+
+See the [refs page](refs.md#refs) to learn more about how they work.
+
+
 ## Layout
 
+Views have an *incidental* layout system.
+That is, by following certain conventions,
+layout is handled automatically:
+
+* A view that has an inherent size,
+  whether based on its child views or properties or both,
+  should override `adjust` and set its own size.
+
+* A view that has children should override `layout`
+  and set the position (and possibly size)
+  of each of its children.
+
+This is made possible by carefully designed callbacks
+registered in the base class's initializer.
+
+Two patterns emerged over time:
+flexible views like Split or Center,
+and axiom views like Button or Label.
+There's an inherent tension between them:
+
+* Flexible views are resized by their parents.
+  But they reposition and often resize their contents,
+  usually in response to being resized.
+
+* Axiom views know their own size.
+  They usually don't resize their children,
+  but they can reposition them.
+
+Because this system is not rigid or formal,
+views are able to combine these aspects
+if approached carefully.
+For example:
+
+* Spaced is flexible on one axis and axiomic on another.
+* Group usually contains axiomics but can resize them.
+
+
+## Initialization
+
+
 ## Built-in views
+
 
 ### View
 
