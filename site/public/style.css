@@ -251,8 +251,18 @@ body {
 
 main {
 
-  :is(p, main>iframe, :not(li)>ul,ol, h1,h2,h3,h4) {
+  :is(p, table, main>iframe, :not(li)>ul,ol, h1,h2,h3,h4) {
     margin: 1rem 2rem;
+  }
+
+  table {
+    border-collapse: collapse;
+
+    td, th {
+      border: 1px solid #fff2;
+      padding: .4em .7em;
+      background-color: #0003;
+    }
   }
 
   :is(ul, ol) {

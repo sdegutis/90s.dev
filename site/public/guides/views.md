@@ -386,14 +386,31 @@ Flexible.
 
 Literally just centers its content on both axes.
 
+No customization. Put inside Paned if you need alignment to an axis.
+
 ~~~ts
 class Center extends View { /*...*/ }
 ~~~
 
 ### Grid
 
+Flexible when `cols === Infinity`, otherwise axiomic.
+
+Lays out children in columns,
+wrapping at `cols`,
+or edge if `flow` is set.
+
+Properly handles differently sized children.
+
 ~~~ts
-class Grid extends View { /*...*/ }
+class Grid extends View {
+
+  cols = Infinity
+  flow = false
+  xgap = 0
+  ygap = 0
+
+}
 ~~~
 
 ### Group
