@@ -123,6 +123,39 @@ you can just run the same code immediately after creating the JSX expression,
 or use `presented` or `adopted`.
 
 
+### Subclassing
+
+Although you usually won't need to subclass, sometimes you might? Who knows.
+
+In that case, there are a few non-obvious rules:
+
+1. You must add `constructor(config?: JsxAttrs<MyView>)` using your class name.
+   This is to let your class participate in JSX type checking.
+
+2. Your constructor must call `super()` *without* config, then `this.setup(config)`.
+   This ensures that subclasses don't override JSX-given data.
+
+3. You must not `override` properties in the class body, but rather set them
+   between `super` and `this.setup` in the constructor.
+   I always forget exactly what goes wrong when you don't do this,
+   and then I figure it out again,
+   but it's something important, I just can't remember right now.
+
+```ts
+class MyView extends View /* or whatever view class */ {
+
+  constructor(config?: JsxAttrs<MyView>) {
+    super()
+    this.background = 0xffffffff // RIGHT
+    this.setup(config)
+  }
+
+  override background = 0xffffffff // WRONG
+
+}
+```
+
+
 ## Composites
 
 Rather than following the HTML/CSS/JS model
@@ -192,7 +225,7 @@ until they meet each other.
 
 Two common layout patterns emerged from this:
 
-* Flexible views (e.g. Split or Center)
+* Malleable views (e.g. Split or Center)
   are resized by their parents.
   They reposition and often resize their children,
   usually in response to being resized.
@@ -208,7 +241,7 @@ Because the layout system is neither rigid nor formal,
 views are able to customize their layout behavior,
 if approached carefully. For example:
 
-* Spaced is flexible on one axis and axiomic on another.
+* Spaced is malleable on one axis and axiomic on another.
 * Group usually contains axiomics but can resize them.
 
 
@@ -226,7 +259,7 @@ Color properties are always numbers that use hex-rgba encoding:
 
 ## Built-in views
 
-These are designed to be composable and flexible enough to build any reasonable UI.
+These are designed to be composable and malleable enough to build any reasonable UI.
 
 If a complex view is common enough, it will become a built-in composite.
 
@@ -338,12 +371,12 @@ class View {
 
 ### Margin
 
-Flexible.
+Malleable.
 
 Resizes and repositions its child to match
 its own size and position, except padding.
 
-Use this to add a border around a flexibles
+Use this to add a border around a malleables
 like splits or more margins.
 
 The border can be transparent padding or colored.
@@ -421,7 +454,7 @@ class Button extends Border {
 
 ### Center
 
-Flexible.
+Malleable.
 
 Literally just centers its content on both axes.
 
@@ -433,7 +466,7 @@ class Center extends View { /*...*/ }
 
 ### Grid
 
-Flexible when `cols === Infinity`, otherwise axiomic.
+Malleable when `cols === Infinity`, otherwise axiomic.
 
 Lays out children in columns,
 wrapping at `cols`,
@@ -530,30 +563,135 @@ class Label extends View {
 
 ### Paned
 
+Malleable.
+
+Like Split, except it "vacuums-shrinks" towards a given side.
+
+The side being vacuumed must be axiomic in the given direction.
+
+After layout, both sides will be resized to fit available area.
+
 ~~~ts
-class Paned extends View { /*...*/ }
+class Paned extends View {
+
+  gap = 0
+  dir: 'x' | 'y' = 'x'
+  vacuum: 'a' | 'b' = 'a'
+
+}
 ~~~
+
+Convenience subclasses:
+
+```ts
+class PanedXA extends Paned { dir='x'; align='a' }
+class PanedXB extends Paned { dir='x'; align='b' }
+class PanedYA extends Paned { dir='y'; align='a' }
+class PanedYB extends Paned { dir='y'; align='b' }
+```
 
 ### Scroll
 
+Malleable.
+
+Allows scrolling its content which presumably outgrows it.
+
+Doesn't resize its content.
+
+(May have more than one child, but only deals with the first one.)
+
+Currently there's no way to auto-hide/show scrollbars in relation to mouse events.
+
 ~~~ts
-class Scroll extends View { /*...*/ }
+class Scroll extends View {
+
+  scrollBy: number
+  showh: boolean // default true
+  showv: boolean // default true
+
+  get content() { return this.firstChild! }
+
+  scrollVisible(inner: View): void
+
+}
 ~~~
 
 ### Spaced
 
+Axiomic in one direction, malleable in the other.
+
+Spaces its children apart equally.
+
+A least favorite child. A necessary evil. An unfortunate fact of life. *Almost* deprecated.
+
 ~~~ts
-class Spaced extends View { /*...*/ }
+class Spaced extends View{dir:'x'|'y'='x'}
+class SpacedX extends Spaced{}
+class SpacedY extends Spaced{}
 ~~~
 
 ### Split
 
+Malleable.
+
+Lays out two children side by side in a given `dir`.
+
+Resizable by `pos`, which is relative to `stick` side.
+
+Negative values imply coming from the non-`stick` side.
+
 ~~~ts
-class Split extends View { /*...*/ }
+class Split extends View {
+
+  dividerColorHovered = 0xffffff11
+  dividerColorPressed = 0x1177ffcc
+
+  pos = 20
+  min = 10
+  max = -10
+
+  dir: 'x' | 'y' = 'y'
+  stick: 'a' | 'b' = 'a'
+
+}
 ~~~
+
+Convenience subclasses:
+
+```ts
+class SplitXA extends Split { dir='x'; stick='a' }
+class SplitXB extends Split { dir='x'; stick='b' }
+class SplitYA extends Split { dir='y'; stick='a' }
+class SplitYB extends Split { dir='y'; stick='b' }
+```
 
 ### Textbox
 
+Axiomic believe it or not.
+
+Not quite deprecated, but still very experimental and likely to become easier to use.
+
+Shrinks itself around its content. Wrap in Scroll for stereotypical editable text area.
+
+Use `model` to get/set/edit text or respond to text events.
+
+Has a primitive form of syntax highlighting for some reason, but no selection yet? Ha.
+
 ~~~ts
-class Textbox extends View { /*...*/ }
+class Textbox extends View {
+
+  model = new TextModel()
+
+  font: Font
+  cursorColor = 0x0000ff99
+  textColor = 0xffffffff
+
+  editable = true
+
+  xgap = 0
+  ygap = 0
+
+  onEnter?(): void
+
+}
 ~~~
