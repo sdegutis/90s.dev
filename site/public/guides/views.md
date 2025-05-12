@@ -34,12 +34,12 @@ So these expressions are equivalent:
 const label1 = <Label text='hello world' color={0xffffff33} /> as Label
 const label2 = new Label({ text: 'hello world', color: 0xffffff33 })
 
-const fnResult1 = <MyButton foo={bar} />
-const fnResult2 = MyButton({ foo: bar })
+const fnResult1 = <MyFunction foo={bar} baz={qux} />
+const fnResult2 = MyFunction({ foo: bar, bax: qux })
 
 import { composites } from '/os/api.js'
-const comp1 = <fancybutton hello="world" />
-const comp2 = composites["fancybutton"]({ hello: "world" })
+const comp1 = <fancybutton hello={123} world={456} />
+const comp2 = composites["fancybutton"]({ hello: 123, world: 456 })
 ~~~
 
 *Note:* Due to a TypeScript limitation, all JSX expressions have type `View` unless casted.
@@ -63,9 +63,6 @@ Learn more on the [composites page](composites.md#composites).
 
 ## Responsibilities
 
-Concrete view classes are separated by responsibility,
-with each subclass getting more specific.
-
 Unlike in HTML, the base class contains very minimal functionality.
 
 For example:
@@ -84,7 +81,7 @@ For example:
 
 When a complex view is needed more than once, wrap it in a function.
 
-When a view takes semantic data and should be customizable, make it into a composite.
+When a view should be customizable, make it into a composite.
 
 
 ## Refs
@@ -130,7 +127,7 @@ or a ref holding that type of value.
 When given a ref, it calls `watch` on the ref
 and sets its own value whenever the ref changes.
 
-Learn more on the [refs page](refs.md#refs).
+Learn more on the [refs page](refs.md#refs-walkthrough).
 
 
 ## Layout

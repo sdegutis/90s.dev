@@ -46,7 +46,7 @@ So we wait for them to finish.
 await api.preludesFinished
 ~~~
 
-We create a [Ref](../guides/refs.md#refs) and a function to modify it.
+We create a [Ref](../guides/refs.md#refs-walkthrough) and a function to modify it.
 
 ~~~tsx
 const $count = api.$(0)
