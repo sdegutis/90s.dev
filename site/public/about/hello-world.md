@@ -5,10 +5,9 @@ The traditional "click me" app:
 ::: runcode 120 70
 ~~~tsx
 import api, { $, Center, GroupY, Label, GroupX } from '/os/api.js'
-await api.preludesFinished
 
-const $count = $(0)
-const inc = () => $count.$++
+const count = $(0)
+const inc = () => count.set(count.val + 1)
 
 const panel = await api.sys.makePanel({ name: "hello world" },
   <Center size={api.sys.$size} background={0x444444ff}>
@@ -16,7 +15,7 @@ const panel = await api.sys.makePanel({ name: "hello world" },
       <Label text='hello world!' />
       <GroupX gap={2}>
         <button style='submit' action={inc}>click me</button>
-        <Label text={$count.adapt(n => `clicked ${n} times`)} />
+        <Label text={count.adapt(n => `clicked ${n} times`)} />
       </GroupX>
     </GroupY>
   </Center>
@@ -30,136 +29,147 @@ panel.focusPanel()
 ***Tip***: You can edit and re-run all code examples on this site with `Ctrl-R`
 :::
 
-### Full Breakdown
+Let's look at each part of the code topically.
 
-All API functions are exported from this file.
 
-~~~tsx
-import * as api from '/os/api.js'
-~~~
-
-When the API is imported, the system is initialized,
-and all prelude scripts of your choosing are run.
-So we wait for them to finish.
+## Data management
 
 ~~~tsx
-await api.preludesFinished
+const count = $(0)
+const inc = () => count.set(count.val + 1)
+
+// ...
+
+<button style='submit' action={inc}>click me</button>
+<Label text={count.adapt(n => `clicked ${n} times`)} />
 ~~~
 
-We create a [Ref](../guides/refs.md#refs) and a function to modify it.
+We create a ref and a function to modify it.
+There's nothing magical about refs,
+they're basically just watchable pointers
+that run your callbacks when they change.
 
-~~~tsx
-const $count = api.$(0)
-const inc = () => $count.$++
-~~~
+We give the label's text property a `Ref<string>` instead of `string` so that
+whenever the value changes, the label will automatically update its text.
 
-::: section note box
-### What's with all the "$" characters?
+Keep in mind that refs are always optional.
+We could have just set `label.text` to a string
+directly in the button's `action` callback.
+But that's also exactly what the code above does.
 
-We named our variable `$count` to note that it's
-a ref. This isn't strictly needed, but many classes
-have both a plain field and a ref version of that
-field (which the field uses internally&mdash;see
-[makeRef](../guides/refs.md#properties).
+Learn more in the [Refs guide](../guides/refs.md#refs).
 
-And since refs are so common, the standalone function
-`$` was created as a shorter version of `new Ref(...)`.
-Plus it kind of looks like `&foo` in C and Go.
 
-Finally, the value that the ref holds is *also* named `$`
-because it's short, easy to remember, and *also* kind
-of looks like `foo.&` in Zig.
-
-The main takeaway is that there's nothing special about `$`.
-:::
-
-The `sys` has a method to create panels, which is async
-since apps run inside web workers, which need to communicate
-with the host (the GUI thread).
+## System architecture
 
 ~~~tsx
 const panel = await api.sys.makePanel({ name: "hello world" },
 ~~~
 
-Panels only require a name and a root view, so they can draw
-something on screen, and so the shell has a somewhat unique
-string to manage them by.
+We have to `await` it because our code is running inside a process (a web worker),
+and has to ask the host (the GUI thread) to create a new panel.
 
-[Shells](../guides/shells.md#shells) are just user-land programs
-which typically watch the `panelevents` broadcast channel
-and manage the size, position, and visibility of panels.
+The host is very lightweight, responsible mainly for
+propagating mouse/keyboard events to processes,
+managing processes and panels, and displaying panels on the screen.
+Processes do most of the heavy lifting, including drawing to panels via OffscreenCanvas.
 
-The panel here is the root view, which specifies
-its initial size, which the shell can use (or ignore).
+Learn more in the [Architecture guide](../guides/architecture.md#architecture).
+
+We also have to name our panel so the shell can show it in a taskbar or whatever.
+Shells are just userland programs that manage panels
+in response to BroadcastChannel events.
+The built-in shell is a simple windows-style shell.
+There are no tiling shells yet, sorry. But you can make one.
+
+Learn more in the [Shells guide](../guides/shells.md#shells).
+
+
+## How views work
 
 ~~~tsx
-  <panel size={{ w: 120, h: 70 }}>
-    // ...
-  </panel>
-)
+<Center size={api.sys.$size} background={0x444444ff}>
+  <GroupY gap={4}>
+    <Label text='hello world!' />
+    <GroupX gap={2}>
+      ...
+      <Label text={count.adapt(n => `clicked ${n} times`)} />
+    </GroupX>
+  </GroupY>
+</Center>
 ~~~
 
+Views handle content, style, layout, and behavior.
 
-::: section note box
+* We use `Center`, `GroupX`, and `GroupY` for layout
+* We use `label` and `button` to draw text to the screen
+* Theme customization is opt-in rather than automatic
+
+::: section box note
 ### A note on JSX
 
-JSX here is just shorthand for:
+There's nothing special about JSX here. It's just shorthand.
 
-~~~tsx
-import { composites } from '/os/api.js'
+These two are equivalent:
 
-function jsx(tag, data) {
-  if (isConstructable(tag))  return new tag(data)
-  else if (isFunction(tag))  return tag(data)
-  else if (isString(tag))    return composites[tag](data)
-  else                       throw Error('...')
-}
-~~~
+```tsx
+const label1 = <Label text='hello world!' />
 
-Unlike the classical web browser model, views are just instances
-of `View` or a subclass, and devs can create subclasses directly.
-Functions must ultimately return a view.
-
-JSX strings are here used for [Composites](../guides/api-reference.md#composites),
-which is a technique for styling and restructuring views and overriding
-their functionality, as a modern alternative to older, classical models
-such as HTML, CSS, web-components, and React.js.
+const label2 = new Label({ text: 'hello world!' })
+```
 :::
 
+Learn more in the [Views guide](../guides/views.md#views).
 
-We center our main content, which is a group of views stacked
-vertically, mainly being our greeting and our pair of button and
-the label that reflects its actions.
 
-~~~tsx
-    <api.Center>
-      <api.GroupY gap={4}>
-        <api.Label text='hello world!' />
-        <api.GroupX gap={2}>
-          // ...
-        </api.GroupX>
-      </api.GroupY>
-    </api.Center>
-~~~
 
-Above, we used primitive view classes, which can't be styled.
-Here, we use the `button` composite, to allow users to override
-our style, layout, and/or functionality. The default impl uses
-a padding of 2, switches color based on the given `style`,
-and puts the text inside a `Label` child of the `Button`.
+
+## Theming made easy
 
 ~~~tsx
-          <button style='submit' action={inc}>click me</button>
+<button style='submit' action={inc}>click me</button>
 ~~~
 
-Finally we have the label that shows the number of clicks.
-We take the `$count` and adapt it to produce a string.
-Like most properties on View and its subclasses, you can
-either pass a value or a ref to a value. (This aids with
-creating flexible but simple composite APIs like `button`).
+All views until now have been concrete, such as `Label` and `GroupY`.
+They look and behave exactly how *you* tell them to, without exception.
+
+On the other hand, `button` is a composite view,
+which operates purely on *semantic* data,
+and transforms it however the *composite author* wants.
+
+For example, using the default composite for `button`,
+our code from earlier becomes:
 
 ~~~tsx
-          <api.Label text={$count.adapt(n => `clicked ${n} times`)} />
+// before
+<button style='submit' action={inc}>click me</button>
+
+// after
+<Button background={0xffffff33} padding={2} onClick={inc}>
+  <Label text='click me'/>
+</Button>
 ~~~
 
-And that's it! You now have a working app, simple as can be.
+But with a different implementation of `button`, it could have become:
+
+~~~tsx
+// before
+<button style='submit' action={inc}>click me</button>
+
+// after
+<Button onClick={inc}>
+  <Border padding={1} paddingColor={0xff000099}>
+    <Image bitmap={submitIcon}/>
+  </Border>
+</Button>
+~~~
+
+With a few simple conventions, system wide theming is no longer a thing of the past:
+
+* Theme authors publish modules that add to the `composites` mapping.
+
+* App authors import these modules to let them add to their process's `composites`.
+
+* Users can specify modules that are executed in every process at startup.
+
+Learn more in the [Composite guide](../guides/composites.md#composites).

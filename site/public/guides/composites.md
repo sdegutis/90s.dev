@@ -75,3 +75,72 @@ Views      = Concretes | Composites
 Concretes  = Content + Layout + Style + Behavior
 Composites = Content + Views
 ```
+
+
+
+WIP
+
+WIP
+
+WIP
+
+WIP
+
+WIP
+
+WIP
+
+WIP
+
+WIP
+
+To register a composite
+
+
+```tsx
+composites['button'] = function ButtonComp(data: Record<string,any>) {
+  return <Button background={colorForStyle(data.style)} padding={2} onClick={data.action}>
+    <Label text={data.children}/>
+  </Button>
+}
+```
+
+Because your app runs inside a process,
+*nothing* will override its content unless you tell it to.
+
+So you can either:
+
+1. Manually load a theme or register composites yourself
+2. Import a file that creates composites, such as someone's theme file
+3. Run them as preludes
+
+
+
+
+
+You could just make a function that returns a view. What makes composites
+useful is that the JSX system looks them up in a well-known global,
+and that any process can add to this global or ask other libraries to do so.
+Since this happens on a per-process basis, no globals are harmed.
+
+
+is mostly just convention: composites have a known global location
+where they can be overridden.
+
+
+
+
+
+
+You can override existing composites, or create and publish your own:
+
+```tsx
+import { Button, Label, composites } from "/os/api.js"
+
+composites['button'] = (data: Record<string, any>) => {
+  const bg = bgForStyle(data.style)
+  return <Button background={bg} onClick={data.action} padding={2}>
+    {data.children}
+  </Button>
+}
+```
