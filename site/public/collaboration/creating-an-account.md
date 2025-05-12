@@ -12,8 +12,6 @@ With an account, you get:
 
 * One public folder named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
 
-* Up to 64 files
-
 * Up to 64 KiB (`2^16 bytes`) per file
 
 * Up to 16 MiB (`2^24 bytes`) between all files
