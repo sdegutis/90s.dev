@@ -42,8 +42,8 @@ export function processSite() {
   })
 
   pages.sort((a, b) => {
-    const ao = a.meta.order ?? Infinity
-    const bo = b.meta.order ?? Infinity
+    const ao = a.meta.order ?? 50
+    const bo = b.meta.order ?? 50
     if (ao < bo) return -1
     if (ao > bo) return +1
     return 0
