@@ -331,8 +331,10 @@ Flexible.
 Resizes and repositions its child to match
 its own size and position, except padding.
 
-Use this to add a (potentially colored) border
-around a flexibles like splits or more margins.
+Use this to add a border around a flexibles
+like splits or more margins.
+
+The border can be transparent padding or colored.
 
 ~~~ts
 class Margin extends View {
@@ -359,8 +361,9 @@ Axiomic.
 Shrinks itself to fit around its child,
 except padding.
 
-Use this to add a (potentially colored) border
-around axiomics like buttons or labels.
+Use this to add a border around axiomics like buttons or labels.
+
+The border can be transparent padding or colored.
 
 ~~~ts
 class Border extends Margin { /*...*/ }
@@ -426,20 +429,66 @@ class Grid extends View {
 
 ### Group
 
+Axiomic.
+
+Shrinks to fit multiple children,
+laying them out in a given `dir` with optional `gap`.
+
+Aligns children to
+start (`a`),
+middle (`m`),
+end (`z`)
+or expands them to fit (`+`).
+
 ~~~ts
-class Group extends View { /*...*/ }
+class Group extends View {
+
+  gap: number
+  dir: 'x' | 'y' = 'x'
+  align: 'a' | 'm' | 'z' | '+' = 'm'
+
+}
 ~~~
+
+Convenience subclasses:
+
+```ts
+class GroupX  extends Group { dir='x' }
+class GroupY  extends Group { dir='y' }
+class GroupXA extends Group { dir='x'; align='a' }
+class GroupXZ extends Group { dir='x'; align='z' }
+class GroupYA extends Group { dir='y'; align='a' }
+class GroupYZ extends Group { dir='y'; align='z' }
+```
 
 ### Image
 
+Draws an image on screen.
+
+Often wrapped with Border or Button.
+
 ~~~ts
-class Image extends View { /*...*/ }
+class Image extends View {
+
+  bitmap: Bitmap | null
+
+}
 ~~~
 
 ### Label
 
+Draws text on screen.
+
+Often wrapped with Border or Button.
+
 ~~~ts
-class Label extends View { /*...*/ }
+class Label extends View {
+
+  color = 0xffffffff
+  font: Font
+  text = ''
+
+}
 ~~~
 
 ### Paned
