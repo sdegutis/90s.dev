@@ -132,12 +132,12 @@ Learn more in the [JSX guide](../guides/views.md#jsx).
 <button style='submit' action={inc}>click me</button>
 ~~~
 
-All views until now have been concrete, such as `Label` and `GroupY`.
-They look and behave exactly how *you* tell them to, without exception.
+We have only seen concrete views until now, such as `Label` and `GroupY`.
+They look and behave exactly how they're told, without exception.
 
 On the other hand, `button` is a composite view,
 which operates purely on *semantic* data,
-and transforms it however the *composite author* wants.
+and transforms it however the *composite's author* decides.
 This is the key to theming.
 
 For example, using the default composite for `button`,
@@ -153,10 +153,8 @@ our code from earlier becomes:
 </Button>
 ~~~
 
-Theme authors can create and register composites,
-and users can load them into all processes
-without any special participation from app authors.
-
+But composites loaded by a theme could return anything else,
+and users can load any theme they'd like into all processes.
 The possibilities for customization are practically endless.
 
 Learn more in the [Composite guide](../guides/composites.md#composites).
