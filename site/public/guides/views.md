@@ -212,11 +212,87 @@ if approached carefully. For example:
 
 ### View
 
-~~~ts
-class View { /*...*/ }
-~~~
-
 The base class.
+
+~~~ts
+class View {
+
+  // these all have a ref equivalent named $name
+  // like $panel for panel, $size for size, etc
+
+  panel: Panel | null
+  parent: View | null
+
+  children: View[]
+  point: Point
+  size: Size
+
+  canFocus: boolean // default false
+  canMouse: boolean // default false
+  visible: boolean
+  autofocus: boolean
+
+  hovered: boolean
+  pressed: boolean
+  selected: boolean
+
+  alpha: number // 0-1
+
+  background: number // hex-rgba, default 0x00_00_00_00
+  panelOffset: Point
+  mouse: Point
+
+  onPanelFocus?(): void
+  onPanelBlur?(): void
+
+  onMouseDown?(button: number): void
+  onMouseMove?(pos: Point): void
+  onMouseUp?(): void
+
+  onMouseEnter?(): void
+  onMouseExit?(): void
+
+  onWheel?(x: number, y: number): void
+
+  onFocus?(): void
+  onBlur?(): void
+
+  onKeyDown?(key: string): void
+  onKeyUp?(key: string): void
+  onKeyPress?(key: string): boolean
+
+  adjust?(): void
+  layout?(): void
+  forceLayoutTree(): void
+
+  adopted?(parent: View): void
+  presented?(panel: Panel): void
+
+  draw(ctx: DrawingContext): void {
+    this.drawBackground(ctx, this.background)
+  }
+
+  protected onChildResized(child: View) {
+    this.adjust?.()
+    this.layout?.()
+  }
+
+  protected drawBackground(ctx: DrawingContext, bg: number) {
+    ctx.fillRect(0, 0, this.size.w, this.size.h, bg)
+  }
+
+  focus()       { this.panel?.focusView(this) }
+  needsRedraw() { this.panel?.needsRedraw(this) }
+
+  get firstChild(): View | undefined
+  get lastChild(): View | undefined
+
+  addChild(child: View, i = this.children.length): void
+  removeChild(child: View): void
+  remove(): void
+
+}
+~~~
 
 ### Border
 
