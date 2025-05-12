@@ -144,3 +144,38 @@ composites['button'] = (data: Record<string, any>) => {
   </Button>
 }
 ```
+
+
+
+
+
+
+
+
+
+With a few simple conventions, system wide theming is no longer a thing of the past:
+
+* Theme authors publish modules that add to the `composites` mapping.
+
+* App authors import these modules to let them add to their process's `composites`.
+
+* Users can specify modules that are executed in every process at startup.
+
+
+
+
+
+
+Because composites only separate out *content*,
+and kept together behavior, layout, and style,
+we could easily:
+
+* Show an icon representing the text instead of the given text
+
+* Use an entirely different layout structure
+
+* Add content, such as a "don't show again" checkbox
+
+* Wrap callback functions, like showing "are you sure?" prompts
+
+* *And more!!!*

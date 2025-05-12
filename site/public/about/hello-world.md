@@ -105,6 +105,8 @@ Views handle content, style, layout, and behavior.
 * We use `label` and `button` to draw text to the screen
 * Theme customization is opt-in rather than automatic
 
+Learn more in the [Views guide](../guides/views.md#views).
+
 ::: section box note
 ### A note on JSX
 
@@ -117,9 +119,9 @@ const label1 = <Label text='hello world!' />
 
 const label2 = new Label({ text: 'hello world!' })
 ```
-:::
 
-Learn more in the [Views guide](../guides/views.md#views).
+Learn more in the [JSX guide](../guides/views.md#jsx).
+:::
 
 
 
@@ -136,6 +138,7 @@ They look and behave exactly how *you* tell them to, without exception.
 On the other hand, `button` is a composite view,
 which operates purely on *semantic* data,
 and transforms it however the *composite author* wants.
+This is the key to theming.
 
 For example, using the default composite for `button`,
 our code from earlier becomes:
@@ -150,26 +153,10 @@ our code from earlier becomes:
 </Button>
 ~~~
 
-But with a different implementation of `button`, it could have become:
+Theme authors can create and register composites,
+and users can load them into all processes
+without any special participation from app authors.
 
-~~~tsx
-// before
-<button style='submit' action={inc}>click me</button>
-
-// after
-<Button onClick={inc}>
-  <Border padding={1} paddingColor={0xff000099}>
-    <Image bitmap={submitIcon}/>
-  </Border>
-</Button>
-~~~
-
-With a few simple conventions, system wide theming is no longer a thing of the past:
-
-* Theme authors publish modules that add to the `composites` mapping.
-
-* App authors import these modules to let them add to their process's `composites`.
-
-* Users can specify modules that are executed in every process at startup.
+The possibilities for customization are practically endless.
 
 Learn more in the [Composite guide](../guides/composites.md#composites).

@@ -130,16 +130,14 @@ Although you usually won't need to subclass, sometimes you might? Who knows.
 In that case, there are a few non-obvious rules:
 
 1. You must add `constructor(config?: JsxAttrs<MyView>)` using your class name.
-   This is to let your class participate in JSX type checking.
+   This is to let your class participate in JSX type checking and autocompletion.
 
 2. Your constructor must call `super()` *without* config, then `this.setup(config)`.
    This ensures that subclasses don't override JSX-given data.
 
 3. You must not `override` properties in the class body, but rather set them
    between `super` and `this.setup` in the constructor.
-   I always forget exactly what goes wrong when you don't do this,
-   and then I figure it out again,
-   but it's something important, I just can't remember right now.
+   I don't remember what goes wrong if you don't do this, but it's not nothing.
 
 ```ts
 class MyView extends View /* or whatever view class */ {
