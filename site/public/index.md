@@ -16,7 +16,7 @@
 
 :::
 
-<iframe src='/os/#sys/apps/editor.app.js' width="640" height="360"></iframe>
+<iframe src='/os/#sys/apps/spritemaker.app.js' width="640" height="360"></iframe>
 
 ::: section homebuttons
 
