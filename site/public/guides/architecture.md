@@ -32,8 +32,8 @@ and use [transferToImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API
 to efficiently send the rendered image to the host.
 
 The built-in `Panel` class uses [Views](views.md#view) to draw
-its content onto a panel. But custom panels can draw directly
-to an OffscreenCanvas and send that to the host if needed.
+its content onto a panel. But custom panels can manually draw
+to an OffscreenCanvas and transfer its image to the host if needed.
 
 
 ## Code environments
