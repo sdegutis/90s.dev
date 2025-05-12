@@ -3,7 +3,7 @@ order: 1
 ---
 
 
-# Views Overview
+# Views
 
 Views are comprised of concrete classes
 which handle layout, style, content, and behavior,
@@ -89,7 +89,7 @@ or a ref holding that type of value.
 When given a ref, it calls `watch` on the ref
 and sets its own value whenever the ref changes.
 
-Learn more on the [Refs Walkthrough](refs.md#refs-walkthrough).
+Learn more on the [Refs Walkthrough](refs.md#refs).
 
 
 ## Custom behavior
