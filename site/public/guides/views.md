@@ -386,9 +386,9 @@ class Margin extends View {
   padding: number
 
   // each defaults to 0
-  up: number
-  down: number
-  left: number
+  up:    number
+  down:  number
+  left:  number
   right: number
 
   paddingColor: number // defaults to transparent black
@@ -415,9 +415,9 @@ class Border extends Margin {
   padding: number
 
   // each defaults to 0
-  up: number
-  down: number
-  left: number
+  up:    number
+  down:  number
+  left:  number
   right: number
 
   paddingColor: number // defaults to transparent black
@@ -441,8 +441,8 @@ like text buttons, checkboxes, or scrollbar handles.
 class Button extends Border {
 
   // reasonable defaults
-  hoverBackground = 0xffffff22
-  pressBackground = 0xffffff11
+  hoverBackground    = 0xffffff22
+  pressBackground    = 0xffffff11
   selectedBackground = 0xffffff33
 
   onClick?(button: number): void
@@ -494,14 +494,14 @@ Aligns children to
 start (`a`),
 middle (`m`),
 end (`z`)
-or expands them to fit (`+`).
+or grows them to match the biggest (`+`).
 
 ~~~ts
 class Group extends View {
 
   gap: number
-  dir: 'x' | 'y' = 'x'
-  align: 'a' | 'm' | 'z' | '+' = 'm'
+  dir: 'x' | 'y'
+  align: 'a' | 'm' | 'z' | '+'
 
 }
 ~~~
@@ -573,8 +573,8 @@ After layout, both sides will be resized to fit available area.
 class Paned extends View {
 
   gap = 0
-  dir: 'x' | 'y' = 'x'
-  vacuum: 'a' | 'b' = 'a'
+  dir: 'x' | 'y'
+  vacuum: 'a' | 'b'
 
 }
 ~~~
@@ -644,12 +644,12 @@ class Split extends View {
   dividerColorHovered = 0xffffff11
   dividerColorPressed = 0x1177ffcc
 
-  pos = 20
-  min = 10
+  pos =  20
+  min =  10
   max = -10
 
-  dir: 'x' | 'y' = 'y'
-  stick: 'a' | 'b' = 'a'
+  dir: 'x' | 'y'
+  stick: 'a' | 'b'
 
 }
 ~~~
@@ -682,7 +682,7 @@ class Textbox extends View {
 
   font: Font
   cursorColor = 0x0000ff99
-  textColor = 0xffffffff
+  textColor   = 0xffffffff
 
   editable = true
 
