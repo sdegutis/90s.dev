@@ -14,9 +14,9 @@ With an account, you get:
 
 * Up to 64 files
 
-* Up to 64 KB (`2^16 bytes`) per file
+* Up to 64 KiB (`2^16 bytes`) per file
 
-* Up to 16 MB (`2^24 bytes`) between all files
+* Up to 16 MiB (`2^24 bytes`) between all files
 
 ## Creating an account
 
