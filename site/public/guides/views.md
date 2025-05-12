@@ -143,23 +143,29 @@ Learn more on the [Composites page](composites.md#composites).
 
 Unlike in HTML, the base class contains very minimal functionality.
 
-For example:
+When a complex view is needed more than once, wrap it in a function.
 
-* To add padding to an element, wrap it in a
+When a view should be customizable, make it into a composite.
+
+### Common recipes
+
+* To add padding around a view, wrap it in a
   [Margin](#margin) or [Border](#border)
   and set `padding`.
 
-* To add a visible border, wrap it in a
+* To add a border, wrap it in a
   [Margin](#margin) or [Border](#border)
   and set `padding` and `paddingColor`.
+
+* To add padding *and* a border,
+  just do both of the above,
+  having two wrappers.
 
 * To create a checkbox,
   combine a [Button](#button) and [Label](#label)
   and wrap them in a [GroupX](#group).
 
-When a complex view is needed more than once, wrap it in a function.
-
-When a view should be customizable, make it into a composite.
+Views are lightweight, so wrapping in multiple layers is not a performance issue.
 
 
 ## Layout
@@ -219,6 +225,12 @@ Color properties are always numbers that use hex-rgba encoding:
 
 
 ## Built-in views
+
+These are designed to be composable and flexible enough to build any reasonable UI.
+
+If a complex view is common enough, it will become a built-in composite.
+
+Otherwise, the community can publish compostes and functions as needed.
 
 ### Backing refs
 
@@ -366,7 +378,20 @@ Use this to add a border around axiomics like buttons or labels.
 The border can be transparent padding or colored.
 
 ~~~ts
-class Border extends Margin { /*...*/ }
+class Border extends Margin {
+
+  // shortcut for up = down = left = right = n
+  padding: number
+
+  // each defaults to 0
+  up: number
+  down: number
+  left: number
+  right: number
+
+  paddingColor: number // defaults to transparent black
+
+}
 ~~~
 
 
@@ -463,7 +488,11 @@ class GroupYZ extends Group { dir='y'; align='z' }
 
 ### Image
 
+Axiomic.
+
 Draws an image on screen.
+
+Shrinks itself around the image.
 
 Often wrapped with Border or Button.
 
@@ -477,9 +506,17 @@ class Image extends View {
 
 ### Label
 
+Axiomic.
+
 Draws text on screen.
 
+Shrinks itself around the text.
+
 Often wrapped with Border or Button.
+
+Allows multiline strings.
+
+Not editable; use Textbox for that.
 
 ~~~ts
 class Label extends View {
