@@ -220,16 +220,27 @@ Color properties are always numbers that use hex-rgba encoding:
 
 ## Built-in views
 
-### Ref properties
+### Backing refs
 
-All properties have a ref equivalent:
+All properties have a ref equivalent, where `something` is backed by ref `$something`:
 
 ```ts
-view1.size     === view1.$size.val
-view1.panel    === view1.$panel.val
-view1.children === view1.$children.val
-// etc
+class View {
+
+  size: Size
+  $size: Ref<Size>
+
+  children: View[]
+  $children: Ref<View[]>
+
+  // etc ...
+
+}
 ```
+
+The refs back the properties, so `v.prop === v.$prop.val` always. See the [refs guide](refs.md#properties).
+
+To avoid verbosity, backing refs are omitted from the rest of the documentation.
 
 ### View
 
