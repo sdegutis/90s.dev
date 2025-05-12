@@ -45,45 +45,6 @@ const comp2 = composites["fancybutton"]({ hello: 123, world: 456 })
 *Note:* Due to a TypeScript limitation, all JSX expressions have type `View` unless casted.
 
 
-## Composites
-
-Rather than following the HTML/CSS/JS model
-of separating layout from style from behavior,
-views keep these responsibilities together,
-and allow separating them from *content*.
-
-It does this using composites,
-which are view placeholders
-that takes *semantic content*
-rather than *literal content*,
-and turns them *into* literal content.
-
-Learn more on the [Composites page](composites.md#composites).
-
-
-## Responsibilities
-
-Unlike in HTML, the base class contains very minimal functionality.
-
-For example:
-
-* To add padding to an element, wrap it in a
-  [Margin](#margin) or [Border](#border)
-  and set `padding`.
-
-* To add a visible border, wrap it in a
-  [Margin](#margin) or [Border](#border)
-  and set `padding` and `paddingColor`.
-
-* To create a checkbox,
-  combine a [Button](#button) and [Label](#label)
-  and wrap them in a [GroupX](#group).
-
-When a complex view is needed more than once, wrap it in a function.
-
-When a view should be customizable, make it into a composite.
-
-
 ## Refs
 
 Views have properties that can be set the traditional way:
@@ -131,6 +92,76 @@ and sets its own value whenever the ref changes.
 Learn more on the [Refs Walkthrough](refs.md#refs-walkthrough).
 
 
+## Custom behavior
+
+Although views can be subclassed, methods can just be overridden instead:
+
+```tsx
+const view = <View onMouseDown={b => {
+  console.log(`clicked with ${b} button`)
+}}/>
+```
+
+This is equivalent to:
+
+```tsx
+const view = <View/>
+view.onMouseDown = b => {
+  console.log(`clicked with ${b} button`)
+}
+```
+
+Some common lifetime callbacks:
+
+* `init()`: called immediately after construction; must call `super.init()`
+* `adopted(parent: View)`: called when `parent` changes
+* `presented(panel: Panel)`: called when added to a panel
+
+*Note:* Currently it's difficult to call `super.someMethod()` without subclassing,
+which makes `init` hard to override via JSX. It's typically fine though, since
+you can just run the same code immediately after creating the JSX expression,
+or use `presented` or `adopted`.
+
+
+## Composites
+
+Rather than following the HTML/CSS/JS model
+of separating layout from style from behavior,
+views keep these responsibilities together,
+and allow separating them from *content*.
+
+It does this using composites,
+which are view placeholders
+that takes *semantic content*
+rather than *literal content*,
+and turns them *into* literal content.
+
+Learn more on the [Composites page](composites.md#composites).
+
+
+## Responsibilities
+
+Unlike in HTML, the base class contains very minimal functionality.
+
+For example:
+
+* To add padding to an element, wrap it in a
+  [Margin](#margin) or [Border](#border)
+  and set `padding`.
+
+* To add a visible border, wrap it in a
+  [Margin](#margin) or [Border](#border)
+  and set `padding` and `paddingColor`.
+
+* To create a checkbox,
+  combine a [Button](#button) and [Label](#label)
+  and wrap them in a [GroupX](#group).
+
+When a complex view is needed more than once, wrap it in a function.
+
+When a view should be customizable, make it into a composite.
+
+
 ## Layout
 
 Views have an *incidental* layout system.
@@ -175,37 +206,6 @@ if approached carefully. For example:
 * Group usually contains axiomics but can resize them.
 
 
-## Customizing behavior
-
-Although views can be subclassed, methods can just be overridden instead:
-
-```tsx
-const view = <View onMouseDown={b => {
-  console.log(`clicked with ${b} button`)
-}}/>
-```
-
-This is equivalent to:
-
-```tsx
-const view = <View/>
-view.onMouseDown = b => {
-  console.log(`clicked with ${b} button`)
-}
-```
-
-Some common lifetime callbacks:
-
-* `init()`: called immediately after construction; must call `super.init()`
-* `presented(panel: Panel)`: called when added to a panel
-* `adopted(parent: View)`: called when `parent` changes
-
-*Note:* Currently it's difficult to call `super.someMethod()` without subclassing,
-which makes `init` hard to override via JSX. It's typically fine though, since
-you can just run the same code immediately after creating the JSX expression,
-or use `presented` or `adopted`.
-
-
 
 ## Built-in views
 
@@ -215,6 +215,8 @@ or use `presented` or `adopted`.
 ~~~ts
 class View { /*...*/ }
 ~~~
+
+The base class.
 
 ### Border
 
