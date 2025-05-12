@@ -167,13 +167,13 @@ type ServerPanel
 type ClientPanel
 ```
 
-## net.90s.dev
+## Net files
 
 ```tsx
 // represents current state of account
 const $userState
 
-// wraps fetch scoped to net.90s.dev with credentials
+// wraps fetch scoped to /net/ with credentials
 // used internally by `net/` implementation
 function GET
 function POST
