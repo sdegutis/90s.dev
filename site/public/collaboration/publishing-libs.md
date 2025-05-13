@@ -27,7 +27,7 @@ export function randomNumber() {
 Libraries can be imported like so:
 
 ```ts
-import { randomNumber } from '/fs/net/someuser/path/to/lib.js'
+import { randomNumber } from '/os/fs/net/someuser/path/to/lib.js'
 
 for (let i = 0; i < 3; i++) {
   console.log(randomNumber()) // prints three random integers
