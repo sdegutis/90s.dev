@@ -170,8 +170,8 @@ As a convenience, the `BC` class is exported,
 which just wraps `BroadcastChannel`
 and scopes its handler to `sys.sysid`
 to limit it to the current user-agent (tab).
-
-Passing `null` basically just makes it into a type-safe `BroadcastChannel`.
+Passing `null` basically just makes it be a
+`BroadcastChannel` with type safety.
 
 ```ts
 export class BC<T extends { type: string }> {
@@ -185,6 +185,20 @@ export class BC<T extends { type: string }> {
 }
 ```
 
+## Shells
+
+Shells manage panels, pretty much exactly like window managers:
+
+* They hide, show, move, and close panels in response to user activity
+
+* They use [panelevents](architecture.md#broadcast-events) to keep track of panels and their current state
+
+* They often make panels of their own to help the user (e.g. taskbar, desktop, etc)
+
+A program becomes a shell by calling `await api.program.becomeShell()`
+which forces the current shell to quit (by requesting a `BroadcastChannel` mutex basically).
+
+See the default shell's implementation for a relatively robust example.
 
 
 ## Syscalls

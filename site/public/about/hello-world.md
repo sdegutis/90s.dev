@@ -82,7 +82,7 @@ in response to BroadcastChannel events.
 The built-in shell is a simple windows-style shell.
 There are no tiling shells yet, sorry. But you can make one.
 
-Learn more in the [Shells guide](../guides/shells.md#shells).
+Learn more in the [Shells section](../guides/architecture.md#shells) of the architecture guide.
 
 
 ## How views work
@@ -120,7 +120,7 @@ const label1 = <Label text='hello world!' />
 const label2 = new Label({ text: 'hello world!' })
 ```
 
-Learn more in the [JSX guide](../guides/views.md#jsx).
+Learn more in the [JSX section](../guides/views.md#jsx) of the views guide.
 :::
 
 
