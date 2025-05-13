@@ -12,9 +12,9 @@ With an account, you get:
 
 * One public folder named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
 
-* Up to 64 KiB (`2^16 bytes`) per file
+* Up to `2^16 bytes` (64 KiB) per file
 
-* Up to 16 MiB (`2^24 bytes`) between all files
+* Up to `2^24 bytes` (16 MiB) between all files
 
 ## Creating an account
 
