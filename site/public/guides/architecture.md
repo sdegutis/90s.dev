@@ -58,7 +58,7 @@ But as a convention, apps end with `.app.js` so that apps like [filer](/os/#sys/
 are able to tell them apart from libraries and launch them when you click them.
 
 
-## Preludes
+### Preludes
 
 As a convenience, users can run arbitrary JS code inside every process.
 This is useful when loading themes into an app's process; learn more on the [Composites](composites.md#composites) page.
