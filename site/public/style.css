@@ -338,6 +338,7 @@ pre:has(>code) {
   margin: 1rem 2rem;
   background-color: #0004 !important;
   --outline-color: rgb(141, 73, 210);
+  border-radius: 7px;
 
   position: relative;
   .monaco-editor {
