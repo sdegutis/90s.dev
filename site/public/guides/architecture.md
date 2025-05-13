@@ -60,7 +60,72 @@ are able to tell them apart from libraries and launch them when you click them.
 
 ## Preludes
 
-As a convenience, WIP
+As a convenience, users can run arbitrary JS code inside every process.
+This is useful when loading themes into an app's process; learn more on the [Composites](composites.md#composites) page.
+
+To run code, specify module paths in the string-array `process.prelude` in `usr/config.jsln`:
+
+```ts
+process.prelude[] = "usr/myprelude.js"
+process.prelude[] = "net/timmy/timmys_great_prelude.js"
+```
+
+Using this config, both preludes would be run (and `awaited`) in sequential order.
+
+See also [JSLN](jsln.md#jsln), but in short, it's just line-based JSON, used here for convenience.
+
+
+
+## Broadcast events
+
+Some events are broadcast generally:
+
+```ts
+// channel "sysevents"
+export type SysEvent =
+  | { type: 'resized', size: [w: number, h: number] }
+  | { type: 'desktop', desktop: Point & Size }
+
+// channel "keyevents"
+export type KeyEvent =
+  | { type: 'keydown', key: string }
+  | { type: 'keyup', key: string }
+
+// channel "procevents"
+export type ProcEvent =
+  | { type: 'started', pid: number, path: string }
+  | { type: 'init', pid: number }
+  | { type: 'ended', pid: number }
+
+// channel "panelevents"
+export type PanelEvent =
+  | { type: 'new' } & PanelInfo
+  | { type: 'focused', id: number }
+  | { type: 'renamed', id: number, name: string }
+  | { type: 'closed', id: number }
+  | { type: 'toggled', id: number, visible: boolean }
+  | { type: 'adjusted', id: number, point: Point, size: Size }
+```
+
+As a convenience, the `BC` class is exported,
+which just wraps `BroadcastChannel`
+and scopes its handler to `sys.sysid`
+to limit it to the current user-agent (tab).
+
+Passing `null` basically just makes it into a type-safe `BroadcastChannel`.
+
+```ts
+export class BC<T extends { type: string }> {
+
+  // pass the channel name and api.sys.sysid
+  constructor(channel: string, public sysid: string | null)
+  emit(event: T): void
+  handle(fn: (event: T) => void): void
+  close(): void
+
+}
+```
+
 
 
 ## Syscalls
