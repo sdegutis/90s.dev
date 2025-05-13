@@ -1,21 +1,8 @@
 # Composites
 
-
-Rather than following the HTML/CSS/JS model
-of separating layout from style from behavior,
-views in 90s.dev/os keep these together,
-and allow separating them from *content*.
-
-It does this using composites,
-which are view placeholders
-that takes *semantic content*
-rather than *literal content*,
-and turns them *into* literal content.
-
-
-## Example
-
-WIP
+Composites are overridable view functions
+that take *semantic data*
+and return views.
 
 Consider these two labels:
 
@@ -24,21 +11,92 @@ const label1 = <Label text="hi" color={0xffffffff} />
 const label2 = <label text="hi" style="emphasis" />
 ```
 
-The first label is concrete.
-Its parameters are fixed.
-It always draws in the exact same way.
+Here, `label1` is concrete, and `label2` is composite.
 
-The second label is composite.
-The `label` composite could be implemented in any way.
+## How they work
 
-Imagine an implementation of `label` that:
-
-* Sets its color based on `style`
-* 
+Imagine you just have a view function:
 
 ```tsx
-assertEqual()
+const MyLabel = (data: { text: string }) =>
+  <Border padding={2}>
+    <Label text={data.text}/>
+  </Border>
+
+const label = <MyLabel text="hi" />
 ```
+
+This is fine, but there's no ability to let users theme it. It will always return the same thing.
+
+We can solve this by putting a lookup table in the middle:
+
+```tsx
+const views = {}
+
+views.label = (data: { text: string }) =>
+  <Border padding={2}>
+    <Label text={data.text}/>
+  </Border>
+
+const label = <views.label text="hi" />
+```
+
+But this table needs to be accessible to both the JSX system and outside modules.
+
+Composites solve this by using a process-scoped lookup table and [preludes](architecture.md#preludes) for injection.
+
+```tsx
+// theme code:
+
+import api from '/os/api.js'
+
+api.composites['label'] = (data: { text: string }) =>
+  <Border padding={2}>
+    <Label text={data.text}/>
+  </Border>
+
+// app code:
+
+const label = <label text="hi" />
+
+// internal JSX code:
+
+const fn = api.composites['label']
+return fn({ text: 'hi' })
+```
+
+See [JSX](views.md#jsx) to learn more.
+
+## Registering composites
+
+Theme code can be loaded into an app's process
+by users via [preludes](architecture.md#preludes).
+
+Registering a composite makes it immediately available in the current process:
+
+```tsx
+import api from '/os/api.js'
+api.composites['foo'] = (data: any) => <Label text='foo'/>
+const view = <foo /> // === <Label text='foo'/>
+```
+
+## Data types
+
+Whether theming composites, inventing new ones, or using existing ones,
+it's important to keep as much type safety as possible.
+
+At the moment, there is no type-checking and autocompletion for composites,
+due to their dynamic nature.
+
+, make sure to reference [the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
+to correctly use its data type.
+
+## Loading themes
+
+
+There's nothing special about theme files. They're just JS modules that someone calls.
+
+It's not typical for apps to load themes themselves. Rather, users load them via 
 
 
 ## Philosophy
@@ -64,9 +122,11 @@ JS   = Behavior
 
 But in practice, this created as many problems as it solved.
 
-Layout and style should *not* be separated from one another.
+Layout, style, and behavior should *not* be separated from one another.
 
-So views in 90s.dev use this structure:
+Rather, *content* should be separated from *everything else*, and the rest kept *together*.
+
+So this UI system uses the following structure:
 
 ```
 UI = Views
@@ -78,32 +138,17 @@ Composites = Content + Views
 
 
 
-WIP
-
-WIP
-
-WIP
-
-WIP
-
-WIP
-
-WIP
-
-WIP
-
-WIP
-
-To register a composite
 
 
-```tsx
-composites['button'] = function ButtonComp(data: Record<string,any>) {
-  return <Button background={colorForStyle(data.style)} padding={2} onClick={data.action}>
-    <Label text={data.children}/>
-  </Button>
-}
-```
+
+
+
+
+
+
+
+
+
 
 Because your app runs inside a process,
 *nothing* will override its content unless you tell it to.

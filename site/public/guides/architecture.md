@@ -63,6 +63,10 @@ are able to tell them apart from libraries and launch them when you click them.
 As a convenience, users can run arbitrary JS code inside every process.
 This is useful when loading themes into an app's process; learn more on the [Composites](composites.md#composites) page.
 
+Preludes are not limited to loading just loading theme modules.
+They can run *any* code in an app's [code environment](#code-environments).
+Themes are just the most common use-case.
+
 To run code, specify module paths in the string-array `process.prelude` in `usr/config.jsln`:
 
 ```ts
@@ -73,6 +77,27 @@ process.prelude[] = "net/timmy/timmys_great_prelude.js"
 Using this config, both preludes would be run (and `awaited`) in sequential order.
 
 See also [JSLN](#jsln), but in short, it's just line-based JSON, used here for convenience.
+
+
+### Security considerations
+
+So far we've been talking about *arbitrary code execution* which has security implications.
+
+To assess the potential risk, a few factors need to be kept in mind:
+
+1. Code is executing inside your browser, which limits what it can do on your system
+
+2. Code is executing inside a web worker, which has far less access than the GUI thread
+
+3. Buggy processes can't freeze the host, and can be terminated via [procman.app.js](/os/#sys/apps/procman.app.js)
+
+4. External code (via [net/](filesystem.md#filesystem)) must be *intentionally executed by you* to be run
+
+5. External code is *less* risky than running an NPM script with arbitrary post-install hooks
+
+6. Community vetting and author reputation are a proven way to whitelist net/ modules
+
+7. Process envs (web workers) have no way of accessing cookies to steal your info
 
 
 ## Data formats
