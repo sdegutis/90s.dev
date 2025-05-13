@@ -49,7 +49,7 @@ export function Navbar(data: {
 }) {
 
   const sections = Object.entries({
-    about: 'About',
+    about: 'Learn',
     guides: 'Guides',
     collaboration: 'Collaboration',
     links: 'Links',

@@ -20,7 +20,7 @@
 
 ::: section homebuttons
 
-- [Discover 90s.dev](about/discover-90s-dev.md#what-is-90sdev)
 - [Getting started](about/getting-started.md#getting-started)
+- [Hello World tour](about/hello-world.md#hello-world-tour)
 
 :::
