@@ -7,7 +7,35 @@ order: 3
 To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
 
-## File format
+## Code files
+
+All code files are executable, whether apps or libraries, from any [drive](#drives).
+
+There are three ways to execute code:
+
+```ts
+api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
+api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
+import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
+```
+
+*Note:* The `api.runJsFile` helps by adding a cache busting query string.
+
+
+## Drives
+
+* `sys/` is read-only and contains core system files
+
+* `usr/` is stored in IndexedDB
+
+* `net/` is backed by a shared database
+
+* You can mount local file system drives to given names
+
+  * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
+
+
+## Paths
 
 The file system of [90s.dev/os/](/os/) is very simple:
 
@@ -20,19 +48,6 @@ The file system of [90s.dev/os/](/os/) is very simple:
 * Drives are just (special) folders
 
 * All files are text-based, binary is not supported
-
-
-## Root drives
-
-* `sys/` is read-only and contains core system files
-
-* `usr/` is stored in IndexedDB
-
-* `net/` is backed by a shared database
-
-* You can mount local file system drives to given names
-
-  * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
 
 
 ## Accessing files in `usr/`
