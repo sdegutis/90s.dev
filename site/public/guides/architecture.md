@@ -60,8 +60,10 @@ are able to tell them apart from libraries and launch them when you click them.
 
 ### Preludes
 
+Absolutely no code runs in an app's process except what it explicitly imports. The only exception to this is user-specified preludes.
+
 As a convenience, users can run arbitrary JS code inside every process.
-This is useful when loading themes into an app's process; learn more on the [Composites](composites.md#composites) page.
+This is useful when loading themes into an app's process. Learn more on the [Composites](composites.md#composites) page.
 
 Preludes are not limited to loading just loading theme modules.
 They can run *any* code in an app's [code environment](#code-environments).

@@ -21,7 +21,7 @@ const MyLabel = (data: { text: string }) =>
 const label = <MyLabel text="hi" />
 ```
 
-This is fine, but there's no ability to let users theme it. It will always return the same thing.
+This is fine, but there's no ability to let users theme it.
 
 We can solve this by putting a lookup table in the middle:
 
@@ -60,12 +60,11 @@ const fn = api.composites['label']
 return fn({ text: 'hi' })
 ```
 
-See [JSX](views.md#jsx) to learn more.
+See [JSX](views.md#jsx) for a more detailed description of how the lookup table works.
 
 ## Registering composites
 
-Theme code can be loaded into an app's process
-by users via [preludes](architecture.md#preludes).
+Theme code can be loaded into an app's process by users via preludes.
 
 Registering a composite makes it immediately available in the current process:
 
@@ -83,14 +82,13 @@ Typically, composites are loaded via preludes specified by the user.
 
 ## Data types
 
-Whether theming composites, inventing new ones, or using existing ones,
-it's important to keep as much type safety as possible.
+Whether authoring composites or using them, this is an area where
+TypeScript + LSP don't help one little bit, due to the dynamic nature of composites.
 
-At the moment, there is no type-checking and autocompletion for composites,
-due to their dynamic nature.
+To avoid type errors, the best solution for now is to check [the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
+for documentation of composites authored "in the wild" as opposed to built-in composites.
 
-, make sure to reference [the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
-to correctly use its data type.
+I'm sure a better solution will come in time.
 
 
 ## Philosophy
@@ -120,7 +118,7 @@ Layout, style, and behavior should *not* be separated from one another.
 
 Rather, *content* should be separated from *everything else*, and the rest kept *together*.
 
-So this UI system uses the following structure:
+Therefore, this UI system uses the following structure:
 
 ```
 UI = Views
@@ -130,91 +128,16 @@ Concretes  = Content + Layout + Style + Behavior
 Composites = Content + Views
 ```
 
+Notice that Content may or may not be separate, while the others are always kept together.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Because your app runs inside a process,
-*nothing* will override its content unless you tell it to.
-
-So you can either:
-
-1. Manually load a theme or register composites yourself
-2. Import a file that creates composites, such as someone's theme file
-3. Run them as preludes
-
-
-
-
-
-You could just make a function that returns a view. What makes composites
-useful is that the JSX system looks them up in a well-known global,
-and that any process can add to this global or ask other libraries to do so.
-Since this happens on a per-process basis, no globals are harmed.
-
-
-is mostly just convention: composites have a known global location
-where they can be overridden.
-
-
-
-
-
-
-You can override existing composites, or create and publish your own:
-
-```tsx
-import { Button, Label, composites } from "/os/api.js"
-
-composites['button'] = (data: Record<string, any>) => {
-  const bg = bgForStyle(data.style)
-  return <Button background={bg} onClick={data.action} padding={2}>
-    {data.children}
-  </Button>
-}
-```
-
-
-
-
-
-
-
-
-
-With a few simple conventions, system wide theming is no longer a thing of the past:
-
-* Theme authors publish modules that add to the `composites` mapping.
-
-* App authors import these modules to let them add to their process's `composites`.
-
-* Users can specify modules that are executed in every process at startup.
-
-
-
-
-
-
-Because composites only separate out *content*,
-and kept together behavior, layout, and style,
-we could easily:
+Because composites draw this line differently, they can:
 
 * Show an icon representing the text instead of the given text
 
-* Use an entirely different layout structure
+* Use an entirely different layout structure and/or style
 
 * Add content, such as a "don't show again" checkbox
 
 * Wrap callback functions, like showing "are you sure?" prompts
 
-* *And more!!!*
+* *...and more!!!*
