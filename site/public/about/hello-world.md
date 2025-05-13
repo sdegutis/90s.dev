@@ -6,6 +6,8 @@ The traditional "click me" app:
 ~~~tsx
 import api, { $, Center, GroupY, Label, GroupX } from '/os/api.js'
 
+await api.preludesFinished
+
 const count = $(0)
 const inc = () => count.set(count.val + 1)
 
@@ -156,5 +158,13 @@ our code from earlier becomes:
 But composites loaded by a theme could return anything else,
 and users can load any theme they'd like into all processes.
 The possibilities for customization are practically endless.
+
+```tsx
+await api.preludesFinished
+```
+
+This line is needed to make sure preludes can finish running,
+which are the mechanism users use to load theme modules into
+an app's process (web worker thread) to customize it.
 
 Learn more in the [Composite guide](../guides/composites.md#composites).

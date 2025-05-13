@@ -1,17 +1,12 @@
 # Composites
 
-Composites are overridable view functions
-that take *semantic data*
-and return views.
-
-Consider these two labels:
+Composites are overridable view functions that take *semantic data* and return concrete views.
 
 ```tsx
-const label1 = <Label text="hi" color={0xffffffff} />
-const label2 = <label text="hi" style="emphasis" />
+const label1 = <Label text="hi" color={0xffffffff} />  // concrete view
+const label2 = <label text="hi" style="emphasis" />   // composite view
 ```
 
-Here, `label1` is concrete, and `label2` is composite.
 
 ## How they work
 
@@ -80,6 +75,12 @@ api.composites['foo'] = (data: any) => <Label text='foo'/>
 const view = <foo /> // === <Label text='foo'/>
 ```
 
+## Loading composites
+
+It's not common for apps to load theme modules themselves, though they can.
+
+Typically, composites are loaded via preludes specified by the user.
+
 ## Data types
 
 Whether theming composites, inventing new ones, or using existing ones,
@@ -90,13 +91,6 @@ due to their dynamic nature.
 
 , make sure to reference [the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
 to correctly use its data type.
-
-## Loading themes
-
-
-There's nothing special about theme files. They're just JS modules that someone calls.
-
-It's not typical for apps to load themes themselves. Rather, users load them via 
 
 
 ## Philosophy
