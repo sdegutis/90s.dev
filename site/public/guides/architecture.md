@@ -133,17 +133,21 @@ process.prelude[] = "net/timmy/timmys_great_prelude.js"
 Desugared:
 
 ```ts
+const root = {}
+
 // foo.bar.qux = val
-obj.foo ??= {}
-obj.foo.bar ??= {}
-obj.foo.bar.qux = val
+root.foo ??= {}
+root.foo.bar ??= {}
+root.foo.bar.qux = val
 
 // process.prelude[] = val1
 // process.prelude[] = val2
-obj.process ??= {}
-obj.process.prelude ??= []
-obj.process.prelude.push(val1)
-obj.process.prelude.push(val2)
+root.process ??= {}
+root.process.prelude ??= []
+root.process.prelude.push(val1)
+root.process.prelude.push(val2)
+
+return root
 ```
 
 ### Bitmap
