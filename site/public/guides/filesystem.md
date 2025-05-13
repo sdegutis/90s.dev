@@ -7,21 +7,6 @@ order: 3
 To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
 
-## Code files
-
-All code files are executable, whether apps or libraries, from any [drive](#drives).
-
-There are three ways to execute code:
-
-```ts
-api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
-import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
-```
-
-*Note:* The `api.runJsFile` helps by adding a cache busting query string.
-
-
 ## Drives
 
 * `sys/` is read-only and contains core system files
@@ -37,7 +22,7 @@ import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
 
 ## Paths
 
-The file system of [90s.dev/os/](/os/) is very simple:
+The file system structure of [90s.dev/os/](/os/) is very simple:
 
 * Every directory, including root drives, has the format `<dir>/`
 
@@ -48,6 +33,21 @@ The file system of [90s.dev/os/](/os/) is very simple:
 * Drives are just (special) folders
 
 * All files are text-based, binary is not supported
+
+
+## Code files
+
+All code files are executable, whether apps or libraries, from any [drive](#drives).
+
+There are three ways to execute code:
+
+```ts
+api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
+api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
+import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
+```
+
+*Note:* The `api.runJsFile` helps by adding a cache busting query string.
 
 
 ## Accessing files in `usr/`
