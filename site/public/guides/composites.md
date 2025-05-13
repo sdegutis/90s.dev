@@ -62,7 +62,7 @@ return fn({ text: 'hi' })
 
 See [JSX](views.md#jsx) for a more detailed description of how the lookup table works.
 
-## Registering composites
+## Authoring composites
 
 Theme code can be loaded into an app's process by users via preludes.
 
@@ -73,6 +73,16 @@ import api from '/os/api.js'
 api.composites['foo'] = (data: any) => <Label text='foo'/>
 const view = <foo /> // === <Label text='foo'/>
 ```
+
+If a composite is relatively complex and the first of its kind,
+it may make sense to break down its functionality into smaller composites
+so each can be overridden.
+
+Or at least you may want to break it down into functions
+and export them, so that other composites can be implemented that
+import your functionality but use it differently.
+
+See also [Variables](#variables) below.
 
 ## Loading composites
 
