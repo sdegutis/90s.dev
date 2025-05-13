@@ -184,9 +184,11 @@ Fonts are fixed-size [bitmaps](#bitmap), representing ASCII codes 32-126.
 
 * Characters are laid out in a grid of 16 x 6.
 
-* Char width/height are implied by bitmap dimensions / 16x6.
+* Char width/height are determined by `bitmap_dimensions / 16x6`
 
 * Color is ignored, it just needs to be there.
+
+* The last character is used to display out-of-range chars.
 
 ## Broadcast events
 
