@@ -20,12 +20,15 @@ JSX is just a convenient shorthand calling functions or constructors:
 ~~~tsx
 import { composites } from '/os/api.js'
 
-function jsx(tag, data) {
+export function jsx(tag, data) {
   if (isConstructable(tag))  return new tag(data)
   else if (isFunction(tag))  return tag(data)
   else if (isString(tag))    return composites[tag](data)
   else                       throw Error('...')
 }
+
+export const Fragment = 'implicit'
+// <>...</> === <implicit>...</implicit>
 ~~~
 
 So these expressions are equivalent:

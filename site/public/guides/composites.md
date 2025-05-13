@@ -80,15 +80,138 @@ It's not common for apps to load theme modules themselves, though they can.
 
 Typically, composites are loaded via preludes specified by the user.
 
-## Data types
+## Variables
 
-Whether authoring composites or using them, this is an area where
-TypeScript + LSP don't help one little bit, due to the dynamic nature of composites.
+Sometimes only a minor, predictable change is needed when using a composite.
+In that case, overriding it would be entirely overkill.
 
-To avoid type errors, the best solution for now is to check [the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
-for documentation of composites authored "in the wild" as opposed to built-in composites.
+To solve this, there's a global for general-purpose variables:
 
-I'm sure a better solution will come in time.
+```ts
+declare const preferences: Record<string, any>
+```
+
+Composite authors can access it and set defaults if needed:
+
+```tsx
+api.preferences['fancybutton-padding'] = 2
+
+const defaultColor = 0x99000099
+
+api.composites['fancybutton'] = (data: any) =>
+  <Button padding={api.preferences['fancybutton-padding']}>
+    <Label text={data.text} color={api.preferences['fancybutton-color'] ?? defaultColor}/>
+  </Button>
+```
+
+*Note:* Variables that a composite uses should be documented along with the composite.
+
+
+## Parameter types
+
+Whether authoring composites or using them,
+TypeScript + LSP offer not even a little help,
+due to the dynamic nature of composites.
+
+For now, the best solution is to check
+[the wiki](https://github.com/ppl-90s-dev/ppl/wiki)
+for parameter type info, and update it when authoring composites.
+
+
+## Built-in composites
+
+
+### implicit
+
+*Experimental.*
+
+Used by JSX fragments.
+
+```ts
+data: {
+  children: string | string[]
+}
+```
+
+Default returns a label.
+
+### button
+
+*Experimental.*
+
+```ts
+data: {
+  action: () => void
+  style: 'submit' | 'cancel' | undefined
+  children: any
+}
+```
+
+Default returns button wrapped in label.
+
+### textfield
+
+*Experimental.*
+
+```ts
+data: {
+  length?: number
+} & ConstructorParameters<typeof TextBox>[0]
+```
+
+### panel
+
+*Experimental.*
+
+```ts
+data: {
+  file?: PanelFile,
+  children: View,
+  size?: MaybeRef<Size>,
+  presented?: (panel: Panel) => void,
+  onKeyPress?: (key: string) => boolean,
+  menuItems?: () => MenuItem[],
+}
+```
+
+### panel-titlebar
+
+*Experimental.*
+
+```ts
+data: {
+  title: MaybeRef<string>
+  menuItems?: () => MenuItem[]
+}
+```
+
+### panel-body
+
+*Experimental.*
+
+```ts
+data: {
+  children: View
+  panelFocused: Ref<boolean>
+}
+
+preferences['panel-body-gap']: number
+preferences['panel-body-gap-color']: number
+preferences['panel-body-gap-color-focused']: number | undefined
+preferences['panel-body-gap-color-unfocused']: number | undefined
+```
+
+### panel-resizer
+
+*Experimental.*
+
+```ts
+data: {
+  panelFocused: Ref<boolean>
+}
+```
+
+
 
 
 ## Philosophy
