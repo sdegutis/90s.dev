@@ -1,5 +1,8 @@
-# Introducing 90s.dev
+# What is 90s.dev?
 
+WIP
+
+<!-- 
 My fellow hackers, artists, engineers, musicians, and philosophers,
 I am beyond excited to finally share this project with you all!
 
@@ -146,4 +149,4 @@ where collaboration was always at the heart and soul of the web.
 The driving principle behind 90s.dev is rediscovering beauty in simplicity.
 In fact, the entire website you see here was created *from scratch*
 to be the most beautiful website code ever written *because* of its simplicity,
-both aesthetically and in code. The same is true of [90s.dev/os/](/os/).
+both aesthetically and in code. The same is true of [90s.dev/os/](/os/). -->
