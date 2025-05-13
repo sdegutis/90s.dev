@@ -165,17 +165,18 @@ A cursor is a bitmap with a pointer offset.
 
 The default cursor, expressed in JSLN:
 
-```ts
+```ini
 offx=1
 offy=1
 colors[]=0x000000ff
 colors[]=0xffffffff
 pixels=
-
+"""
 1 1 1 1
 1 2 2 1
 1 2 1 1
 1 1 1 0
+"""
 ```
 
 ### Fonts
