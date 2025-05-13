@@ -120,6 +120,22 @@ process.prelude[] = "usr/myprelude.js"
 process.prelude[] = "net/timmy/timmys_great_prelude.js"
 ```
 
+Desugared:
+
+```ts
+// foo.bar.qux = val
+obj.foo ??= {}
+obj.foo.bar ??= {}
+obj.foo.bar.qux = val
+
+// process.prelude[] = val1
+// process.prelude[] = val2
+obj.process ??= {}
+obj.process.prelude ??= []
+obj.process.prelude.push(val1)
+obj.process.prelude.push(val2)
+```
+
 ### Bitmap
 
 Color LUT with pixel grid. Example:
