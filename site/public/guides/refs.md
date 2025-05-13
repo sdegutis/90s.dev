@@ -10,7 +10,7 @@ This guide explains how they work and shows some basic recipes.
 
 ### Basics
 
-A ref is like a pointer.
+A ref is like a pointer that has `.val` and `.set(val)`
 
 ::: runcode 120 50
 ```tsx
@@ -24,7 +24,21 @@ print('val is', r.val)  // val is 1
 ```
 :::
 
-You can watch it.
+You can call `set(val)` through the setter `value = val`
+
+::: runcode 120 50
+```tsx
+import { $, print } from '/os/api.js'
+
+const r = $(0)
+print('val is', r.val)  // val is 0
+
+r.value++
+print('val is', r.val)  // val is 1
+```
+:::
+
+You can `.watch()` it.
 
 ::: runcode 120 50
 ```tsx
@@ -38,7 +52,7 @@ r.set(r.val + 1) // val is 4
 ```
 :::
 
-You can adapt it to another value.
+You can `.adapt()` it to another value.
 
 ::: runcode 120 50
 ```tsx
