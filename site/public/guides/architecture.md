@@ -61,6 +61,12 @@ Code environments are created using web standards.
 When the host launches an app, it uses `new Worker(appPath)`.
 When `api.runJsFile` loads a library file, it just uses `import()`.
 
+Since an app is just a module, it can tell if its being run as an app or imported as a library:
+
+```ts
+const isMain = location.href === import.meta.url
+```
+
 
 ### Preludes
 
