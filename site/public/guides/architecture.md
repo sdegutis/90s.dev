@@ -72,9 +72,68 @@ process.prelude[] = "net/timmy/timmys_great_prelude.js"
 
 Using this config, both preludes would be run (and `awaited`) in sequential order.
 
-See also [JSLN](jsln.md#jsln), but in short, it's just line-based JSON, used here for convenience.
+See also [JSLN](#jsln), but in short, it's just line-based JSON, used here for convenience.
 
 
+## Data formats
+
+To keep things simple and avoid external dependencies, a few custom formats are used.
+
+### JSLN
+
+A simple line-based JSON-like format. Example:
+
+```ini
+sys.size=[320 180]
+sys.font="sys/data/crt34.font"
+sys.shell="sys/apps/shell.app.js"
+# shell.startup[]="usr/startup.js"
+shell.bgcolor=0x330000ff
+process.prelude[] = "usr/myprelude.js"
+process.prelude[] = "net/timmy/timmys_great_prelude.js"
+```
+
+### Bitmap
+
+Color LUT with pixel grid. Example:
+
+```ts
+// 1 color, width=4, 16 pixels (implies height=4)
+const maxImage = new Bitmap([0xffffff33], 4, [1,1,1,1, 1,0,0,1, 1,0,0,1, 1,1,1,1])
+```
+
+This is the same "maximize" button icon that's used in panels.
+
+*Note:* `0` means skip drawing that pixel.
+
+### Cursor
+
+A cursor is a bitmap with a pointer offset.
+
+The default cursor, expressed in JSLN:
+
+```ts
+offx=1
+offy=1
+colors[]=0x000000ff
+colors[]=0xffffffff
+pixels=
+
+1 1 1 1
+1 2 2 1
+1 2 1 1
+1 1 1 0
+```
+
+### Fonts
+
+Fonts are fixed-size [bitmaps](#bitmap), representing ASCII codes 32-126.
+
+* Characters are laid out in a grid of 16 x 6.
+
+* Char width/height are implied by bitmap dimensions / 16x6.
+
+* Color is ignored, it just needs to be there.
 
 ## Broadcast events
 
