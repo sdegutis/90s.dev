@@ -1,4 +1,7 @@
 # Pro Account
 
-<div id='upgrade-container'></div>
 <script src='/script/pricing.js' type='module'></script>
+
+<div id='upgrade-container'>
+  <p>...</p>
+</div>
