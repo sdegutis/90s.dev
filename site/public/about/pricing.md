@@ -1,6 +1,8 @@
 # Pricing
 
-All functionality can be used for free, with limitations.
+All functionality can be used for free.
+
+Pro accounts have increased file limits.
 
 |                 |   Free   |   Pro    |
 | --------------- | :------: | :------: |
