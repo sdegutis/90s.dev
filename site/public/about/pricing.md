@@ -1,17 +1,17 @@
 # Pricing
 
-|                    |   Free    |   Pro    |
-| ------------------ | :-------: | :------: |
-| One-time fee       |    ---    | `$20.48` |
-| Use apps           |     ✓     |    ✓     |
-| Create accounts    |     ✓     |    ✓     |
-| Publish libraries  |     ✓     |    ✓     |
-| Publish data files |     ✓     |    ✓     |
-| Publish free apps  |     ✓     |    ✓     |
-| Publish paid apps  |    ---    |    ✓     |
-| Promote apps       |    ---    |    ✓     |
-| Per file limit     | `16 KiB`  | `64 KiB` |
-| All files limit    | `256 KiB` | `16 MiB` |
+|                    |   Free   |   Pro    |
+| ------------------ | :------: | :------: |
+| One-time fee       |   ---    | `$20.48` |
+| Use apps           |    ✓     |    ✓     |
+| Create accounts    |    ✓     |    ✓     |
+| Publish libraries  |    ✓     |    ✓     |
+| Publish data files |    ✓     |    ✓     |
+| Publish free apps  |    ✓     |    ✓     |
+| Publish paid apps  |   ---    |    ✓     |
+| Promote apps       |   ---    |    ✓     |
+| Per file limit     | `16 KiB` | `16 MiB` |
+| All files limit    | `64 KiB` | `64 MiB` |
 
 ## Paid apps
 
