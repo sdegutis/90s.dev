@@ -21,11 +21,11 @@ This feature is not yet ready but is being worked on.
 
 ## Promoting apps
 
-Pro accounts can promote apps so that they're shown in the `apps/` drive.
-
-Promoted apps are shown in order of higher tiers first.
+Pro accounts can promote apps to have them shown in the `latest-apps` built-in app.
 
 Each promotion lasts for one 24 hour period.
+
+Promoted apps in `latest-apps` are ordered by higher tiers first.
 
 | Tier  |      Fee |
 | :---: | -------: |
