@@ -1,35 +1,10 @@
 # Pricing
 
-|                    |   Free   |   Pro    |
-| ------------------ | :------: | :------: |
-| One-time fee       |   ---    | `$20.48` |
-| Use apps           |    ✓     |    ✓     |
-| Create accounts    |    ✓     |    ✓     |
-| Publish libraries  |    ✓     |    ✓     |
-| Publish data files |    ✓     |    ✓     |
-| Publish free apps  |    ✓     |    ✓     |
-| Publish paid apps  |   ---    |    ✓     |
-| Promote apps       |   ---    |    ✓     |
-| Per file limit     | `16 KiB` | `16 MiB` |
-| All files limit    | `64 KiB` | `64 MiB` |
-
-## Paid apps
-
-App authors will be able to optionally require a fee from users to use their apps.
-
-This feature is not yet ready but is being worked on.
-
-## Promoting apps
-
-Pro accounts can promote apps to have them shown in the `latest-apps` built-in app.
-
-Each promotion lasts for one 24 hour period.
-
-Promoted apps in `latest-apps` are ordered by higher tiers first.
-
-| Tier  |      Fee |
-| :---: | -------: |
-|   1   | `$20.48` |
-|   2   | `$10.24` |
-|   3   |  `$5.12` |
-|   4   |  `$2.56` |
+|                 |   Free   |   Pro    |
+| --------------- | :------: | :------: |
+| One-time fee    |   ---    | `$20.48` |
+| Use apps        |    ✓     |    ✓     |
+| Create accounts |    ✓     |    ✓     |
+| Publish files   |    ✓     |    ✓     |
+| Per file limit  | `16 KiB` | `16 MiB` |
+| All files limit | `64 KiB` | `64 MiB` |
