@@ -1,8 +1,12 @@
 declare namespace JSX {
 
   type jsxify<T extends HTMLElement> = {
-    [A in keyof T as A extends string ? Lowercase<Exclude<A, 'children'>> : never]?:
-    T[A] extends (string | boolean | null | number) ? T[A] | string | boolean : string | boolean
+    [A in keyof T as A extends string ? Lowercase<Exclude<A, 'children'>> : never]?: (
+      | string
+      | boolean
+      | (T[A] extends (string | boolean | null | number)
+        ? T[A]
+        : never))
   } & { children?: any, class?: string }
 
   type IntrinsicElements =
