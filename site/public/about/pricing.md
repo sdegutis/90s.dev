@@ -1,5 +1,7 @@
 # Pricing
 
+All functionality can be used for free, with limitations.
+
 |                 |   Free   |   Pro    |
 | --------------- | :------: | :------: |
 | One-time fee    |   ---    | `$20.48` |
