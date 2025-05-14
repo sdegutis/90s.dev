@@ -9,19 +9,19 @@ declare namespace JSX {
     & { [K in keyof HTMLElementTagNameMap]: jsxify<HTMLElementTagNameMap[K]> }
     & { meta: jsxify<HTMLMetaElement> & { charset?: 'utf-8' } }
 
-  type ElementChildrenAttribute = {
-    children: (
-      | string
-      | false
-      | null
-      | undefined
-      | ElementChildrenAttribute['children'][])
-  }
+  type jsxChildren =
+    | string
+    | false
+    | null
+    | undefined
+    | jsxChildren[]
+
+  type ElementChildrenAttribute = { children: jsxChildren }
 
   type Element = string
 
   type ElementType =
     | string
-    | ((data: any) => ElementChildrenAttribute['children'])
+    | ((data: any) => jsxChildren)
 
 }
