@@ -17,7 +17,7 @@ Pro accounts have increased file limits.
 
 ## App platform (coming soon)
 
-The ability to sell app licenses (backed by Stripe) is being worked on.
+The ability to sell app licenses (backed by Stripe Connect) is being worked on.
 
 Pro-account app authors will be able to sell and promote their apps to users.
 
