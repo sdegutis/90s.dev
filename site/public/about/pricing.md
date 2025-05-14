@@ -7,7 +7,7 @@ Pro accounts have increased file limits.
 |                 |   Free   |   Pro    |
 | --------------- | :------: | :------: |
 | One-time fee    |   ---    | `$20.48` |
-| Use apps        |    ✓     |    ✓     |
+| Use whole os    |    ✓     |    ✓     |
 | Create accounts |    ✓     |    ✓     |
 | Publish files   |    ✓     |    ✓     |
 | Per file limit  | `16 KiB` | `16 MiB` |

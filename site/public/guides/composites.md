@@ -62,6 +62,62 @@ return fn({ text: 'hi' })
 
 See [JSX](views.md#jsx) for a more detailed description of how the lookup table works.
 
+## Overriding functionality
+
+Consider the built-in `colorpicker` composite:
+
+```tsx
+const $color = $(0x00000000)
+const view = <colorpicker $color={$color} />
+```
+
+By default, this shows a simple color picker with a limited palette.
+
+But it can be overridden by apps or users to show *any* kind of color picker.
+
+### App overrides
+
+It can be overridden by an app or library:
+
+```tsx
+composites["colorpicker"] = (data: { $color: Ref<number> }) => {
+  return // some view
+}
+
+const view = <colorpicker $color={$color} />
+```
+
+To share overrides, put this in a file and import it:
+
+```tsx
+// in file net/someuser/best-color-picker.js
+
+composites["colorpicker"] = (data: { $color: Ref<number> }) => {
+  return // some view
+}
+
+// in an app:
+
+import "/os/fs/net/someuser/best-color-picker.js"
+const view = <colorpicker $color={$color} />
+```
+
+### User overrides
+
+Users can then import custom color pickers using preludes:
+
+```ts
+// in file usr/config.jsln
+process.prelude[]="usr/my-color-picker.js"
+
+// in file usr/my-color-picker.js
+composites["colorpicker"] = (data: { $color: Ref<number> }) => {
+  return // some view
+}
+```
+
+Now all apps that use `<colorpicker>` will use *your* component.
+
 ## Authoring composites
 
 Theme code can be loaded into an app's process by users via preludes.
