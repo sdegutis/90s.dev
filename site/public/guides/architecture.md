@@ -227,6 +227,12 @@ export type PanelEvent =
   | { type: 'closed', id: number }
   | { type: 'toggled', id: number, visible: boolean }
   | { type: 'adjusted', id: number, point: Point, size: Size }
+
+// channel "fsevents" (used internally by `fs`)
+export type FsEvent = { type: 'sync', op: string, path: string }
+
+// channel "userstate" (sys/api/util/account.ts has UserState)
+export type UserStateEvent = { type: 'sync', state: UserState }
 ```
 
 As a convenience, the `BC` class is exported,
