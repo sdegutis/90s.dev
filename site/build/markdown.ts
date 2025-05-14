@@ -2,28 +2,24 @@ import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
-import type MdTypes from "markdown-it/index.js"
 import { tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
 import { defaultRender } from "./mdhelper.ts"
 import { runcodeMacro } from "./runcode.ts"
 import { generateToc } from "./toc.ts"
 
-export const md = markdown({}, [
-  renameMarkdownLinks,
-  inlineAttrs,
-  generateToc,
-  highlightCode,
-  addHeaderPermalinks,
-  sectionMacro,
-  runcodeMacro,
-])
+export const md = new MarkdownIt({
+  html: true,
+  typographer: true,
+})
 
-function markdown(opts: MdTypes.Options, plugins: MdTypes.PluginWithOptions[]) {
-  const md = new MarkdownIt({ html: true, ...opts })
-  plugins.forEach(fn => md.use(fn))
-  return md
-}
+md.use(renameMarkdownLinks)
+md.use(inlineAttrs)
+md.use(generateToc)
+md.use(highlightCode)
+md.use(addHeaderPermalinks)
+md.use(sectionMacro)
+md.use(runcodeMacro)
 
 function renameMarkdownLinks(md: MarkdownIt) {
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
