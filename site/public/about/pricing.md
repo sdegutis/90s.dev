@@ -8,3 +8,5 @@
 | Publish files   |    ✓     |    ✓     |
 | Per file limit  | `16 KiB` | `16 MiB` |
 | All files limit | `64 KiB` | `64 MiB` |
+
+*Note:* Pro limits may be increased in the future.
