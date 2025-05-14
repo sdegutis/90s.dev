@@ -27,9 +27,9 @@ export function Head(data: { files: string[] }) {
 export function Main(data: { content: string }) {
   return <main id='main'>
     <header id='mobileheader'>
-      <span>☰</span>
+      <span>On Site</span>
       <a class='sitelogo' href='/'>90s.dev</a>
-      <span>☰</span>
+      <span>On Page</span>
     </header>
 
     {data.content}
