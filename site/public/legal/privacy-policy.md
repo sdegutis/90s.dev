@@ -4,6 +4,6 @@
 
 * Your username and email are not shared or sold.
 
-* IndexedDB is used for `usr/` (see [Filesystem](../guides/filesystem.md#filesystem)).
+* IndexedDB is used for `usr/` (see [Filesystem](../getting-started/filesystem.md#filesystem)).
 
 Legalese versions of these coming soon.

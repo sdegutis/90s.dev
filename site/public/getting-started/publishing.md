@@ -19,7 +19,7 @@ With a free account, you get:
 
 * Up to `2^16 bytes` (64 KiB) between all files
 
-* [Pro account limits](../about/pricing.md#pricing) are increased by orders of magnitude
+* [Pro Account limits](../about/pricing.md#pricing) are increased by orders of magnitude
 
 
 ## Creating an account

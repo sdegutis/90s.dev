@@ -2,15 +2,13 @@
 order: 1
 ---
 
-# Getting started
+# Download SDK
 
 This guide sets up a dev environment for
-apps and libraries in [90s.dev/os/](/os/)
+apps and libraries in [90s.dev/os/](/os/).
 
 
-## Download SDK
-
-To getting a "hello world" sample app working:
+To get a "hello world" sample app working:
 
 1. Extract [helloworld.zip](/os/helloworld.zip) to `helloworld/`
 

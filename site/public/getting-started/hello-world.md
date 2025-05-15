@@ -4,7 +4,7 @@ order: 2
 
 # Hello World tour
 
-This guide goes through the "hello world" sample app in the [Getting Started](getting-started.md#getting-started) guide.
+This guide goes through the "hello world" sample app in the [Download SDK guide](download-sdk.md#download-sdk).
 
 ::: runcode 120 70
 ~~~tsx
@@ -111,7 +111,7 @@ Views handle content, style, layout, and behavior.
 * We use `label` and `button` to draw text to the screen
 * Theme customization is opt-in rather than automatic
 
-Learn more in the [Views guide](../guides/views.md#views).
+Learn more in the [Views guide](./views.md#views).
 
 ::: section box note
 ### A note on JSX
@@ -126,7 +126,7 @@ const label1 = <Label text='hello world!' />
 const label2 = new Label({ text: 'hello world!' })
 ```
 
-Learn more in the [JSX section](../guides/views.md#jsx) of the views guide.
+Learn more in the [JSX section](./views.md#jsx) of the views guide.
 :::
 
 
@@ -171,4 +171,4 @@ This line is needed to make sure preludes can finish running,
 which are the mechanism users use to load theme modules into
 an app's process (web worker thread) to customize it.
 
-Learn more in the [Composite guide](../guides/composites.md#composites).
+Learn more in the [Composite guide](./composites.md#composites).

@@ -24,9 +24,9 @@
 
 * [Pricing](about/pricing.md#pricing)
 
-* [Getting started](guides/getting-started.md#getting-started)
+* [Download SDK](getting-started/download-sdk.md#download-sdk)
 
-* [Hello World tour](guides/hello-world.md#hello-world-tour)
+* [Hello World tour](getting-started/hello-world.md#hello-world-tour)
 
 :::
 
