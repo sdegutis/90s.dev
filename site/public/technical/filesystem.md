@@ -39,14 +39,12 @@ The file system structure of [90s.dev/os/](/os/) is very simple:
 
 All code files are executable, whether apps or libraries, from any [drive](#drives).
 
-There are three ways to execute code:
+There are two ways to execute code:
 
 ```ts
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
 import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
 ```
-
-*Note:* To re-execute a file, add a cache busting query string.
 
 
 ## Accessing files in `usr/`
