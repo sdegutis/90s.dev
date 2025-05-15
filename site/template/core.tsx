@@ -61,7 +61,7 @@ export function Navbar(data: {
     ...data.pages,
     { section: 'community', title: 'GH Issues', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
     { section: 'community', title: 'GH Wiki', path: 'https://github.com/ppl-90s-dev/ppl/wiki' },
-    { section: 'community', title: 'Reddit', path: 'https://www.reddit.com/r/90s_dev/' },
+    { section: 'community', title: 'GH Discussions', path: 'https://github.com/ppl-90s-dev/ppl/discussions' },
   ]
 
   const groups = Map.groupBy(pages, p => p.section)
