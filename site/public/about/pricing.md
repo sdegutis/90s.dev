@@ -16,7 +16,13 @@ Pro accounts have increased file limits.
 
 *Note:* Pro limits may be increased in the future.
 
-[Get a Pro Account today!](../collaboration/my-account.md#my-account)
+## Pro Account
+
+<script src='/script/pricing.js' type='module'></script>
+
+<div id='upgrade-container'>
+  <p>...</p>
+</div>
 
 ## App store (coming soon)
 
