@@ -33,7 +33,23 @@ The refs back the properties, so `v.prop === v.$prop.val` always. See the [refs 
 To avoid verbosity, backing refs are omitted from the rest of the documentation.
 
 
+## Layout types
+
+To help views lay themselves out, views may override two methods:
+
+* `adjust()` allows a view to set its own size
+
+* `layout()` allows a view to reposition and resize its children
+
+This results in three types of views:
+
+* [Generic](#generic)
+* [Malleable](#malleable)
+* [Axiomic](#axiomic)
+
 ## Generic
+
+Generic views can be malleable or axiomic depending on how they're used.
 
 
 ### View
@@ -163,6 +179,12 @@ class SpacedY extends Spaced{}
 
 
 ## Malleable
+
+Malleable views can reposition and resize their children, but don't have an inherent size.
+
+They rely on a parent view to set their own size.
+
+These are an app's outer layers, starting from the root panel view and working inwards.
 
 
 ### Margin
@@ -299,6 +321,10 @@ class SplitYB extends Split { dir='y'; stick='b' }
 
 ## Axiomic
 
+
+Axomioc views are views that know their own size based on their contents and children.
+
+These are an app's inner layers, starting at the depths and building towards the root.
 
 
 
