@@ -12,7 +12,7 @@ if (!user) {
 else if (user.pro) {
   root.innerHTML = `
     <p>Signed in as ${user.username}.</p>
-    <p>Already have pro account!</p>
+    <p>You have a pro account!</p>
   `
 }
 else {
