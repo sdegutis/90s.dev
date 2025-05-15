@@ -20,7 +20,7 @@ To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app
   * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
 
 
-## Paths
+## Structure
 
 The file system structure of [90s.dev/os/](/os/) is very simple:
 
@@ -33,6 +33,19 @@ The file system structure of [90s.dev/os/](/os/) is very simple:
 * Drives are just (special) folders
 
 * All files are text-based, binary is not supported
+
+
+## Data files
+
+*Note:* All files are strings.
+
+```tsx
+// returns contents if exists
+const contents: string | null = await api.fs.getFile('usr/myfile')
+
+// returns list of names if exists
+const entries: string[] | null = await api.fs.getDir('usr/mydir/')
+```
 
 
 ## Code files
