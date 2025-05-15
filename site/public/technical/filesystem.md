@@ -35,6 +35,18 @@ The file system structure of [90s.dev/os/](/os/) is very simple:
 * All files are text-based, binary is not supported
 
 
+## Code files
+
+All code files are executable, whether apps or libraries, from any [drive](#drives).
+
+There are two ways to execute code:
+
+```ts
+api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
+import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
+```
+
+
 ## Data files
 
 *Note:* All files are strings.
@@ -45,18 +57,6 @@ const contents: string | null = await api.fs.getFile('usr/myfile')
 
 // returns list of names if exists
 const entries: string[] | null = await api.fs.getDir('usr/mydir/')
-```
-
-
-## Code files
-
-All code files are executable, whether apps or libraries, from any [drive](#drives).
-
-There are two ways to execute code:
-
-```ts
-api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
 ```
 
 
