@@ -37,7 +37,7 @@ Panels draw onto an [OffscreenCanvas](https://developer.mozilla.org/en-US/docs/W
 and use [transferToImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas/transferToImageBitmap)
 to efficiently send the prerendered image to the host.
 
-The built-in `Panel` class uses [Views](views.md#view) to draw
+The built-in `Panel` class uses [Views](views.md#views) to draw
 its content onto a panel. But custom panels can manually draw
 to an OffscreenCanvas and transfer its image to the host if needed.
 

@@ -63,7 +63,7 @@ We could have just set `label.text` to a string
 directly in the button's `action` callback.
 But that's also exactly what the code above does.
 
-Learn more in the [Refs guide](../guides/refs.md#refs).
+Learn more in the [Refs guide](../guides/refs.md#understanding-refs).
 
 
 ## System architecture
@@ -80,7 +80,7 @@ propagating mouse/keyboard events to processes,
 managing processes and panels, and displaying panels on the screen.
 Processes do most of the heavy lifting, including drawing to panels via OffscreenCanvas.
 
-Learn more in the [Architecture guide](./technology.md#architecture).
+Learn more in the [Architecture guide](../technical/architecture.md#architecture).
 
 We also have to name our panel so the shell can show it in a taskbar or whatever.
 Shells are just userland programs that manage panels
@@ -88,7 +88,7 @@ in response to BroadcastChannel events.
 The built-in shell is a simple windows-style shell.
 There are no tiling shells yet, sorry. But you can make one.
 
-Learn more in the [Shells section](./technology.md#shells) of the architecture guide.
+Learn more in the [Shells section](../technical/architecture.md#shells) of the architecture guide.
 
 
 ## How views work
@@ -111,7 +111,7 @@ Views handle content, style, layout, and behavior.
 * We use `label` and `button` to draw text to the screen
 * Theme customization is opt-in rather than automatic
 
-Learn more in the [Views guide](./views.md#views).
+Learn more in the [Views guide](../technical/views.md#views).
 
 ::: section box note
 ### A note on JSX
@@ -126,7 +126,7 @@ const label1 = <Label text='hello world!' />
 const label2 = new Label({ text: 'hello world!' })
 ```
 
-Learn more in the [JSX section](./views.md#jsx) of the views guide.
+Learn more in the [JSX section](../technical/views.md#jsx) of the views guide.
 :::
 
 
@@ -171,4 +171,4 @@ This line is needed to make sure preludes can finish running,
 which are the mechanism users use to load theme modules into
 an app's process (web worker thread) to customize it.
 
-Learn more in the [Composite guide](./composites.md#composites).
+Learn more in the [Composite guide](../technical/composites.md#composites).

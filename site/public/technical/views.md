@@ -93,7 +93,7 @@ always named such that ref `$foo` backs value `foo`.
 This lets you react to changes on any property,
 whether `$children` or `$alpha` or `$size` etc.
 
-Learn more in the [Refs Walkthrough](../guides/refs.md#refs).
+Learn more in the [Refs Walkthrough](../guides/refs.md#understanding-refs).
 
 
 ## Custom behavior
@@ -185,11 +185,11 @@ When a view should be customizable, make it into a composite.
 ### Common recipes
 
 * To add padding around a view, wrap it in a
-  [Margin](#margin) or [Border](#border)
+  [Margin](../reference/built-in-views.md#margin) or [Border](../reference/built-in-views.md#border)
   and set `padding`.
 
 * To add a border, wrap it in a
-  [Margin](#margin) or [Border](#border)
+  [Margin](../reference/built-in-views.md#margin) or [Border](../reference/built-in-views.md#border)
   and set `padding` and `paddingColor`.
 
 * To add padding *and* a border,
@@ -197,8 +197,8 @@ When a view should be customizable, make it into a composite.
   having two wrappers.
 
 * To create a checkbox,
-  combine a [Button](#button) and [Label](#label)
-  and wrap them in a [GroupX](#group).
+  combine a [Button](../reference/built-in-views.md#button) and [Label](../reference/built-in-views.md#label)
+  and wrap them in a [GroupX](../reference/built-in-views.md#group).
 
 Views are lightweight, so wrapping in multiple layers is not a performance issue.
 
