@@ -4,9 +4,7 @@ order: 3
 
 # Pricing
 
-All functionality can be used for free.
-
-Pro accounts have increased file limits.
+## Freemium
 
 |                 |   Free   |   Pro    |
 | --------------- | :------: | :------: |
