@@ -23,6 +23,8 @@ order: 2
 
 * System-wide events are sent to all processes via [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
 
+* [JSX](../technical/views.md#jsx) and the shared [filesystem](../technical/filesystem.md#filesystem) are handled by a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+
 ## Ideal game development platform
 
 This architecture enables the creation of:
