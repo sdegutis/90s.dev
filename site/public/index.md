@@ -4,15 +4,15 @@
 
 - 🧪
   ### Retrofuturistic
-  Cutting edge web tech on the inside, pixel art aesthetics on the outside.
+  Cutting edge web tech on the inside, pixel art aesthetics on the outside
 
 - 🤝
   ### Collaborative
-  Built-in shared filesystem for publishing apps, data/game assets, and code libraries.
+  Shared filesystem for publishing apps, data assets, and code libraries
 
 - 🔨
   ### Game Platform
-  Designed from the ground up for game-engine engineers, artists, and game developers.
+  Custom built for game-engine engineers, pixel artists, and game developers
 
 :::
 

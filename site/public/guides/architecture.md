@@ -1,7 +1,7 @@
 # Architecture
 
 
-## Bleeding edge technology
+## Overview
 
 [90s.dev/os/](/os/) is follows the architecture of a lightweight OS inside the browser.
 
@@ -20,7 +20,7 @@
 * Dynamic modules work with `import` thanks to a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
 
-## Who it's for
+## Use-cases
 
 The architecture of [90s.dev/os/](/os/) makes it an ideal game development platform:
 
