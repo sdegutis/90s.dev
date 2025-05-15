@@ -412,9 +412,6 @@ section.homebuttons ul {
   justify-content: space-evenly;
   font-family: "Gemunu Libre Variable";
   font-size: 120%;
-  a:not(:hover) {
-    text-decoration: none;
-  }
 }
 
 
