@@ -184,11 +184,6 @@ For now, the best solution is to check
 for parameter type info, and update it when authoring composites.
 
 
-## Built-in composites
-
-
-
-
 
 ## Philosophy
 

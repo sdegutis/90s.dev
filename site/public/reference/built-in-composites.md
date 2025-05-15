@@ -1,3 +1,7 @@
+---
+order: 2
+---
+
 # Built-in Composites
 
 See also the [technical composites reference](../technical/composites.md#composites).
@@ -40,6 +44,20 @@ data: {
   length?: number
 } & ConstructorParameters<typeof TextBox>[0]
 ```
+
+## colorpicker
+
+*Stable.*
+
+```ts
+data: {
+  $color: Ref<number>
+}
+```
+
+Returns an axiomic color picker that sets the color of the given ref.
+
+*Note:* the ref passed in becomes deferred.
 
 ## panel
 
