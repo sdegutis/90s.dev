@@ -52,8 +52,6 @@ See [Filesystem](../technical/filesystem.md#filesystem) to learn more.
 ```tsx
 const fs       // file system singleton
 const pathFns  // path helper functions
-
-function runJsFile // executes code at given fs path
 ```
 
 ## Views

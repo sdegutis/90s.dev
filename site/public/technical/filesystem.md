@@ -43,11 +43,10 @@ There are three ways to execute code:
 
 ```ts
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
 import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
 ```
 
-*Note:* The `api.runJsFile` is for when you need a cache busting query string.
+*Note:* To re-execute a file, add a cache busting query string.
 
 
 ## Accessing files in `usr/`

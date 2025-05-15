@@ -51,18 +51,16 @@ except that they execute in different environments based on how they're called:
 
 ```ts
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-api.runJsFile("net/someuser/foo.js")  // runs it in the current web worker
 import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
 ```
 
-*Note:* The `api.runJsFile` helps by adding a cache busting query string.
+*Note:* To re-execute a file, add a cache busting query string.
 
 But as a convention, apps end with `.app.js` so that apps like [filer](/os/#sys/apps/filer.app.js)
 are able to tell them apart from libraries and launch them when you click them.
 
 Code environments are created using web standards.
 When the host launches an app, it uses `new Worker(appPath)`.
-When `api.runJsFile` loads a library file, it just uses `import()`.
 
 Since an app is just a module, it can tell if its being run as an app or imported as a library:
 

@@ -7,9 +7,9 @@ order: 3
 To share apps and libraries you made,
 you have to create an account.
 
-* Accounts are free
+## Accounts
 
-* Accounts only use OTPs
+Accounts are free and only use 40-day OTPs for authentication.
 
 With a free account, you get:
 
@@ -19,10 +19,10 @@ With a free account, you get:
 
 * Up to `2^16 bytes` (64 KiB) between all files
 
-* [Pro Account limits](../about/pricing.md#pricing) are increased by orders of magnitude
+[Pro Accounts](../about/pricing.md#pricing) have their limits increased by orders of magnitude.
 
 
-## Creating an account
+### Creating an account
 
 1. Create an account in [90s.dev/os/#sys/apps/account.app.js](/os/#sys/apps/account.app.js)
 
@@ -35,7 +35,6 @@ Congratulations, you now have a public folder!
 You can put anything you want in it: apps, libraries, data files, documentation, etc.
 
 All public files can be accessed via `api.fs`. Learn more about the [filesystem](../technical/filesystem.md#filesystem).
-
 
 ## Apps
 
@@ -50,20 +49,15 @@ To get a sharable link to your app:
 
 ## Libraries
 
-All `.js` files can be imported.
+All `.js` files can be imported with standard `import` statements & expressions.
 
 ```ts
-// net/someuser/path/to/lib.js
-
+// "net/someuser/path/to/lib.js"
 export const randomNumber = () => 4
 
-// usr/hello-world.js
-
+// "usr/hello-world.js"
 import { randomNumber } from '/os/fs/net/someuser/path/to/lib.js'
-
-for (let i = 0; i < 3; i++) {
-  console.log(randomNumber()) // prints three random integers
-}
+console.log(randomNumber())
 ```
 
 
