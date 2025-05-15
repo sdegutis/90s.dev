@@ -369,7 +369,7 @@ section.box.info { background-color: #164a3277; }
 section.box.warning { background-color: #4a162f77; }
 
 section.features {
-  background-color: #0003;
+  /* background-color: #0003; */
   padding: 1rem 0;
 
   h3 { padding: 0; }

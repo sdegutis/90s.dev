@@ -49,6 +49,7 @@ export function Navbar(data: {
 
   const sections = Object.entries({
     about: 'Learn',
+    guides: 'Guides',
     technical: 'Technical',
     collaboration: 'Collaboration',
     links: 'Links',

@@ -3,18 +3,20 @@
 ::: section features
 
 - 🧪
-  ### RetroFuturistic
-  Innovative technology on the inside, pixel art aesthetics on the outside.
+  ### Retrofuturistic
+  Cutting edge web tech on the inside, pixel art aesthetics on the outside.
 
 - 🤝
-  ### MultiPlayer
-  Multiuser creativity platform that lets us build one big app together.
+  ### Collaborative
+  Built-in shared filesystem for publishing apps, data/game assets, and code libraries.
 
 - 🔨
-  ### GameEngine
-  Together, we shall make the best pixel art game maker conceivable.
+  ### Game Platform
+  Designed from the ground up for game-engine engineers, artists, and game developers.
 
 :::
+
+Learn more on the [Architecture Guide](guides/architecture.md#architecture).
 
 <iframe src='/os/#sys/apps/spritemaker.app.js' width="640" height="360"></iframe>
 
