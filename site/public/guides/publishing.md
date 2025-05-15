@@ -30,10 +30,10 @@ Congratulations, you now have a public folder!
 
 You can put anything you want in it: apps, libraries, data files, documentation, etc.
 
-All public files can be accessed via `api.fs`. See [Understanding FS](./filesystem.md#filesystem) to learn more.
+All public files can be accessed via `api.fs`. Learn more about the [filesystem](../technical/filesystem.md#filesystem).
 
 
-## Shared apps
+## Apps
 
 To get a sharable link to your app:
 
@@ -41,22 +41,20 @@ To get a sharable link to your app:
 
 2. Click your app to open it
 
-3. That's it! Your URL is now sharable.
+3. Copy the URL, which is always sharable
 
 
-## Shared libraries
+## Libraries
 
-Libraries are normal code files:
+All `.js` files can be imported.
 
 ```ts
 // net/someuser/path/to/lib.js
 
 export const randomNumber = () => 4
-```
 
-Libraries can be imported like so:
+// usr/hello-world.js
 
-```ts
 import { randomNumber } from '/os/fs/net/someuser/path/to/lib.js'
 
 for (let i = 0; i < 3; i++) {
@@ -65,7 +63,7 @@ for (let i = 0; i < 3; i++) {
 ```
 
 
-## Shared data files
+## Data files
 
 Data files can be access through the [filesystem](./filesystem.md#filesystem):
 
