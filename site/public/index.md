@@ -24,9 +24,9 @@
 
 * [Pricing](about/pricing.md#pricing)
 
-* [Getting started](about/getting-started.md#getting-started)
+* [Getting started](guides/getting-started.md#getting-started)
 
-* [Hello World tour](about/hello-world.md#hello-world-tour)
+* [Hello World tour](guides/hello-world.md#hello-world-tour)
 
 :::
 
