@@ -20,17 +20,17 @@ print('val is', r.val)  // val is 1
 ```
 :::
 
-You can call `set(val)` through the setter `value = val`
+You can use the convenience getter/setter `value`
 
 ::: runcode 120 50
 ```tsx
 import { $, print } from '/os/api.js'
 
 const r = $(0)
-print('val is', r.val)  // val is 0
+print('val is', r.value)  // val is 0
 
 r.value++
-print('val is', r.val)  // val is 1
+print('val is', r.value)  // val is 1
 ```
 :::
 
@@ -43,8 +43,8 @@ import { $, print } from '/os/api.js'
 const r = $(0)
 r.watch(n => print('val is', n))
 
-r.set(3)         // val is 3
-r.set(r.val + 1) // val is 4
+r.value = 3  // val is 3
+r.value++    // val is 4
 ```
 :::
 
@@ -58,8 +58,8 @@ const r = $(0)
 const r2 = r.adapt(n => n * 2)
 r2.watch(n => print('val is', n))
 
-r.set(3)         // val is 6
-r.set(r.val + 1) // val is 8
+r.value = 3  // val is 6
+r.value++    // val is 8
 ```
 :::
 
@@ -104,6 +104,8 @@ point.x++    // val is 11
 ```
 :::
 
+In fact, all [built-in view classes](../reference/built-in-views.md#view) do this to back all their properties.
+
 ### Advanced
 
 You can create a new ref based on multiple other refs:
@@ -120,9 +122,9 @@ print(r3.val) // 100
 
 r3.watch(n => print(`${r1.val} * ${r2.val} = ${n}`))
 
-r1.set(r1.val + 1) // 2 * 100 = 200
-r1.set(r1.val + 1) // 3 * 100 = 300
-r2.set(r2.val * 2) // 3 * 200 = 600
+r1.value++    // 2 * 100 = 200
+r1.value++    // 3 * 100 = 300
+r2.value *= 2 // 3 * 200 = 600
 ```
 :::
 
@@ -138,9 +140,9 @@ const r = $(0)
 r.watch(n => print('val is', n))
 r.intercept(n => Math.max(0, Math.min(10, n)))
 
-r.set(9)         // val is 9
-r.set(r.val + 1) // val is 10
-r.set(r.val + 1) // (nothing printed; no change in value)
+r.value = 9  // val is 9
+r.value++    // val is 10
+r.value++    // (nothing printed; no change in value)
 
 print('val is currently', r.val) // val is currently 10
 ```
@@ -161,21 +163,19 @@ print(first.val) // 10
 
 const second = $(0)
 
-first.defer(second)        // first is 0
-first.set(first.val + 1)   // first is 1
-second.set(second.val + 1) // first is 2
+first.defer(second)  // first is 0
+first.value++        // first is 1
+second.value++       // first is 2
 
 print(first.val)  // 2
 print(second.val) // 2
 
 second.watch(n => print('second is', n))
 
-first.set(first.val + 1)
-  // first is 3
-  // second is 3
+first.value++   // first is 3
+                // second is 3
 
-second.set(second.val + 1)
-  // first is 4
-  // second is 4
+second.value++  // first is 4
+                // second is 4
 ```
 :::
