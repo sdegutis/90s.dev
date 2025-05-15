@@ -8,7 +8,7 @@ This guide sets up a dev environment for
 apps and libraries in [90s.dev/os/](/os/)
 
 
-## Hello World
+## Download SDK
 
 To getting a "hello world" sample app working:
 
@@ -28,20 +28,14 @@ To getting a "hello world" sample app working:
 
 Congratulations, your hello world app works!
 
-## Next steps
-
 The entire core and all system apps are included in
 the zip. This way you can see how the system works
 internally, and even fork and modify built-in apps.
 
-Check out the [Hello World guide](hello-world.md#hello-world-tour)
-for a full breakdown of the sample code.
+## Next steps
 
+* Check out the [Hello World guide](hello-world.md#hello-world-tour)
+  for a full breakdown of the sample code.
 
-## Sharing your creations
-
-Made something you want to share with the community?
-
-Check out the [publishing apps](../collaboration/publishing-apps.md#publishing-apps)
-and [publishing libraries](../collaboration/publishing-libs.md#publishing-libraries)
-guides to learn more.
+* Go through the [Publishing guide](publishing.md#publishing)
+  to learn how to share your creations.
