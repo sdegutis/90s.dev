@@ -7,15 +7,19 @@ order: 3
 To share apps and libraries you made,
 you have to create an account.
 
-* Accounts are free, and use OTPs instead of passwords.
+* Accounts are free
 
-With an account, you get:
+* Accounts only use OTPs
+
+With a free account, you get:
 
 * One public folder named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
 
-* Up to `2^16 bytes` (64 KiB) per file
+* Up to `2^14 bytes` (16 KiB) per file
 
-* Up to `2^24 bytes` (16 MiB) between all files
+* Up to `2^16 bytes` (64 KiB) between all files
+
+* [Pro account limits](../about/pricing.md#pricing) are increased by orders of magnitude
 
 
 ## Creating an account
@@ -65,7 +69,7 @@ for (let i = 0; i < 3; i++) {
 
 ## Data files
 
-Data files can be access through the [filesystem](./filesystem.md#filesystem):
+Data files can be access through the [filesystem](../technical/filesystem.md#filesystem):
 
 ```ts
 const logo: string = await fs.getFile('net/someuser/images/logo.bitmap')
