@@ -4,9 +4,7 @@ order: 1
 
 # Built-in Views
 
-See also the [technical views reference](../technical/views.md#views).
-
-* To understand "malleable" and "axiomic", see the [layout section](../technical/views.md#layout).
+* See also the [technical views reference](../technical/views.md#views).
 
 These are designed to be composable enough to build any reasonable UI.
 
@@ -50,6 +48,8 @@ This results in three types of views:
 * [Generic](#generic)
 * [Malleable](#malleable)
 * [Axiomic](#axiomic)
+
+For a deeper dive into understanding layouts, see the [layout technical guide](../technical/views.md#layout).
 
 ## Generic
 

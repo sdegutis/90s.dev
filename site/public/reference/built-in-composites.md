@@ -4,7 +4,7 @@ order: 2
 
 # Built-in Composites
 
-See also the [technical composites reference](../technical/composites.md#composites).
+* See also the [technical composites reference](../technical/composites.md#composites).
 
 
 ## implicit
