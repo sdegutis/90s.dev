@@ -1,8 +1,8 @@
 ---
-order: 99
+order: 0
 ---
 
-# API Reference
+# API Overview
 
 This page gives a birds eye overview of all the exports from `/os/api.js`
 
@@ -47,7 +47,7 @@ function sizeEquals
 ## Files
 
 Helpers to access the file system.
-See [Filesystem](filesystem.md#filesystem) to learn more.
+See [Filesystem](../technical/filesystem.md#filesystem) to learn more.
 
 ```tsx
 const fs       // file system singleton
@@ -58,7 +58,7 @@ function runJsFile // executes code at given fs path
 
 ## Views
 
-See [Views](views.md#views) to learn more.
+See [Views](../technical/views.md#views) to learn more.
 
 ```tsx
 class View {}
@@ -99,7 +99,7 @@ class Font   {} // very basic pixel fonts
 
 ## Composites
 
-See [Composites](composites.md#composites) to learn more.
+See [Composites](../technical/composites.md#composites) to learn more.
 
 ```tsx
 // record of all composites

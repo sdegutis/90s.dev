@@ -54,11 +54,12 @@ export function Navbar(data: {
 }) {
 
   const sections = Object.entries({
-    about: 'About',
+    'about': 'About',
     'getting-started': 'Getting started',
-    guides: 'Guides',
-    technical: 'Technical',
-    community: 'Community',
+    'guides': 'Guides',
+    'technical': 'Technical',
+    'reference': 'Reference',
+    'community': 'Community',
   })
 
   const pages = [
