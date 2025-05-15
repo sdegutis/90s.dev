@@ -4,6 +4,8 @@ order: 0
 
 # Architecture
 
+90s.dev uses a [future-now web architecture](../about/technology.md#future-now-web-architecture).
+
 ## Host
 
 The host is a very lightweight app on the GUI thread of the web browser.
@@ -16,15 +18,11 @@ It has a few small responsibilities:
 
 * Direct events to the appropriate panels and processes
 
-  * Some are sent to specific processes or panels
-
-  * Some are sent to everyone via [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
-
 * Draw all prerendered panel images to the screen
 
 ## Processes & Panels
 
-Each process runs inside its own [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker).
+Each process runs inside its own web worker.
 Processes request and own panels.
 
 At a bare minimum, panels and processes must communicate with the host via [syscalls](#syscalls).
