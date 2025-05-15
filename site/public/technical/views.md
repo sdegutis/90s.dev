@@ -93,7 +93,7 @@ always named such that ref `$foo` backs value `foo`.
 This lets you react to changes on any property,
 whether `$children` or `$alpha` or `$size` etc.
 
-Learn more in the [Refs Walkthrough](refs.md#refs).
+Learn more in the [Refs Walkthrough](../guides/refs.md#refs).
 
 
 ## Custom behavior
@@ -285,7 +285,7 @@ class View {
 }
 ```
 
-The refs back the properties, so `v.prop === v.$prop.val` always. See the [refs guide](refs.md#properties).
+The refs back the properties, so `v.prop === v.$prop.val` always. See the [refs guide](../guides/refs.md#properties).
 
 To avoid verbosity, backing refs are omitted from the rest of the documentation.
 

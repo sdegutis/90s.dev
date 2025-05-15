@@ -34,7 +34,13 @@ export function Main(data: { content: string }) {
     {data.content}
 
     <footer>
-      Copyright &copy; {new Date().getFullYear()} / <a href='mailto:admin@90s.dev'>Email</a>
+      Copyright &copy; {new Date().getFullYear()}
+      {' / '}
+      <a href='mailto:admin@90s.dev'>Email</a>
+      {' / '}
+      <a href='/legal/tos.html'>Terms of Service</a>
+      {' / '}
+      <a href='/legal/privacy-policy.html'>Privacy Policy</a>
     </footer>
   </main>
 }
@@ -48,13 +54,12 @@ export function Navbar(data: {
 }) {
 
   const sections = Object.entries({
-    about: 'Learn',
+    about: 'About',
     guides: 'Guides',
     technical: 'Technical',
     collaboration: 'Collaboration',
     community: 'Community',
     blogs: 'News',
-    legal: 'Legal',
   })
 
   const pages = [
@@ -68,7 +73,11 @@ export function Navbar(data: {
 
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
-    <p><a href='/os/'>/os/</a></p>
+
+    <h3>Apps</h3>
+    <ul>
+      <li><a href='/os/'>/os/</a></li>
+    </ul>
 
     {sections.map(([key, title]) => {
       const pages = groups.get(key)
