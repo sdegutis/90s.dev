@@ -1,8 +1,4 @@
----
-order: 3
----
-
-# Refs
+# Using Refs
 
 Refs lend themselves extremely well to reactive GUI programming.
 
