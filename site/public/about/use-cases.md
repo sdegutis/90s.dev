@@ -9,8 +9,8 @@ The architecture of [90s.dev/os/](/os/) makes it an ideal game development platf
 ## Game engine developers
 
 * Make and publish apps like sprite editors or music editors
-* Publish reusable app components like color pickers or pixel editors
-* Publish general purpose libraries like algorithms and entity systems
+* Make and publish reusable app components like custom color pickers
+* Make and publish general purpose libraries like algorithms and entity systems
 
 ## Artists
 
@@ -22,4 +22,4 @@ The architecture of [90s.dev/os/](/os/) makes it an ideal game development platf
 
 * Use data assets published by artists
 * Use game making tools published by other developers
-* Publish full games for everyone to play!
+* Make and publish full games for everyone to play!
