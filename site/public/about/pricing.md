@@ -21,7 +21,8 @@ Pro accounts have increased file limits.
 <script src='/script/pricing.js' type='module'></script>
 
 <div id='upgrade-container'>
-  <p>...</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
 </div>
 
 ## App store (coming soon)

@@ -2,12 +2,13 @@ const root = document.getElementById('upgrade-container')!
 
 const [err, account] = await fetch('/net/user/info', { credentials: 'include' }).then(r => r.json())
 
-const user = (!err && account.verified) ? account : null
-
-console.log(user)
+const user = (!err && account?.verified) ? account : null
 
 if (!user) {
-  root.innerHTML = `Login in the app`
+  root.innerHTML = `
+    <p>Not signed in.</p>
+    <p><a target='_blank' href='/os/#sys/apps/account.app.js'>Login</a> first, then come back here to upgrade to Pro.</p>
+  `
 }
 else if (user.pro) {
   root.innerHTML = `
