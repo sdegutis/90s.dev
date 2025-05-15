@@ -4,8 +4,10 @@ order: 2
 
 # Technology
 
-
 [90s.dev/os/](/os/) follows the design of a lightweight OS inside the browser.
+
+
+## Future-now web architecture
 
 * The host runs in [the GUI thread](https://developer.mozilla.org/en-US/docs/Glossary/Main_thread) and manages an [HTML Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 
@@ -20,6 +22,8 @@ order: 2
     * Panels use the efficient [transferToImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas/transferToImageBitmap) to blit to the host
 
 * System-wide events are sent to all processes via [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+
+## Ideal game development platform
 
 This architecture enables the creation of:
 
