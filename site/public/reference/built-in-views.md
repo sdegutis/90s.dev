@@ -40,6 +40,10 @@ To avoid verbosity, backing refs are omitted from the rest of the documentation.
 
 The base class.
 
+Neither axiomic nor malleable, since it doesn't implement `layout` or `adjust`.
+
+Its size is whatever you tell it to be, either via `size` or `$size` (see [backing refs](#a-note-on-backing-refs)).
+
 ~~~ts
 class View {
 
