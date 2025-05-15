@@ -15,21 +15,17 @@
 
 * System-wide events are sent to all processes via [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
 
-* Users can publish data files and JavaScript modules to a shared filesystem
+* Users can publish data, code, and apps under `net/` in the [shared filesystem](../technical/filesystem.md#filesystem)
 
-* Dynamic modules work with `import` thanks to a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+* Shared modules can be natively imported due to a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
+This design allows for many use-cases:
 
-## Use-cases
+* Creating 60fps web games with low input latency and high graphical output
 
-The architecture of [90s.dev/os/](/os/) makes it an ideal game development platform:
+* Creating code libraries, data assets, and game-maker components
 
-* **Game engine developers** can make and publish apps like sprite/map/audio editors
-
-* **Artists** can use these apps to make and publish game assets like spritesheets/sfx
-
-* **Game developers** can use these apps and assets to build and publish games
-
+* Sharing or consuming all of these through a shared file system
 
 ## Host
 

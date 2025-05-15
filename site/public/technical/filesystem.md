@@ -15,7 +15,7 @@ To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app
 
 * `net/` is backed by a shared database
 
-* You can mount local file system drives to given names
+* You can mount local file system folders to named drives
 
   * *NOTE:* `.js` files are stored as `.tsx` on mounted drives
 
