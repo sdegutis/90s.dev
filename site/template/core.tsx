@@ -52,25 +52,23 @@ export function Navbar(data: {
     guides: 'Guides',
     technical: 'Technical',
     collaboration: 'Collaboration',
-    links: 'Links',
+    community: 'Community',
     blogs: 'News',
     legal: 'Legal',
   })
 
   const pages = [
     ...data.pages,
-    { section: 'links', title: '90s.dev/os/', path: '/os/' },
-    { section: 'links', title: 'Feature requests', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
-    { section: 'links', title: 'Bug reports', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
-    { section: 'links', title: 'Community wiki', path: 'https://github.com/ppl-90s-dev/ppl/wiki' },
-    { section: 'links', title: 'Reddit', path: 'https://www.reddit.com/r/90s_dev/' },
-    { section: 'links', title: 'Donate', path: 'https://donate.stripe.com/6oE17Q2LmcS6fOo002' },
+    { section: 'community', title: 'GH Issues', path: 'https://github.com/ppl-90s-dev/ppl/issues' },
+    { section: 'community', title: 'GH Wiki', path: 'https://github.com/ppl-90s-dev/ppl/wiki' },
+    { section: 'community', title: 'Reddit', path: 'https://www.reddit.com/r/90s_dev/' },
   ]
 
   const groups = Map.groupBy(pages, p => p.section)
 
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
+    <p><a href='/os/'>/os/</a></p>
 
     {sections.map(([key, title]) => {
       const pages = groups.get(key)

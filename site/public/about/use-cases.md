@@ -16,7 +16,7 @@ The architecture of [90s.dev/os/](/os/) makes it an ideal game development platf
 
 * Use apps other game engine developers have made, like music editors
 * Make and publish game assets, like spritesheets and music files
-* Help guide app developers toward making the best game tools
+* Guide app developers toward making the best game tools
 
 ## Game developers
 
