@@ -1,3 +1,7 @@
+---
+order: 3
+---
+
 # Pricing
 
 All functionality can be used for free.

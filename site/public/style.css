@@ -403,10 +403,14 @@ section.features {
 } 
 
 section.homebuttons ul {
-  margin-top: 3rem;
-  display: flex;
+  max-width: 640px;
+  background-color: #0003;
   padding-left: 0;
   list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  /*
+  margin-top: 3rem;
   gap: 24px;
   align-items: center;
   justify-content: space-evenly;
@@ -426,6 +430,7 @@ section.homebuttons ul {
       background-color: #fff2;
     }
   }
+  */
 }
 
 

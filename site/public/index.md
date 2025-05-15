@@ -16,13 +16,18 @@
 
 :::
 
-Learn more on the [Architecture Guide](guides/architecture.md#architecture).
-
-<iframe src='/os/#sys/apps/spritemaker.app.js' width="640" height="360"></iframe>
-
 ::: section homebuttons
 
-- [Getting started](about/getting-started.md#getting-started)
-- [Hello World tour](about/hello-world.md#hello-world-tour)
+* [Who is it for?](about/use-cases.md#who-is-it-for)
+
+* [Technology](about/technology.md#technology)
+
+* [Pricing](about/pricing.md#pricing)
+
+* [Getting started](about/getting-started.md#getting-started)
+
+* [Hello World tour](about/hello-world.md#hello-world-tour)
 
 :::
+
+<iframe src='/os/#sys/apps/spritemaker.app.js' width="640" height="360"></iframe>

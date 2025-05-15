@@ -1,6 +1,10 @@
+---
+order: 5
+---
+
 # Hello World tour
 
-The traditional "click me" app:
+This guide goes through the "hello world" sample app in the [Getting Started](getting-started.md#getting-started) guide.
 
 ::: runcode 120 70
 ~~~tsx
@@ -9,7 +13,7 @@ import api, { $, Center, GroupY, Label, GroupX } from '/os/api.js'
 await api.preludesFinished
 
 const count = $(0)
-const inc = () => count.set(count.val + 1)
+const inc = () => count.value++
 
 const panel = await api.sys.makePanel({ name: "hello world" },
   <Center size={api.sys.$size} background={0x444444ff}>
@@ -76,7 +80,7 @@ propagating mouse/keyboard events to processes,
 managing processes and panels, and displaying panels on the screen.
 Processes do most of the heavy lifting, including drawing to panels via OffscreenCanvas.
 
-Learn more in the [Architecture guide](../guides/architecture.md#architecture).
+Learn more in the [Architecture guide](./technology.md#architecture).
 
 We also have to name our panel so the shell can show it in a taskbar or whatever.
 Shells are just userland programs that manage panels
@@ -84,7 +88,7 @@ in response to BroadcastChannel events.
 The built-in shell is a simple windows-style shell.
 There are no tiling shells yet, sorry. But you can make one.
 
-Learn more in the [Shells section](../guides/architecture.md#shells) of the architecture guide.
+Learn more in the [Shells section](./technology.md#shells) of the architecture guide.
 
 
 ## How views work

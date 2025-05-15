@@ -1,3 +1,7 @@
+---
+order: 4
+---
+
 # Getting started
 
 This guide sets up a dev environment for
