@@ -57,9 +57,7 @@ export function Navbar(data: {
     about: 'About',
     guides: 'Guides',
     technical: 'Technical',
-    collaboration: 'Collaboration',
     community: 'Community',
-    blogs: 'News',
   })
 
   const pages = [
