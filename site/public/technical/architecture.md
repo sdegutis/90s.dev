@@ -70,7 +70,7 @@ except that they execute in different environments based on how they're called:
 
 ```ts
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
+import  "/os/fs/net/someuser/foo.js"  // runs it in the current web worker
 ```
 
 But as a convention, apps end with `.app.js` so that apps like [filer](/os/#sys/apps/filer.app.js)

@@ -43,7 +43,7 @@ There are two ways to execute code:
 
 ```ts
 api.sys.launch("net/someuser/foo.js") // runs it in its own new web worker
-import "/os/fs/net/someuser/foo.js"   // runs it in the current web worker
+import  "/os/fs/net/someuser/foo.js"  // runs it in the current web worker
 ```
 
 
