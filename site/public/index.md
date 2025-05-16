@@ -20,7 +20,7 @@
 
 * [Who is it for?](about/use-cases.md#who-is-it-for)
 
-* [Technology](about/technology.md#technology)
+* [Technology](about/features.md#features)
 
 * [Pricing](about/pricing.md#pricing)
 
