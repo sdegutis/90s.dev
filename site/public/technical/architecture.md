@@ -39,6 +39,8 @@ It has a few small responsibilities:
 
 * Draw all prerendered panel images to the screen
 
+* Manage and draw cursors
+
 ## Processes & Panels
 
 Each process runs inside its own web worker.

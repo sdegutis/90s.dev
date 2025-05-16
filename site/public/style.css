@@ -1,21 +1,36 @@
 #underconstruction {
 
-  font-family: "Silkscreen";
-  position: fixed;
-  z-index: 1000;
-  inset: 0 0 auto 0;
-  pointer-events: none;
+  &.early {
+    & { display: none }
+    body:has(&)>:not(main) {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
 
-  display: grid;
-  justify-content: center;
+  &:not(.early) {
+    font-family: "Silkscreen";
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
 
-  p {
-    display: inline-block;
-    font-size: 20px;
-    color: var(--header-color);
-    background-color: #000c;
-    font-weight: bold;
-    padding: .5em .75em;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    body:has(&)>:not(&) {
+      filter: blur(7px);
+    }
+    p {
+      display: inline-block;
+      font-size: min(4vw, 4vh);
+      color: var(--header-color);
+      rotate: 30deg;
+      background-color: #000c;
+      font-weight: bold;
+      padding: 1em;
+    }
+
   }
 
 }

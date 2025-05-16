@@ -1,3 +1,4 @@
+import { isDev } from "../../static.ts"
 
 export function Html(data: { children: any }) {
   return <>
@@ -115,11 +116,10 @@ export function Sidebar(data: { toc: string }) {
 }
 
 export function UnderConstruction(data: { early?: boolean }) {
-  return null
-  return <div id='underconstruction' class={data.early ? 'early' : ''}>
+  return !isDev && <div id='underconstruction' class={data.early ? 'early' : ''}>
     <script type='module' src='/script/under-construction.js' />
     <p>
-      ⚠️ not yet public; things may break ⚠️
+      ⚠️ under construction ⚠️
     </p>
   </div>
 }
