@@ -116,6 +116,7 @@ export function Sidebar(data: { toc: string }) {
 }
 
 export function UnderConstruction(data: { early?: boolean }) {
+  return null
   return !isDev && <div id='underconstruction' class={data.early ? 'early' : ''}>
     <script type='module' src='/script/under-construction.js' />
     <p>
