@@ -32,7 +32,8 @@ But instead of making a game,
 or even *a game engine*,
 or even *the game maker tools*,
 I found myself making an API for making game maker tools and a game engine and a game.
-It turns out, I'm really an *API designer* at heart. I guess I always kinda knew this.
+
+It turns out I'm an *API designer* at heart. I guess I always kinda knew this.
 
 Eventually it evolved into an API around a 320x180 canvas
 for building and sharing apps,
