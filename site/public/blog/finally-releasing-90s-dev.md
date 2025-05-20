@@ -20,7 +20,7 @@ What it is:
 
 * An API that wraps web technology up in an "operating system" metaphor
 
-* An API that shows you how fun it was to make GUIs in the 90s
+* An API that shows you how fun it was to make GUI apps in the 90s
 
 What it's not:
 
