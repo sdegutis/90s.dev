@@ -9,7 +9,7 @@ So I'm pretty excited to finally make it public.
 
 
 If [tic80](https://tic80.com/) is the open source version of [pico8](https://www.lexaloffle.com/pico-8.php),  
-then 90s.dev is the open source version of [picotron](https://www.lexaloffle.com/picotron.php).
+then [90s.dev/os/](/os/) is the open source version of [picotron](https://www.lexaloffle.com/picotron.php).
 
 It's fully free nagware, only $20.48 to support retrofuturistic game dev.  
 [Buy now!](../about/pricing.md#pricing)
