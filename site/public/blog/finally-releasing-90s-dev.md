@@ -5,12 +5,17 @@ and I've been working on it nonstop since about February.
 So I'm pretty excited to finally make it public.
 
 ::: section box note
-### Feedback noted!!
+### tl;dr
 
-Thanks everyone on HN for your feedback.
 
-It's clear that I launched this too soon, and that it needs more
-working apps, sample games, and thorough tutorials. I'll work on these.
+If [tic80](https://tic80.com/) is the open source version of [pico8](https://www.lexaloffle.com/pico-8.php),  
+then 90s.dev is the open source version of [picotron](https://www.lexaloffle.com/picotron.php).
+
+It's fully free nagware, only $20.48 to support retrofuturistic game dev.  
+[Buy now!](../about/pricing.md#pricing)
+
+The source isn't on github yet. Soon!
+
 :::
 
 
