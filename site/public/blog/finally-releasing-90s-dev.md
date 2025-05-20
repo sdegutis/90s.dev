@@ -39,12 +39,19 @@ or a 60 fps game.
 In short, [90s.dev/os/](/os/) is a unique new kind of game maker:
 
 * Runs in the browser using an HTML canvas for portability.
+
 * Has a `320x180 (16:9)` screen that scales up to fill the window.
+
 * Runs all apps inside web workers for security and performance.
+
 * Gives you full access to WebGL2 via OffscreenCanvas for `60 fps` games.
+
 * Lets you publish and load apps located on GitHub or NPM.
+
 * Has a new GUI API that has legitimate innovations, even in 2025.
+
 * Comes with a TypeScript-first VSCode-ready SDK for fast prototyping.
+
 * Allows importing modules written in any languages that compile to wasm.
 
 By default, it will come with basic apps for making pixel art data for games,
@@ -66,8 +73,11 @@ and click again to close it: [/os/#sys/apps/paint.app.js](/os/#sys/apps/paint.ap
 It's inspired by pico8, tic80, picotron, and love2d:
 
 * Like pico8, it aims for aesthetic minimalism and supports just one language.
+
 * Like tic80, it lifts most of the restrictions of pico8.
+
 * Like love2d, it requires an external IDE for actually writing code.
+
 * Like picotron, it uses an operating system architecture to run apps.
 
 You could think of it as a meta-pico8, or a love2d with TypeScript,
