@@ -4,38 +4,14 @@ order: 3
 
 # Publishing
 
-To share apps and libraries you made,
-you have to create an account.
+Sharing apps, libraries, and data is in the works.
+Should be ready in a week or so.
 
-## Accounts
-
-Accounts are free and only use 40-day OTPs for authentication.
-
-With a free account, you get:
-
-* One public folder named <code>[net/](/os/#sys/apps/filer.app.js@net/)\<username>/</code>
-
-* Up to `2^14 bytes` (16 KiB) per file
-
-* Up to `2^16 bytes` (64 KiB) between all files
-
-[Pro Accounts](../about/pricing.md#pricing) have their limits increased by orders of magnitude.
+In the meantime, you can develop apps locally.
+See [Download SDK](download-sdk.md#download-sdk) to learn more.
 
 
-### Creating an account
-
-1. Create an account in [90s.dev/os/#sys/apps/account.app.js](/os/#sys/apps/account.app.js)
-
-2. Login with the token emailed to you
-
-3. Create a folder under [net/](/os/#sys/apps/filer.app.js@net/) with your username
-
-Congratulations, you now have a public folder!
-
-You can put anything you want in it: apps, libraries, data files, documentation, etc.
-
-All public files can be accessed via `api.fs`. Learn more about the [filesystem](../technical/filesystem.md#filesystem).
-
+<!-- 
 ## Apps
 
 To get a sharable link to your app:
@@ -68,3 +44,4 @@ Data files can be access through the [filesystem](../technical/filesystem.md#fil
 ```ts
 const logo: string = await fs.getFile('net/someuser/images/logo.bitmap')
 ```
+-->
