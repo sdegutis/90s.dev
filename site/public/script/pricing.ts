@@ -1,24 +1,19 @@
 const root = document.getElementById('upgrade-container')!
 
-const [err, account] = await fetch('/net/user/info', { credentials: 'include' }).then(r => r.json())
+const hasLicense = localStorage.getItem('licensekey')
 
-const user = (!err && account?.verified) ? account : null
-
-if (!user) {
+if (hasLicense) {
   root.innerHTML = `
-    <p>Not signed in.</p>
-    <p><a target='_blank' href='/os/#sys/apps/account.app.js'>Login</a> first, then come back here to upgrade to Pro.</p>
-  `
-}
-else if (user.pro) {
-  root.innerHTML = `
-    <p>Signed in as ${user.username}.</p>
     <p>You have a pro account!</p>
   `
 }
 else {
+  const isDev = location.host.includes('localhost')
+  const url = isDev
+    ? 'https://buy.stripe.com/test_5kQaEZfAG1ZOfxteSr1oI00'
+    : 'https://buy.stripe.com/cNi5kE9LS97z15ReE73ks03'
+
   root.innerHTML = `
-    <p>Signed in as ${user.username}.</p>
-    <p><a href='/net/upgrade'>Upgrade to Pro</a></p>
+    <p><a href='${url}'>Purchase a license</a></p>
   `
 }
