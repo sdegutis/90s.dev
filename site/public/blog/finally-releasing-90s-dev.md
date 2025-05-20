@@ -7,15 +7,15 @@ So I'm pretty excited to finally make it public.
 ::: section box note
 ### tl;dr
 
-|             |    Game dev     |     Meta gamedev     |
-| ----------- | :-------------: | :------------------: |
-| Proprietary | [pico8][pico8]  | [picotron][picotron] |
-| Open src    | [tic802][tic80] |  [90s.dev](/os/) *   |
+|             | Game dev |   Meta gamedev    |
+| ----------- | :------: | :---------------: |
+| Proprietary | [pico8]  |    [picotron]     |
+| Open src    | [tic80]  | [90s.dev](/os/) * |
 
 \* you are here
 :::
 
-[tic80]: https://tic80.com/
+[tic80]: https://tic80.com/ 
 [pico8]: https://www.lexaloffle.com/pico-8.php
 [picotron]: https://www.lexaloffle.com/picotron.php
 
