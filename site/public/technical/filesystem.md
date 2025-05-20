@@ -4,6 +4,15 @@ order: 3
 
 # Filesystem
 
+::: section box warning
+### Deprecated
+
+This concept is from an earlier iteration,
+and is not the way to publish files moving forward.
+
+In the near future, GitHub and NPM will be the two ways to publish files.
+:::
+
 To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
 
@@ -13,7 +22,7 @@ To browse files, use [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app
 
 * `usr/` is stored in IndexedDB
 
-* `net/` is backed by a shared database
+* ~~`net/` is backed by a shared database~~
 
 * You can mount local file system folders to named drives
 
