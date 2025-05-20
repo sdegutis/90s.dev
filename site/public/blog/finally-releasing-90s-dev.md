@@ -10,7 +10,9 @@ So I'm pretty excited to finally make it public.
 |             |                    Game dev                    |                    Meta gamedev                     |
 | ----------- | :--------------------------------------------: | :-------------------------------------------------: |
 | Proprietary | [pico8](https://www.lexaloffle.com/pico-8.php) | [picotron](https://www.lexaloffle.com/picotron.php) |
-| Open src    |          [tic80](https://tic80.com/)           |                   [90s.dev](/os/)                   |
+| Open src    |          [tic80](https://tic80.com/)           |                  [90s.dev](/os/) *                  |
+
+\* you are here
 :::
 
 
