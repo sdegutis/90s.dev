@@ -4,6 +4,17 @@ I've mentioned this a bunch on HN
 and I've been working on it nonstop since about February.
 So I'm pretty excited to finally make it public.
 
+::: section box note
+### Feedback noted!!
+
+Thanks everyone on HN for your feedback.
+
+It's clear that I launched this too soon,
+that the product isn't focused enough,
+and that it needs concrete tutorials.
+I'll work on these and come back in a few months.
+:::
+
 
 ## The dream
 
