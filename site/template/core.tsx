@@ -60,14 +60,14 @@ export function Navbar(data: {
     'guides': 'Guides',
     'technical': 'Technical',
     'reference': 'Reference',
-    // 'community': 'Community',
+    'community': 'Community',
   })
 
   const pages = [
     ...data.pages,
-    // { section: 'community', title: 'GH Issues', path: 'https://github.com/can-someone-plz-volunteer-to-host-this-repo/90s.dev/issues' },
-    // { section: 'community', title: 'GH Wiki', path: 'https://github.com/can-someone-plz-volunteer-to-host-this-repo/90s.dev/wiki' },
-    // { section: 'community', title: 'GH Discussions', path: 'https://github.com/can-someone-plz-volunteer-to-host-this-repo/90s.dev/discussions' },
+    { section: 'community', title: 'GH Issues', path: 'https://github.com/sdegutis/90s.dev/issues' },
+    { section: 'community', title: 'GH Wiki', path: 'https://github.com/sdegutis/90s.dev/wiki' },
+    { section: 'community', title: 'GH Discussions', path: 'https://github.com/sdegutis/90s.dev/discussions' },
   ]
 
   const groups = Map.groupBy(pages, p => p.section)
