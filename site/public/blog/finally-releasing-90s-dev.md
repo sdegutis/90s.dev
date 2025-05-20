@@ -40,11 +40,11 @@ In short, [90s.dev/os/](/os/) is a unique new kind of game maker:
 
 * Runs in the browser using an HTML canvas for portability.
 
-* Has a `320x180 (16:9)` screen that scales up to fill the window.
+* Has a 320x180 (16:9) screen that scales up to fill the window.
 
 * Runs all apps inside web workers for security and performance.
 
-* Gives you full access to WebGL2 via OffscreenCanvas for `60 fps` games.
+* Gives you full access to WebGL2 via OffscreenCanvas for 60 fps games.
 
 * Lets you publish and load apps located on GitHub or NPM.
 
