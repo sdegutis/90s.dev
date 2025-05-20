@@ -57,7 +57,7 @@ you *can* make those apps *and* publish them,
 and they will be first-class apps that anyone can run,
 and that you can share with an iframe or link.
 
-For example, click this to open my 40%-finished paint app,
+For example, click this to open my 80%-finished paint app,
 and click again to close it: [/os/#sys/apps/paint.app.js](/os/#sys/apps/paint.app.js)
 
 
