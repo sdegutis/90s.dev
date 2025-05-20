@@ -7,10 +7,10 @@ So I'm pretty excited to finally make it public.
 ::: section box note
 ### tl;dr
 
-|               | Game dev                                       | Meta dev                                            |
-| ------------- | ---------------------------------------------- | --------------------------------------------------- |
-| Closed source | [pico8](https://www.lexaloffle.com/pico-8.php) | [picotron](https://www.lexaloffle.com/picotron.php) |
-| Open source   | [tic80](https://tic80.com/)                    | [90s.dev](/os/)                                     |
+|             |                    Game dev                    |                    Meta gamedev                     |
+| ----------- | :--------------------------------------------: | :-------------------------------------------------: |
+| Proprietary | [pico8](https://www.lexaloffle.com/pico-8.php) | [picotron](https://www.lexaloffle.com/picotron.php) |
+| Open src    |          [tic80](https://tic80.com/)           |                   [90s.dev](/os/)                   |
 :::
 
 
