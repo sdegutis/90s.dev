@@ -9,10 +9,8 @@ So I'm pretty excited to finally make it public.
 
 Thanks everyone on HN for your feedback.
 
-It's clear that I launched this too soon,
-that the product isn't focused enough,
-and that it needs concrete tutorials.
-I'll work on these and come back in a few months.
+It's clear that I launched this too soon, and that it needs more
+working apps, sample games, and thorough tutorials. I'll work on these.
 :::
 
 
