@@ -37,6 +37,8 @@ export function Main(data: { content: string }) {
     <footer>
       Copyright &copy; {new Date().getFullYear()}
       <span style='font-family: Silkscreen'> :: </span>
+      Made with <a href='https://immaculata.dev/'>immaculata.dev</a>
+      <span style='font-family: Silkscreen'> :: </span>
       <a href='mailto:admin@90s.dev'>Email</a>
       <span style='font-family: Silkscreen'> :: </span>
       <a href='/legal/tos.html'>Terms of Service</a>
