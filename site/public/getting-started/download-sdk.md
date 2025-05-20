@@ -10,11 +10,11 @@ apps and libraries in [90s.dev/os/](/os/).
 
 To get a "hello world" sample app working:
 
-1. Extract [helloworld.zip](/os/helloworld.zip) to `helloworld/`
+1. Extract [helloworld.zip](/os/helloworld.zip) to `helloworld/` somewhere
 
 2. Open [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
-3. Mount `helloworld/app` as `app` and click it
+3. Mount `helloworld/app` and name the drive `app` and click it
 
 4. Click `helloworld.app.js` (it may take a sec)
 
