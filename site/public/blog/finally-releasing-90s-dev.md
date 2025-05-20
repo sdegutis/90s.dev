@@ -7,12 +7,27 @@ So I'm pretty excited to finally make it public.
 ::: section box note
 ### tl;dr
 
-|             | Game dev |   Meta gamedev    |
-| ----------- | :------: | :---------------: |
-| Proprietary | [pico8]  |    [picotron]     |
-| Open src    | [tic80]  | [90s.dev](/os/) * |
+|             | Game dev |                     Meta gamedev                     |
+| ----------- | :------: | :--------------------------------------------------: |
+| Proprietary | [pico8]  |                      [picotron]                      |
+| Open src    | [tic80]  | [90s.dev](/os/) <small style='opacity:0.5'>*</small> |
 
-\* you are here
+<small style='opacity:0.5'>\* you are here</small>
+
+What it is:
+
+* An API for making games, game engines, and game maker components
+
+* An API that wraps web technology up in an "operating system" metaphor
+
+* An API that shows you how fun it was to make GUIs in the 90s
+
+What it's not:
+
+* A game engine
+
+* A game maker
+
 :::
 
 [tic80]: https://tic80.com/ 
