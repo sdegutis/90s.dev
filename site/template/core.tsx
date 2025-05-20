@@ -66,7 +66,7 @@ export function Navbar(data: {
   const pages = [
     ...data.pages,
     { section: 'community', title: 'GH Issues', path: 'https://www.reddit.com/r/90s_dev/' },
-    { section: 'community', title: 'GH Wiki', path: 'https://www.reddit.com/r/90s_dev/' },
+    { section: 'community', title: 'GH Wiki', path: 'https://www.reddit.com/r/90s_dev/wiki/index/' },
     { section: 'community', title: 'GH Discussions', path: 'https://www.reddit.com/r/90s_dev/' },
   ]
 
