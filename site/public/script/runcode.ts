@@ -1,7 +1,9 @@
 import './bettertsx.js'
 import monaco from './monaco.js'
 
-const api = await fetch('/os/api.d.ts.json').then(r => r.json())
+const isDev = location.origin.includes('localhost')
+const origin = isDev ? 'http://localhost:8080' : 'https://os.90s.dev'
+const api = await fetch(origin + '/api.d.ts.json').then(r => r.json())
 
 const ts = monaco.languages.typescript
 
