@@ -261,8 +261,6 @@ I've been working on game makers for a while.
 
 Here are some previous half-finished projects that inspired the current one:
 
-* [https://90s.dev/v1/](https://90s.dev/v1/) (codename sys32):
-
-  <iframe width=640 height=360 src='https://90s.dev/v1/'></iframe>
-
 * [minigamemaker.com](https://minigamemaker.com/)
+
+* [https://90s.dev/v1/](https://90s.dev/v1/) (codename sys32)
