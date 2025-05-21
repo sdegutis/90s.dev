@@ -264,3 +264,8 @@ Here are some previous half-finished projects that inspired the current one:
 * [minigamemaker.com](https://minigamemaker.com/)
 
 * [https://90s.dev/v1/](https://90s.dev/v1/) (codename sys32)
+
+
+## For hire
+
+I'm avaiable for contract work if you have something genuinely interesting and challenging.
