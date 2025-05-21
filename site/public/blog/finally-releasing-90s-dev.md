@@ -28,6 +28,10 @@ What it's not:
 
 * A game maker
 
+Short demo of the paint app:
+
+<iframe width=640 height=360 src='/os/#sys/apps/paint.app.js'></iframe>
+
 :::
 
 [tic80]: https://tic80.com/ 
@@ -248,3 +252,15 @@ For sharing apps, use the link format `/os/#app`, e.g.
 * [/os/#sys/apps/spritemaker.app.js](/os/#sys/apps/spritemaker.app.js)
 * `/os/#ghb/someuser/someapp.app.js` (coming soon)
 * `/os/#npm/someuser/someapp.app.js` (coming soon)
+
+## Prior art
+
+I've been working on game makers for a while.
+
+Here are some previous half-finished projects that inspired the current one:
+
+* Version 1, codename sys32:
+
+  <iframe width=640 height=360 src='https://90s.dev/v1/'></iframe>
+
+* [minigamemaker.com](https://minigamemaker.com/)
