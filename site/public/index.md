@@ -22,7 +22,7 @@
 
 * [Technology](about/features.md#features)
 
-* [Donate](about/donate.md#donate)
+* [Pricing](about/pricing.md#pricing)
 
 * [Download SDK](getting-started/download-sdk.md#download-sdk)
 
