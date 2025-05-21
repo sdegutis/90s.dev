@@ -81,9 +81,10 @@ export function Navbar(data: {
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
 
-    <h3>Apps</h3>
+    <h3>Links</h3>
     <ul>
       <li><a href='/os/'>os.90s.dev</a></li>
+      <li><a href='https://github.com/sdegutis/os.90s.dev'>Source code</a></li>
     </ul>
 
     {sections.map(([key, title]) => {
