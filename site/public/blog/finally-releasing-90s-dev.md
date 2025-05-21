@@ -56,9 +56,9 @@ whether a game maker tool like map-maker,
 or a 60 fps game.
 
 
-## New game maker that runs on the web
+## New game making platform that runs on the web
 
-In short, [90s.dev/os/](/os/) is a unique new kind of game maker:
+In short, [90s.dev/os/](/os/) is a unique new kind of platform for making game makers:
 
 * Runs in the browser using an HTML canvas for portability.
 
