@@ -4,7 +4,7 @@ order: 0
 
 # API Overview
 
-This page gives a birds eye overview of all the exports from `/os/api.js`
+This page gives a birds eye overview of all the exports from `/api.js`
 
 To learn more about a given export, including its methods and properties:
 

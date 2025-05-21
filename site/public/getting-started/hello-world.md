@@ -8,7 +8,7 @@ This guide goes through the "hello world" sample app in the [Download SDK guide]
 
 ::: runcode 120 70
 ~~~tsx
-import api, { $, Center, GroupY, Label, GroupX } from '/os/api.js'
+import api, { $, Center, GroupY, Label, GroupX } from '/api.js'
 
 await api.preludesFinished
 

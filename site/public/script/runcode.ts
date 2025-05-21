@@ -18,7 +18,7 @@ ts.typescriptDefaults.setCompilerOptions({
   jsx: ts.JsxEmit.ReactJSX,
   paths: {
     "/*": ["file:///*"],
-    "react/jsx-runtime": ["file:///os/sys/api/core/jsx.js"],
+    "react/jsx-runtime": ["file:///sys/api/core/jsx.js"],
   },
   target: ts.ScriptTarget.ESNext,
   module: ts.ModuleKind.ESNext,
@@ -85,7 +85,7 @@ for (const runcode of document.querySelectorAll<HTMLDivElement>('div.runcode')) 
   new ResizeObserver(resize).observe(preblock)
 
 
-  const url = new URL('/os/', window.origin)
+  const url = new URL(origin)
 
   const updateIframe = async () => {
     const code = model.getValue()

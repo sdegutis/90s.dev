@@ -43,7 +43,7 @@ Composites solve this by using a process-scoped lookup table and [preludes](arch
 ```tsx
 // theme code:
 
-import api from '/os/api.js'
+import api from '/api.js'
 
 api.composites['label'] = (data: { text: string }) =>
   <Border padding={2}>
@@ -125,7 +125,7 @@ Theme code can be loaded into an app's process by users via preludes.
 Registering a composite makes it immediately available in the current process:
 
 ```tsx
-import api from '/os/api.js'
+import api from '/api.js'
 api.composites['foo'] = (data: any) => <Label text='foo'/>
 const view = <foo /> // === <Label text='foo'/>
 ```

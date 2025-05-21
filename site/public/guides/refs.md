@@ -10,7 +10,7 @@ A ref is like a pointer that has `.val` and `.set(val)`
 
 ::: runcode 120 50
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const r = $(0)
 print('val is', r.val)  // val is 0
@@ -24,7 +24,7 @@ You can use the convenience getter/setter `value`
 
 ::: runcode 120 50
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const r = $(0)
 print('val is', r.value)  // val is 0
@@ -38,7 +38,7 @@ You can `.watch()` it.
 
 ::: runcode 120 50
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const r = $(0)
 r.watch(n => print('val is', n))
@@ -52,7 +52,7 @@ You can `.adapt()` it to another value.
 
 ::: runcode 120 50
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const r = $(0)
 const r2 = r.adapt(n => n * 2)
@@ -69,7 +69,7 @@ You can back existing properties with a ref.
 
 ::: runcode 120 50
 ```tsx
-import { $, print, makeRef } from '/os/api.js'
+import { $, print, makeRef } from '/api.js'
 
 const point = { x: 0, y: 0 }
 const $x = makeRef(point, 'x')
@@ -85,7 +85,7 @@ You can even back class properties.
 
 ::: runcode 120 50
 ```tsx
-import { $, print, makeRef } from '/os/api.js'
+import { $, print, makeRef } from '/api.js'
 
 class Point {
   x = 0
@@ -112,7 +112,7 @@ You can create a new ref based on multiple other refs:
 
 ::: runcode 120 50
 ```tsx
-import { $, print, multiplex } from '/os/api.js'
+import { $, print, multiplex } from '/api.js'
 
 const r1 = $(1)
 const r2 = $(100)
@@ -134,7 +134,7 @@ This is useful for normalizing/constraining values.
 
 ::: runcode 120 50
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const r = $(0)
 r.watch(n => print('val is', n))
@@ -154,7 +154,7 @@ This basically ties the two refs together.
 
 ::: runcode 120 100
 ```tsx
-import { $, print } from '/os/api.js'
+import { $, print } from '/api.js'
 
 const first = $(10)
 first.watch(n => print('first is', n))

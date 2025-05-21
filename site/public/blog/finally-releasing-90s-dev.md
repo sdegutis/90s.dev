@@ -171,7 +171,7 @@ and then used by an entirely separate part of the system.
 This lead to [composites](../technical/views.md#composites):
 
 ```tsx
-import { Button } from '/os/api.js'
+import { Button } from '/api.js'
 
 const b1 = <Button onClick={...}>...</Button> // concrete
 const b2 = <button onClick={...}>...</button> // abstract

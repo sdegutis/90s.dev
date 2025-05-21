@@ -18,7 +18,7 @@ or subclassing.
 JSX is just a convenient shorthand calling functions or constructors:
 
 ~~~tsx
-import { composites } from '/os/api.js'
+import { composites } from '/api.js'
 
 export function jsx(tag, data) {
   if (isConstructable(tag))  return new tag(data)
@@ -40,7 +40,7 @@ const label2 = new Label({ text: 'hello world', color: 0xffffff33 })
 const fnResult1 = <MyFunction foo={bar} baz={qux} />
 const fnResult2 = MyFunction({ foo: bar, bax: qux })
 
-import { composites } from '/os/api.js'
+import { composites } from '/api.js'
 const comp1 = <fancybutton hello={123} world={456} />
 const comp2 = composites["fancybutton"]({ hello: 123, world: 456 })
 ~~~
