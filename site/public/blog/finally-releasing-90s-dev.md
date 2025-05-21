@@ -259,9 +259,9 @@ For sharing apps, use the link format `/os/#app`, e.g.
 
 My half-finished game-maker prototypes that came before this one:
 
-* [minigamemaker.com](https://minigamemaker.com/)
+* <https://minigamemaker.com/>
 
-* [https://sys32.90s.dev/](https://sys32.90s.dev/)
+* <https://sys32.90s.dev/>
 
 
 ## For hire
