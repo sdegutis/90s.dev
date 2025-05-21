@@ -83,7 +83,7 @@ export function Navbar(data: {
 
     <h3>Apps</h3>
     <ul>
-      <li><a href='/os/'>/os/</a></li>
+      <li><a href='/os/'>os.90s.dev</a></li>
     </ul>
 
     {sections.map(([key, title]) => {
