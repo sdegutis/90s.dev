@@ -30,7 +30,7 @@ What it's not:
 
 * A game maker
 
-Short demo of the paint app:
+Short demo of the paint app ([source code](https://github.com/sdegutis/os/blob/main/site/fs/sys/apps/paint.app.tsx)):
 
 <iframe width=640 height=360 src='/os/#sys/apps/paint.app.js'></iframe>
 
