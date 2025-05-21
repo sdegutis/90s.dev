@@ -257,13 +257,11 @@ For sharing apps, use the link format `/os/#app`, e.g.
 
 ## Prior art
 
-I've been working on game makers for a while.
-
-Here are some previous half-finished projects that inspired the current one:
+My half-finished game-maker prototypes that came before this one:
 
 * [minigamemaker.com](https://minigamemaker.com/)
 
-* [https://90s.dev/v1/](https://90s.dev/v1/) (codename sys32)
+* [https://sys32.90s.dev/](https://sys32.90s.dev/)
 
 
 ## For hire
