@@ -7,6 +7,8 @@ So I'm pretty excited to finally make it public.
 ::: section box note
 ### tl;dr
 
+What it is in relation to other gamedev apps:
+
 |             | Game dev |                     Meta gamedev                     |
 | ----------- | :------: | :--------------------------------------------------: |
 | Proprietary | [pico8]  |                      [picotron]                      |
