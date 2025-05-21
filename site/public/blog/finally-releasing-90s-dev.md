@@ -241,11 +241,11 @@ Since this requires coordination among the community,
 there is an issue tracker, wiki, and discussion forum
 in the sidebar, each hosted in a GitHub repo.
 
-* [Issues](https://github.com/sdegutis/90s.dev/issues): For feature requests and bug reports
+* [Issues](https://github.com/sdegutis/os.90s.dev/issues): For feature requests and bug reports
 
-* [Forum](https://github.com/sdegutis/90s.dev/discussions): The announce and discuss projects
+* [Forum](https://github.com/sdegutis/os.90s.dev/discussions): The announce and discuss projects
 
-* [Wiki](https://github.com/sdegutis/90s.dev/wiki): To collectively curate and find projects
+* [Wiki](https://github.com/sdegutis/os.90s.dev/wiki): To collectively curate and find projects
 
 For sharing apps, use the link format `/os/#app`, e.g.
 
