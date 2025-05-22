@@ -6,7 +6,7 @@ import { defaultRender } from './mdhelper.ts'
 
 const highlighter = await Shiki.createHighlighter({
   themes: ['dark-plus'],
-  langs: ['typescript', 'tsx', 'ini'],
+  langs: ['typescript', 'tsx', 'ini', 'coffee', 'json'],
 })
 
 const bettertsx = ['ts', 'tsx', 'typescript']
