@@ -20,7 +20,7 @@ friends.names[]="Old Harold Delaney"
 
 also.nested.lists=[["work" 123] null true false 0x234f]
 
-some.multiline.string=
+multiline.strings.too=
 """
 hello world
 with multiline strings
@@ -38,21 +38,21 @@ which represents:
     "a": "hello",
     "b": "world",
   },
-  "some": {
-    "multiline": {
-      "string": "hello world\nwith multiline strings"
-    }
+  "friends": {
+    "names": [
+      "Norm MacDonald",
+      "Old Harold Delaney"
+    ]
   },
   "also": {
     "nested": {
       "lists": [["work", 123], null, true, false, 9039]
     }
   },
-  "friends": {
-    "names": [
-      "Norm MacDonald",
-      "Old Harold Delaney"
-    ]
+  "multiline": {
+    "strings": {
+      "too": "hello world\nwith multiline strings"
+    }
   }
 }
 ```
