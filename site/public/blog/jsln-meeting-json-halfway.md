@@ -3,6 +3,10 @@
 Nobody likes writing or editing JSON.
 That's why JSON5 and JSONC and TOML etc exist.
 
+But those either add *way too much* complexity of their own,
+or they simplify the *wrong things* about JSON.
+I really *just want JSON*, only, *slightly* more convenient.
+
 So in the spirit of xkcd.com/927,
 I present to you, *yet another JSON alternative:*
 
@@ -25,7 +29,7 @@ with multiline strings
 # and comments of course
 ```
 
-which is sugar for:
+which represents:
 
 ```json
 {
@@ -52,6 +56,9 @@ which is sugar for:
   }
 }
 ```
+
+The goal is to be simple enough that it doesn't *need* a spec for you to refer to;
+it's *just JSON*, but with hex/binary numbers, no commas, and easier keys to read/type.
 
 Probably nobody should use this. But I do and will continue to.
 
