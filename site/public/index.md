@@ -22,8 +22,6 @@
 
 * [Technology](about/features.md#features)
 
-* [Pricing](about/pricing.md#pricing)
-
 * [Download SDK](getting-started/download-sdk.md#download-sdk)
 
 * [Hello World tour](getting-started/hello-world.md#hello-world-tour)
