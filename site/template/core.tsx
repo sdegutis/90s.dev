@@ -66,25 +66,16 @@ export function Navbar(data: {
     'blog': 'Blog',
   })
 
-  const pages = [
-    ...data.pages,
-    { section: 'community', title: 'GH Issues', path: 'https://github.com/sdegutis/os.90s.dev/issues' },
-    { section: 'community', title: 'GH Wiki', path: 'https://github.com/sdegutis/os.90s.dev/wiki' },
-    { section: 'community', title: 'GH Discussions', path: 'https://github.com/sdegutis/os.90s.dev/discussions' },
-    // { section: 'community', title: 'GH Issues', path: 'https://www.reddit.com/r/90s_dev/' },
-    // { section: 'community', title: 'GH Wiki', path: 'https://www.reddit.com/r/90s_dev/wiki/index/' },
-    // { section: 'community', title: 'GH Discussions', path: 'https://www.reddit.com/r/90s_dev/' },
-  ]
-
-  const groups = Map.groupBy(pages, p => p.section)
+  const groups = Map.groupBy(data.pages, p => p.section)
 
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
 
     <h3>Links</h3>
     <ul>
-      <li><a href='/os/'>os.90s.dev</a></li>
-      <li><a href='https://github.com/sdegutis/os.90s.dev'>Source code</a></li>
+      <li><a href='https://github.com/sdegutis/os.90s.dev'>Github</a></li>
+      <li><a href='https://os.90s.dev'>os.90s.dev</a></li>
+      <li><a href='https://sys32.90s.dev'>sys32.90s.dev</a></li>
     </ul>
 
     {sections.map(([key, title]) => {
