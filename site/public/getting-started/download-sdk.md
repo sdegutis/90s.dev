@@ -10,7 +10,7 @@ apps and libraries in [90s.dev/os/](/os/).
 
 To get a "hello world" sample app working:
 
-1. Extract [helloworld.zip](/os/helloworld.zip) to `helloworld/` somewhere
+1. Extract [helloworld.zip](https://os.90s.dev/helloworld.zip) to `helloworld/` somewhere
 
 2. Open [90s.dev/os/#sys/apps/filer.app.js](/os/#sys/apps/filer.app.js)
 
