@@ -2,7 +2,7 @@
 
 This site is a placeholder for a community with one goal:
 
-The reignite and share the wonder we first felt with software.
+To reignite and share the wonder and joy of programming.
 
 We'll have to work the details out together [here][discussion].
 
