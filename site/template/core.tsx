@@ -38,13 +38,7 @@ export function Main(data: { content: string }) {
     <footer>
       Copyright &copy; {new Date().getFullYear()}
       <span style='font-family: Silkscreen'> :: </span>
-      Made with <a href='https://immaculata.dev/'>immaculata.dev</a>
-      <span style='font-family: Silkscreen'> :: </span>
       <a href='mailto:admin@90s.dev'>Email</a>
-      <span style='font-family: Silkscreen'> :: </span>
-      <a href='/legal/tos.html'>Terms of Service</a>
-      <span style='font-family: Silkscreen'> :: </span>
-      <a href='/legal/privacy-policy.html'>Privacy Policy</a>
     </footer>
   </main>
 }
@@ -71,13 +65,6 @@ export function Navbar(data: {
 
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
-
-    <h3>Links</h3>
-    <ul>
-      <li><a href='https://github.com/sdegutis/os.90s.dev'>Github</a></li>
-      <li><a href='https://os.90s.dev'>os.90s.dev</a></li>
-      <li><a href='https://sys32.90s.dev'>sys32.90s.dev</a></li>
-    </ul>
 
     {sections.map(([key, title]) => {
       const pages = groups.get(key)

@@ -1,31 +1,9 @@
-# Welcome to 90s.dev
+# 90s.dev
 
-::: section features
+This site is a placeholder for a community with one goal:
 
-- 🧪
-  ### Retrofuturistic
-  Cutting edge web tech on the inside, pixel art aesthetics on the outside
+The reignite and share the wonder we first felt with software.
 
-- 🤝
-  ### Collaborative
-  Shared filesystem for publishing apps, data assets, and code libraries
+We'll have to work the details out together [here][discussion].
 
-- 🔨
-  ### Game Platform
-  Custom built for game-engine engineers, pixel artists, and game developers
-
-:::
-
-::: section homebuttons
-
-* [Who is it for?](about/use-cases.md#who-is-it-for)
-
-* [Technology](about/features.md#features)
-
-* [Download SDK](getting-started/download-sdk.md#download-sdk)
-
-* [Hello World tour](getting-started/hello-world.md#hello-world-tour)
-
-:::
-
-<iframe src='/os/#sys/apps/spritemaker.app.js' width="640" height="360"></iframe>
+[discussion]: https://github.com/sdegutis/90s.dev/discussions/1
