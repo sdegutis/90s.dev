@@ -74,9 +74,7 @@ export function Navbar(data: {
 
     <h3>Links</h3>
     <ul>
-      <li><a href='https://github.com/sdegutis/os.90s.dev'>Github</a></li>
       <li><a href='https://os.90s.dev'>os.90s.dev</a></li>
-      <li><a href='https://sys32.90s.dev'>sys32.90s.dev</a></li>
     </ul>
 
     {sections.map(([key, title]) => {
