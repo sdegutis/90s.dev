@@ -2,6 +2,7 @@ import MarkdownIt from "markdown-it"
 import anchors from 'markdown-it-anchor'
 import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
+import footnotes from 'markdown-it-footnote'
 import { tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
 import { defaultRender } from "./mdhelper.ts"
@@ -16,6 +17,7 @@ export const md = new MarkdownIt({
 md.use(renameMarkdownLinks)
 md.use(inlineAttrs)
 md.use(generateToc)
+md.use(footnotes)
 md.use(highlightCode)
 md.use(addHeaderPermalinks)
 md.use(sectionMacro)
