@@ -30,7 +30,7 @@ What it's not:
 
 * A game maker
 
-Short demo of the paint app ([source code](https://github.com/sdegutis/os/blob/main/site/fs/sys/apps/paint.app.tsx)):
+Short demo of the paint app:
 
 <iframe width=640 height=360 src='/os/#sys/apps/paint.app.js'></iframe>
 
@@ -240,12 +240,6 @@ and all of these get shared with other users.
 Since this requires coordination among the community,
 there is an issue tracker, wiki, and discussion forum
 in the sidebar, each hosted in a GitHub repo.
-
-* [Issues](https://github.com/sdegutis/os.90s.dev/issues): For feature requests and bug reports
-
-* [Forum](https://github.com/sdegutis/os.90s.dev/discussions): The announce and discuss projects
-
-* [Wiki](https://github.com/sdegutis/os.90s.dev/wiki): To collectively curate and find projects
 
 For sharing apps, use the link format `/os/#app`, e.g.
 
