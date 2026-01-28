@@ -2,7 +2,7 @@ import fm from 'front-matter'
 import { Pipeline, type FileTree } from 'immaculata'
 import ts from 'typescript'
 import { firacode, gemunulibre, monaco, oxanium, silkscreen, tree } from '../../static.ts'
-import { Head, Html, Main, Navbar, Sidebar, UnderConstruction } from "../template/core.tsx"
+import { Head, Html, Main, Navbar, Sidebar } from "../template/core.tsx"
 import { md } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
 
@@ -59,7 +59,6 @@ export function processSite() {
         <Navbar pages={pages} />
         <Main content={result} />
         <Sidebar toc={tocToHtml(env)} />
-        <UnderConstruction early={f.text.includes('<!-- ALLOWEARLY -->')} />
       </body>
     </Html>)
   })
@@ -90,7 +89,6 @@ export function processSite() {
         </>
       } />
       <Sidebar toc={''} />
-      <UnderConstruction />
     </body>
   </Html>))
 
