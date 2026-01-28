@@ -4,7 +4,7 @@
   "css.format.enable": false,
   "markdown.validate.enabled": true,
   "markdown.occurrencesHighlight.enabled": true,
-  "markdown.validate.fileLinks.enabled": "error",
+  "markdown.validate.fileLinks.enabled": "ignore",
   "markdown.validate.fragmentLinks.enabled": "error",
   "markdown.validate.fileLinks.markdownFragmentLinks": "error",
   "markdown.validate.duplicateLinkDefinitions.enabled": "error",
@@ -13,6 +13,5 @@
   "markdown.editor.updateLinksOnPaste.enabled": true,
   "markdown.updateLinksOnFileMove.enabled": "always",
   "markdown.updateLinksOnFileMove.enableForDirectories": true,
-  "markdown.validate.ignoredLinks": [ "/os/**" ],
   "typescript.preferences.preferTypeOnlyAutoImports": true,
 }

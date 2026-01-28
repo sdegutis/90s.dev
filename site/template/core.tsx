@@ -38,13 +38,9 @@ export function Main(data: { content: string }) {
     <footer>
       Copyright &copy; {new Date().getFullYear()}
       <span style='font-family: Silkscreen'> :: </span>
-      Made with <a href='https://immaculata.dev/'>immaculata.dev</a>
+      <a href='/feed.xml'>RSS</a>
       <span style='font-family: Silkscreen'> :: </span>
-      <a href='mailto:admin@90s.dev'>Email</a>
-      <span style='font-family: Silkscreen'> :: </span>
-      <a href='/legal/tos.html'>Terms of Service</a>
-      <span style='font-family: Silkscreen'> :: </span>
-      <a href='/legal/privacy-policy.html'>Privacy Policy</a>
+      <a href='https://github.com/sdegutis/90s.dev?tab=readme-ov-file#contributing'>Contribute</a>
     </footer>
   </main>
 }

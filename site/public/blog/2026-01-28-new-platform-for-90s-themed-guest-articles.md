@@ -27,4 +27,4 @@ follow the [contribution instructions] (basically a GH PR).
 
 [contribution instructions]: https://github.com/sdegutis/90s.dev?tab=readme-ov-file#contributing
 
-[RSS feed]: https://90s.dev/feed.xml
+[RSS feed]: /feed.xml
