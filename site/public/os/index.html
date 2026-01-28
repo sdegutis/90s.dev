@@ -1,8 +1,0 @@
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<title>Redirecting</title>
-<script>
-  const isDev = location.origin.includes('localhost')
-  const origin = isDev ? 'http://localhost:8080/' : 'https://os.90s.dev/'
-  location.href = origin + location.hash
-</script>

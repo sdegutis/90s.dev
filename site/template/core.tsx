@@ -67,11 +67,6 @@ export function Navbar(data: {
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
 
-    <h3>Links</h3>
-    <ul>
-      <li><a href='https://os.90s.dev'>os.90s.dev</a></li>
-    </ul>
-
     {sections.map(([key, title]) => {
       const pages = groups.get(key)
       if (!pages) return ''
