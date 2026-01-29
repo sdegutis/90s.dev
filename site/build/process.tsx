@@ -99,7 +99,7 @@ export function processSite() {
         <Main content={
           <>
             <h1>Home</h1>
-            <h3>Blogs</h3>
+            <h3>Articles</h3>
             <ul>
               {posts.map(page => <li>
                 <a href={page.path}>{page.title}</a>

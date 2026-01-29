@@ -52,13 +52,12 @@ export function Navbar(data: {
 
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
-    <h3>Blogs</h3>
+    <h3>Articles</h3>
     <ul>
       {data.posts.map(page => <li>
         <a href={page.path}>{page.title}</a>
       </li>)}
     </ul>
-
   </nav>
 }
 
