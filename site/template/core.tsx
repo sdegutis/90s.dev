@@ -52,12 +52,6 @@ export function Navbar(data: {
 }) {
 
   const sections = Object.entries({
-    'about': 'About',
-    'getting-started': 'Getting started',
-    'guides': 'Guides',
-    'technical': 'Technical',
-    'reference': 'Reference',
-    'community': 'Community',
     'blog': 'Blog',
   })
 
