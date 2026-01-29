@@ -3,9 +3,7 @@ import anchors from 'markdown-it-anchor'
 import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
 import footnotes from 'markdown-it-footnote'
-import { tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
-import { defaultRender } from "./mdhelper.ts"
 import { generateToc } from "./toc.ts"
 
 export const md = new MarkdownIt({
@@ -13,36 +11,12 @@ export const md = new MarkdownIt({
   typographer: true,
 })
 
-md.use(renameMarkdownLinks)
 md.use(inlineAttrs)
 md.use(generateToc)
 md.use(footnotes)
 md.use(highlightCode)
 md.use(addHeaderPermalinks)
 md.use(sectionMacro)
-
-function renameMarkdownLinks(md: MarkdownIt) {
-  const linkopen = md.renderer.rules["link_open"] ?? defaultRender
-  md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
-    let href = tokens[idx].attrGet('href')!
-    let hash = ''
-    const hashi = href.indexOf('#')
-    if (hashi !== -1) {
-      hash = href.slice(hashi)
-      href = href.slice(0, hashi)
-    }
-
-    const prefix = `/${tree.path}/public`
-    if (href.startsWith(prefix)) href = href.slice(prefix.length)
-
-    href = href.replace(/\.md$/, '.html')
-    href += hash
-
-    tokens[idx].attrSet('href', href)
-
-    return linkopen(tokens, idx, opts, env, self)
-  }
-}
 
 function addHeaderPermalinks(md: MarkdownIt) {
   anchors(md, {
