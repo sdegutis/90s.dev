@@ -91,6 +91,27 @@ export function processSite() {
     </body>
   </Html>))
 
+  files.add('/index.html',
+    <Html>
+      <Head files={fonts.links} />
+      <body>
+        <Navbar posts={posts} />
+        <Main content={
+          <>
+            <h1>Home</h1>
+            <h3>Blogs</h3>
+            <ul>
+              {posts.map(page => <li>
+                <a href={page.path}>{page.title}</a>
+              </li>)}
+            </ul>
+          </>
+        } />
+        <Sidebar toc={''} />
+      </body>
+    </Html>
+  )
+
   for (const font of fonts.subtrees) {
     files.graft(font.root, font.files)
   }
