@@ -253,9 +253,7 @@ For sharing apps, use the link format `https://os.90s.dev/#app`, e.g.
 
 My half-finished game-maker prototypes that came before this one:
 
-* <https://minigamemaker.com/>
-
-* <https://sys32.90s.dev/>
+* <https://sys32.90s.dev/> ([source](https://github.com/sdegutis/sys32.90s.dev))
 
 
 ## For hire
