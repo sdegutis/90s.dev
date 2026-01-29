@@ -44,35 +44,20 @@ export function Main(data: { content: string }) {
 }
 
 export function Navbar(data: {
-  pages: {
+  posts: {
     path: string,
     title: string,
-    section: string | undefined,
   }[]
 }) {
 
-  const sections = Object.entries({
-    'blog': 'Blog',
-  })
-
-  const groups = Map.groupBy(data.pages, p => p.section)
-
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
-
-    {sections.map(([key, title]) => {
-      const pages = groups.get(key)
-      if (!pages) return ''
-
-      return <>
-        <h3>{title}</h3>
-        <ul>
-          {pages.map(page => <li>
-            <a href={page.path}>{page.title}</a>
-          </li>)}
-        </ul>
-      </>
-    })}
+    <h3>Blogs</h3>
+    <ul>
+      {data.posts.map(page => <li>
+        <a href={page.path}>{page.title}</a>
+      </li>)}
+    </ul>
 
   </nav>
 }

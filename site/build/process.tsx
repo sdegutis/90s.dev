@@ -31,17 +31,16 @@ export function processSite() {
   files.without('^/public').remove()
   files.with('/public').do(f => f.path = f.path.replace(/^\/public/, ''))
 
-  const pages = files.with('\.md$').all().map(p => {
+  const posts = files.with('\.md$').all().map(p => {
     const path = p.path.replace('.md', '.html')
     const title = p.text.match(/[^#]*# *(.+)/)![1]
-    const section = p.path.match('/(.+?)/')?.[1]
     const frontmatter = Fm<{ order?: number }>(p.text)
     p.text = frontmatter.body
     const meta = frontmatter.attributes
-    return { path, title, section, meta }
+    return { path, title, meta }
   })
 
-  pages.sort((a, b) => {
+  posts.sort((a, b) => {
     const ao = a.meta.order ?? 50
     const bo = b.meta.order ?? 50
     if (ao < bo) return -1
@@ -56,7 +55,7 @@ export function processSite() {
     f.text = hoistHeaders(files, <Html>
       <Head files={fonts.links} />
       <body>
-        <Navbar pages={pages} />
+        <Navbar posts={posts} />
         <Main content={result} />
         <Sidebar toc={tocToHtml(env)} />
       </body>
@@ -79,7 +78,7 @@ export function processSite() {
   files.add('/404.html', hoistHeaders(files, <Html>
     <Head files={fonts.links} />
     <body>
-      <Navbar pages={pages} />
+      <Navbar posts={posts} />
       <Main content={
         <>
           <h1>Page not found</h1>
