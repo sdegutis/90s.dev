@@ -20,7 +20,7 @@ export function Head(data: { files: string[] }) {
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
     <script type="module" src="/script/toc.js"></script>
-    <script src="https://bubbles.90s.dev/ssaver.js" type="module"></script>
+    <script src="https://sdegutis.github.io/bubbles/ssaver.js" type="module"></script>
   </head>
 }
 
