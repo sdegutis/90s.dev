@@ -291,20 +291,6 @@ iframe {
 }
 
 
-.runcode {
-  > * { margin: 0; }
-  margin: 1rem 2rem;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  justify-content: center;
-  align-items: start;
-  > pre {
-    flex: 1 1 0;
-    min-width: 300px;
-  }
-}
 
 pre:has(>code) {
   margin: 1rem 2rem;
@@ -319,7 +305,6 @@ pre:has(>code) {
     left: 1rem;
   }
 
-  .runcode & code { overflow: hidden; }
   &:has(.monaco-editor) {
     overflow: visible;
     >code { visibility: hidden;  }

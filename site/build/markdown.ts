@@ -6,7 +6,6 @@ import footnotes from 'markdown-it-footnote'
 import { tree } from "../../static.ts"
 import { highlightCode } from "./highlighter.ts"
 import { defaultRender } from "./mdhelper.ts"
-import { runcodeMacro } from "./runcode.ts"
 import { generateToc } from "./toc.ts"
 
 export const md = new MarkdownIt({
@@ -21,7 +20,6 @@ md.use(footnotes)
 md.use(highlightCode)
 md.use(addHeaderPermalinks)
 md.use(sectionMacro)
-md.use(runcodeMacro)
 
 function renameMarkdownLinks(md: MarkdownIt) {
   const linkopen = md.renderer.rules["link_open"] ?? defaultRender
