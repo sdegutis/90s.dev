@@ -49,7 +49,6 @@ export function Navbar(data: {
     title: string,
   }[]
 }) {
-
   return <nav id='nav' class='navbar'>
     <p><a href='/' class='sitelogo'>90s.dev</a></p>
     <h3>Articles</h3>
