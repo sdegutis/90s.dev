@@ -4,6 +4,7 @@ import inlineAttrs from 'markdown-it-attrs'
 import containers from 'markdown-it-container'
 import footnotes from 'markdown-it-footnote'
 import { highlightCode } from "./highlighter.ts"
+import { defaultRender } from "./mdhelper.ts"
 import { generateToc } from "./toc.ts"
 
 export const md = new MarkdownIt({
@@ -11,12 +12,23 @@ export const md = new MarkdownIt({
   typographer: true,
 })
 
+md.use(renameMarkdownLinks)
 md.use(inlineAttrs)
 md.use(generateToc)
 md.use(footnotes)
 md.use(highlightCode)
 md.use(addHeaderPermalinks)
 md.use(sectionMacro)
+
+function renameMarkdownLinks(md: MarkdownIt) {
+  const linkopen = md.renderer.rules["link_open"] ?? defaultRender
+  md.renderer.rules["link_open"] = (tokens, idx, opts, env, self) => {
+    if (tokens[idx].attrGet('href')!.includes('://'))
+      tokens[idx].attrSet('target', '_blank')
+
+    return linkopen(tokens, idx, opts, env, self)
+  }
+}
 
 function addHeaderPermalinks(md: MarkdownIt) {
   anchors(md, {

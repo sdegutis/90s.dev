@@ -16,7 +16,6 @@ export function Head(data: { files: string[] }) {
     {...data.files}
     <link rel="stylesheet" href="/style.css" />
     <script src="/script/darkmode.js"></script>
-    <script type="module" src="/script/links.js"></script>
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
     <script type="module" src="/script/toc.js"></script>
