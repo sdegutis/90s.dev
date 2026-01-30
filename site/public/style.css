@@ -337,40 +337,6 @@ section.box.note { background-color: #0a375a77; }
 section.box.info { background-color: #164a3277; }
 section.box.warning { background-color: #4a162f77; }
 
-section.features {
-  /* background-color: #0003; */
-  padding: 1rem 0;
-
-  h3 { padding: 0; }
-
-  .header-anchor {
-    display: none;
-  }
-
-  ul {
-    padding-left: 0;
-    list-style-type: none;
-    display: grid;
-    gap: 2em;
-  }
-
-  li {
-    > * { margin:0 }
-
-    display: grid;
-    justify-content: start;
-    align-items: center;
-    gap: 3px 1rem;
-    grid-template-areas:
-      'a b'
-      'a c';
-
-    > :nth-child(1) { grid-area: a; }
-    > :nth-child(2) { grid-area: b; }
-    > :nth-child(3) { grid-area: c; }
-  }
-} 
-
 section.homebuttons ul {
   max-width: 640px;
   padding-left: 0;
