@@ -1,4 +1,4 @@
-# Finally releasing os.90s.dev
+# Retrofuturistic OS using web tech
 
 I've mentioned this a bunch on HN
 and I've been working on it nonstop since about February.
