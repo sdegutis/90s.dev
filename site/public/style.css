@@ -75,7 +75,7 @@
   background-color: light-dark(#000, #000);
   color: light-dark(#959595, #ccc);
   font-optical-sizing: auto;
-  font-family: "Oxanium Variable", sans-serif;
+  font-family: "Oxanium", sans-serif;
 
   &.light { color-scheme: light }
   &.dark  { color-scheme: dark  }
@@ -167,7 +167,7 @@ body {
 :is(h1,h2,h3,h4) {
   color: var(--header-color);
   font-optical-sizing: auto;
-  font-family: "Gemunu Libre Variable", sans-serif;
+  font-family: "Gemunu Libre", sans-serif;
   scroll-margin-top: 5px;
   @media (width < 1024px) { scroll-margin-top: calc(5px + var(--mobileheader-height)); }
 }
@@ -200,7 +200,7 @@ body {
     color: var(--nav-linkcolor);
     text-decoration: none;
     display: inline-block;
-    font-family: "Gemunu Libre Variable", sans-serif;
+    font-family: "Gemunu Libre", sans-serif;
 
     transition: all 120ms ease-in-out;
 
@@ -312,7 +312,7 @@ pre:has(>code) {
 
   overflow: auto;
   > code {
-    font-family: "Fira Code Variable";
+    font-family: "Fira Code";
     font-size: 12px;
     margin: 1rem;
     display: block;
@@ -320,7 +320,7 @@ pre:has(>code) {
 }
 
 :not(pre) > code {
-  font-family: "Fira Code Variable";
+  font-family: "Fira Code";
   font-size: 85%;
   background-color: #0005;
   padding: 1px 2px;
@@ -345,7 +345,7 @@ section.homebuttons ul {
   display: flex;
   gap: 0 1em;
   justify-content: space-evenly;
-  font-family: "Gemunu Libre Variable";
+  font-family: "Gemunu Libre";
   font-size: 120%;
 }
 

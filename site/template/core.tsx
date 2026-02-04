@@ -8,18 +8,23 @@ export function Html(data: { children: any }) {
   </>
 }
 
-export function Head(data: { files: string[] }) {
+export function Head() {
   return <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>90s.dev</title>
     <meta charset="utf-8" />
-    {...data.files}
+    {/* {...data.files} */}
     <link rel="stylesheet" href="/style.css" />
     <script src="/script/darkmode.js"></script>
     <script type="module" src="/script/mnav.js"></script>
     <script type="module" src="/script/nav.js"></script>
     <script type="module" src="/script/toc.js"></script>
     <script src="https://sdegutis.github.io/bubbles/ssaver.js" type="module"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Gemunu+Libre:wght@200..800&family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+
   </head>
 }
 

@@ -1,7 +1,7 @@
 import fm from 'front-matter'
-import { Pipeline, type FileTree } from 'immaculata'
+import { Pipeline } from 'immaculata'
 import ts from 'typescript'
-import { firacode, gemunulibre, monaco, oxanium, silkscreen, tree } from '../../static.ts'
+import { monaco, tree } from '../../static.ts'
 import { Head, Html, Main, Navbar, Sidebar } from "../template/core.tsx"
 import { md } from "./markdown.ts"
 import { tocToHtml } from './toc.ts'
@@ -18,13 +18,6 @@ window.onbeforeunload = () => es.close()
 
 export function processSite() {
   const files = Pipeline.from(tree.files)
-
-  const fonts = vendorFonts([
-    { tree: silkscreen, root: '/fonts/silkscreen', files: ['/400.css', '/700.css'] },
-    { tree: oxanium, root: '/fonts/oxanium', files: ['/index.css'] },
-    { tree: gemunulibre, root: '/fonts/gemunulibre', files: ['/index.css'] },
-    { tree: firacode, root: '/fonts/firacode', files: ['/index.css'] },
-  ])
 
   files.with('\.d\.ts$').remove()
 
@@ -53,7 +46,7 @@ export function processSite() {
     const env = {}
     const result = md.render(f.text, env)
     f.text = hoistHeaders(files, <Html>
-      <Head files={fonts.links} />
+      <Head />
       <body>
         <Navbar posts={posts} />
         <Main content={result} />
@@ -76,7 +69,7 @@ export function processSite() {
   files.graft('/monaco', Pipeline.from(monaco.files).with('^/min/'))
 
   files.add('/404.html', hoistHeaders(files, <Html>
-    <Head files={fonts.links} />
+    <Head />
     <body>
       <Navbar posts={posts} />
       <Main content={
@@ -93,7 +86,7 @@ export function processSite() {
 
   files.add('/index.html',
     <Html>
-      <Head files={fonts.links} />
+      <Head />
       <body>
         <Navbar posts={posts} />
         <Main content={
@@ -111,10 +104,6 @@ export function processSite() {
       </body>
     </Html>
   )
-
-  for (const font of fonts.subtrees) {
-    files.graft(font.root, font.files)
-  }
 
   return files.results()
 }
@@ -149,33 +138,4 @@ function hoistHeaders(files: Pipeline, content: string) {
       })),
       '</head>'
     ].join('')))
-}
-
-function vendorFonts(fonts: {
-  tree: FileTree,
-  root: string,
-  files: string[],
-}[]) {
-  const links: string[] = []
-  const subtrees: { root: string, files: Pipeline }[] = []
-
-  for (const font of fonts) {
-    const pipeline = new Pipeline()
-    subtrees.push({ root: font.root, files: pipeline })
-
-    for (const file of font.files) {
-      const content = font.tree.files.get(file)?.content.toString()!
-
-      for (const match of content.matchAll(/url\(\.(.+?)\)/g)) {
-        const path = match[1]!
-        pipeline.add(path, font.tree.files.get(path)!.content)
-        links.push(<link rel="preload" href={font.root + path} as="font" type="font/woff" crossorigin />)
-      }
-
-      pipeline.add(file, content)
-      links.push(<link rel="stylesheet" href={font.root + file} />)
-    }
-  }
-
-  return { subtrees, links }
 }
